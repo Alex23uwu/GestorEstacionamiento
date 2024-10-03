@@ -42,3 +42,44 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 		}
 	}
 }
+
+//CRUD VEEDORES
+
+void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
+{
+	ListaVeedor->Add(veedor);
+}
+
+void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
+{
+	for (int i = 0; i < ListaVeedor->Count; i++) {
+		if (ListaVeedor[i]->Id == veedor->Id) {
+			ListaVeedor[i] = veedor;
+			return;
+		}
+	}
+}
+
+void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
+	for (int i = 0; i < ListaVeedor->Count; i++) {
+		if (ListaVeedor[i]->Id == VeedorID) {
+			ListaVeedor->RemoveAt(i);
+			return;
+		}
+	}
+}
+
+List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
+{
+	return ListaVeedor;
+}
+
+Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
+{
+	for (int i = 0; i < ListaVeedor->Count; i++) {
+		if (ListaVeedor[i]->Id == VeedorID) {
+			return ListaVeedor[i];
+		}
+	}
+}
+
