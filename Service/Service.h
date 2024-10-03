@@ -11,6 +11,7 @@ namespace EstacionamientoService {
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();
 		static List<PersonalLimpieza^>^ ListaPersonalLimpieza = gcnew List<PersonalLimpieza^>();
 		static List<Veedor^>^ ListaVeedor = gcnew List<Veedor^>();
+		static List<Empleado^>^ ListaEmpleado = gcnew List<Empleado^>();
 	public:
 		// CRUD PARA EL PERSONAL DE LIMPIEZA
 		static void AddPersonalLimpieza(PersonalLimpieza^);
