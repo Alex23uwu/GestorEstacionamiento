@@ -529,6 +529,7 @@ namespace GUIApp {
 			this->btnAddPerson->TabIndex = 17;
 			this->btnAddPerson->Text = L"Agregar";
 			this->btnAddPerson->UseVisualStyleBackColor = true;
+			this->btnAddPerson->Click += gcnew System::EventHandler(this, &Cliente_CRUD::btnAddPerson_Click);
 			// 
 			// dgvPersons
 			// 
@@ -1166,5 +1167,7 @@ namespace GUIApp {
 
 		}
 #pragma endregion
-	};
+	private: System::Void btnAddPerson_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
