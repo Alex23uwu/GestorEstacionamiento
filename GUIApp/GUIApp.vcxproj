@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="Clientes.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PersonalLimpieza_CRUD.cpp" />
     <ClCompile Include="Veedor_CRUD.cpp" />
     <ClCompile Include="VentanaPrincipal.cpp" />
   </ItemGroup>
@@ -138,6 +139,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="PersonalLimpieza_CRUD.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Veedor_CRUD.h">

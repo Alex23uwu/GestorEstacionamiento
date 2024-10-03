@@ -410,7 +410,7 @@ namespace GUIApp {
 			});
 			this->dvgVeedor->Location = System::Drawing::Point(20, 346);
 			this->dvgVeedor->Name = L"dvgVeedor";
-			this->dvgVeedor->Size = System::Drawing::Size(653, 80);
+			this->dvgVeedor->Size = System::Drawing::Size(739, 203);
 			this->dvgVeedor->TabIndex = 29;
 			this->dvgVeedor->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Veedor_CRUD::dvgVeedor_CellClick);
 			this->dvgVeedor->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Veedor_CRUD::dataGridView1_CellContentClick);
@@ -486,7 +486,7 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(706, 438);
+			this->ClientSize = System::Drawing::Size(860, 586);
 			this->Controls->Add(this->txtExperiencia);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->dvgVeedor);

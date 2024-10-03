@@ -1,4 +1,7 @@
 #pragma once
+#include "PersonalLimpieza_CRUD.h"
+#include "Veedor_CRUD.h"
+#include "Administrador_CRUD.h"
 
 namespace GUIApp {
 
@@ -10,7 +13,6 @@ namespace GUIApp {
 	using namespace System::Drawing;
 	using namespace Model;
 	using namespace EstacionamientoService;
-	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de MyForm
@@ -37,27 +39,25 @@ namespace GUIApp {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Button^ bttAdd;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	protected:
-	private: System::Windows::Forms::Button^ bttUpdate;
-	private: System::Windows::Forms::Button^ bttDelete;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::DataGridView^ dgvPersonalLimpiez;
-	private: System::Windows::Forms::TextBox^ txtId;
-	private: System::Windows::Forms::TextBox^ txtNombre;
-	private: System::Windows::Forms::TextBox^ txtApellido;
+	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ historialToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoToolStripMenuItem;
 
-	private: System::Windows::Forms::TextBox^ txtDisponibilidad;
-	private: System::Windows::Forms::TextBox^ txtPiso;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaNombre;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaApellido;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumaDisponibilidad;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPiso;
+
+	private: System::Windows::Forms::ToolStripMenuItem^ transaccionesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ guardarCambiosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ personalLimpiezaToolStripMenuItem;
+
+	private: System::Windows::Forms::ToolStripMenuItem^ veedoresToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ administradoresToolStripMenuItem;
+
+	protected:
+
 
 	private:
 		/// <summary>
@@ -72,284 +72,151 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->bttAdd = (gcnew System::Windows::Forms::Button());
-			this->bttUpdate = (gcnew System::Windows::Forms::Button());
-			this->bttDelete = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->dgvPersonalLimpiez = (gcnew System::Windows::Forms::DataGridView());
-			this->ColumnaId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumaDisponibilidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->txtId = (gcnew System::Windows::Forms::TextBox());
-			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
-			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
-			this->txtDisponibilidad = (gcnew System::Windows::Forms::TextBox());
-			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->historialToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->guardarCambiosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->personalLimpiezaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->veedoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->transaccionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->administradoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// bttAdd
+			// menuStrip1
 			// 
-			this->bttAdd->Location = System::Drawing::Point(51, 185);
-			this->bttAdd->Name = L"bttAdd";
-			this->bttAdd->Size = System::Drawing::Size(91, 31);
-			this->bttAdd->TabIndex = 0;
-			this->bttAdd->Text = L"Agregar";
-			this->bttAdd->UseVisualStyleBackColor = true;
-			this->bttAdd->Click += gcnew System::EventHandler(this, &MyForm::bttAdd_Click);
-			// 
-			// bttUpdate
-			// 
-			this->bttUpdate->Location = System::Drawing::Point(214, 185);
-			this->bttUpdate->Name = L"bttUpdate";
-			this->bttUpdate->Size = System::Drawing::Size(89, 31);
-			this->bttUpdate->TabIndex = 1;
-			this->bttUpdate->Text = L"Modificar";
-			this->bttUpdate->UseVisualStyleBackColor = true;
-			this->bttUpdate->Click += gcnew System::EventHandler(this, &MyForm::bttUpdate_Click);
-			// 
-			// bttDelete
-			// 
-			this->bttDelete->Location = System::Drawing::Point(377, 185);
-			this->bttDelete->Name = L"bttDelete";
-			this->bttDelete->Size = System::Drawing::Size(88, 31);
-			this->bttDelete->TabIndex = 2;
-			this->bttDelete->Text = L"Eliminar";
-			this->bttDelete->UseVisualStyleBackColor = true;
-			this->bttDelete->Click += gcnew System::EventHandler(this, &MyForm::bttDelete_Click);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(31, 20);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(16, 13);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Id";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(31, 53);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(44, 13);
-			this->label2->TabIndex = 4;
-			this->label2->Text = L"Nombre";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(31, 88);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(44, 13);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"Apellido";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(31, 119);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(72, 13);
-			this->label4->TabIndex = 6;
-			this->label4->Text = L"Disponibilidad";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(31, 153);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(27, 13);
-			this->label5->TabIndex = 7;
-			this->label5->Text = L"Piso";
-			// 
-			// dgvPersonalLimpiez
-			// 
-			this->dgvPersonalLimpiez->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPersonalLimpiez->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->ColumnaId,
-					this->ColumnaNombre, this->ColumnaApellido, this->ColumaDisponibilidad, this->ColumnaPiso
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->archivoToolStripMenuItem,
+					this->mantenimientoToolStripMenuItem, this->transaccionesToolStripMenuItem, this->reporteToolStripMenuItem, this->ayudaToolStripMenuItem
 			});
-			this->dgvPersonalLimpiez->Location = System::Drawing::Point(12, 237);
-			this->dgvPersonalLimpiez->Name = L"dgvPersonalLimpiez";
-			this->dgvPersonalLimpiez->Size = System::Drawing::Size(543, 203);
-			this->dgvPersonalLimpiez->TabIndex = 8;
-			this->dgvPersonalLimpiez->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dgvPersonalLimpiez_CellClick);
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(678, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// ColumnaId
+			// archivoToolStripMenuItem
 			// 
-			this->ColumnaId->HeaderText = L"Id";
-			this->ColumnaId->Name = L"ColumnaId";
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->historialToolStripMenuItem,
+					this->guardarCambiosToolStripMenuItem, this->salirToolStripMenuItem
+			});
+			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
-			// ColumnaNombre
+			// historialToolStripMenuItem
 			// 
-			this->ColumnaNombre->HeaderText = L"Nombre";
-			this->ColumnaNombre->Name = L"ColumnaNombre";
+			this->historialToolStripMenuItem->Name = L"historialToolStripMenuItem";
+			this->historialToolStripMenuItem->Size = System::Drawing::Size(164, 22);
+			this->historialToolStripMenuItem->Text = L"Historial";
 			// 
-			// ColumnaApellido
+			// guardarCambiosToolStripMenuItem
 			// 
-			this->ColumnaApellido->HeaderText = L"Apellido";
-			this->ColumnaApellido->Name = L"ColumnaApellido";
+			this->guardarCambiosToolStripMenuItem->Name = L"guardarCambiosToolStripMenuItem";
+			this->guardarCambiosToolStripMenuItem->Size = System::Drawing::Size(164, 22);
+			this->guardarCambiosToolStripMenuItem->Text = L"Guardar cambios";
 			// 
-			// ColumaDisponibilidad
+			// salirToolStripMenuItem
 			// 
-			this->ColumaDisponibilidad->HeaderText = L"Disponibilidad";
-			this->ColumaDisponibilidad->Name = L"ColumaDisponibilidad";
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(164, 22);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
-			// ColumnaPiso
+			// mantenimientoToolStripMenuItem
 			// 
-			this->ColumnaPiso->HeaderText = L"Piso";
-			this->ColumnaPiso->Name = L"ColumnaPiso";
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->personalLimpiezaToolStripMenuItem,
+					this->veedoresToolStripMenuItem, this->administradoresToolStripMenuItem
+			});
+			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
+			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
+			this->mantenimientoToolStripMenuItem->Text = L"Mantenimiento";
 			// 
-			// txtId
+			// personalLimpiezaToolStripMenuItem
 			// 
-			this->txtId->Location = System::Drawing::Point(111, 20);
-			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(99, 20);
-			this->txtId->TabIndex = 9;
+			this->personalLimpiezaToolStripMenuItem->Name = L"personalLimpiezaToolStripMenuItem";
+			this->personalLimpiezaToolStripMenuItem->Size = System::Drawing::Size(185, 22);
+			this->personalLimpiezaToolStripMenuItem->Text = L"Personal de Limpieza";
+			this->personalLimpiezaToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::personalLimpiezaToolStripMenuItem_Click);
 			// 
-			// txtNombre
+			// veedoresToolStripMenuItem
 			// 
-			this->txtNombre->Location = System::Drawing::Point(111, 50);
-			this->txtNombre->Name = L"txtNombre";
-			this->txtNombre->Size = System::Drawing::Size(99, 20);
-			this->txtNombre->TabIndex = 10;
+			this->veedoresToolStripMenuItem->Name = L"veedoresToolStripMenuItem";
+			this->veedoresToolStripMenuItem->Size = System::Drawing::Size(185, 22);
+			this->veedoresToolStripMenuItem->Text = L"Veedores";
+			this->veedoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::veedoresToolStripMenuItem_Click);
 			// 
-			// txtApellido
+			// transaccionesToolStripMenuItem
 			// 
-			this->txtApellido->Location = System::Drawing::Point(111, 81);
-			this->txtApellido->Name = L"txtApellido";
-			this->txtApellido->Size = System::Drawing::Size(99, 20);
-			this->txtApellido->TabIndex = 11;
+			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
+			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(92, 20);
+			this->transaccionesToolStripMenuItem->Text = L"Transacciones";
 			// 
-			// txtDisponibilidad
+			// reporteToolStripMenuItem
 			// 
-			this->txtDisponibilidad->Location = System::Drawing::Point(111, 116);
-			this->txtDisponibilidad->Name = L"txtDisponibilidad";
-			this->txtDisponibilidad->Size = System::Drawing::Size(99, 20);
-			this->txtDisponibilidad->TabIndex = 12;
+			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+			this->reporteToolStripMenuItem->Text = L"Reporte";
 			// 
-			// txtPiso
+			// ayudaToolStripMenuItem
 			// 
-			this->txtPiso->Location = System::Drawing::Point(111, 150);
-			this->txtPiso->Name = L"txtPiso";
-			this->txtPiso->Size = System::Drawing::Size(99, 20);
-			this->txtPiso->TabIndex = 13;
+			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
+			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
+			this->ayudaToolStripMenuItem->Text = L"Ayuda";
+			// 
+			// administradoresToolStripMenuItem
+			// 
+			this->administradoresToolStripMenuItem->Name = L"administradoresToolStripMenuItem";
+			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(185, 22);
+			this->administradoresToolStripMenuItem->Text = L"Administradores";
+			this->administradoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::administradoresToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(567, 452);
-			this->Controls->Add(this->txtPiso);
-			this->Controls->Add(this->txtDisponibilidad);
-			this->Controls->Add(this->txtApellido);
-			this->Controls->Add(this->txtNombre);
-			this->Controls->Add(this->txtId);
-			this->Controls->Add(this->dgvPersonalLimpiez);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->bttDelete);
-			this->Controls->Add(this->bttUpdate);
-			this->Controls->Add(this->bttAdd);
+			this->ClientSize = System::Drawing::Size(678, 480);
+			this->Controls->Add(this->menuStrip1);
+			this->IsMdiContainer = true;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"Mantenimiento Personal de Limpiez";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->EndInit();
+			this->Text = L"Sistema de Estacionamiento";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void bttAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Convert::ToInt32(txtId->Text);
-		PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
-		personalLimp->Nombre = txtNombre->Text;
-		personalLimp->Apellido = txtApellido->Text;
-		personalLimp->Disponibilidad = txtDisponibilidad->Text;
-		personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
-		Service::AddPersonalLimpieza(personalLimp);
-		MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
-		ShowPersonal();
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	
+}
 
-	}
-	public:
-		void ShowPersonal() {
-			List<PersonalLimpieza^>^ listaPersonal = Service::QueryAllPersonalLimpieza();
-			if (listaPersonal != nullptr) {
-				dgvPersonalLimpiez->Rows->Clear();
-				for (int i = 0; i < listaPersonal->Count; i++) {
-					dgvPersonalLimpiez->Rows->Add(gcnew array<String^> {"" + listaPersonal[i]->Id,
-						listaPersonal[i]->Nombre,
-						listaPersonal[i]->Apellido,
-						listaPersonal[i]->Disponibilidad,
-						"" + listaPersonal[i]->Piso});
-				}
-			}
-		}
-		void ClearControls() {
-			for each (Control ^ control in this->Controls) {
-				if (control->GetType() == TextBox::typeid) {
-					dynamic_cast<TextBox^>(control)->Text = "";
-				}
-			}
-		}
-private: System::Void dgvPersonalLimpiez_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int id = Convert::ToInt32(dgvPersonalLimpiez->Rows[dgvPersonalLimpiez->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	PersonalLimpieza^ personalLimp = Service::QueryPersonalLimpiezaById(id);
-	txtId->Text = ""+personalLimp->Id;
-	txtNombre->Text = personalLimp->Nombre;
-	txtApellido->Text = personalLimp->Apellido;
-	txtDisponibilidad->Text = personalLimp->Disponibilidad;
-	txtPiso->Text = "" + personalLimp->Piso;
+private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
 }
-private: System::Void bttUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ personalId = txtId->Text->Trim();
-	if (personalId->Equals("")) {
-		MessageBox::Show("Debe seleccionar un Personal de Limpieza");
-		return;
-	}
-	try {
-		int id = Convert::ToInt32(personalId);
-		PersonalLimpieza^ personal = gcnew PersonalLimpieza(id);
-		personal->Nombre = txtNombre->Text;
-		personal->Apellido = txtApellido->Text;
-		personal->Disponibilidad = txtDisponibilidad->Text;
-		personal->Piso = Convert::ToInt32(txtPiso->Text);
-		Service::UpdatePersonalLimpieza(personal);
-		ShowPersonal();
-		MessageBox::Show("Se ha modificado el Personal " + id + "-" + personal->Nombre);
-	}
-	catch (Exception^ ex) {
-		MessageBox::Show("No se ha podido modificar el robot por el siguiente motivo:\n" +
-			ex->Message);
-	}
+
+private: System::Void personalLimpiezaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	PersonalLimpieza_CRUD^ form = gcnew PersonalLimpieza_CRUD();
+	form->MdiParent = this;
+	form->Show();
 }
-private: System::Void bttDelete_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ personalID = txtId->Text->Trim();
-	if (personalID->Equals("")) {
-		MessageBox::Show("Debe seleccionar un Personal");
-		return;
-	}
-	try {
-		Service::DeletePersonalLimpieza(Convert::ToInt32(personalID));
-		ShowPersonal();
-		ClearControls();
-		MessageBox::Show("Se ha eliminado el Personal con Id = " + personalID + " de manera exitosa.");
-	}
-	catch (Exception^ ex) {
-		MessageBox::Show("No ha sido posible eliminar el Personal por el siguiente motivo:\n" +
-			ex->Message);
-	}
+
+private: System::Void veedoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Veedor_CRUD^ form = gcnew Veedor_CRUD();
+	form->MdiParent = this;
+	form->Show();
+}
+
+private: System::Void administradoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

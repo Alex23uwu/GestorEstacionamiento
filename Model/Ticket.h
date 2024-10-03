@@ -6,6 +6,7 @@
 
 #pragma once
 #include "Vehiculo.h"
+#include "DetalleTicket.h"
 
 using namespace System;
 namespace Model {
@@ -16,5 +17,6 @@ namespace Model {
         String^ TipoPago;
         DateTime Dia;
         Vehiculo^ GeneradoA;
+        DetalleTicket^ Detalle;
     };
 }
