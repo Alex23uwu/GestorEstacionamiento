@@ -1,6 +1,6 @@
 #include "MyForm.h"
 
-
+// este codigo se copio del manual de paideia
 using namespace System;
 using namespace System::Windows::Forms;
 [STAThreadAttribute]
@@ -11,4 +11,3 @@ void Main(array<String^>^ args) {
 	GUIApp::MyForm form;
 	Application::Run(% form);
 }
-// este codigo se copio del manual de paideia
