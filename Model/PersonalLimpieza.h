@@ -12,7 +12,11 @@ namespace Model {
     public:
         String^ Utensils;
         int Tips;
+        String^ Estado;
         String^ Disponibilidad;
         int Id;
+        PersonalLimpieza(int id) {
+            Id = id;
+        }
     };
 }
