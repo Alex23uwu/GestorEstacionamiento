@@ -24,7 +24,7 @@
     <ClCompile Include="PersonalLimpieza_CRUD.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Administrador_CRUD.cpp">
+    <ClCompile Include="Cliente_CRUD.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,7 +38,7 @@
     <ClInclude Include="PersonalLimpieza_CRUD.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Administrador_CRUD.h">
+    <ClInclude Include="Cliente_CRUD.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

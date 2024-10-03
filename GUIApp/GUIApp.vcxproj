@@ -128,14 +128,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Clientes.cpp" />
+    <ClCompile Include="Cliente_CRUD.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonalLimpieza_CRUD.cpp" />
     <ClCompile Include="Veedor_CRUD.cpp" />
-    <ClCompile Include="VentanaPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Clientes.h">
+    <ClInclude Include="Cliente_CRUD.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
@@ -147,22 +146,13 @@
     <ClInclude Include="Veedor_CRUD.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="VentanaPrincipal.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Clientes.resx">
-      <DependentUpon>Clientes.h</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Veedor_CRUD.resx">
       <DependentUpon>Veedor_CRUD.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VentanaPrincipal.resx">
-      <DependentUpon>VentanaPrincipal.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
