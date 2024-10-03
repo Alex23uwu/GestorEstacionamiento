@@ -135,7 +135,9 @@
     <ClCompile Include="Veedor_CRUD.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Administrador_CRUD.h" />
+    <ClInclude Include="Administrador_CRUD.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Cliente_CRUD.h">
       <FileType>CppForm</FileType>
     </ClInclude>
