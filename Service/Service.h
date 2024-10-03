@@ -25,5 +25,6 @@ namespace EstacionamientoService {
 		static void DeleteVeedor(int VeedorID);
 		static List<Veedor^>^ QueryAllVeedor();
 		static Veedor^ QueryVeedorById(int VeedorID);
+
 	};
 }
