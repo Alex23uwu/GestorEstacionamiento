@@ -19,8 +19,8 @@ namespace Model {
         String^ InicioPermiso;
         String^ FinPermiso;
 
-        Administrador(int id) {
+        /*Administrador(int id) {
             Id = id;
-        }
+        }*/
     };
 }
