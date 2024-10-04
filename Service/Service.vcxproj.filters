@@ -24,6 +24,9 @@
     <ClInclude Include="pch.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="DuplicatedLimpiadorException.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Service.cpp">
@@ -33,6 +36,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicatedLimpiadorException.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

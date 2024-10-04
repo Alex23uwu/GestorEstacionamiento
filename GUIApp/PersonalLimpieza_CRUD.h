@@ -271,15 +271,21 @@ namespace GUIApp {
 		}
 #pragma endregion
 	private: System::Void bttAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Convert::ToInt32(txtId->Text);
-		PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
-		personalLimp->Nombre = txtNombre->Text;
-		personalLimp->Apellido = txtApellido->Text;
-		personalLimp->Disponibilidad = txtDisponibilidad->Text;
-		personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
-		Service::AddPersonalLimpieza(personalLimp);
-		MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
-		ShowPersonal();
+		try
+		{
+			int id = Convert::ToInt32(txtId->Text);
+			PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
+			personalLimp->Nombre = txtNombre->Text;
+			personalLimp->Apellido = txtApellido->Text;
+			personalLimp->Disponibilidad = txtDisponibilidad->Text;
+			personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
+			Service::AddPersonalLimpieza(personalLimp);
+			ShowPersonal();
+			MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
+		}
+		catch (Exception^ ex){
+			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
+		}
 
 	}
 	public:
