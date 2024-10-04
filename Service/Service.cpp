@@ -51,6 +51,11 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
+	for each (Veedor^ veedor in ListaVeedor) {
+		if (veedor->Id == veedor->Id) {
+			throw gcnew DuplicatedLimpiadorException("El código del Veedor ya existe en la base de datos.");
+		}
+	}
 	ListaVeedor->Add(veedor);
 }
 

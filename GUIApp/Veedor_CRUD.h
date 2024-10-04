@@ -480,24 +480,26 @@ namespace GUIApp {
 	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
 	private: System::Void btAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		Veedor^ veedor = gcnew Veedor();
-		veedor->Apellido = txtApellido->Text;
-		veedor->Nombre = txtNombre->Text;
-		veedor->DNI = Convert::ToInt32(txtDNI->Text);
-		veedor->NombreUsuario = txtNombreUsuario->Text;
-		veedor->Clave = txtClave->Text;
-		veedor->Experiencia = txtExperiencia->Text;
-		veedor->Celular = Convert::ToInt32(txtCelular->Text);
-		veedor->Id = Convert::ToInt32(txtID->Text);
-		veedor->Email = txtEmail->Text;
-		veedor->Salario = Convert::ToInt32(txtSalario->Text);
-		veedor->Piso = Convert::ToInt32(txtPiso->Text);
-
-		MessageBox::Show("Se agrego al veedor " + veedor->Nombre + veedor->Apellido + "con ID " + veedor->Id);
-
-		Service::AddVeedor(veedor);
-
-		ShowVeedor();
+		try {
+			Veedor^ veedor = gcnew Veedor();
+			veedor->Apellido = txtApellido->Text;
+			veedor->Nombre = txtNombre->Text;
+			veedor->DNI = Convert::ToInt32(txtDNI->Text);
+			veedor->NombreUsuario = txtNombreUsuario->Text;
+			veedor->Clave = txtClave->Text;
+			veedor->Experiencia = txtExperiencia->Text;
+			veedor->Celular = Convert::ToInt32(txtCelular->Text);
+			veedor->Id = Convert::ToInt32(txtID->Text);
+			veedor->Email = txtEmail->Text;
+			veedor->Salario = Convert::ToInt32(txtSalario->Text);
+			veedor->Piso = Convert::ToInt32(txtPiso->Text);
+			Service::AddVeedor(veedor);
+			ShowVeedor();
+			MessageBox::Show("Se agrego al veedor " + veedor->Nombre + veedor->Apellido + "con ID " + veedor->Id);
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
+		}
 
 	}
 	public:

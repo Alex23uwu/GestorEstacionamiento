@@ -27,6 +27,9 @@
     <ClInclude Include="DuplicatedLimpiadorException.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="DuplicatedVeedorException.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Service.cpp">
@@ -39,6 +42,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="DuplicatedLimpiadorException.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="DuplicatedVeedorException.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
