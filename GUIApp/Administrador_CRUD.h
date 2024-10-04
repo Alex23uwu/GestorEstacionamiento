@@ -390,15 +390,14 @@ namespace GUIApp {
 		
 	
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-
 		Administrador^ administrador = gcnew Administrador();
-		
 
-		if (txtId->Text == "" || txtNombres->Text == "" || txtApellidos->Text == "" || txtDNI->Text == ""
-			|| txtUsername->Text == "" || txtPassword->Text == "") {
+		if (txtId->Text->Trim() == "" || txtNombres->Text->Trim() == "" || txtApellidos->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "") {
 			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+			return;
 		}
-		else {
+		try {
 			administrador->Id = Int32::Parse(txtId->Text);
 			administrador->Nombre = txtNombres->Text;
 			administrador->Apellido = txtApellidos->Text;
@@ -412,7 +411,10 @@ namespace GUIApp {
 			Service::AddAdministrador(administrador);
 			ShowAdministrador();
 		}
-
+		catch (Exception^ ex) {
+			MessageBox::Show("No ha sido posible agregar el Administrador por el siguiente motivo: \n" +
+				ex->Message);
+		}
 	}
 
 
@@ -447,8 +449,20 @@ private: System::Void dgvAdministrador_CellClick(System::Object^ sender, System:
 }
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ Id = txtId->Text->Trim();
+	Administrador^ administrador = Service::QueryAdministradorById(Convert::ToInt32(Id));
 	if (Id->Equals("")) {
 		MessageBox::Show("Debe seleccionar un Administrador");
+		return;
+	}
+	if (administrador->Id == Int32::Parse(txtId->Text) ||
+		administrador->Nombre == txtNombres->Text ||
+		administrador->Apellido == txtApellidos->Text ||
+		administrador->NombreUsuario == txtUsername->Text ||
+		administrador->Clave == txtPassword->Text ||
+		administrador->DNI == Int32::Parse(txtDNI->Text) ||
+		administrador->Celular == Int32::Parse(txtPhoneNumber->Text) ||
+		administrador->Email == txtEmail->Text) {
+		MessageBox::Show("Debe realizar alguna modificación");
 		return;
 	}
 	try {
