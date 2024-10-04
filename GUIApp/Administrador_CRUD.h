@@ -5,9 +5,12 @@ namespace GUIApp {
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
+	using namespace System::Collections::Generic;
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Model;
+	using namespace EstacionamientoService;
 
 	/// <summary>
 	/// Resumen de Administrador_CRUD
@@ -51,16 +54,22 @@ namespace GUIApp {
 	private: System::Windows::Forms::TextBox^ txtUsername;
 	private: System::Windows::Forms::TextBox^ txtPhoneNumber;
 	private: System::Windows::Forms::TextBox^ txtEmail;
-	private: System::Windows::Forms::TextBox^ txtPersonId;
+	private: System::Windows::Forms::TextBox^ txtId;
+
 	private: System::Windows::Forms::TextBox^ txtDNI;
-	private: System::Windows::Forms::TextBox^ txtLastName;
-	private: System::Windows::Forms::TextBox^ txtFirstName;
+	private: System::Windows::Forms::TextBox^ txtApellidos;
+	private: System::Windows::Forms::TextBox^ txtNombres;
+
+
 
 	private: System::Windows::Forms::Label^ label18;
 	private: System::Windows::Forms::Label^ label17;
-	private: System::Windows::Forms::Button^ btnDeletePerson;
-	private: System::Windows::Forms::Button^ btnUpdatePerson;
-	private: System::Windows::Forms::Button^ btnAddPerson;
+	private: System::Windows::Forms::Button^ btnDelete;
+
+	private: System::Windows::Forms::Button^ btnUpdate;
+
+	private: System::Windows::Forms::Button^ btnAdd;
+
 	private: System::Windows::Forms::Label^ label7;
 
 	private: System::Windows::Forms::Label^ label5;
@@ -68,15 +77,19 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label111;
-	private: System::Windows::Forms::TextBox^ txtDescuento;
 
 
-	private: System::Windows::Forms::Label^ label113;
-	private: System::Windows::Forms::Label^ label114;
-	private: System::Windows::Forms::TextBox^ txtModelo;
-	private: System::Windows::Forms::TextBox^ txtColor;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::DataGridView^ dgvAdministrador;
+
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvNombres;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colApellidos;
@@ -103,34 +116,28 @@ namespace GUIApp {
 			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
 			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
-			this->txtPersonId = (gcnew System::Windows::Forms::TextBox());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
-			this->txtLastName = (gcnew System::Windows::Forms::TextBox());
-			this->txtFirstName = (gcnew System::Windows::Forms::TextBox());
+			this->txtApellidos = (gcnew System::Windows::Forms::TextBox());
+			this->txtNombres = (gcnew System::Windows::Forms::TextBox());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->btnDeletePerson = (gcnew System::Windows::Forms::Button());
-			this->btnUpdatePerson = (gcnew System::Windows::Forms::Button());
-			this->btnAddPerson = (gcnew System::Windows::Forms::Button());
+			this->btnDelete = (gcnew System::Windows::Forms::Button());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label111 = (gcnew System::Windows::Forms::Label());
-			this->txtDescuento = (gcnew System::Windows::Forms::TextBox());
-			this->label113 = (gcnew System::Windows::Forms::Label());
-			this->label114 = (gcnew System::Windows::Forms::Label());
-			this->txtModelo = (gcnew System::Windows::Forms::TextBox());
-			this->txtColor = (gcnew System::Windows::Forms::TextBox());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvAdministrador = (gcnew System::Windows::Forms::DataGridView());
 			this->dgvId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvNombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colApellidos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colDNI = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colCelular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvAdministrador))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtPassword
@@ -162,12 +169,12 @@ namespace GUIApp {
 			this->txtEmail->Size = System::Drawing::Size(269, 20);
 			this->txtEmail->TabIndex = 42;
 			// 
-			// txtPersonId
+			// txtId
 			// 
-			this->txtPersonId->Location = System::Drawing::Point(163, 52);
-			this->txtPersonId->Name = L"txtPersonId";
-			this->txtPersonId->Size = System::Drawing::Size(37, 20);
-			this->txtPersonId->TabIndex = 44;
+			this->txtId->Location = System::Drawing::Point(163, 52);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(37, 20);
+			this->txtId->TabIndex = 44;
 			// 
 			// txtDNI
 			// 
@@ -176,19 +183,19 @@ namespace GUIApp {
 			this->txtDNI->Size = System::Drawing::Size(155, 20);
 			this->txtDNI->TabIndex = 43;
 			// 
-			// txtLastName
+			// txtApellidos
 			// 
-			this->txtLastName->Location = System::Drawing::Point(475, 109);
-			this->txtLastName->Name = L"txtLastName";
-			this->txtLastName->Size = System::Drawing::Size(155, 20);
-			this->txtLastName->TabIndex = 41;
+			this->txtApellidos->Location = System::Drawing::Point(476, 108);
+			this->txtApellidos->Name = L"txtApellidos";
+			this->txtApellidos->Size = System::Drawing::Size(155, 20);
+			this->txtApellidos->TabIndex = 41;
 			// 
-			// txtFirstName
+			// txtNombres
 			// 
-			this->txtFirstName->Location = System::Drawing::Point(163, 108);
-			this->txtFirstName->Name = L"txtFirstName";
-			this->txtFirstName->Size = System::Drawing::Size(144, 20);
-			this->txtFirstName->TabIndex = 40;
+			this->txtNombres->Location = System::Drawing::Point(163, 108);
+			this->txtNombres->Name = L"txtNombres";
+			this->txtNombres->Size = System::Drawing::Size(144, 20);
+			this->txtNombres->TabIndex = 40;
 			// 
 			// label18
 			// 
@@ -210,35 +217,38 @@ namespace GUIApp {
 			this->label17->TabIndex = 54;
 			this->label17->Text = L"Username (*)";
 			// 
-			// btnDeletePerson
+			// btnDelete
 			// 
-			this->btnDeletePerson->ForeColor = System::Drawing::Color::Black;
-			this->btnDeletePerson->Location = System::Drawing::Point(510, 284);
-			this->btnDeletePerson->Name = L"btnDeletePerson";
-			this->btnDeletePerson->Size = System::Drawing::Size(120, 23);
-			this->btnDeletePerson->TabIndex = 53;
-			this->btnDeletePerson->Text = L"Eliminar";
-			this->btnDeletePerson->UseVisualStyleBackColor = true;
+			this->btnDelete->ForeColor = System::Drawing::Color::Black;
+			this->btnDelete->Location = System::Drawing::Point(510, 245);
+			this->btnDelete->Name = L"btnDelete";
+			this->btnDelete->Size = System::Drawing::Size(120, 23);
+			this->btnDelete->TabIndex = 53;
+			this->btnDelete->Text = L"Eliminar";
+			this->btnDelete->UseVisualStyleBackColor = true;
+			this->btnDelete->Click += gcnew System::EventHandler(this, &Administrador_CRUD::btnDelete_Click);
 			// 
-			// btnUpdatePerson
+			// btnUpdate
 			// 
-			this->btnUpdatePerson->ForeColor = System::Drawing::Color::Black;
-			this->btnUpdatePerson->Location = System::Drawing::Point(321, 284);
-			this->btnUpdatePerson->Name = L"btnUpdatePerson";
-			this->btnUpdatePerson->Size = System::Drawing::Size(121, 23);
-			this->btnUpdatePerson->TabIndex = 52;
-			this->btnUpdatePerson->Text = L"Actualizar";
-			this->btnUpdatePerson->UseVisualStyleBackColor = true;
+			this->btnUpdate->ForeColor = System::Drawing::Color::Black;
+			this->btnUpdate->Location = System::Drawing::Point(295, 245);
+			this->btnUpdate->Name = L"btnUpdate";
+			this->btnUpdate->Size = System::Drawing::Size(121, 23);
+			this->btnUpdate->TabIndex = 52;
+			this->btnUpdate->Text = L"Actualizar";
+			this->btnUpdate->UseVisualStyleBackColor = true;
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &Administrador_CRUD::btnUpdate_Click);
 			// 
-			// btnAddPerson
+			// btnAdd
 			// 
-			this->btnAddPerson->ForeColor = System::Drawing::Color::Black;
-			this->btnAddPerson->Location = System::Drawing::Point(87, 284);
-			this->btnAddPerson->Name = L"btnAddPerson";
-			this->btnAddPerson->Size = System::Drawing::Size(127, 23);
-			this->btnAddPerson->TabIndex = 51;
-			this->btnAddPerson->Text = L"Agregar";
-			this->btnAddPerson->UseVisualStyleBackColor = true;
+			this->btnAdd->ForeColor = System::Drawing::Color::Black;
+			this->btnAdd->Location = System::Drawing::Point(87, 245);
+			this->btnAdd->Name = L"btnAdd";
+			this->btnAdd->Size = System::Drawing::Size(127, 23);
+			this->btnAdd->TabIndex = 51;
+			this->btnAdd->Text = L"Agregar";
+			this->btnAdd->UseVisualStyleBackColor = true;
+			this->btnAdd->Click += gcnew System::EventHandler(this, &Administrador_CRUD::btnAdd_Click);
 			// 
 			// label7
 			// 
@@ -300,74 +310,18 @@ namespace GUIApp {
 			this->label1->TabIndex = 38;
 			this->label1->Text = L"Id (*)";
 			// 
-			// label111
+			// dgvAdministrador
 			// 
-			this->label111->AutoSize = true;
-			this->label111->ForeColor = System::Drawing::Color::Black;
-			this->label111->Location = System::Drawing::Point(84, 195);
-			this->label111->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label111->Name = L"label111";
-			this->label111->Size = System::Drawing::Size(67, 13);
-			this->label111->TabIndex = 60;
-			this->label111->Text = L"Especialidad";
-			// 
-			// txtDescuento
-			// 
-			this->txtDescuento->Location = System::Drawing::Point(163, 195);
-			this->txtDescuento->Margin = System::Windows::Forms::Padding(2);
-			this->txtDescuento->Name = L"txtDescuento";
-			this->txtDescuento->Size = System::Drawing::Size(144, 20);
-			this->txtDescuento->TabIndex = 61;
-			// 
-			// label113
-			// 
-			this->label113->AutoSize = true;
-			this->label113->ForeColor = System::Drawing::Color::Black;
-			this->label113->Location = System::Drawing::Point(403, 198);
-			this->label113->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label113->Name = L"label113";
-			this->label113->Size = System::Drawing::Size(39, 13);
-			this->label113->TabIndex = 65;
-			this->label113->Text = L"Salario";
-			// 
-			// label114
-			// 
-			this->label114->AutoSize = true;
-			this->label114->ForeColor = System::Drawing::Color::Black;
-			this->label114->Location = System::Drawing::Point(84, 228);
-			this->label114->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label114->Name = L"label114";
-			this->label114->Size = System::Drawing::Size(27, 13);
-			this->label114->TabIndex = 66;
-			this->label114->Text = L"Piso";
-			// 
-			// txtModelo
-			// 
-			this->txtModelo->Location = System::Drawing::Point(477, 195);
-			this->txtModelo->Margin = System::Windows::Forms::Padding(2);
-			this->txtModelo->Name = L"txtModelo";
-			this->txtModelo->Size = System::Drawing::Size(154, 20);
-			this->txtModelo->TabIndex = 67;
-			// 
-			// txtColor
-			// 
-			this->txtColor->Location = System::Drawing::Point(163, 225);
-			this->txtColor->Margin = System::Windows::Forms::Padding(2);
-			this->txtColor->Name = L"txtColor";
-			this->txtColor->Size = System::Drawing::Size(37, 20);
-			this->txtColor->TabIndex = 68;
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dgvAdministrador->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvAdministrador->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->dgvId,
 					this->dgvNombres, this->colApellidos, this->colDNI, this->colCelular
 			});
-			this->dataGridView1->Location = System::Drawing::Point(87, 350);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(543, 156);
-			this->dataGridView1->TabIndex = 69;
+			this->dgvAdministrador->Location = System::Drawing::Point(87, 311);
+			this->dgvAdministrador->Name = L"dgvAdministrador";
+			this->dgvAdministrador->Size = System::Drawing::Size(543, 156);
+			this->dgvAdministrador->TabIndex = 69;
+			this->dgvAdministrador->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Administrador_CRUD::dgvAdministrador_CellClick);
 			// 
 			// dgvId
 			// 
@@ -404,40 +358,135 @@ namespace GUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(743, 608);
-			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->txtColor);
-			this->Controls->Add(this->txtModelo);
-			this->Controls->Add(this->label114);
-			this->Controls->Add(this->label113);
-			this->Controls->Add(this->txtDescuento);
-			this->Controls->Add(this->label111);
+			this->Controls->Add(this->dgvAdministrador);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtUsername);
 			this->Controls->Add(this->txtPhoneNumber);
 			this->Controls->Add(this->txtEmail);
-			this->Controls->Add(this->txtPersonId);
+			this->Controls->Add(this->txtId);
 			this->Controls->Add(this->txtDNI);
-			this->Controls->Add(this->txtLastName);
-			this->Controls->Add(this->txtFirstName);
+			this->Controls->Add(this->txtApellidos);
+			this->Controls->Add(this->txtNombres);
 			this->Controls->Add(this->label18);
 			this->Controls->Add(this->label17);
-			this->Controls->Add(this->btnDeletePerson);
-			this->Controls->Add(this->btnUpdatePerson);
-			this->Controls->Add(this->btnAddPerson);
+			this->Controls->Add(this->btnDelete);
+			this->Controls->Add(this->btnUpdate);
+			this->Controls->Add(this->btnAdd);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->ForeColor = System::Drawing::Color::Transparent;
+			this->ForeColor = System::Drawing::Color::Black;
 			this->Name = L"Administrador_CRUD";
 			this->Text = L"Administrador_CRUD";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvAdministrador))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+		
+	
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		Administrador^ administrador = gcnew Administrador();
+		
+
+		if (txtId->Text == "" || txtNombres->Text == "" || txtApellidos->Text == "" || txtDNI->Text == ""
+			|| txtUsername->Text == "" || txtPassword->Text == "") {
+			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+		}
+		else {
+			administrador->Id = Int32::Parse(txtId->Text);
+			administrador->Nombre = txtNombres->Text;
+			administrador->Apellido = txtApellidos->Text;
+			administrador->NombreUsuario = txtUsername->Text;
+			administrador->Clave = txtPassword->Text;
+			administrador->DNI = Int32::Parse(txtDNI->Text);
+			administrador->Celular = Int32::Parse(txtPhoneNumber->Text);
+			administrador->Email = txtEmail->Text;
+
+			MessageBox::Show("Se agrego al administrador " + administrador->Nombre + " " + administrador->Apellido + " con ID " + administrador->Id);
+			Service::AddAdministrador(administrador);
+			ShowAdministrador();
+		}
+
+	}
+
+
+public:
+	void ShowAdministrador() {
+		List <Administrador^>^ AdministradorLista = Service::QueryAllAdministrador();
+		if (AdministradorLista != nullptr) {
+			dgvAdministrador->Rows->Clear();
+			for (int i = 0; i < AdministradorLista->Count; i++) {
+				dgvAdministrador->Rows->Add(gcnew array<String^>{
+					Convert::ToString(AdministradorLista[i]->Id),
+						AdministradorLista[i]->Nombre,
+						AdministradorLista[i]->Apellido,
+						Convert::ToString(AdministradorLista[i]->DNI),
+						Convert::ToString(AdministradorLista[i]->Celular),
+				});
+			}
+		}
+	}
+private: System::Void dgvAdministrador_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	int adminId = Convert::ToInt32(dgvAdministrador->Rows[dgvAdministrador->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+	Administrador^ administrador = Service::QueryAdministradorById(adminId);
+	txtId->Text = "" + administrador->Id;
+	txtNombres->Text = administrador->Nombre;
+
+	txtApellidos->Text = administrador->Apellido;
+	txtUsername->Text = administrador->NombreUsuario;
+	txtPassword->Text = administrador->Clave;
+	txtDNI->Text = "" + administrador->DNI;
+	txtPhoneNumber->Text = "" + administrador->Celular;
+	txtEmail->Text = administrador->Email;
+}
+private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ Id = txtId->Text->Trim();
+	if (Id->Equals("")) {
+		MessageBox::Show("Debe seleccionar un Administrador");
+		return;
+	}
+	try {
+		Service::DeleteAdministrador(Convert::ToInt32(Id));
+		ShowAdministrador();
+		MessageBox::Show("Se ha eliminado el Administrador con Id = " + Id + " de manera exitosa.");
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("No ha sido posible eliminar el Administrador por el siguiente motivo: \n" +
+			ex->Message);
+	}
+
+}
+private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ Id = txtId->Text->Trim();
+	if (Id->Equals("")) {
+		MessageBox::Show("Debe seleccionar un Administrador");
+		return;
+	}
+	try {
+		Administrador^ administrador = gcnew Administrador();
+		administrador->Id = Int32::Parse(txtId->Text);
+		administrador->Nombre = txtNombres->Text;
+		administrador->Apellido = txtApellidos->Text;
+		administrador->NombreUsuario = txtUsername->Text;
+		administrador->Clave = txtPassword->Text;
+		administrador->DNI = Int32::Parse(txtDNI->Text);
+		administrador->Celular = Int32::Parse(txtPhoneNumber->Text);
+		administrador->Email = txtEmail->Text;
+		Service::UpdateAdministrador(administrador);
+		ShowAdministrador();
+		MessageBox::Show("Se ha modificado el Administrador " + administrador->Id + " - " + administrador->Nombre);
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("No se ha podido modificar el Administrador por el siguiente motivo:\n" +
+			ex->Message);
+	}
+
+}
+};
 }
