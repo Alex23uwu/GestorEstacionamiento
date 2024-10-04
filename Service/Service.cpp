@@ -2,7 +2,6 @@
 #include "Service.h"
 
 
-
 // CRUD PERSONAL LIMPIEZA
 void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza ){
 
@@ -34,8 +33,7 @@ List<PersonalLimpieza^>^ EstacionamientoService::Service::QueryAllPersonalLimpie
 	return ListaPersonalLimpieza;
 }
 
-PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int PersonalLimpiezaId)
-{
+PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int PersonalLimpiezaId){
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaId) {
 			return ListaPersonalLimpieza[i];
