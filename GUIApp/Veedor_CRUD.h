@@ -408,7 +408,7 @@ namespace GUIApp {
 					this->VeedorApellido, this->VeedorDNI, this->VeedorTIempoEntrada, this->VeedorTiempoSalida, this->VeedorPiso, this->VeedorSalario,
 					this->VeedorEmail, this->VeedorCelular
 			});
-			this->dvgVeedor->Location = System::Drawing::Point(20, 346);
+			this->dvgVeedor->Location = System::Drawing::Point(20, 356);
 			this->dvgVeedor->Name = L"dvgVeedor";
 			this->dvgVeedor->Size = System::Drawing::Size(739, 203);
 			this->dvgVeedor->TabIndex = 29;

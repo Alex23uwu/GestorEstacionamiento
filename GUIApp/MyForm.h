@@ -1,7 +1,7 @@
 #pragma once
 #include "PersonalLimpieza_CRUD.h"
 #include "Veedor_CRUD.h"
-/*#include "Administrador_CRUD.h"*/
+#include "Administrador_CRUD.h"
 
 namespace GUIApp {
 
@@ -228,7 +228,9 @@ private: System::Void veedoresToolStripMenuItem_Click(System::Object^ sender, Sy
 }
 
 private: System::Void administradoresToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+	Administrador_CRUD^ form = gcnew Administrador_CRUD();
+	form->MdiParent = this;
+	form->Show();
 }
 private: System::Void clientesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 }

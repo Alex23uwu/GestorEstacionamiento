@@ -152,8 +152,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administrador_CRUD.resx">
+      <DependentUpon>Administrador_CRUD.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonalLimpieza_CRUD.resx">
+      <DependentUpon>PersonalLimpieza_CRUD.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Veedor_CRUD.resx">
       <DependentUpon>Veedor_CRUD.h</DependentUpon>

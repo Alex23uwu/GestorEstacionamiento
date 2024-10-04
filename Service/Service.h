@@ -14,6 +14,7 @@ namespace EstacionamientoService {
 		static List<Empleado^>^ ListaEmpleado = gcnew List<Empleado^>();
 		static List<Cliente^>^ ListaCliente = gcnew List<Cliente^>();
 		static List<Vehiculo^>^ ListaVehiculo = gcnew List<Vehiculo^>();
+		static List<Administrador^>^ ListaAdministrador = gcnew List<Administrador^>();
 	public:
 		// CRUD PARA EL PERSONAL DE LIMPIEZA
 		static void AddPersonalLimpieza(PersonalLimpieza^);
@@ -39,6 +40,12 @@ namespace EstacionamientoService {
 		static void DeleteVehiculo(int VehiculoID);
 		static List<Vehiculo^>^ QueryAllVehiculo();
 		static Vehiculo^ QueryVehiculoById(int VehiculoID);
+		// CRUD PARA ADMINISTRADORES
+		static void AddAdministrador(Administrador^);
+		static void UpdateAdministrador(Administrador^);
+		static void DeleteAdministrador(int adminId);
+		static List<Administrador^>^ QueryAllAdministrador();
+		static Administrador^ QueryAdministradorById(int adminId);
 
 	};
 }

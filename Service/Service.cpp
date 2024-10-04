@@ -161,3 +161,38 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 	}
 }
 
+// CRUD ADMINISTRADOR
+void EstacionamientoService::Service::AddAdministrador(Administrador^ admin) {
+	ListaAdministrador->Add(admin);
+}
+
+void EstacionamientoService::Service::UpdateAdministrador(Administrador^ admin) {
+	for (int i = 0; i < ListaAdministrador->Count; i++) {
+		if (ListaAdministrador[i]->Id == admin->Id) {
+			ListaAdministrador[i] = admin;
+			return;
+		}
+	}
+}
+
+void EstacionamientoService::Service::DeleteAdministrador(int adminId)
+{
+	for (int i = 0; i < ListaAdministrador->Count; i++) {
+		if (ListaAdministrador[i]->Id == adminId) {
+			ListaAdministrador->RemoveAt(i);
+			return;
+		}
+	}
+}
+
+List<Administrador^>^ EstacionamientoService::Service::QueryAllAdministrador() {
+	return ListaAdministrador;
+}
+
+Administrador^ EstacionamientoService::Service::QueryAdministradorById(int adminId) {
+	for (int i = 0; i < ListaAdministrador->Count; i++) {
+		if (ListaAdministrador[i]->Id == adminId) {
+			return ListaAdministrador[i];
+		}
+	}
+}
