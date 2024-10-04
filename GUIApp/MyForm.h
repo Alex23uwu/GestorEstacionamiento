@@ -83,10 +83,10 @@ namespace GUIApp {
 			this->personalLimpiezaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->veedoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->administradoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->clientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transaccionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->clientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -163,6 +163,13 @@ namespace GUIApp {
 			this->administradoresToolStripMenuItem->Text = L"Administradores";
 			this->administradoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::administradoresToolStripMenuItem_Click);
 			// 
+			// clientesToolStripMenuItem
+			// 
+			this->clientesToolStripMenuItem->Name = L"clientesToolStripMenuItem";
+			this->clientesToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->clientesToolStripMenuItem->Text = L"Clientes";
+			this->clientesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::clientesToolStripMenuItem_Click);
+			// 
 			// transaccionesToolStripMenuItem
 			// 
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
@@ -181,13 +188,6 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// clientesToolStripMenuItem
-			// 
-			this->clientesToolStripMenuItem->Name = L"clientesToolStripMenuItem";
-			this->clientesToolStripMenuItem->Size = System::Drawing::Size(232, 26);
-			this->clientesToolStripMenuItem->Text = L"Clientes";
-			this->clientesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::clientesToolStripMenuItem_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -197,9 +197,10 @@ namespace GUIApp {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyForm";
 			this->Text = L"Sistema de Estacionamiento";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();

@@ -67,11 +67,11 @@ namespace GUIApp {
 	private: System::Windows::Forms::Button^ btnUpdatePerson;
 	private: System::Windows::Forms::Button^ btnAddPerson;
 	private: System::Windows::Forms::DataGridView^ dgvPersons;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ firstName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ lastName;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label5;
@@ -129,6 +129,11 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ firstName;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ lastName;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
 
 	private:
 		/// <summary>
@@ -172,11 +177,6 @@ namespace GUIApp {
 			this->btnUpdatePerson = (gcnew System::Windows::Forms::Button());
 			this->btnAddPerson = (gcnew System::Windows::Forms::Button());
 			this->dgvPersons = (gcnew System::Windows::Forms::DataGridView());
-			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->phoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -234,6 +234,11 @@ namespace GUIApp {
 			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->phoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabCustomers->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -547,46 +552,6 @@ namespace GUIApp {
 			this->dgvPersons->RowHeadersWidth = 51;
 			this->dgvPersons->Size = System::Drawing::Size(656, 193);
 			this->dgvPersons->TabIndex = 16;
-			// 
-			// personId
-			// 
-			this->personId->HeaderText = L"Id";
-			this->personId->MinimumWidth = 6;
-			this->personId->Name = L"personId";
-			this->personId->ReadOnly = true;
-			this->personId->Width = 20;
-			// 
-			// firstName
-			// 
-			this->firstName->HeaderText = L"Nombres";
-			this->firstName->MinimumWidth = 6;
-			this->firstName->Name = L"firstName";
-			this->firstName->ReadOnly = true;
-			this->firstName->Width = 125;
-			// 
-			// lastName
-			// 
-			this->lastName->HeaderText = L"Apellidos";
-			this->lastName->MinimumWidth = 6;
-			this->lastName->Name = L"lastName";
-			this->lastName->ReadOnly = true;
-			this->lastName->Width = 130;
-			// 
-			// dgvPlaca
-			// 
-			this->dgvPlaca->HeaderText = L"Placa";
-			this->dgvPlaca->MinimumWidth = 6;
-			this->dgvPlaca->Name = L"dgvPlaca";
-			this->dgvPlaca->ReadOnly = true;
-			this->dgvPlaca->Width = 120;
-			// 
-			// phoneNumber
-			// 
-			this->phoneNumber->HeaderText = L"Celular";
-			this->phoneNumber->MinimumWidth = 6;
-			this->phoneNumber->Name = L"phoneNumber";
-			this->phoneNumber->ReadOnly = true;
-			this->phoneNumber->Width = 70;
 			// 
 			// label7
 			// 
@@ -1143,6 +1108,46 @@ namespace GUIApp {
 			this->salirToolStripMenuItem->Size = System::Drawing::Size(135, 26);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
+			// personId
+			// 
+			this->personId->HeaderText = L"Id";
+			this->personId->MinimumWidth = 6;
+			this->personId->Name = L"personId";
+			this->personId->ReadOnly = true;
+			this->personId->Width = 20;
+			// 
+			// firstName
+			// 
+			this->firstName->HeaderText = L"Nombres";
+			this->firstName->MinimumWidth = 6;
+			this->firstName->Name = L"firstName";
+			this->firstName->ReadOnly = true;
+			this->firstName->Width = 125;
+			// 
+			// lastName
+			// 
+			this->lastName->HeaderText = L"Apellidos";
+			this->lastName->MinimumWidth = 6;
+			this->lastName->Name = L"lastName";
+			this->lastName->ReadOnly = true;
+			this->lastName->Width = 130;
+			// 
+			// dgvPlaca
+			// 
+			this->dgvPlaca->HeaderText = L"DNI";
+			this->dgvPlaca->MinimumWidth = 6;
+			this->dgvPlaca->Name = L"dgvPlaca";
+			this->dgvPlaca->ReadOnly = true;
+			this->dgvPlaca->Width = 120;
+			// 
+			// phoneNumber
+			// 
+			this->phoneNumber->HeaderText = L"Celular";
+			this->phoneNumber->MinimumWidth = 6;
+			this->phoneNumber->Name = L"phoneNumber";
+			this->phoneNumber->ReadOnly = true;
+			this->phoneNumber->Width = 70;
+			// 
 			// Cliente_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -1181,7 +1186,7 @@ namespace GUIApp {
 						Convert::ToString(listaCliente[i]->Id),
 							listaCliente[i]->Nombre,
 							listaCliente[i]->Apellido,
-							listaCliente[i]->MiVehiculo->Placa,
+							""+listaCliente[i]->DNI,
 							Convert::ToString(listaCliente[i]->Celular),
 					});
 				}
@@ -1191,6 +1196,7 @@ namespace GUIApp {
 		
 		try {
 			Cliente^ clientes = gcnew Cliente();
+			Vehiculo^ vehiculos = gcnew Vehiculo();
 			clientes->Id = Int32::Parse(txtPersonId->Text);
 			clientes->Nombre = txtFirstName->Text;
 			clientes->Apellido = txtLastName->Text;
@@ -1200,12 +1206,13 @@ namespace GUIApp {
 			clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
 			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
 			clientes->Email = txtEmail->Text;
-			clientes->MiVehiculo->Placa = txtPlaca->Text;
-			clientes->MiVehiculo->Modelo = txtModelo->Text;
-			clientes->MiVehiculo->Color = txtColor->Text;
-			MessageBox::Show("Se agrego al cliente " + clientes->Nombre + clientes->Apellido + "con ID " + clientes->Id);
+			vehiculos->Placa = txtPlaca->Text;
+			vehiculos->Modelo = txtModelo->Text;
+			vehiculos->Color = txtColor->Text;
+			MessageBox::Show("Se agrego al cliente " + clientes->Nombre +" " + clientes->Apellido + " con ID " + clientes->Id);
 
 			Service::AddCliente(clientes);
+			Service::AddVehiculo(vehiculos);
 			ShowCliente();
 		}
 		catch(Exception^ ex){
