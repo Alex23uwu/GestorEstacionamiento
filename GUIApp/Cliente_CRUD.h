@@ -8,6 +8,9 @@ namespace GUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
+	using namespace Model;
+	using namespace EstacionamientoService;
 
 	/// <summary>
 	/// Resumen de Cliente_CRUD
@@ -1167,7 +1170,49 @@ namespace GUIApp {
 
 		}
 #pragma endregion
+
+	public:
+		void ShowCliente() {
+			List <Cliente^>^ listaCliente = Service::QueryAllClientes();
+			if (listaCliente != nullptr) {
+				dgvPersons->Rows->Clear();
+				for (int i = 0; i < listaCliente->Count; i++) {
+					dgvPersons->Rows->Add(gcnew array<String^>{
+						Convert::ToString(listaCliente[i]->Id),
+							listaCliente[i]->Nombre,
+							listaCliente[i]->Apellido,
+							listaCliente[i]->MiVehiculo->Placa,
+							Convert::ToString(listaCliente[i]->Celular),
+					});
+				}
+			}
+		}
 	private: System::Void btnAddPerson_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		try {
+			Cliente^ clientes = gcnew Cliente();
+			clientes->Id = Int32::Parse(txtPersonId->Text);
+			clientes->Nombre = txtFirstName->Text;
+			clientes->Apellido = txtLastName->Text;
+			clientes->NombreUsuario = txtUsername->Text;
+			clientes->Clave = txtPassword->Text;
+			clientes->DNI = Int32::Parse(txtDNI->Text);
+			clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
+			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
+			clientes->Email = txtEmail->Text;
+			clientes->MiVehiculo->Placa = txtPlaca->Text;
+			clientes->MiVehiculo->Modelo = txtModelo->Text;
+			clientes->MiVehiculo->Color = txtColor->Text;
+			MessageBox::Show("Se agrego al cliente " + clientes->Nombre + clientes->Apellido + "con ID " + clientes->Id);
+
+			Service::AddCliente(clientes);
+			ShowCliente();
+		}
+		catch(Exception^ ex){
+			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
+			return;
+		}
+		
 	}
 };
 }
