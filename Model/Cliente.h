@@ -16,6 +16,5 @@ namespace Model {
         bool LugarReservado;
         String^ Profession;
         Vehiculo^ MiVehiculo;
-        
     };
 }
