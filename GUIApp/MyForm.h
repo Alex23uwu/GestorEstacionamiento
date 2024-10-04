@@ -2,6 +2,7 @@
 #include "PersonalLimpieza_CRUD.h"
 #include "Veedor_CRUD.h"
 #include "Administrador_CRUD.h"
+#include "Cliente_CRUD.h"
 
 namespace GUIApp {
 
@@ -233,6 +234,9 @@ private: System::Void administradoresToolStripMenuItem_Click(System::Object^ sen
 	form->Show();
 }
 private: System::Void clientesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Cliente_CRUD^ form = gcnew Cliente_CRUD();
+	form->MdiParent = this;
+	form->Show();
 }
 };
 }
