@@ -100,15 +100,23 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::TextBox^ txtExperiencia;
 	private: System::Windows::Forms::Button^ bt_nuevo;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::CheckBox^ CheckboxClave;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorID;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorNombre;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorApellido;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorDNI;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorPiso;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorSalario;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorEmail;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorCelular;
-	private: System::Windows::Forms::CheckBox^ CheckboxClave;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorPiso;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorSalario;
 
 
 
@@ -151,18 +159,18 @@ namespace GUIApp {
 			this->btUpdate = (gcnew System::Windows::Forms::Button());
 			this->btDelete = (gcnew System::Windows::Forms::Button());
 			this->dvgVeedor = (gcnew System::Windows::Forms::DataGridView());
-			this->VeedorID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorDNI = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorSalario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorEmail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->VeedorCelular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->txtExperiencia = (gcnew System::Windows::Forms::TextBox());
 			this->bt_nuevo = (gcnew System::Windows::Forms::Button());
 			this->CheckboxClave = (gcnew System::Windows::Forms::CheckBox());
+			this->VeedorID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorDNI = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorEmail = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorCelular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->VeedorSalario = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dvgVeedor))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -365,7 +373,7 @@ namespace GUIApp {
 			this->dvgVeedor->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dvgVeedor->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->VeedorID, this->VeedorNombre,
-					this->VeedorApellido, this->VeedorDNI, this->VeedorPiso, this->VeedorSalario, this->VeedorEmail, this->VeedorCelular
+					this->VeedorApellido, this->VeedorDNI, this->VeedorEmail, this->VeedorCelular, this->VeedorPiso, this->VeedorSalario
 			});
 			this->dvgVeedor->Location = System::Drawing::Point(36, 300);
 			this->dvgVeedor->Name = L"dvgVeedor";
@@ -374,54 +382,6 @@ namespace GUIApp {
 			this->dvgVeedor->TabIndex = 29;
 			this->dvgVeedor->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Veedor_CRUD::dvgVeedor_CellClick);
 			this->dvgVeedor->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Veedor_CRUD::dataGridView1_CellContentClick);
-			// 
-			// VeedorID
-			// 
-			this->VeedorID->HeaderText = L"ID";
-			this->VeedorID->Name = L"VeedorID";
-			this->VeedorID->ReadOnly = true;
-			// 
-			// VeedorNombre
-			// 
-			this->VeedorNombre->HeaderText = L"Nombre";
-			this->VeedorNombre->Name = L"VeedorNombre";
-			this->VeedorNombre->ReadOnly = true;
-			// 
-			// VeedorApellido
-			// 
-			this->VeedorApellido->HeaderText = L"Apellido";
-			this->VeedorApellido->Name = L"VeedorApellido";
-			this->VeedorApellido->ReadOnly = true;
-			// 
-			// VeedorDNI
-			// 
-			this->VeedorDNI->HeaderText = L"DNI";
-			this->VeedorDNI->Name = L"VeedorDNI";
-			this->VeedorDNI->ReadOnly = true;
-			// 
-			// VeedorPiso
-			// 
-			this->VeedorPiso->HeaderText = L"Piso";
-			this->VeedorPiso->Name = L"VeedorPiso";
-			this->VeedorPiso->ReadOnly = true;
-			// 
-			// VeedorSalario
-			// 
-			this->VeedorSalario->HeaderText = L"Salario";
-			this->VeedorSalario->Name = L"VeedorSalario";
-			this->VeedorSalario->ReadOnly = true;
-			// 
-			// VeedorEmail
-			// 
-			this->VeedorEmail->HeaderText = L"Email";
-			this->VeedorEmail->Name = L"VeedorEmail";
-			this->VeedorEmail->ReadOnly = true;
-			// 
-			// VeedorCelular
-			// 
-			this->VeedorCelular->HeaderText = L"Celular";
-			this->VeedorCelular->Name = L"VeedorCelular";
-			this->VeedorCelular->ReadOnly = true;
 			// 
 			// label14
 			// 
@@ -460,6 +420,54 @@ namespace GUIApp {
 			this->CheckboxClave->Text = L"Mostrar Contraseña";
 			this->CheckboxClave->UseVisualStyleBackColor = true;
 			this->CheckboxClave->CheckedChanged += gcnew System::EventHandler(this, &Veedor_CRUD::checkBox1_CheckedChanged);
+			// 
+			// VeedorID
+			// 
+			this->VeedorID->HeaderText = L"ID";
+			this->VeedorID->Name = L"VeedorID";
+			this->VeedorID->ReadOnly = true;
+			// 
+			// VeedorNombre
+			// 
+			this->VeedorNombre->HeaderText = L"Nombre";
+			this->VeedorNombre->Name = L"VeedorNombre";
+			this->VeedorNombre->ReadOnly = true;
+			// 
+			// VeedorApellido
+			// 
+			this->VeedorApellido->HeaderText = L"Apellido";
+			this->VeedorApellido->Name = L"VeedorApellido";
+			this->VeedorApellido->ReadOnly = true;
+			// 
+			// VeedorDNI
+			// 
+			this->VeedorDNI->HeaderText = L"DNI";
+			this->VeedorDNI->Name = L"VeedorDNI";
+			this->VeedorDNI->ReadOnly = true;
+			// 
+			// VeedorEmail
+			// 
+			this->VeedorEmail->HeaderText = L"Email";
+			this->VeedorEmail->Name = L"VeedorEmail";
+			this->VeedorEmail->ReadOnly = true;
+			// 
+			// VeedorCelular
+			// 
+			this->VeedorCelular->HeaderText = L"Celular";
+			this->VeedorCelular->Name = L"VeedorCelular";
+			this->VeedorCelular->ReadOnly = true;
+			// 
+			// VeedorPiso
+			// 
+			this->VeedorPiso->HeaderText = L"Piso";
+			this->VeedorPiso->Name = L"VeedorPiso";
+			this->VeedorPiso->ReadOnly = true;
+			// 
+			// VeedorSalario
+			// 
+			this->VeedorSalario->HeaderText = L"Salario";
+			this->VeedorSalario->Name = L"VeedorSalario";
+			this->VeedorSalario->ReadOnly = true;
 			// 
 			// Veedor_CRUD
 			// 
@@ -551,6 +559,7 @@ namespace GUIApp {
 			Service::OrdenarVeedorID(VeedorLista);
 			if (VeedorLista != nullptr) {
 				dvgVeedor->Rows->Clear();
+				txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 				for (int i = 0; i < VeedorLista->Count; i++) {
 					String^ VeedorSalario = Convert::ToString(VeedorLista[i]->Salario);
 					String^ VeedorPiso = Convert::ToString(VeedorLista[i]->Piso);
@@ -565,10 +574,10 @@ namespace GUIApp {
 							VeedorLista[i]->Nombre,
 							VeedorLista[i]->Apellido,
 							Convert::ToString(VeedorLista[i]->DNI),
-							VeedorPiso,
-							VeedorSalario,
 							VeedorLista[i]->Email,
 							Convert::ToString(VeedorLista[i]->Celular),
+							VeedorPiso,
+							VeedorSalario,
 					});
 				}
 			}
@@ -631,8 +640,18 @@ namespace GUIApp {
 			txtCelular->Text = "" + veedor->Celular;
 			txtID->Text = "" + veedor->Id;
 			txtEmail->Text = veedor->Email;
-			txtSalario->Text = "" + veedor->Salario;
-			txtPiso->Text = "" + veedor->Piso;
+			if (veedor->Salario == 0) {
+				txtSalario->Text = "";
+			}
+			else {
+				txtSalario->Text = "" + veedor->Salario;
+			}
+			if (veedor->Piso == 0) {
+				txtPiso->Text = "";
+			}
+			else {
+				txtPiso->Text = "" + veedor->Piso;
+			}
 		}
 	}
 	private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ e) {
