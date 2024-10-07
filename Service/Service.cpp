@@ -90,10 +90,16 @@ Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
 
 int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 {
-	if (VeedorLista != nullptr) {
-		int i = VeedorLista->Count;
-		return i;
+	int prueba = 1;
+	for (int i = 0; i < VeedorLista->Count; i++) {
+		if (VeedorLista[i]->Id == prueba) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
 	}
+	return prueba;
 }
 
 void  EstacionamientoService::Service::VerificarDuplicadoVeedor(List<Veedor^>^ ListaVeedor, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular)
@@ -118,6 +124,30 @@ void  EstacionamientoService::Service::VerificarDuplicadoVeedor(List<Veedor^>^ L
 	}
 }
 
+void EstacionamientoService::Service::VerificarCambioVeedor(Veedor^ veedor, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular, int Piso, String^ Experiencia, int Salario, String^ Clave, String^ Email)
+{
+	if (veedor->DNI != DNI || veedor->Apellido != Apellido || veedor->Celular != Celular || veedor->Clave != Clave || veedor->Email != Email || veedor->Experiencia != Experiencia || veedor->Nombre != Nombre || veedor->NombreUsuario != NombreUsuario || veedor->Salario != Salario) {
+		return;
+	}
+	else {
+		throw gcnew DuplicatedVeedorException("Tiene que realizar al menos un cambio");
+	}
+}
+
+int EstacionamientoService::Service::CompararPorIdVeedor(Veedor^ a, Veedor^ b)
+{
+	return a->Id.CompareTo(b->Id);
+}
+
+void EstacionamientoService::Service::OrdenarVeedorID(List<Veedor^>^ VeedorLista)
+{
+	if (VeedorLista != nullptr && VeedorLista->Count > 0) {
+		// Ordenar la lista usando la función CompararPorId
+		VeedorLista->Sort(gcnew Comparison<Veedor^>(CompararPorIdVeedor));
+	}
+}
+
+// CLIENTE CRUD
 void EstacionamientoService::Service::AddCliente(Cliente^ cliente)
 {
 	ListaCliente->Add(cliente);
@@ -157,6 +187,7 @@ Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 	}
 }
 
+// VEHICULO CRUD
 void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 {
 	ListaVehiculo->Add(vehiculo);

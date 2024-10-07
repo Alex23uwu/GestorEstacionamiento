@@ -108,6 +108,8 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorSalario;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorEmail;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorCelular;
+	private: System::Windows::Forms::CheckBox^ CheckboxClave;
+
 
 
 
@@ -160,6 +162,7 @@ namespace GUIApp {
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->txtExperiencia = (gcnew System::Windows::Forms::TextBox());
 			this->bt_nuevo = (gcnew System::Windows::Forms::Button());
+			this->CheckboxClave = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dvgVeedor))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -282,6 +285,7 @@ namespace GUIApp {
 			// 
 			this->txtClave->Location = System::Drawing::Point(528, 47);
 			this->txtClave->Name = L"txtClave";
+			this->txtClave->PasswordChar = '*';
 			this->txtClave->Size = System::Drawing::Size(148, 20);
 			this->txtClave->TabIndex = 15;
 			// 
@@ -328,7 +332,7 @@ namespace GUIApp {
 			// 
 			// btAdd
 			// 
-			this->btAdd->Location = System::Drawing::Point(375, 231);
+			this->btAdd->Location = System::Drawing::Point(367, 231);
 			this->btAdd->Name = L"btAdd";
 			this->btAdd->Size = System::Drawing::Size(96, 30);
 			this->btAdd->TabIndex = 26;
@@ -338,7 +342,7 @@ namespace GUIApp {
 			// 
 			// btUpdate
 			// 
-			this->btUpdate->Location = System::Drawing::Point(528, 231);
+			this->btUpdate->Location = System::Drawing::Point(496, 231);
 			this->btUpdate->Name = L"btUpdate";
 			this->btUpdate->Size = System::Drawing::Size(98, 30);
 			this->btUpdate->TabIndex = 27;
@@ -348,7 +352,7 @@ namespace GUIApp {
 			// 
 			// btDelete
 			// 
-			this->btDelete->Location = System::Drawing::Point(682, 231);
+			this->btDelete->Location = System::Drawing::Point(617, 231);
 			this->btDelete->Name = L"btDelete";
 			this->btDelete->Size = System::Drawing::Size(93, 30);
 			this->btDelete->TabIndex = 28;
@@ -438,7 +442,7 @@ namespace GUIApp {
 			// 
 			// bt_nuevo
 			// 
-			this->bt_nuevo->Location = System::Drawing::Point(726, 13);
+			this->bt_nuevo->Location = System::Drawing::Point(734, 231);
 			this->bt_nuevo->Name = L"bt_nuevo";
 			this->bt_nuevo->Size = System::Drawing::Size(99, 31);
 			this->bt_nuevo->TabIndex = 32;
@@ -446,11 +450,23 @@ namespace GUIApp {
 			this->bt_nuevo->UseVisualStyleBackColor = true;
 			this->bt_nuevo->Click += gcnew System::EventHandler(this, &Veedor_CRUD::bt_nuevo_Click);
 			// 
+			// CheckboxClave
+			// 
+			this->CheckboxClave->AutoSize = true;
+			this->CheckboxClave->Location = System::Drawing::Point(695, 50);
+			this->CheckboxClave->Name = L"CheckboxClave";
+			this->CheckboxClave->Size = System::Drawing::Size(118, 17);
+			this->CheckboxClave->TabIndex = 33;
+			this->CheckboxClave->Text = L"Mostrar Contraseña";
+			this->CheckboxClave->UseVisualStyleBackColor = true;
+			this->CheckboxClave->CheckedChanged += gcnew System::EventHandler(this, &Veedor_CRUD::checkBox1_CheckedChanged);
+			// 
 			// Veedor_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(860, 586);
+			this->Controls->Add(this->CheckboxClave);
 			this->Controls->Add(this->bt_nuevo);
 			this->Controls->Add(this->txtExperiencia);
 			this->Controls->Add(this->label14);
@@ -519,10 +535,10 @@ namespace GUIApp {
 				veedor->Piso = Convert::ToInt32(txtPiso->Text);
 			}
 			Service::VerificarDuplicadoVeedor(VeedorLista, veedor->DNI, veedor->Nombre, veedor->Apellido, veedor->NombreUsuario, veedor->Celular);
-			Service::AddVeedor(veedor);
 			veedor->Id = Service::UpdateVeedorID(VeedorLista);
+			Service::AddVeedor(veedor);
 			ShowVeedor();
-			MessageBox::Show("Se agrego al veedor " + veedor->Nombre + veedor->Apellido + "con ID " + veedor->Id);
+			MessageBox::Show("Se agrego al veedor " + veedor->Nombre + " " + veedor->Apellido + " con ID " + veedor->Id);
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
@@ -532,6 +548,7 @@ namespace GUIApp {
 	public:
 		void ShowVeedor() {
 			List <Veedor^>^ VeedorLista = Service::QueryAllVeedor();
+			Service::OrdenarVeedorID(VeedorLista);
 			if (VeedorLista != nullptr) {
 				dvgVeedor->Rows->Clear();
 				for (int i = 0; i < VeedorLista->Count; i++) {
@@ -560,6 +577,7 @@ namespace GUIApp {
 	}
 	private: System::Void btUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ ID = txtID->Text;
+		int result1, result2, result3, result4;
 		if (ID->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Veedor");
 			return;
@@ -569,9 +587,14 @@ namespace GUIApp {
 			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
 			return;
 		}
+		if (!(Int32::TryParse(txtCelular->Text, result1) && Int32::TryParse(txtDNI->Text, result2) && (Int32::TryParse(txtPiso->Text, result3) || txtPiso->Text == "") && (Int32::TryParse(txtSalario->Text, result4) || txtSalario->Text == ""))) {
+			MessageBox::Show("Las casillas de Celular, DNI, Piso y Salario deben ser rellenadas con números");
+			return;
+		}
 		try {
 			List <Veedor^>^ VeedorLista = Service::QueryAllVeedor();
 			Veedor^ veedor = gcnew Veedor();
+			Veedor^ veedor2 = Service::QueryVeedorById(Convert::ToInt32(ID));
 			veedor->Apellido = txtApellido->Text;
 			veedor->Nombre = txtNombre->Text;
 			veedor->DNI = Convert::ToInt32(txtDNI->Text);
@@ -586,10 +609,10 @@ namespace GUIApp {
 			if (txtPiso->Text != "") {
 				veedor->Piso = Convert::ToInt32(txtPiso->Text);
 			}
-			Service::VerificarDuplicadoVeedor(VeedorLista, veedor->DNI, veedor->Nombre, veedor->Apellido, veedor->NombreUsuario, veedor->Celular);
+			Service::VerificarCambioVeedor(veedor2, veedor->DNI, veedor->Nombre, veedor->Apellido, veedor->NombreUsuario, veedor->Celular, veedor->Piso, veedor->Experiencia, veedor->Salario, veedor->Clave, veedor->Email);
 			Service::UpdateVeedora(veedor);
 			ShowVeedor();
-			MessageBox::Show("Se ha modificado el Personal " + veedor->Id + "-" + veedor->Nombre);
+			MessageBox::Show("Se ha modificado el Personal " + veedor2->Id + "-" + veedor->Nombre);
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No se ha podido modificar el personal por el siguiente motivo:\n" +
@@ -614,15 +637,15 @@ namespace GUIApp {
 	}
 	private: System::Void btDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ ID = txtID->Text->Trim();
-		Veedor^ veedor = Service::QueryVeedorById(Convert::ToInt32(ID));
 		if (ID->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Veedor");
 			return;
 		}
 		try {
+			Veedor^ veedor = Service::QueryVeedorById(Convert::ToInt32(ID));
+			MessageBox::Show("Se ha eliminado el Veedor " + veedor->Apellido +" "+ veedor->Nombre + " de manera exitosa.");
+			Service::DeleteVeedor(Convert::ToInt32(ID));
 			ShowVeedor();
-			MessageBox::Show("Se ha eliminado el Veedor " + veedor->Apellido + veedor->Nombre + " de manera exitosa.");
-			Service::DeletePersonalLimpieza(Convert::ToInt32(ID));
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No ha sido posible eliminar el Personal por el siguiente motivo:\n" +
@@ -631,7 +654,7 @@ namespace GUIApp {
 	}
 	private: System::Void bt_nuevo_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<Veedor^>^ VeedorLista = Service::QueryAllVeedor();
-		txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista)+1);
+		txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 		txtApellido->Text = "";
 		txtNombre->Text = "";
 		txtDNI->Text = "";
@@ -649,5 +672,13 @@ namespace GUIApp {
 				List<Veedor^>^ VeedorLista = Service::QueryAllVeedor();
 			   txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 	}
+private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (CheckboxClave->Checked) {
+		txtClave->PasswordChar = '\0';
+	}
+	else {
+		txtClave->PasswordChar = '*';
+	}
+}
 };
 }

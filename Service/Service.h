@@ -32,6 +32,9 @@ namespace EstacionamientoService {
 		static Veedor^ QueryVeedorById(int VeedorID);
 		static int UpdateVeedorID(List<Veedor^>^);
 		static void VerificarDuplicadoVeedor(List<Veedor^>^, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular);
+		static void VerificarCambioVeedor(Veedor^, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular, int Piso, String^ Experiencia, int Salario, String^ Clave, String^ Email);
+		static int CompararPorIdVeedor(Veedor^ a, Veedor^ b);
+		static void OrdenarVeedorID(List<Veedor^>^);
 		// CRUD PARA CLIENTES
 		static void AddCliente(Cliente^);
 		static void UpdateCliente(Cliente^);
