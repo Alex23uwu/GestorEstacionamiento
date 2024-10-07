@@ -559,12 +559,18 @@ namespace GUIApp {
 	private: System::Void label14_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ ID = txtID->Text->Trim();
+		String^ ID = txtID->Text;
 		if (ID->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Veedor");
 			return;
 		}
+		if (txtNombre->Text->Trim() == "" || txtApellido->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+			|| txtNombreUsuario->Text->Trim() == "" || txtClave->Text->Trim() == "" || txtEmail->Text->Trim() == "") {
+			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+			return;
+		}
 		try {
+			List <Veedor^>^ VeedorLista = Service::QueryAllVeedor();
 			Veedor^ veedor = gcnew Veedor();
 			veedor->Apellido = txtApellido->Text;
 			veedor->Nombre = txtNombre->Text;
@@ -573,10 +579,14 @@ namespace GUIApp {
 			veedor->Clave = txtClave->Text;
 			veedor->Experiencia = txtExperiencia->Text;
 			veedor->Celular = Convert::ToInt32(txtCelular->Text);
-			veedor->Id = Convert::ToInt32(txtID->Text);
 			veedor->Email = txtEmail->Text;
-			veedor->Salario = Convert::ToInt32(txtSalario->Text);
-			veedor->Piso = Convert::ToInt32(txtPiso->Text);
+			if (txtSalario->Text != "") {
+				veedor->Salario = Convert::ToInt32(txtSalario->Text);
+			}
+			if (txtPiso->Text != "") {
+				veedor->Piso = Convert::ToInt32(txtPiso->Text);
+			}
+			Service::VerificarDuplicadoVeedor(VeedorLista, veedor->DNI, veedor->Nombre, veedor->Apellido, veedor->NombreUsuario, veedor->Celular);
 			Service::UpdateVeedora(veedor);
 			ShowVeedor();
 			MessageBox::Show("Se ha modificado el Personal " + veedor->Id + "-" + veedor->Nombre);
