@@ -30,6 +30,8 @@ namespace EstacionamientoService {
 		static void DeleteVeedor(int VeedorID);
 		static List<Veedor^>^ QueryAllVeedor();
 		static Veedor^ QueryVeedorById(int VeedorID);
+		static int UpdateVeedorID(List<Veedor^>^);
+		static void VerificarDuplicadoVeedor(List<Veedor^>^, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular);
 		// CRUD PARA CLIENTES
 		static void AddCliente(Cliente^);
 		static void UpdateCliente(Cliente^);

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Service.h"
 #include "DuplicatedLimpiadorException.h"
+#include "DuplicatedVeedorException.h"
 
 
 // CRUD PERSONAL LIMPIEZA
@@ -51,11 +52,6 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
-	for each (Veedor^ veedor in ListaVeedor) {
-		if (veedor->Id == veedor->Id) {
-			throw gcnew DuplicatedLimpiadorException("El código del Veedor ya existe en la base de datos.");
-		}
-	}
 	ListaVeedor->Add(veedor);
 }
 
@@ -88,6 +84,36 @@ Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			return ListaVeedor[i];
+		}
+	}
+}
+
+int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
+{
+	if (VeedorLista != nullptr) {
+		int i = VeedorLista->Count;
+		return i;
+	}
+}
+
+void  EstacionamientoService::Service::VerificarDuplicadoVeedor(List<Veedor^>^ ListaVeedor, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular)
+{
+	for each (Veedor ^ veedor in ListaVeedor) {
+		if (veedor->DNI == DNI) {
+			throw gcnew DuplicatedVeedorException("El DNI del Veedor ya existe en la base de datos.");
+			return;
+		}
+		if (veedor->Nombre == Nombre && veedor->Apellido == Apellido) {
+			throw gcnew DuplicatedVeedorException("El Nombre y Apellido del Veedor ya existe en la base de datos.");
+			return;
+		}
+		if (veedor->NombreUsuario == NombreUsuario) {
+			throw gcnew DuplicatedVeedorException("El Nombre de usuario del Veedor ya existe en la base de datos.");
+			return;
+		}
+		if (veedor->Celular == Celular) {
+			throw gcnew DuplicatedVeedorException("El Celular del Veedor ya existe en la base de datos.");
+			return;
 		}
 	}
 }
