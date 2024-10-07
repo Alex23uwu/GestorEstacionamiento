@@ -95,6 +95,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colApellidos;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colDNI;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ colCelular;
+	private: System::Windows::Forms::Button^ btnLimpiar;
 
 
 
@@ -137,6 +138,7 @@ namespace GUIApp {
 			this->colApellidos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colDNI = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colCelular = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnLimpiar = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvAdministrador))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -173,6 +175,7 @@ namespace GUIApp {
 			// 
 			this->txtId->Location = System::Drawing::Point(163, 52);
 			this->txtId->Name = L"txtId";
+			this->txtId->ReadOnly = true;
 			this->txtId->Size = System::Drawing::Size(37, 20);
 			this->txtId->TabIndex = 44;
 			// 
@@ -352,12 +355,23 @@ namespace GUIApp {
 			this->colCelular->HeaderText = L"Celular";
 			this->colCelular->Name = L"colCelular";
 			// 
+			// btnLimpiar
+			// 
+			this->btnLimpiar->Location = System::Drawing::Point(510, 204);
+			this->btnLimpiar->Name = L"btnLimpiar";
+			this->btnLimpiar->Size = System::Drawing::Size(120, 23);
+			this->btnLimpiar->TabIndex = 70;
+			this->btnLimpiar->Text = L"Limpiar";
+			this->btnLimpiar->UseVisualStyleBackColor = true;
+			this->btnLimpiar->Click += gcnew System::EventHandler(this, &Administrador_CRUD::btnLimpiar_Click);
+			// 
 			// Administrador_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(743, 608);
+			this->Controls->Add(this->btnLimpiar);
 			this->Controls->Add(this->dgvAdministrador);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtUsername);
@@ -381,6 +395,7 @@ namespace GUIApp {
 			this->ForeColor = System::Drawing::Color::Black;
 			this->Name = L"Administrador_CRUD";
 			this->Text = L"Administrador_CRUD";
+			this->Load += gcnew System::EventHandler(this, &Administrador_CRUD::Administrador_CRUD_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvAdministrador))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -391,29 +406,34 @@ namespace GUIApp {
 	
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		Administrador^ administrador = gcnew Administrador();
-
-		if (txtId->Text->Trim() == "" || txtNombres->Text->Trim() == "" || txtApellidos->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+		if (txtNombres->Text->Trim() == "" || txtApellidos->Text->Trim() == "" || txtDNI->Text->Trim() == ""
 			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "") {
 			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
 			return;
 		}
 		try {
-			administrador->Id = Int32::Parse(txtId->Text);
+			administrador->Id = Service::UpdateAdministradorId();
 			administrador->Nombre = txtNombres->Text;
 			administrador->Apellido = txtApellidos->Text;
 			administrador->NombreUsuario = txtUsername->Text;
 			administrador->Clave = txtPassword->Text;
-			administrador->DNI = Int32::Parse(txtDNI->Text);
-			administrador->Celular = Int32::Parse(txtPhoneNumber->Text);
-			administrador->Email = txtEmail->Text;
+
+			if (txtPhoneNumber->Text != "") {
+				administrador->Celular = Int32::Parse(txtPhoneNumber->Text);
+			}
+			if (txtDNI->Text != "") {
+				administrador->DNI = Int32::Parse(txtDNI->Text);
+			}
+			if (txtEmail->Text != "") {
+				administrador->Email = txtEmail->Text;
+			}
 
 			MessageBox::Show("Se agrego al administrador " + administrador->Nombre + " " + administrador->Apellido + " con ID " + administrador->Id);
 			Service::AddAdministrador(administrador);
 			ShowAdministrador();
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("No ha sido posible agregar el Administrador por el siguiente motivo: \n" +
-				ex->Message);
+			MessageBox::Show("Los parámetros ingresados en Id, DNI y Celular deben ser números.");
 		}
 	}
 
@@ -434,12 +454,12 @@ public:
 			}
 		}
 	}
+
 private: System::Void dgvAdministrador_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	int adminId = Convert::ToInt32(dgvAdministrador->Rows[dgvAdministrador->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 	Administrador^ administrador = Service::QueryAdministradorById(adminId);
 	txtId->Text = "" + administrador->Id;
 	txtNombres->Text = administrador->Nombre;
-
 	txtApellidos->Text = administrador->Apellido;
 	txtUsername->Text = administrador->NombreUsuario;
 	txtPassword->Text = administrador->Clave;
@@ -447,22 +467,16 @@ private: System::Void dgvAdministrador_CellClick(System::Object^ sender, System:
 	txtPhoneNumber->Text = "" + administrador->Celular;
 	txtEmail->Text = administrador->Email;
 }
+
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ Id = txtId->Text->Trim();
 	Administrador^ administrador = Service::QueryAdministradorById(Convert::ToInt32(Id));
 	if (Id->Equals("")) {
-		MessageBox::Show("Debe seleccionar un Administrador");
+		MessageBox::Show("Debe seleccionar un Administrador.");
 		return;
 	}
-	if (administrador->Id == Int32::Parse(txtId->Text) ||
-		administrador->Nombre == txtNombres->Text ||
-		administrador->Apellido == txtApellidos->Text ||
-		administrador->NombreUsuario == txtUsername->Text ||
-		administrador->Clave == txtPassword->Text ||
-		administrador->DNI == Int32::Parse(txtDNI->Text) ||
-		administrador->Celular == Int32::Parse(txtPhoneNumber->Text) ||
-		administrador->Email == txtEmail->Text) {
-		MessageBox::Show("Debe realizar alguna modificación");
+	if (administrador == nullptr) {
+		MessageBox::Show("No modifique el valor de Id");
 		return;
 	}
 	try {
@@ -478,12 +492,23 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ Id = txtId->Text->Trim();
+	Administrador^ administrador = Service::QueryAdministradorById(Convert::ToInt32(Id));
 	if (Id->Equals("")) {
 		MessageBox::Show("Debe seleccionar un Administrador");
 		return;
 	}
+	if (administrador->Id == Int32::Parse(txtId->Text) &&
+		administrador->Nombre == txtNombres->Text &&
+		administrador->Apellido == txtApellidos->Text &&
+		administrador->NombreUsuario == txtUsername->Text &&
+		administrador->Clave == txtPassword->Text &&
+		administrador->DNI == Int32::Parse(txtDNI->Text) &&
+		administrador->Celular == Int32::Parse(txtPhoneNumber->Text) &&
+		administrador->Email == txtEmail->Text) {
+		MessageBox::Show("Debe realizar alguna modificación");
+		return;
+	}
 	try {
-		Administrador^ administrador = gcnew Administrador();
 		administrador->Id = Int32::Parse(txtId->Text);
 		administrador->Nombre = txtNombres->Text;
 		administrador->Apellido = txtApellidos->Text;
@@ -501,6 +526,19 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 			ex->Message);
 	}
 
+}
+private: System::Void Administrador_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
+	txtId->Text = "" + Service::UpdateAdministradorId();
+}
+private: System::Void btnLimpiar_Click(System::Object^ sender, System::EventArgs^ e) {
+	txtId->Text = "" + Service::UpdateAdministradorId();
+	txtApellidos->Text = "";
+	txtNombres->Text = "";
+	txtDNI->Text = "";
+	txtPassword->Text = "";
+	txtUsername->Text = "";
+	txtPhoneNumber->Text = "";
+	txtEmail->Text = "";
 }
 };
 }

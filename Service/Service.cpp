@@ -205,3 +205,16 @@ Administrador^ EstacionamientoService::Service::QueryAdministradorById(int admin
 		}
 	}
 }
+
+int EstacionamientoService::Service::UpdateAdministradorId() {
+	int prueba = 1;
+	for (int i = 0; i < ListaAdministrador->Count; i++) {
+		if (ListaAdministrador[i]->Id  == prueba) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
+}

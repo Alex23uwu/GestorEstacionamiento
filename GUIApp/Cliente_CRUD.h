@@ -733,44 +733,13 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			}
 		}
 	private: System::Void btnAddPerson_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		if (txtPersonId->Text->Trim() == "" || txtFirstName->Text->Trim() == "" || txtLastName->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "" || txtPlaca->Text->Trim() == "" || txtModelo->Text->Trim() == "" ||
+			txtColor->Text->Trim() == "") {
+			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+			return;
+		}
 		try {
-			if (txtPersonId->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtFirstName->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtLastName->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtUsername->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtPassword->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtDNI->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtPlaca->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtModelo->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-			}
-			if (txtColor->Text->Trim() == "") {
-				MessageBox::Show("Se deben rellenar todos los campos obligatorios.");
-				return;
-				}
 			Cliente^ clientes = gcnew Cliente();
 			Vehiculo^ vehiculos = gcnew Vehiculo();
 			clientes->Id = Int32::Parse(txtPersonId->Text);
