@@ -331,20 +331,29 @@ namespace GUIApp {
 	}
 	private: System::Void bttUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalId = txtId->Text->Trim();
+		PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalId));
 		if (personalId->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Personal de Limpieza");
 			return;
 		}
 		try {
 			int id = Convert::ToInt32(personalId);
-			PersonalLimpieza^ personal = gcnew PersonalLimpieza(id);
-			personal->Nombre = txtNombre->Text;
-			personal->Apellido = txtApellido->Text;
-			personal->Estado = txtEstado->Text;
-			personal->Piso = Convert::ToInt32(txtPiso->Text);
-			Service::UpdatePersonalLimpieza(personal);
+			PersonalLimpieza^ limpieza = gcnew PersonalLimpieza(id);
+			limpieza->Nombre = txtNombre->Text;
+			limpieza->Apellido = txtApellido->Text;
+			limpieza->Estado = txtEstado->Text;
+			limpieza->Piso = Convert::ToInt32(txtPiso->Text);
+			Service::UpdatePersonalLimpieza(limpieza);
 			ShowPersonal();
-			MessageBox::Show("Se ha modificado el Personal " + id + "-" + personal->Nombre);
+			MessageBox::Show("Se ha modificado el Personal " + id + "-" + limpieza->Nombre);
+			if (personal->Apellido == txtApellido->Text &&
+				personal->Id == Int32::Parse(txtId->Text) &&
+				personal->Estado == txtEstado->Text &&
+				personal->Nombre == txtNombre->Text &&
+				personal->Piso == Int32::Parse(txtPiso->Text)) {
+				MessageBox::Show("Debe realizar alguna modificación");
+				return;
+			}
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No se ha podido modificar el robot por el siguiente motivo:\n" +
