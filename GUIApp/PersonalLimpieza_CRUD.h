@@ -50,14 +50,25 @@ namespace GUIApp {
 	private: System::Windows::Forms::TextBox^ txtId;
 	private: System::Windows::Forms::TextBox^ txtNombre;
 	private: System::Windows::Forms::TextBox^ txtApellido;
+	private: System::Windows::Forms::TextBox^ txtEstado;
 
-	private: System::Windows::Forms::TextBox^ txtDisponibilidad;
+
 	private: System::Windows::Forms::TextBox^ txtPiso;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaNombre;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaApellido;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumaDisponibilidad;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaEstado;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPiso;
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -81,16 +92,16 @@ namespace GUIApp {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->dgvPersonalLimpiez = (gcnew System::Windows::Forms::DataGridView());
-			this->ColumnaId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumaDisponibilidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
-			this->txtDisponibilidad = (gcnew System::Windows::Forms::TextBox());
+			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
 			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
+			this->ColumnaId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaEstado = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ColumnaPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -156,9 +167,9 @@ namespace GUIApp {
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(31, 119);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(72, 13);
+			this->label4->Size = System::Drawing::Size(40, 13);
 			this->label4->TabIndex = 6;
-			this->label4->Text = L"Disponibilidad";
+			this->label4->Text = L"Estado";
 			// 
 			// label5
 			// 
@@ -174,38 +185,13 @@ namespace GUIApp {
 			this->dgvPersonalLimpiez->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvPersonalLimpiez->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->ColumnaId,
-					this->ColumnaNombre, this->ColumnaApellido, this->ColumaDisponibilidad, this->ColumnaPiso
+					this->ColumnaNombre, this->ColumnaApellido, this->ColumnaEstado, this->ColumnaPiso
 			});
 			this->dgvPersonalLimpiez->Location = System::Drawing::Point(12, 237);
 			this->dgvPersonalLimpiez->Name = L"dgvPersonalLimpiez";
 			this->dgvPersonalLimpiez->Size = System::Drawing::Size(543, 203);
 			this->dgvPersonalLimpiez->TabIndex = 8;
 			this->dgvPersonalLimpiez->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalLimpieza_CRUD::dgvPersonalLimpiez_CellClick);
-			// 
-			// ColumnaId
-			// 
-			this->ColumnaId->HeaderText = L"Id";
-			this->ColumnaId->Name = L"ColumnaId";
-			// 
-			// ColumnaNombre
-			// 
-			this->ColumnaNombre->HeaderText = L"Nombre";
-			this->ColumnaNombre->Name = L"ColumnaNombre";
-			// 
-			// ColumnaApellido
-			// 
-			this->ColumnaApellido->HeaderText = L"Apellido";
-			this->ColumnaApellido->Name = L"ColumnaApellido";
-			// 
-			// ColumaDisponibilidad
-			// 
-			this->ColumaDisponibilidad->HeaderText = L"Disponibilidad";
-			this->ColumaDisponibilidad->Name = L"ColumaDisponibilidad";
-			// 
-			// ColumnaPiso
-			// 
-			this->ColumnaPiso->HeaderText = L"Piso";
-			this->ColumnaPiso->Name = L"ColumnaPiso";
 			// 
 			// txtId
 			// 
@@ -228,12 +214,12 @@ namespace GUIApp {
 			this->txtApellido->Size = System::Drawing::Size(99, 20);
 			this->txtApellido->TabIndex = 11;
 			// 
-			// txtDisponibilidad
+			// txtEstado
 			// 
-			this->txtDisponibilidad->Location = System::Drawing::Point(111, 116);
-			this->txtDisponibilidad->Name = L"txtDisponibilidad";
-			this->txtDisponibilidad->Size = System::Drawing::Size(99, 20);
-			this->txtDisponibilidad->TabIndex = 12;
+			this->txtEstado->Location = System::Drawing::Point(111, 116);
+			this->txtEstado->Name = L"txtEstado";
+			this->txtEstado->Size = System::Drawing::Size(99, 20);
+			this->txtEstado->TabIndex = 12;
 			// 
 			// txtPiso
 			// 
@@ -242,6 +228,31 @@ namespace GUIApp {
 			this->txtPiso->Size = System::Drawing::Size(99, 20);
 			this->txtPiso->TabIndex = 13;
 			// 
+			// ColumnaId
+			// 
+			this->ColumnaId->HeaderText = L"Id";
+			this->ColumnaId->Name = L"ColumnaId";
+			// 
+			// ColumnaNombre
+			// 
+			this->ColumnaNombre->HeaderText = L"Nombre";
+			this->ColumnaNombre->Name = L"ColumnaNombre";
+			// 
+			// ColumnaApellido
+			// 
+			this->ColumnaApellido->HeaderText = L"Apellido";
+			this->ColumnaApellido->Name = L"ColumnaApellido";
+			// 
+			// ColumnaEstado
+			// 
+			this->ColumnaEstado->HeaderText = L"Estado";
+			this->ColumnaEstado->Name = L"ColumnaEstado";
+			// 
+			// ColumnaPiso
+			// 
+			this->ColumnaPiso->HeaderText = L"Piso";
+			this->ColumnaPiso->Name = L"ColumnaPiso";
+			// 
 			// PersonalLimpieza_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -249,7 +260,7 @@ namespace GUIApp {
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(567, 452);
 			this->Controls->Add(this->txtPiso);
-			this->Controls->Add(this->txtDisponibilidad);
+			this->Controls->Add(this->txtEstado);
 			this->Controls->Add(this->txtApellido);
 			this->Controls->Add(this->txtNombre);
 			this->Controls->Add(this->txtId);
@@ -277,7 +288,7 @@ namespace GUIApp {
 			PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
 			personalLimp->Nombre = txtNombre->Text;
 			personalLimp->Apellido = txtApellido->Text;
-			personalLimp->Disponibilidad = txtDisponibilidad->Text;
+			personalLimp->Estado = txtEstado->Text;
 			personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
 			Service::AddPersonalLimpieza(personalLimp);
 			ShowPersonal();
@@ -297,7 +308,7 @@ namespace GUIApp {
 					dgvPersonalLimpiez->Rows->Add(gcnew array<String^> {"" + listaPersonal[i]->Id,
 						listaPersonal[i]->Nombre,
 						listaPersonal[i]->Apellido,
-						listaPersonal[i]->Disponibilidad,
+						listaPersonal[i]->Estado,
 						"" + listaPersonal[i]->Piso});
 				}
 			}
@@ -315,7 +326,7 @@ namespace GUIApp {
 		txtId->Text = "" + personalLimp->Id;
 		txtNombre->Text = personalLimp->Nombre;
 		txtApellido->Text = personalLimp->Apellido;
-		txtDisponibilidad->Text = personalLimp->Disponibilidad;
+		txtEstado->Text = personalLimp->Estado;
 		txtPiso->Text = "" + personalLimp->Piso;
 	}
 	private: System::Void bttUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -329,7 +340,7 @@ namespace GUIApp {
 			PersonalLimpieza^ personal = gcnew PersonalLimpieza(id);
 			personal->Nombre = txtNombre->Text;
 			personal->Apellido = txtApellido->Text;
-			personal->Disponibilidad = txtDisponibilidad->Text;
+			personal->Estado = txtEstado->Text;
 			personal->Piso = Convert::ToInt32(txtPiso->Text);
 			Service::UpdatePersonalLimpieza(personal);
 			ShowPersonal();

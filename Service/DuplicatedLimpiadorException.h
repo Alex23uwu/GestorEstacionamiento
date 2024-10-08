@@ -1,5 +1,5 @@
 #pragma once
-namespace EstacionamientoService{
+namespace EstacionamientoService {
 
 	public ref class DuplicatedLimpiadorException : public System::Exception {
 	public:

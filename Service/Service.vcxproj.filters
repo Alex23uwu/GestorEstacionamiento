@@ -30,6 +30,9 @@
     <ClInclude Include="DuplicatedVeedorException.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="DoesNotExistLimpieadorId.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Service.cpp">
@@ -45,6 +48,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="DuplicatedVeedorException.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="DoesNotExistLimpieadorId.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

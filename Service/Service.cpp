@@ -1,14 +1,15 @@
 #include "pch.h"
 #include "Service.h"
 #include "DuplicatedLimpiadorException.h"
+#include "DoesNotExistLimpieadorId.h"
 #include "DuplicatedVeedorException.h"
 
 
 // CRUD PERSONAL LIMPIEZA
 void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza ){
 
-	for each (PersonalLimpieza ^ personalLimpieza in ListaPersonalLimpieza) {
-		if (personalLimpieza->Id == personalLimpieza->Id) {
+	for each (PersonalLimpieza ^ personalLimp in ListaPersonalLimpieza) {
+		if (personalLimp->Id == personalLimpieza->Id) {
 			throw gcnew DuplicatedLimpiadorException("El código del Limpiador ya existe en la base de datos.");
 		}
 	}
@@ -23,6 +24,7 @@ void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ p
 			return;
 		}
 	}
+	throw gcnew DoesNotExistLimpieadorId("El código del Limpiador no existe en la base de datos ");
 }
 
 void EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiezaID)

@@ -119,6 +119,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DoesNotExistLimpieadorId.h" />
     <ClInclude Include="DuplicatedLimpiadorException.h" />
     <ClInclude Include="DuplicatedVeedorException.h" />
     <ClInclude Include="pch.h" />
@@ -127,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="DoesNotExistLimpieadorId.cpp" />
     <ClCompile Include="DuplicatedLimpiadorException.cpp" />
     <ClCompile Include="DuplicatedVeedorException.cpp" />
     <ClCompile Include="pch.cpp">
