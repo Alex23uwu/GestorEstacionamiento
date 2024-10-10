@@ -3,9 +3,14 @@
 using namespace System;
 using namespace Model;
 using namespace System::Collections::Generic;
+using namespace EstacionamientoPersistance;
+
 
 namespace EstacionamientoService {
 	public ref class Service {
+
+	public:
+		static String^ XML_LIMPIADOR_FILE_NAME = "personalLimpieza.xml";
 	private:
 		static List<Estacionamiento^>^ ListaEstacionamiento = gcnew List<Estacionamiento^>();
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();

@@ -92,16 +92,16 @@ namespace GUIApp {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->dgvPersonalLimpiez = (gcnew System::Windows::Forms::DataGridView());
-			this->txtId = (gcnew System::Windows::Forms::TextBox());
-			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
-			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
-			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
-			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
 			this->ColumnaId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaEstado = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
+			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
+			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
+			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
+			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -193,6 +193,31 @@ namespace GUIApp {
 			this->dgvPersonalLimpiez->TabIndex = 8;
 			this->dgvPersonalLimpiez->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalLimpieza_CRUD::dgvPersonalLimpiez_CellClick);
 			// 
+			// ColumnaId
+			// 
+			this->ColumnaId->HeaderText = L"Id";
+			this->ColumnaId->Name = L"ColumnaId";
+			// 
+			// ColumnaNombre
+			// 
+			this->ColumnaNombre->HeaderText = L"Nombre";
+			this->ColumnaNombre->Name = L"ColumnaNombre";
+			// 
+			// ColumnaApellido
+			// 
+			this->ColumnaApellido->HeaderText = L"Apellido";
+			this->ColumnaApellido->Name = L"ColumnaApellido";
+			// 
+			// ColumnaEstado
+			// 
+			this->ColumnaEstado->HeaderText = L"Estado";
+			this->ColumnaEstado->Name = L"ColumnaEstado";
+			// 
+			// ColumnaPiso
+			// 
+			this->ColumnaPiso->HeaderText = L"Piso";
+			this->ColumnaPiso->Name = L"ColumnaPiso";
+			// 
 			// txtId
 			// 
 			this->txtId->Location = System::Drawing::Point(111, 20);
@@ -228,31 +253,6 @@ namespace GUIApp {
 			this->txtPiso->Size = System::Drawing::Size(99, 20);
 			this->txtPiso->TabIndex = 13;
 			// 
-			// ColumnaId
-			// 
-			this->ColumnaId->HeaderText = L"Id";
-			this->ColumnaId->Name = L"ColumnaId";
-			// 
-			// ColumnaNombre
-			// 
-			this->ColumnaNombre->HeaderText = L"Nombre";
-			this->ColumnaNombre->Name = L"ColumnaNombre";
-			// 
-			// ColumnaApellido
-			// 
-			this->ColumnaApellido->HeaderText = L"Apellido";
-			this->ColumnaApellido->Name = L"ColumnaApellido";
-			// 
-			// ColumnaEstado
-			// 
-			this->ColumnaEstado->HeaderText = L"Estado";
-			this->ColumnaEstado->Name = L"ColumnaEstado";
-			// 
-			// ColumnaPiso
-			// 
-			this->ColumnaPiso->HeaderText = L"Piso";
-			this->ColumnaPiso->Name = L"ColumnaPiso";
-			// 
 			// PersonalLimpieza_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -275,6 +275,7 @@ namespace GUIApp {
 			this->Controls->Add(this->bttAdd);
 			this->Name = L"PersonalLimpieza_CRUD";
 			this->Text = L"Mantenimiento Personal de Limpiez";
+			this->Load += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::PersonalLimpieza_CRUD_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -377,5 +378,8 @@ namespace GUIApp {
 				ex->Message);
 		}
 	}
-	};
+	private: System::Void PersonalLimpieza_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
+		ShowPersonal();
+	}
+};
 }

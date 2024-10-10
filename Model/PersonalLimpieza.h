@@ -15,6 +15,7 @@ namespace Model {
         String^ Estado;
         String^ Disponibilidad;
         int Id;
+        PersonalLimpieza() {}
         PersonalLimpieza(int id) {
             Id = id;
         }

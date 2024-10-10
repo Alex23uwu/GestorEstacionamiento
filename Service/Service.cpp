@@ -4,7 +4,7 @@
 #include "DoesNotExistLimpieadorId.h"
 #include "DuplicatedVeedorException.h"
 
-
+using namespace System::IO;
 // CRUD PERSONAL LIMPIEZA
 void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza ){
 
@@ -14,6 +14,7 @@ void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ pers
 		}
 	}
 	ListaPersonalLimpieza->Add(personalLimpieza);
+	Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME,ListaPersonalLimpieza);
 }
 
 void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ personalLimpieza)
@@ -21,6 +22,7 @@ void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ p
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == personalLimpieza->Id) {
 			ListaPersonalLimpieza[i] = personalLimpieza;
+			Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 			return;
 		}
 	}
@@ -32,6 +34,7 @@ void EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiez
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaID) {
 			ListaPersonalLimpieza->RemoveAt(i);
+			Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 			return;
 		}
 	}
@@ -39,6 +42,13 @@ void EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiez
 
 List<PersonalLimpieza^>^ EstacionamientoService::Service::QueryAllPersonalLimpieza()
 {
+	ListaPersonalLimpieza = gcnew List<PersonalLimpieza^>();
+	try
+	{ListaPersonalLimpieza = (List<PersonalLimpieza^>^)Persistance::LoadPersonalLimpiezaXmlFile(XML_LIMPIADOR_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex){
+
+	}
 	return ListaPersonalLimpieza;
 }
 
