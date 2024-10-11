@@ -11,15 +11,4 @@
     <Piso>2</Piso>
     <Tips>0</Tips>
   </PersonalLimpieza>
-  <PersonalLimpieza>
-    <Id>2</Id>
-    <Nombre>Dayana</Nombre>
-    <Apellido>Obando</Apellido>
-    <DNI>0</DNI>
-    <Estado>Activo</Estado>
-    <Celular>0</Celular>
-    <Salario>0</Salario>
-    <Piso>3</Piso>
-    <Tips>0</Tips>
-  </PersonalLimpieza>
 </ArrayOfPersonalLimpieza>

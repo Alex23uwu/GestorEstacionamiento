@@ -195,7 +195,6 @@ namespace GUIApp {
 		}
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		lblHora->Text = (DateTime::Now).ToString("HH:mm:ss");
 	}
 };
 }
