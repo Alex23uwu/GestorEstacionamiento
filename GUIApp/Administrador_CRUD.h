@@ -406,9 +406,14 @@ namespace GUIApp {
 	
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		Administrador^ administrador = gcnew Administrador();
+		int result1, result2;
 		if (txtNombres->Text->Trim() == "" || txtApellidos->Text->Trim() == "" || txtDNI->Text->Trim() == ""
 			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "") {
 			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+			return;
+		}
+		if (!(Int32::TryParse(txtPhoneNumber->Text, result1) && Int32::TryParse(txtDNI->Text, result2))) {
+			MessageBox::Show("Las casillas de Celular y DNI deben ser rellenadas con números");
 			return;
 		}
 		try {
@@ -493,8 +498,13 @@ private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^
 private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ Id = txtId->Text->Trim();
 	Administrador^ administrador = Service::QueryAdministradorById(Convert::ToInt32(Id));
+	int result1, result2;
 	if (Id->Equals("")) {
 		MessageBox::Show("Debe seleccionar un Administrador");
+		return;
+	}
+	if (!(Int32::TryParse(txtPhoneNumber->Text, result1) && Int32::TryParse(txtDNI->Text, result2))) {
+		MessageBox::Show("Las casillas de Celular y DNI deben ser rellenadas con números.");
 		return;
 	}
 	if (administrador->Id == Int32::Parse(txtId->Text) &&
