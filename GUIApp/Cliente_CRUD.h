@@ -26,6 +26,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
 		   static Model::Vehiculo^ userVehiculos;
+	public:
 
 		Cliente_CRUD(void)
 		{
