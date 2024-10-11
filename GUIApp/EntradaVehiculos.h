@@ -42,6 +42,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -65,6 +66,7 @@ namespace GUIApp {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -133,12 +135,26 @@ namespace GUIApp {
 			this->comboBox1->Size = System::Drawing::Size(123, 21);
 			this->comboBox1->TabIndex = 5;
 			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->button1->Location = System::Drawing::Point(311, 126);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(151, 46);
+			this->button1->TabIndex = 6;
+			this->button1->Text = L"Agregar";
+			this->button1->UseVisualStyleBackColor = false;
+			// 
 			// EntradaVehiculos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(682, 268);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);

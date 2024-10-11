@@ -359,12 +359,13 @@ namespace GUIApp {
 			MessageBox::Show("Se ha modificado el Personal " + id + "-" + limpieza->Nombre);
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("No se ha podido modificar el robot por el siguiente motivo:\n" +
+			MessageBox::Show("No se ha podido modificar el personal por el siguiente motivo:\n" +
 				ex->Message);
 		}
 	}
 	private: System::Void bttDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalID = txtId->Text->Trim();
+		PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalID));
 		if (personalID->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Personal");
 			return;
@@ -373,7 +374,7 @@ namespace GUIApp {
 			Service::DeletePersonalLimpieza(Convert::ToInt32(personalID));
 			ShowPersonal();
 			ClearControls();
-			MessageBox::Show("Se ha eliminado el Personal con Id = " + personalID + " de manera exitosa.");
+			MessageBox::Show("Se ha eliminado el Personal con Id = " + personalID +"-" + personal->Nombre + " de manera exitosa.");
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No ha sido posible eliminar el Personal por el siguiente motivo:\n" +
