@@ -5,7 +5,7 @@
     <Nombre>Alex</Nombre>
     <Apellido>Avila</Apellido>
     <DNI>0</DNI>
-    <Estado>1</Estado>
+    <Estado>Inactivo</Estado>
     <Celular>0</Celular>
     <Salario>0</Salario>
     <Piso>2</Piso>
@@ -16,10 +16,10 @@
     <Nombre>Pepe</Nombre>
     <Apellido>Rodriguez</Apellido>
     <DNI>0</DNI>
-    <Estado>Uwu</Estado>
+    <Estado>Activo</Estado>
     <Celular>0</Celular>
     <Salario>0</Salario>
-    <Piso>1</Piso>
+    <Piso>3</Piso>
     <Tips>0</Tips>
   </PersonalLimpieza>
 </ArrayOfPersonalLimpieza>

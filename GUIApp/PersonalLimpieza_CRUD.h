@@ -322,13 +322,15 @@ namespace GUIApp {
 			}
 		}
 	private: System::Void dgvPersonalLimpiez_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		int id = Convert::ToInt32(dgvPersonalLimpiez->Rows[dgvPersonalLimpiez->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-		PersonalLimpieza^ personalLimp = Service::QueryPersonalLimpiezaById(id);
-		txtId->Text = "" + personalLimp->Id;
-		txtNombre->Text = personalLimp->Nombre;
-		txtApellido->Text = personalLimp->Apellido;
-		txtEstado->Text = personalLimp->Estado;
-		txtPiso->Text = "" + personalLimp->Piso;
+		if (dgvPersonalLimpiez->Rows[dgvPersonalLimpiez->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
+			int id = Convert::ToInt32(dgvPersonalLimpiez->Rows[dgvPersonalLimpiez->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+			PersonalLimpieza^ personalLimp = Service::QueryPersonalLimpiezaById(id);
+			txtId->Text = "" + personalLimp->Id;
+			txtNombre->Text = personalLimp->Nombre;
+			txtApellido->Text = personalLimp->Apellido;
+			txtEstado->Text = personalLimp->Estado;
+			txtPiso->Text = "" + personalLimp->Piso;
+		}
 	}
 	private: System::Void bttUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalId = txtId->Text->Trim();
@@ -338,6 +340,14 @@ namespace GUIApp {
 			return;
 		}
 		try {
+			if (personal->Apellido == txtApellido->Text &&
+				personal->Id == Int32::Parse(txtId->Text) &&
+				personal->Estado == txtEstado->Text &&
+				personal->Nombre == txtNombre->Text &&
+				personal->Piso == Int32::Parse(txtPiso->Text)) {
+				MessageBox::Show("Debe realizar alguna modificación");
+				return;
+			}
 			int id = Convert::ToInt32(personalId);
 			PersonalLimpieza^ limpieza = gcnew PersonalLimpieza(id);
 			limpieza->Nombre = txtNombre->Text;
@@ -347,14 +357,6 @@ namespace GUIApp {
 			Service::UpdatePersonalLimpieza(limpieza);
 			ShowPersonal();
 			MessageBox::Show("Se ha modificado el Personal " + id + "-" + limpieza->Nombre);
-			if (personal->Apellido == txtApellido->Text &&
-				personal->Id == Int32::Parse(txtId->Text) &&
-				personal->Estado == txtEstado->Text &&
-				personal->Nombre == txtNombre->Text &&
-				personal->Piso == Int32::Parse(txtPiso->Text)) {
-				MessageBox::Show("Debe realizar alguna modificación");
-				return;
-			}
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No se ha podido modificar el robot por el siguiente motivo:\n" +
