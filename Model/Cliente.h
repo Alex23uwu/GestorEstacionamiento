@@ -11,10 +11,10 @@ using namespace System;
 namespace Model {
     public ref class Cliente : public Usuario {
     public:
-        int PuntosCliene;
-        int Descuento;
-        bool LugarReservado;
-        String^ Profession;
-        Vehiculo^ MiVehiculo;
+         property int PuntosCliene;
+         property int Descuento;
+         property bool LugarReservado;
+         property String^ Profession;
+         property Vehiculo^ MiVehiculo;
     };
 }

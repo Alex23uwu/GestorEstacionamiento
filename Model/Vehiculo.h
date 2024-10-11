@@ -5,17 +5,19 @@
 
 #pragma once
 #include "Estacionamiento.h"
+#include "Vehiculo.h"
 
 using namespace System;
 
 namespace Model {
     public ref class Vehiculo {
     public:
-        int Id;
-        String^ Placa;
-        String^ Modelo;
-        String^ Color;
-        String^ TipoVehiculo;
-        Estacionamiento^ AsigandoA;
+        property int Id;
+        property String^ Placa;
+        property String^ Modelo;
+        property String^ Color;
+        property String^ TipoVehiculo;
+        property Estacionamiento^ AsigandoA;
+        //property Cliente^ MiVehiculo;
     };
 }

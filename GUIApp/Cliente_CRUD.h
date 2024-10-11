@@ -18,6 +18,15 @@ namespace GUIApp {
 	public ref class Cliente_CRUD : public System::Windows::Forms::Form
 	{
 	public:
+		static Model::Cliente^ userClientes;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
+	public:
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ firstName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ lastName;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
+		   static Model::Vehiculo^ userVehiculos;
+
 		Cliente_CRUD(void)
 		{
 			InitializeComponent();
@@ -157,11 +166,11 @@ private: System::Windows::Forms::Button^ btnDeletePerson;
 private: System::Windows::Forms::Button^ btnUpdatePerson;
 private: System::Windows::Forms::Button^ btnAddPerson;
 private: System::Windows::Forms::DataGridView^ dgvPersons;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ firstName;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ lastName;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
+
+
+
+
+
 private: System::Windows::Forms::Label^ label7;
 private: System::Windows::Forms::Label^ label6;
 private: System::Windows::Forms::Label^ label5;
@@ -222,11 +231,6 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->btnUpdatePerson = (gcnew System::Windows::Forms::Button());
 			this->btnAddPerson = (gcnew System::Windows::Forms::Button());
 			this->dgvPersons = (gcnew System::Windows::Forms::DataGridView());
-			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->phoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -235,6 +239,11 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabCustomers = (gcnew System::Windows::Forms::TabControl());
+			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->phoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menuStrip1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
@@ -574,46 +583,6 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->dgvPersons->TabIndex = 16;
 			this->dgvPersons->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Cliente_CRUD::dgvPersons_CellContentClick);
 			// 
-			// personId
-			// 
-			this->personId->HeaderText = L"Id";
-			this->personId->MinimumWidth = 6;
-			this->personId->Name = L"personId";
-			this->personId->ReadOnly = true;
-			this->personId->Width = 20;
-			// 
-			// firstName
-			// 
-			this->firstName->HeaderText = L"Nombres";
-			this->firstName->MinimumWidth = 6;
-			this->firstName->Name = L"firstName";
-			this->firstName->ReadOnly = true;
-			this->firstName->Width = 125;
-			// 
-			// lastName
-			// 
-			this->lastName->HeaderText = L"Apellidos";
-			this->lastName->MinimumWidth = 6;
-			this->lastName->Name = L"lastName";
-			this->lastName->ReadOnly = true;
-			this->lastName->Width = 130;
-			// 
-			// dgvPlaca
-			// 
-			this->dgvPlaca->HeaderText = L"DNI";
-			this->dgvPlaca->MinimumWidth = 6;
-			this->dgvPlaca->Name = L"dgvPlaca";
-			this->dgvPlaca->ReadOnly = true;
-			this->dgvPlaca->Width = 120;
-			// 
-			// phoneNumber
-			// 
-			this->phoneNumber->HeaderText = L"Celular";
-			this->phoneNumber->MinimumWidth = 6;
-			this->phoneNumber->Name = L"phoneNumber";
-			this->phoneNumber->ReadOnly = true;
-			this->phoneNumber->Width = 70;
-			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
@@ -694,6 +663,46 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->tabCustomers->Size = System::Drawing::Size(856, 676);
 			this->tabCustomers->TabIndex = 8;
 			// 
+			// personId
+			// 
+			this->personId->HeaderText = L"Id";
+			this->personId->MinimumWidth = 6;
+			this->personId->Name = L"personId";
+			this->personId->ReadOnly = true;
+			this->personId->Width = 20;
+			// 
+			// firstName
+			// 
+			this->firstName->HeaderText = L"Nombres";
+			this->firstName->MinimumWidth = 6;
+			this->firstName->Name = L"firstName";
+			this->firstName->ReadOnly = true;
+			this->firstName->Width = 125;
+			// 
+			// lastName
+			// 
+			this->lastName->HeaderText = L"Apellidos";
+			this->lastName->MinimumWidth = 6;
+			this->lastName->Name = L"lastName";
+			this->lastName->ReadOnly = true;
+			this->lastName->Width = 130;
+			// 
+			// dgvPlaca
+			// 
+			this->dgvPlaca->HeaderText = L"Placa";
+			this->dgvPlaca->MinimumWidth = 6;
+			this->dgvPlaca->Name = L"dgvPlaca";
+			this->dgvPlaca->ReadOnly = true;
+			this->dgvPlaca->Width = 120;
+			// 
+			// phoneNumber
+			// 
+			this->phoneNumber->HeaderText = L"Celular";
+			this->phoneNumber->MinimumWidth = 6;
+			this->phoneNumber->Name = L"phoneNumber";
+			this->phoneNumber->ReadOnly = true;
+			this->phoneNumber->Width = 70;
+			// 
 			// Cliente_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -727,7 +736,7 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 						Convert::ToString(listaCliente[i]->Id),
 							listaCliente[i]->Nombre,
 							listaCliente[i]->Apellido,
-							""+listaCliente[i]->DNI,
+							listaCliente[i]->MiVehiculo->Placa,
 							Convert::ToString(listaCliente[i]->Celular),
 					});
 				}
@@ -752,16 +761,18 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
 			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
 			clientes->Email = txtEmail->Text;
-			//clientes->MiVehiculo->Placa = txtPlaca->Text;
-			//clientes->MiVehiculo->Modelo = txtModelo->Text;
-			//clientes->MiVehiculo->Color = txtColor->Text;
+			//vehiculos->MiVehiculo->
+			//((Vehiculo^)clientes)->Placa = txtPlaca->Text;
+			//((Vehiculo^)clientes)->Modelo = txtModelo->Text;
+			//((Vehiculo^)clientes)->Color = txtColor->Text;
 			vehiculos->Placa = txtPlaca->Text;
 			vehiculos->Modelo = txtModelo->Text;
 			vehiculos->Color = txtColor->Text;
-			MessageBox::Show("Se agrego al cliente " + clientes->Nombre +" " + clientes->Apellido + " con ID " + clientes->Id);
+			clientes->MiVehiculo = vehiculos;
+			MessageBox::Show("Se agrego al cliente " + clientes->Nombre +" " + clientes->Apellido + " con placa " + vehiculos->Placa);
 
 			Service::AddCliente(clientes);
-			Service::AddVehiculo(vehiculos);
+			//Service::AddVehiculo(vehiculos);
 			ShowCliente();
 		}
 		catch(Exception^ ex){
