@@ -4,6 +4,7 @@
 #include "Administrador_CRUD.h"
 #include "Cliente_CRUD.h"
 #include "EntradaVehiculos.h"
+#include "GenerarTicket.h"
 
 namespace GUIApp {
 
@@ -59,6 +60,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ administradoresToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ clientesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ entradaDeVeToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ generarTicketToolStripMenuItem;
 
 
 	protected:
@@ -88,9 +90,10 @@ namespace GUIApp {
 			this->administradoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->clientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->transaccionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->entradaDeVeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->generarTicketToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->entradaDeVeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -177,10 +180,27 @@ namespace GUIApp {
 			// 
 			// transaccionesToolStripMenuItem
 			// 
-			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->entradaDeVeToolStripMenuItem });
+			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->entradaDeVeToolStripMenuItem,
+					this->generarTicketToolStripMenuItem
+			});
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
 			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(92, 20);
 			this->transaccionesToolStripMenuItem->Text = L"Transacciones";
+			// 
+			// entradaDeVeToolStripMenuItem
+			// 
+			this->entradaDeVeToolStripMenuItem->Name = L"entradaDeVeToolStripMenuItem";
+			this->entradaDeVeToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->entradaDeVeToolStripMenuItem->Text = L"Entrada de Vehículos";
+			this->entradaDeVeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::entradaDeVeToolStripMenuItem_Click);
+			// 
+			// generarTicketToolStripMenuItem
+			// 
+			this->generarTicketToolStripMenuItem->Name = L"generarTicketToolStripMenuItem";
+			this->generarTicketToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->generarTicketToolStripMenuItem->Text = L"Generar Ticket";
+			this->generarTicketToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generarTicketToolStripMenuItem_Click);
 			// 
 			// reporteToolStripMenuItem
 			// 
@@ -193,13 +213,6 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
-			// 
-			// entradaDeVeToolStripMenuItem
-			// 
-			this->entradaDeVeToolStripMenuItem->Name = L"entradaDeVeToolStripMenuItem";
-			this->entradaDeVeToolStripMenuItem->Size = System::Drawing::Size(183, 22);
-			this->entradaDeVeToolStripMenuItem->Text = L"Entrada de Vehículos";
-			this->entradaDeVeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::entradaDeVeToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -253,6 +266,13 @@ private: System::Void clientesToolStripMenuItem_Click(System::Object^ sender, Sy
 }
 private: System::Void entradaDeVeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	EntradaVehiculos^ form = gcnew EntradaVehiculos();
+	form->MdiParent = this;
+	form->Show();
+}
+
+
+private: System::Void generarTicketToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	GenerarTicket^ form = gcnew GenerarTicket();
 	form->MdiParent = this;
 	form->Show();
 }
