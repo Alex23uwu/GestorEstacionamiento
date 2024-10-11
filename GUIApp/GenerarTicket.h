@@ -108,7 +108,7 @@ namespace GUIApp {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"Registrar";
+			this->button1->Text = L"Generar";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// label3
