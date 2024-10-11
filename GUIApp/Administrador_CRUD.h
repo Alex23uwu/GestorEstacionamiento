@@ -461,16 +461,19 @@ public:
 	}
 
 private: System::Void dgvAdministrador_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int adminId = Convert::ToInt32(dgvAdministrador->Rows[dgvAdministrador->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	Administrador^ administrador = Service::QueryAdministradorById(adminId);
-	txtId->Text = "" + administrador->Id;
-	txtNombres->Text = administrador->Nombre;
-	txtApellidos->Text = administrador->Apellido;
-	txtUsername->Text = administrador->NombreUsuario;
-	txtPassword->Text = administrador->Clave;
-	txtDNI->Text = "" + administrador->DNI;
-	txtPhoneNumber->Text = "" + administrador->Celular;
-	txtEmail->Text = administrador->Email;
+	if (dgvAdministrador->Rows[dgvAdministrador->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
+		int adminId = Convert::ToInt32(dgvAdministrador->Rows[dgvAdministrador->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		Administrador^ administrador = Service::QueryAdministradorById(adminId);
+
+		txtId->Text = "" + administrador->Id;
+		txtNombres->Text = administrador->Nombre;
+		txtApellidos->Text = administrador->Apellido;
+		txtUsername->Text = administrador->NombreUsuario;
+		txtPassword->Text = administrador->Clave;
+		txtDNI->Text = "" + administrador->DNI;
+		txtPhoneNumber->Text = "" + administrador->Celular;
+		txtEmail->Text = administrador->Email;
+	}	
 }
 
 private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
