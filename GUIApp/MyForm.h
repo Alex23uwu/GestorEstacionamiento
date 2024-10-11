@@ -5,6 +5,7 @@
 #include "Cliente_CRUD.h"
 #include "EntradaVehiculos.h"
 #include "GenerarTicket.h"
+#include "Reservacion.h"
 
 namespace GUIApp {
 
@@ -61,6 +62,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ clientesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ entradaDeVeToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ generarTicketToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reservacionToolStripMenuItem;
 
 
 	protected:
@@ -94,6 +96,7 @@ namespace GUIApp {
 			this->generarTicketToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reservacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -180,9 +183,9 @@ namespace GUIApp {
 			// 
 			// transaccionesToolStripMenuItem
 			// 
-			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->entradaDeVeToolStripMenuItem,
-					this->generarTicketToolStripMenuItem
+					this->generarTicketToolStripMenuItem, this->reservacionToolStripMenuItem
 			});
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
 			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(92, 20);
@@ -213,6 +216,13 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
+			// 
+			// reservacionToolStripMenuItem
+			// 
+			this->reservacionToolStripMenuItem->Name = L"reservacionToolStripMenuItem";
+			this->reservacionToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->reservacionToolStripMenuItem->Text = L"Reservacion";
+			this->reservacionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::reservacionToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -275,6 +285,12 @@ private: System::Void generarTicketToolStripMenuItem_Click(System::Object^ sende
 	GenerarTicket^ form = gcnew GenerarTicket();
 	form->MdiParent = this;
 	form->Show();
+}
+private: System::Void reservacionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	Reservacion^ form = gcnew Reservacion();
+	form->MdiParent = this;
+	form->Show();
+
 }
 };
 }

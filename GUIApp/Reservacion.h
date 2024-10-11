@@ -158,5 +158,6 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 	dtpHoraSalida->CustomFormat = "HH:mm";
 	dtpHoraSalida->Value = DateTime::Now;
 }
+
 };
 }
