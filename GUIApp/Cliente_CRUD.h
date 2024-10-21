@@ -19,12 +19,61 @@ namespace GUIApp {
 	{
 	public:
 		static Model::Cliente^ userClientes;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
+	private: System::Windows::Forms::TabPage^ tabPage1;
 	public:
+	private: System::Windows::Forms::TextBox^ txtColor;
+	private: System::Windows::Forms::TextBox^ txtModelo;
+	private: System::Windows::Forms::TextBox^ txtPlaca;
+	private: System::Windows::Forms::TextBox^ txtDescuento;
+	private: System::Windows::Forms::TextBox^ txtPersonPoints;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::Windows::Forms::TextBox^ txtUsername;
+	private: System::Windows::Forms::TextBox^ txtPhoneNumber;
+	private: System::Windows::Forms::TextBox^ txtEmail;
+	private: System::Windows::Forms::TextBox^ txtPersonId;
+	private: System::Windows::Forms::TextBox^ txtDNI;
+	private: System::Windows::Forms::TextBox^ txtLastName;
+	private: System::Windows::Forms::TextBox^ txtFirstName;
+	private: System::Windows::Forms::Label^ label114;
+	private: System::Windows::Forms::Label^ label113;
+	private: System::Windows::Forms::Label^ label112;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::RadioButton^ rbtnFem;
+	private: System::Windows::Forms::RadioButton^ rbtnMasc;
+	private: System::Windows::Forms::Label^ label111;
+	private: System::Windows::Forms::Label^ label115;
+	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::Button^ btnDeletePerson;
+	private: System::Windows::Forms::Button^ btnUpdatePerson;
+	private: System::Windows::Forms::Button^ btnAddPerson;
+	private: System::Windows::Forms::DataGridView^ dgvPersons;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ personId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ firstName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ lastName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dgvPlaca;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ phoneNumber;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TabControl^ tabCustomers;
+
+
+
+
+
+
+
+
+	public:
+
+
+
+
 		   static Model::Vehiculo^ userVehiculos;
 	public:
 
@@ -50,52 +99,52 @@ namespace GUIApp {
 
 	protected:
 
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
-private: System::Windows::Forms::TabPage^ tabPage1;
-private: System::Windows::Forms::TextBox^ txtColor;
-private: System::Windows::Forms::TextBox^ txtModelo;
-private: System::Windows::Forms::TextBox^ txtPlaca;
-private: System::Windows::Forms::TextBox^ txtDescuento;
-private: System::Windows::Forms::TextBox^ txtPersonPoints;
-private: System::Windows::Forms::TextBox^ txtPassword;
-private: System::Windows::Forms::TextBox^ txtUsername;
-private: System::Windows::Forms::TextBox^ txtPhoneNumber;
-private: System::Windows::Forms::TextBox^ txtEmail;
-private: System::Windows::Forms::TextBox^ txtPersonId;
-private: System::Windows::Forms::TextBox^ txtDNI;
-private: System::Windows::Forms::TextBox^ txtLastName;
-private: System::Windows::Forms::TextBox^ txtFirstName;
-private: System::Windows::Forms::Label^ label114;
-private: System::Windows::Forms::Label^ label113;
-private: System::Windows::Forms::Label^ label112;
-private: System::Windows::Forms::GroupBox^ groupBox1;
-private: System::Windows::Forms::RadioButton^ rbtnFem;
-private: System::Windows::Forms::RadioButton^ rbtnMasc;
-private: System::Windows::Forms::Label^ label111;
-private: System::Windows::Forms::Label^ label115;
-private: System::Windows::Forms::Label^ label18;
-private: System::Windows::Forms::Label^ label17;
-private: System::Windows::Forms::Button^ btnDeletePerson;
-private: System::Windows::Forms::Button^ btnUpdatePerson;
-private: System::Windows::Forms::Button^ btnAddPerson;
-private: System::Windows::Forms::DataGridView^ dgvPersons;
 
 
 
 
 
-private: System::Windows::Forms::Label^ label7;
-private: System::Windows::Forms::Label^ label6;
-private: System::Windows::Forms::Label^ label5;
-private: System::Windows::Forms::Label^ label4;
-private: System::Windows::Forms::Label^ label3;
-private: System::Windows::Forms::Label^ label2;
-private: System::Windows::Forms::Label^ label1;
-private: System::Windows::Forms::TabControl^ tabCustomers;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -115,96 +164,52 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->txtColor = (gcnew System::Windows::Forms::TextBox());
-			this->txtModelo = (gcnew System::Windows::Forms::TextBox());
-			this->txtPlaca = (gcnew System::Windows::Forms::TextBox());
-			this->txtDescuento = (gcnew System::Windows::Forms::TextBox());
-			this->txtPersonPoints = (gcnew System::Windows::Forms::TextBox());
-			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
-			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
-			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
-			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
-			this->txtPersonId = (gcnew System::Windows::Forms::TextBox());
-			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
-			this->txtLastName = (gcnew System::Windows::Forms::TextBox());
-			this->txtFirstName = (gcnew System::Windows::Forms::TextBox());
-			this->label114 = (gcnew System::Windows::Forms::Label());
-			this->label113 = (gcnew System::Windows::Forms::Label());
-			this->label112 = (gcnew System::Windows::Forms::Label());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
-			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
-			this->label111 = (gcnew System::Windows::Forms::Label());
-			this->label115 = (gcnew System::Windows::Forms::Label());
-			this->label18 = (gcnew System::Windows::Forms::Label());
-			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->btnDeletePerson = (gcnew System::Windows::Forms::Button());
-			this->btnUpdatePerson = (gcnew System::Windows::Forms::Button());
-			this->btnAddPerson = (gcnew System::Windows::Forms::Button());
-			this->dgvPersons = (gcnew System::Windows::Forms::DataGridView());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->tabCustomers = (gcnew System::Windows::Forms::TabControl());
-			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->dgvPersons = (gcnew System::Windows::Forms::DataGridView());
 			this->phoneNumber = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->menuStrip1->SuspendLayout();
+			this->dgvPlaca = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->lastName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->firstName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->personId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnAddPerson = (gcnew System::Windows::Forms::Button());
+			this->btnUpdatePerson = (gcnew System::Windows::Forms::Button());
+			this->btnDeletePerson = (gcnew System::Windows::Forms::Button());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label115 = (gcnew System::Windows::Forms::Label());
+			this->label111 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
+			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
+			this->label112 = (gcnew System::Windows::Forms::Label());
+			this->label113 = (gcnew System::Windows::Forms::Label());
+			this->label114 = (gcnew System::Windows::Forms::Label());
+			this->txtFirstName = (gcnew System::Windows::Forms::TextBox());
+			this->txtLastName = (gcnew System::Windows::Forms::TextBox());
+			this->txtDNI = (gcnew System::Windows::Forms::TextBox());
+			this->txtPersonId = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
+			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
+			this->txtUsername = (gcnew System::Windows::Forms::TextBox());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->txtPersonPoints = (gcnew System::Windows::Forms::TextBox());
+			this->txtDescuento = (gcnew System::Windows::Forms::TextBox());
+			this->txtPlaca = (gcnew System::Windows::Forms::TextBox());
+			this->txtModelo = (gcnew System::Windows::Forms::TextBox());
+			this->txtColor = (gcnew System::Windows::Forms::TextBox());
+			this->tabCustomers = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1->SuspendLayout();
-			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersons))->BeginInit();
+			this->groupBox1->SuspendLayout();
 			this->tabCustomers->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(877, 28);
-			this->menuStrip1->TabIndex = 7;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
-			// archivoToolStripMenuItem
-			// 
-			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->nuevoToolStripMenuItem,
-					this->editarToolStripMenuItem, this->salirToolStripMenuItem
-			});
-			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
-			this->archivoToolStripMenuItem->Text = L"Archivo";
-			// 
-			// nuevoToolStripMenuItem
-			// 
-			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
-			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(135, 26);
-			this->nuevoToolStripMenuItem->Text = L"Nuevo";
-			// 
-			// editarToolStripMenuItem
-			// 
-			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
-			this->editarToolStripMenuItem->Size = System::Drawing::Size(135, 26);
-			this->editarToolStripMenuItem->Text = L"Editar";
-			// 
-			// salirToolStripMenuItem
-			// 
-			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(135, 26);
-			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
 			// tabPage1
 			// 
@@ -244,140 +249,205 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage1->Size = System::Drawing::Size(848, 647);
+			this->tabPage1->Size = System::Drawing::Size(874, 647);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Clientes";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
-			// txtColor
+			// label1
 			// 
-			this->txtColor->Location = System::Drawing::Point(225, 301);
-			this->txtColor->Name = L"txtColor";
-			this->txtColor->Size = System::Drawing::Size(100, 22);
-			this->txtColor->TabIndex = 37;
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(120, 29);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(34, 16);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Id (*)";
 			// 
-			// txtModelo
+			// label2
 			// 
-			this->txtModelo->Location = System::Drawing::Point(225, 268);
-			this->txtModelo->Name = L"txtModelo";
-			this->txtModelo->Size = System::Drawing::Size(100, 22);
-			this->txtModelo->TabIndex = 36;
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(283, 29);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(46, 16);
+			this->label2->TabIndex = 1;
+			this->label2->Text = L"DNI (*)";
 			// 
-			// txtPlaca
+			// label3
 			// 
-			this->txtPlaca->Location = System::Drawing::Point(225, 229);
-			this->txtPlaca->Name = L"txtPlaca";
-			this->txtPlaca->Size = System::Drawing::Size(100, 22);
-			this->txtPlaca->TabIndex = 33;
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(120, 93);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(79, 16);
+			this->label3->TabIndex = 6;
+			this->label3->Text = L"Nombres (*)";
 			// 
-			// txtDescuento
+			// label4
 			// 
-			this->txtDescuento->Location = System::Drawing::Point(225, 197);
-			this->txtDescuento->Name = L"txtDescuento";
-			this->txtDescuento->Size = System::Drawing::Size(191, 22);
-			this->txtDescuento->TabIndex = 29;
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(425, 96);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(80, 16);
+			this->label4->TabIndex = 7;
+			this->label4->Text = L"Apellidos (*)";
 			// 
-			// txtPersonPoints
+			// label5
 			// 
-			this->txtPersonPoints->Location = System::Drawing::Point(595, 240);
-			this->txtPersonPoints->Margin = System::Windows::Forms::Padding(4);
-			this->txtPersonPoints->Name = L"txtPersonPoints";
-			this->txtPersonPoints->Size = System::Drawing::Size(132, 22);
-			this->txtPersonPoints->TabIndex = 27;
-			this->txtPersonPoints->Text = L"0";
-			this->txtPersonPoints->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(120, 128);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(41, 16);
+			this->label5->TabIndex = 10;
+			this->label5->Text = L"Email";
 			// 
-			// txtPassword
+			// label6
 			// 
-			this->txtPassword->Location = System::Drawing::Point(523, 60);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
-			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->PasswordChar = '*';
-			this->txtPassword->Size = System::Drawing::Size(204, 22);
-			this->txtPassword->TabIndex = 23;
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(464, 169);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(51, 16);
+			this->label6->TabIndex = 11;
+			this->label6->Text = L"Estatus";
 			// 
-			// txtUsername
+			// label7
 			// 
-			this->txtUsername->Location = System::Drawing::Point(225, 60);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
-			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(191, 22);
-			this->txtUsername->TabIndex = 22;
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(120, 162);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(49, 16);
+			this->label7->TabIndex = 12;
+			this->label7->Text = L"Celular";
 			// 
-			// txtPhoneNumber
+			// dgvPersons
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(225, 159);
-			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(4);
-			this->txtPhoneNumber->Name = L"txtPhoneNumber";
-			this->txtPhoneNumber->Size = System::Drawing::Size(191, 22);
-			this->txtPhoneNumber->TabIndex = 6;
+			this->dgvPersons->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvPersons->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->personId,
+					this->firstName, this->lastName, this->dgvPlaca, this->phoneNumber
+			});
+			this->dgvPersons->Location = System::Drawing::Point(71, 422);
+			this->dgvPersons->Margin = System::Windows::Forms::Padding(4);
+			this->dgvPersons->Name = L"dgvPersons";
+			this->dgvPersons->RowHeadersWidth = 51;
+			this->dgvPersons->Size = System::Drawing::Size(749, 193);
+			this->dgvPersons->TabIndex = 16;
+			this->dgvPersons->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Cliente_CRUD::dgvPersons_CellContentClick);
 			// 
-			// txtEmail
+			// phoneNumber
 			// 
-			this->txtEmail->Location = System::Drawing::Point(225, 125);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
-			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(357, 22);
-			this->txtEmail->TabIndex = 4;
+			this->phoneNumber->HeaderText = L"Celular";
+			this->phoneNumber->MinimumWidth = 6;
+			this->phoneNumber->Name = L"phoneNumber";
+			this->phoneNumber->ReadOnly = true;
+			this->phoneNumber->Width = 70;
 			// 
-			// txtPersonId
+			// dgvPlaca
 			// 
-			this->txtPersonId->Location = System::Drawing::Point(225, 25);
-			this->txtPersonId->Margin = System::Windows::Forms::Padding(4);
-			this->txtPersonId->Name = L"txtPersonId";
-			this->txtPersonId->Size = System::Drawing::Size(48, 22);
-			this->txtPersonId->TabIndex = 5;
+			this->dgvPlaca->HeaderText = L"Placa";
+			this->dgvPlaca->MinimumWidth = 6;
+			this->dgvPlaca->Name = L"dgvPlaca";
+			this->dgvPlaca->ReadOnly = true;
+			this->dgvPlaca->Width = 120;
 			// 
-			// txtDNI
+			// lastName
 			// 
-			this->txtDNI->Location = System::Drawing::Point(343, 25);
-			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
-			this->txtDNI->Name = L"txtDNI";
-			this->txtDNI->Size = System::Drawing::Size(236, 22);
-			this->txtDNI->TabIndex = 4;
+			this->lastName->HeaderText = L"Apellidos";
+			this->lastName->MinimumWidth = 6;
+			this->lastName->Name = L"lastName";
+			this->lastName->ReadOnly = true;
+			this->lastName->Width = 130;
 			// 
-			// txtLastName
+			// firstName
 			// 
-			this->txtLastName->Location = System::Drawing::Point(523, 93);
-			this->txtLastName->Margin = System::Windows::Forms::Padding(4);
-			this->txtLastName->Name = L"txtLastName";
-			this->txtLastName->Size = System::Drawing::Size(205, 22);
-			this->txtLastName->TabIndex = 3;
+			this->firstName->HeaderText = L"Nombres";
+			this->firstName->MinimumWidth = 6;
+			this->firstName->Name = L"firstName";
+			this->firstName->ReadOnly = true;
+			this->firstName->Width = 125;
 			// 
-			// txtFirstName
+			// personId
 			// 
-			this->txtFirstName->Location = System::Drawing::Point(225, 93);
-			this->txtFirstName->Margin = System::Windows::Forms::Padding(4);
-			this->txtFirstName->Name = L"txtFirstName";
-			this->txtFirstName->Size = System::Drawing::Size(191, 22);
-			this->txtFirstName->TabIndex = 2;
+			this->personId->HeaderText = L"Id";
+			this->personId->MinimumWidth = 6;
+			this->personId->Name = L"personId";
+			this->personId->ReadOnly = true;
+			this->personId->Width = 20;
 			// 
-			// label114
+			// btnAddPerson
 			// 
-			this->label114->AutoSize = true;
-			this->label114->Location = System::Drawing::Point(123, 301);
-			this->label114->Name = L"label114";
-			this->label114->Size = System::Drawing::Size(39, 16);
-			this->label114->TabIndex = 35;
-			this->label114->Text = L"Color";
+			this->btnAddPerson->Location = System::Drawing::Point(151, 362);
+			this->btnAddPerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnAddPerson->Name = L"btnAddPerson";
+			this->btnAddPerson->Size = System::Drawing::Size(169, 28);
+			this->btnAddPerson->TabIndex = 17;
+			this->btnAddPerson->Text = L"Agregar";
+			this->btnAddPerson->UseVisualStyleBackColor = true;
+			this->btnAddPerson->Click += gcnew System::EventHandler(this, &Cliente_CRUD::btnAddPerson_Click);
 			// 
-			// label113
+			// btnUpdatePerson
 			// 
-			this->label113->AutoSize = true;
-			this->label113->Location = System::Drawing::Point(123, 268);
-			this->label113->Name = L"label113";
-			this->label113->Size = System::Drawing::Size(53, 16);
-			this->label113->TabIndex = 34;
-			this->label113->Text = L"Modelo";
+			this->btnUpdatePerson->Location = System::Drawing::Point(357, 362);
+			this->btnUpdatePerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnUpdatePerson->Name = L"btnUpdatePerson";
+			this->btnUpdatePerson->Size = System::Drawing::Size(161, 28);
+			this->btnUpdatePerson->TabIndex = 18;
+			this->btnUpdatePerson->Text = L"Actualizar";
+			this->btnUpdatePerson->UseVisualStyleBackColor = true;
 			// 
-			// label112
+			// btnDeletePerson
 			// 
-			this->label112->AutoSize = true;
-			this->label112->Location = System::Drawing::Point(123, 229);
-			this->label112->Name = L"label112";
-			this->label112->Size = System::Drawing::Size(93, 16);
-			this->label112->TabIndex = 32;
-			this->label112->Text = L"Placa del auto";
+			this->btnDeletePerson->Location = System::Drawing::Point(561, 362);
+			this->btnDeletePerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnDeletePerson->Name = L"btnDeletePerson";
+			this->btnDeletePerson->Size = System::Drawing::Size(160, 28);
+			this->btnDeletePerson->TabIndex = 19;
+			this->btnDeletePerson->Text = L"Eliminar";
+			this->btnDeletePerson->UseVisualStyleBackColor = true;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(120, 60);
+			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(86, 16);
+			this->label17->TabIndex = 20;
+			this->label17->Text = L"Username (*)";
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(425, 60);
+			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(83, 16);
+			this->label18->TabIndex = 21;
+			this->label18->Text = L"Password (*)";
+			// 
+			// label115
+			// 
+			this->label115->AutoSize = true;
+			this->label115->Location = System::Drawing::Point(531, 244);
+			this->label115->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label115->Name = L"label115";
+			this->label115->Size = System::Drawing::Size(48, 16);
+			this->label115->TabIndex = 26;
+			this->label115->Text = L"Puntos";
+			// 
+			// label111
+			// 
+			this->label111->AutoSize = true;
+			this->label111->Location = System::Drawing::Point(120, 197);
+			this->label111->Name = L"label111";
+			this->label111->Size = System::Drawing::Size(95, 16);
+			this->label111->TabIndex = 28;
+			this->label111->Text = L"Descuento (%)";
 			// 
 			// groupBox1
 			// 
@@ -387,20 +457,9 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(161, 38);
+			this->groupBox1->Size = System::Drawing::Size(198, 38);
 			this->groupBox1->TabIndex = 31;
 			this->groupBox1->TabStop = false;
-			// 
-			// rbtnFem
-			// 
-			this->rbtnFem->AutoSize = true;
-			this->rbtnFem->Location = System::Drawing::Point(89, 10);
-			this->rbtnFem->Margin = System::Windows::Forms::Padding(4);
-			this->rbtnFem->Name = L"rbtnFem";
-			this->rbtnFem->Size = System::Drawing::Size(74, 20);
-			this->rbtnFem->TabIndex = 1;
-			this->rbtnFem->Text = L"Inactivo";
-			this->rbtnFem->UseVisualStyleBackColor = true;
 			// 
 			// rbtnMasc
 			// 
@@ -415,230 +474,174 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			this->rbtnMasc->Text = L"Activo";
 			this->rbtnMasc->UseVisualStyleBackColor = true;
 			// 
-			// label111
+			// rbtnFem
 			// 
-			this->label111->AutoSize = true;
-			this->label111->Location = System::Drawing::Point(120, 197);
-			this->label111->Name = L"label111";
-			this->label111->Size = System::Drawing::Size(95, 16);
-			this->label111->TabIndex = 28;
-			this->label111->Text = L"Descuento (%)";
+			this->rbtnFem->AutoSize = true;
+			this->rbtnFem->Location = System::Drawing::Point(89, 10);
+			this->rbtnFem->Margin = System::Windows::Forms::Padding(4);
+			this->rbtnFem->Name = L"rbtnFem";
+			this->rbtnFem->Size = System::Drawing::Size(74, 20);
+			this->rbtnFem->TabIndex = 1;
+			this->rbtnFem->Text = L"Inactivo";
+			this->rbtnFem->UseVisualStyleBackColor = true;
 			// 
-			// label115
+			// label112
 			// 
-			this->label115->AutoSize = true;
-			this->label115->Location = System::Drawing::Point(531, 244);
-			this->label115->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label115->Name = L"label115";
-			this->label115->Size = System::Drawing::Size(48, 16);
-			this->label115->TabIndex = 26;
-			this->label115->Text = L"Puntos";
+			this->label112->AutoSize = true;
+			this->label112->Location = System::Drawing::Point(123, 229);
+			this->label112->Name = L"label112";
+			this->label112->Size = System::Drawing::Size(93, 16);
+			this->label112->TabIndex = 32;
+			this->label112->Text = L"Placa del auto";
 			// 
-			// label18
+			// label113
 			// 
-			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(425, 60);
-			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(83, 16);
-			this->label18->TabIndex = 21;
-			this->label18->Text = L"Password (*)";
+			this->label113->AutoSize = true;
+			this->label113->Location = System::Drawing::Point(123, 268);
+			this->label113->Name = L"label113";
+			this->label113->Size = System::Drawing::Size(53, 16);
+			this->label113->TabIndex = 34;
+			this->label113->Text = L"Modelo";
 			// 
-			// label17
+			// label114
 			// 
-			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(120, 60);
-			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(86, 16);
-			this->label17->TabIndex = 20;
-			this->label17->Text = L"Username (*)";
+			this->label114->AutoSize = true;
+			this->label114->Location = System::Drawing::Point(123, 301);
+			this->label114->Name = L"label114";
+			this->label114->Size = System::Drawing::Size(39, 16);
+			this->label114->TabIndex = 35;
+			this->label114->Text = L"Color";
 			// 
-			// btnDeletePerson
+			// txtFirstName
 			// 
-			this->btnDeletePerson->Location = System::Drawing::Point(561, 362);
-			this->btnDeletePerson->Margin = System::Windows::Forms::Padding(4);
-			this->btnDeletePerson->Name = L"btnDeletePerson";
-			this->btnDeletePerson->Size = System::Drawing::Size(160, 28);
-			this->btnDeletePerson->TabIndex = 19;
-			this->btnDeletePerson->Text = L"Eliminar";
-			this->btnDeletePerson->UseVisualStyleBackColor = true;
+			this->txtFirstName->Location = System::Drawing::Point(225, 93);
+			this->txtFirstName->Margin = System::Windows::Forms::Padding(4);
+			this->txtFirstName->Name = L"txtFirstName";
+			this->txtFirstName->Size = System::Drawing::Size(191, 22);
+			this->txtFirstName->TabIndex = 2;
 			// 
-			// btnUpdatePerson
+			// txtLastName
 			// 
-			this->btnUpdatePerson->Location = System::Drawing::Point(357, 362);
-			this->btnUpdatePerson->Margin = System::Windows::Forms::Padding(4);
-			this->btnUpdatePerson->Name = L"btnUpdatePerson";
-			this->btnUpdatePerson->Size = System::Drawing::Size(161, 28);
-			this->btnUpdatePerson->TabIndex = 18;
-			this->btnUpdatePerson->Text = L"Actualizar";
-			this->btnUpdatePerson->UseVisualStyleBackColor = true;
+			this->txtLastName->Location = System::Drawing::Point(523, 93);
+			this->txtLastName->Margin = System::Windows::Forms::Padding(4);
+			this->txtLastName->Name = L"txtLastName";
+			this->txtLastName->Size = System::Drawing::Size(205, 22);
+			this->txtLastName->TabIndex = 3;
 			// 
-			// btnAddPerson
+			// txtDNI
 			// 
-			this->btnAddPerson->Location = System::Drawing::Point(151, 362);
-			this->btnAddPerson->Margin = System::Windows::Forms::Padding(4);
-			this->btnAddPerson->Name = L"btnAddPerson";
-			this->btnAddPerson->Size = System::Drawing::Size(169, 28);
-			this->btnAddPerson->TabIndex = 17;
-			this->btnAddPerson->Text = L"Agregar";
-			this->btnAddPerson->UseVisualStyleBackColor = true;
-			this->btnAddPerson->Click += gcnew System::EventHandler(this, &Cliente_CRUD::btnAddPerson_Click);
+			this->txtDNI->Location = System::Drawing::Point(343, 25);
+			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
+			this->txtDNI->Name = L"txtDNI";
+			this->txtDNI->Size = System::Drawing::Size(236, 22);
+			this->txtDNI->TabIndex = 4;
 			// 
-			// dgvPersons
+			// txtPersonId
 			// 
-			this->dgvPersons->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPersons->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->personId,
-					this->firstName, this->lastName, this->dgvPlaca, this->phoneNumber
-			});
-			this->dgvPersons->Location = System::Drawing::Point(103, 427);
-			this->dgvPersons->Margin = System::Windows::Forms::Padding(4);
-			this->dgvPersons->Name = L"dgvPersons";
-			this->dgvPersons->RowHeadersWidth = 51;
-			this->dgvPersons->Size = System::Drawing::Size(656, 193);
-			this->dgvPersons->TabIndex = 16;
-			this->dgvPersons->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Cliente_CRUD::dgvPersons_CellContentClick);
+			this->txtPersonId->Enabled = false;
+			this->txtPersonId->Location = System::Drawing::Point(225, 25);
+			this->txtPersonId->Margin = System::Windows::Forms::Padding(4);
+			this->txtPersonId->Name = L"txtPersonId";
+			this->txtPersonId->Size = System::Drawing::Size(48, 22);
+			this->txtPersonId->TabIndex = 5;
 			// 
-			// label7
+			// txtEmail
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(120, 162);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(49, 16);
-			this->label7->TabIndex = 12;
-			this->label7->Text = L"Celular";
+			this->txtEmail->Location = System::Drawing::Point(225, 125);
+			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->Size = System::Drawing::Size(357, 22);
+			this->txtEmail->TabIndex = 4;
 			// 
-			// label6
+			// txtPhoneNumber
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(464, 169);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(51, 16);
-			this->label6->TabIndex = 11;
-			this->label6->Text = L"Estatus";
+			this->txtPhoneNumber->Location = System::Drawing::Point(225, 159);
+			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(4);
+			this->txtPhoneNumber->Name = L"txtPhoneNumber";
+			this->txtPhoneNumber->Size = System::Drawing::Size(191, 22);
+			this->txtPhoneNumber->TabIndex = 6;
 			// 
-			// label5
+			// txtUsername
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(120, 128);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(41, 16);
-			this->label5->TabIndex = 10;
-			this->label5->Text = L"Email";
+			this->txtUsername->Location = System::Drawing::Point(225, 60);
+			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
+			this->txtUsername->Name = L"txtUsername";
+			this->txtUsername->Size = System::Drawing::Size(191, 22);
+			this->txtUsername->TabIndex = 22;
 			// 
-			// label4
+			// txtPassword
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(425, 96);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(80, 16);
-			this->label4->TabIndex = 7;
-			this->label4->Text = L"Apellidos (*)";
+			this->txtPassword->Location = System::Drawing::Point(523, 60);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
+			this->txtPassword->Size = System::Drawing::Size(204, 22);
+			this->txtPassword->TabIndex = 23;
 			// 
-			// label3
+			// txtPersonPoints
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(120, 93);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(79, 16);
-			this->label3->TabIndex = 6;
-			this->label3->Text = L"Nombres (*)";
+			this->txtPersonPoints->Location = System::Drawing::Point(595, 240);
+			this->txtPersonPoints->Margin = System::Windows::Forms::Padding(4);
+			this->txtPersonPoints->Name = L"txtPersonPoints";
+			this->txtPersonPoints->Size = System::Drawing::Size(132, 22);
+			this->txtPersonPoints->TabIndex = 27;
+			this->txtPersonPoints->Text = L"0";
+			this->txtPersonPoints->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
-			// label2
+			// txtDescuento
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(283, 29);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(46, 16);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"DNI (*)";
+			this->txtDescuento->Location = System::Drawing::Point(225, 197);
+			this->txtDescuento->Name = L"txtDescuento";
+			this->txtDescuento->Size = System::Drawing::Size(191, 22);
+			this->txtDescuento->TabIndex = 29;
 			// 
-			// label1
+			// txtPlaca
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(120, 29);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(34, 16);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Id (*)";
+			this->txtPlaca->Location = System::Drawing::Point(225, 229);
+			this->txtPlaca->Name = L"txtPlaca";
+			this->txtPlaca->Size = System::Drawing::Size(100, 22);
+			this->txtPlaca->TabIndex = 33;
+			// 
+			// txtModelo
+			// 
+			this->txtModelo->Location = System::Drawing::Point(225, 268);
+			this->txtModelo->Name = L"txtModelo";
+			this->txtModelo->Size = System::Drawing::Size(100, 22);
+			this->txtModelo->TabIndex = 36;
+			// 
+			// txtColor
+			// 
+			this->txtColor->Location = System::Drawing::Point(225, 301);
+			this->txtColor->Name = L"txtColor";
+			this->txtColor->Size = System::Drawing::Size(100, 22);
+			this->txtColor->TabIndex = 37;
 			// 
 			// tabCustomers
 			// 
 			this->tabCustomers->Controls->Add(this->tabPage1);
-			this->tabCustomers->Location = System::Drawing::Point(0, 32);
+			this->tabCustomers->Location = System::Drawing::Point(3, 3);
 			this->tabCustomers->Margin = System::Windows::Forms::Padding(4);
 			this->tabCustomers->Name = L"tabCustomers";
 			this->tabCustomers->SelectedIndex = 0;
-			this->tabCustomers->Size = System::Drawing::Size(856, 676);
+			this->tabCustomers->Size = System::Drawing::Size(882, 676);
 			this->tabCustomers->TabIndex = 8;
-			// 
-			// personId
-			// 
-			this->personId->HeaderText = L"Id";
-			this->personId->MinimumWidth = 6;
-			this->personId->Name = L"personId";
-			this->personId->ReadOnly = true;
-			this->personId->Width = 20;
-			// 
-			// firstName
-			// 
-			this->firstName->HeaderText = L"Nombres";
-			this->firstName->MinimumWidth = 6;
-			this->firstName->Name = L"firstName";
-			this->firstName->ReadOnly = true;
-			this->firstName->Width = 125;
-			// 
-			// lastName
-			// 
-			this->lastName->HeaderText = L"Apellidos";
-			this->lastName->MinimumWidth = 6;
-			this->lastName->Name = L"lastName";
-			this->lastName->ReadOnly = true;
-			this->lastName->Width = 130;
-			// 
-			// dgvPlaca
-			// 
-			this->dgvPlaca->HeaderText = L"Placa";
-			this->dgvPlaca->MinimumWidth = 6;
-			this->dgvPlaca->Name = L"dgvPlaca";
-			this->dgvPlaca->ReadOnly = true;
-			this->dgvPlaca->Width = 120;
-			// 
-			// phoneNumber
-			// 
-			this->phoneNumber->HeaderText = L"Celular";
-			this->phoneNumber->MinimumWidth = 6;
-			this->phoneNumber->Name = L"phoneNumber";
-			this->phoneNumber->ReadOnly = true;
-			this->phoneNumber->Width = 70;
 			// 
 			// Cliente_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(877, 735);
+			this->ClientSize = System::Drawing::Size(898, 735);
 			this->Controls->Add(this->tabCustomers);
-			this->Controls->Add(this->menuStrip1);
 			this->Name = L"Cliente_CRUD";
 			this->Text = L"Cliente_CRUD";
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
+			this->Load += gcnew System::EventHandler(this, &Cliente_CRUD::Cliente_CRUD_Load);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersons))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersons))->EndInit();
 			this->tabCustomers->ResumeLayout(false);
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -659,17 +662,33 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 				}
 			}
 		}
+		void ClearControls() {
+			txtPersonId->Clear();
+			txtFirstName->Clear();
+			txtLastName->Clear();
+			txtUsername->Clear();
+			txtPassword->Clear();
+			txtDNI->Clear();
+			txtPhoneNumber->Clear();
+			txtEmail->Clear();
+			txtDescuento->Clear();
+			txtPlaca->Clear();
+			txtModelo->Clear();
+			txtColor->Clear();
+		}
+
 	private: System::Void btnAddPerson_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (txtPersonId->Text->Trim() == "" || txtFirstName->Text->Trim() == "" || txtLastName->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+		if (txtFirstName->Text->Trim() == "" || txtLastName->Text->Trim() == "" || txtDNI->Text->Trim() == ""
 			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "" || txtPlaca->Text->Trim() == "" || txtModelo->Text->Trim() == "" ||
-			txtColor->Text->Trim() == "") {
-			MessageBox::Show("Los parámetros que contengan el símbolo * son obligatorios");
+			txtColor->Text->Trim() == "" || txtPhoneNumber->Text->Trim() == "" || txtEmail->Text->Trim() == "" || txtDescuento->Text->Trim() == "") {
+			MessageBox::Show("Todos los parámetros son obligatorios");
 			return;
 		}
 		try {
 			Cliente^ clientes = gcnew Cliente();
 			Vehiculo^ vehiculos = gcnew Vehiculo();
-			clientes->Id = Int32::Parse(txtPersonId->Text);
+			//clientes->Id = Int32::Parse(txtPersonId->Text);
+			clientes->Id = Service::QueryAllClientes()->Count+1;
 			clientes->Nombre = txtFirstName->Text;
 			clientes->Apellido = txtLastName->Text;
 			clientes->NombreUsuario = txtUsername->Text;
@@ -678,10 +697,8 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
 			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
 			clientes->Email = txtEmail->Text;
-			//vehiculos->MiVehiculo->
-			//((Vehiculo^)clientes)->Placa = txtPlaca->Text;
-			//((Vehiculo^)clientes)->Modelo = txtModelo->Text;
-			//((Vehiculo^)clientes)->Color = txtColor->Text;
+			clientes->Descuento = Int32::Parse(txtDescuento->Text);
+			
 			vehiculos->Placa = txtPlaca->Text;
 			vehiculos->Modelo = txtModelo->Text;
 			vehiculos->Color = txtColor->Text;
@@ -691,6 +708,7 @@ private: System::Windows::Forms::TabControl^ tabCustomers;
 			Service::AddCliente(clientes);
 			//Service::AddVehiculo(vehiculos);
 			ShowCliente();
+			ClearControls();
 		}
 		catch(Exception^ ex){
 			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
@@ -702,6 +720,7 @@ private: System::Void dgvPersons_CellContentClick(System::Object^ sender, System
 	if (dgvPersons->Rows[dgvPersons->SelectedCells[0]->RowIndex]->Cells[0]->Value != nullptr) {
 		int clienteID = Convert::ToInt32(dgvPersons->Rows[dgvPersons->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 		Cliente^ clientes = Service::QueryClienteById(clienteID);
+		txtPersonId->Text = "" + clientes->Id;
 		txtFirstName->Text = clientes->Nombre;
 		txtLastName->Text= clientes->Apellido;
 		txtUsername->Text= clientes->NombreUsuario;
@@ -715,11 +734,16 @@ private: System::Void dgvPersons_CellContentClick(System::Object^ sender, System
 			rbtnFem->Checked;
 		}
 		txtEmail->Text = clientes->Email;
+		txtDescuento->Text = ""+clientes->Descuento;
 		txtPlaca->Text= clientes->MiVehiculo->Placa;
 		txtModelo->Text = clientes->MiVehiculo->Modelo;
 		txtColor->Text = clientes->MiVehiculo->Color;
 	}
 
+}
+private: System::Void Cliente_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
+	ShowCliente();
+	//txtPersonId->Text ="" + Service::QueryAllClientes()->Count + 1;
 }
 };
 }
