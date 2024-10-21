@@ -61,6 +61,22 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TabControl^ tabCustomers;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ nuevoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ editarToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,6 +112,8 @@ namespace GUIApp {
 				delete components;
 			}
 		}
+	private: System::ComponentModel::IContainer^ components;
+	protected:
 
 	protected:
 
@@ -155,7 +173,7 @@ namespace GUIApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -164,6 +182,7 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Cliente_CRUD::typeid));
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -205,10 +224,16 @@ namespace GUIApp {
 			this->txtModelo = (gcnew System::Windows::Forms::TextBox());
 			this->txtColor = (gcnew System::Windows::Forms::TextBox());
 			this->tabCustomers = (gcnew System::Windows::Forms::TabControl());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->nuevoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->editarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersons))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->tabCustomers->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabPage1
@@ -249,7 +274,7 @@ namespace GUIApp {
 			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage1->Size = System::Drawing::Size(874, 647);
+			this->tabPage1->Size = System::Drawing::Size(874, 646);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Clientes";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -619,18 +644,63 @@ namespace GUIApp {
 			// tabCustomers
 			// 
 			this->tabCustomers->Controls->Add(this->tabPage1);
-			this->tabCustomers->Location = System::Drawing::Point(3, 3);
+			this->tabCustomers->Location = System::Drawing::Point(3, 32);
 			this->tabCustomers->Margin = System::Windows::Forms::Padding(4);
 			this->tabCustomers->Name = L"tabCustomers";
 			this->tabCustomers->SelectedIndex = 0;
-			this->tabCustomers->Size = System::Drawing::Size(882, 676);
+			this->tabCustomers->Size = System::Drawing::Size(882, 675);
 			this->tabCustomers->TabIndex = 8;
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->AllowMerge = false;
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(921, 28);
+			this->menuStrip1->TabIndex = 9;
+			this->menuStrip1->Text = L"Archivo";
+			// 
+			// archivoToolStripMenuItem
+			// 
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->nuevoToolStripMenuItem,
+					this->editarToolStripMenuItem, this->salirToolStripMenuItem
+			});
+			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Text = L"Archivo";
+			// 
+			// nuevoToolStripMenuItem
+			// 
+			this->nuevoToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"nuevoToolStripMenuItem.Image")));
+			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
+			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->nuevoToolStripMenuItem->Text = L"Nuevo";
+			this->nuevoToolStripMenuItem->Click += gcnew System::EventHandler(this, &Cliente_CRUD::nuevoToolStripMenuItem_Click);
+			// 
+			// editarToolStripMenuItem
+			// 
+			this->editarToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"editarToolStripMenuItem.Image")));
+			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
+			this->editarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->editarToolStripMenuItem->Text = L"Editar";
+			// 
+			// salirToolStripMenuItem
+			// 
+			this->salirToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"salirToolStripMenuItem.Image")));
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Text = L"Salir";
 			// 
 			// Cliente_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(898, 735);
+			this->ClientSize = System::Drawing::Size(921, 735);
+			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->tabCustomers);
 			this->Name = L"Cliente_CRUD";
 			this->Text = L"Cliente_CRUD";
@@ -641,7 +711,10 @@ namespace GUIApp {
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->tabCustomers->ResumeLayout(false);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -676,7 +749,32 @@ namespace GUIApp {
 			txtModelo->Clear();
 			txtColor->Clear();
 		}
-
+		void EnableControls() {
+			txtFirstName->ReadOnly = false;
+			txtLastName->ReadOnly = false;
+			txtUsername->ReadOnly = false;
+			txtPassword->ReadOnly = false;
+			txtDNI->ReadOnly = false;
+			txtPhoneNumber->ReadOnly = false;
+			txtEmail->ReadOnly = false;
+			txtDescuento->ReadOnly = false;
+			txtPlaca->ReadOnly = false;
+			txtModelo->ReadOnly = false;
+			txtColor->ReadOnly = false;
+		}
+		void DisableControls() {
+			txtFirstName->ReadOnly = true;
+			txtLastName->ReadOnly = true;
+			txtUsername->ReadOnly = true;
+			txtPassword->ReadOnly = true;
+			txtDNI->ReadOnly = true;
+			txtPhoneNumber->ReadOnly = true;
+			txtEmail->ReadOnly = true;
+			txtDescuento->ReadOnly = true;
+			txtPlaca->ReadOnly = true;
+			txtModelo->ReadOnly = true;
+			txtColor->ReadOnly = true;
+		}
 	private: System::Void btnAddPerson_Click(System::Object^ sender, System::EventArgs^ e) {
 		if (txtFirstName->Text->Trim() == "" || txtLastName->Text->Trim() == "" || txtDNI->Text->Trim() == ""
 			|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "" || txtPlaca->Text->Trim() == "" || txtModelo->Text->Trim() == "" ||
@@ -709,6 +807,8 @@ namespace GUIApp {
 			//Service::AddVehiculo(vehiculos);
 			ShowCliente();
 			ClearControls();
+			DisableControls();
+			btnAddPerson->Enabled = false;
 		}
 		catch(Exception^ ex){
 			MessageBox::Show(ex->ToString(), "Comparta el error al área de TI.");
@@ -739,11 +839,23 @@ private: System::Void dgvPersons_CellContentClick(System::Object^ sender, System
 		txtModelo->Text = clientes->MiVehiculo->Modelo;
 		txtColor->Text = clientes->MiVehiculo->Color;
 	}
+	DisableControls();
 
 }
 private: System::Void Cliente_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
 	ShowCliente();
 	//txtPersonId->Text ="" + Service::QueryAllClientes()->Count + 1;
+	btnAddPerson->Enabled = false;
+	btnUpdatePerson->Enabled = false;
+	btnDeletePerson->Enabled = false;
+	DisableControls();
+}
+private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	btnAddPerson->Enabled = true;
+	btnUpdatePerson->Enabled = false;
+	btnDeletePerson->Enabled = false;
+	EnableControls();
 }
 };
 }
