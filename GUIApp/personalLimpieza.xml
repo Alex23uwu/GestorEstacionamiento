@@ -4,11 +4,13 @@
     <Id>1</Id>
     <Nombre>Alexander</Nombre>
     <Apellido>Avila</Apellido>
+    <NombreUsuario>alexito</NombreUsuario>
+    <Clave>lasie2024</Clave>
     <DNI>0</DNI>
     <Estado>Activo</Estado>
     <Celular>0</Celular>
     <Salario>0</Salario>
-    <Piso>2</Piso>
+    <Piso>1</Piso>
     <Tips>0</Tips>
   </PersonalLimpieza>
 </ArrayOfPersonalLimpieza>

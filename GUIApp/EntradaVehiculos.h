@@ -83,7 +83,7 @@ namespace GUIApp {
 			this->labelIngresoVehiculo->AutoSize = true;
 			this->labelIngresoVehiculo->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->labelIngresoVehiculo->Location = System::Drawing::Point(157, 140);
+			this->labelIngresoVehiculo->Location = System::Drawing::Point(164, 126);
 			this->labelIngresoVehiculo->Name = L"labelIngresoVehiculo";
 			this->labelIngresoVehiculo->Size = System::Drawing::Size(71, 13);
 			this->labelIngresoVehiculo->TabIndex = 0;
@@ -113,7 +113,7 @@ namespace GUIApp {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(21, 140);
+			this->label2->Location = System::Drawing::Point(28, 126);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(123, 13);
 			this->label2->TabIndex = 3;

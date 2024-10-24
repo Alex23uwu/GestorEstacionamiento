@@ -59,6 +59,10 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaApellido;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaEstado;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPiso;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::TextBox^ txtUsuario;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::TextBox^ txtPassword;
 
 
 
@@ -102,6 +106,10 @@ namespace GUIApp {
 			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
 			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
 			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -253,12 +261,49 @@ namespace GUIApp {
 			this->txtPiso->Size = System::Drawing::Size(99, 20);
 			this->txtPiso->TabIndex = 13;
 			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(307, 37);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(43, 13);
+			this->label6->TabIndex = 14;
+			this->label6->Text = L"Usuario";
+			// 
+			// txtUsuario
+			// 
+			this->txtUsuario->Location = System::Drawing::Point(377, 34);
+			this->txtUsuario->Name = L"txtUsuario";
+			this->txtUsuario->Size = System::Drawing::Size(115, 20);
+			this->txtUsuario->TabIndex = 15;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(307, 68);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(61, 13);
+			this->label7->TabIndex = 16;
+			this->label7->Text = L"Contraseña";
+			// 
+			// txtPassword
+			// 
+			this->txtPassword->Location = System::Drawing::Point(377, 68);
+			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
+			this->txtPassword->Size = System::Drawing::Size(115, 20);
+			this->txtPassword->TabIndex = 17;
+			// 
 			// PersonalLimpieza_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(567, 452);
+			this->Controls->Add(this->txtPassword);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->txtUsuario);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->txtPiso);
 			this->Controls->Add(this->txtEstado);
 			this->Controls->Add(this->txtApellido);
@@ -291,6 +336,8 @@ namespace GUIApp {
 			personalLimp->Apellido = txtApellido->Text;
 			personalLimp->Estado = txtEstado->Text;
 			personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
+			personalLimp->NombreUsuario = txtUsuario->Text;
+			personalLimp->Clave = txtPassword->Text;
 			Service::AddPersonalLimpieza(personalLimp);
 			ShowPersonal();
 			MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
@@ -354,6 +401,8 @@ namespace GUIApp {
 			limpieza->Apellido = txtApellido->Text;
 			limpieza->Estado = txtEstado->Text;
 			limpieza->Piso = Convert::ToInt32(txtPiso->Text);
+			limpieza->NombreUsuario = txtUsuario->Text;
+			limpieza->Clave = txtPassword->Text;
 			Service::UpdatePersonalLimpieza(limpieza);
 			ShowPersonal();
 			MessageBox::Show("Se ha modificado el Personal " + id + "-" + limpieza->Nombre);
