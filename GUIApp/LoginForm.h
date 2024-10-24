@@ -141,6 +141,8 @@ namespace GUIApp {
 
 		}
 #pragma endregion
+		
+
 	private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
