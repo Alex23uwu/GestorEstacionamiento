@@ -44,6 +44,46 @@ Object^ EstacionamientoPersistance::Persistance::LoadPersonalLimpiezaXmlFile(Str
 
 }
 
+void EstacionamientoPersistance::Persistance::PersistXMLFileClientes(String^ fileCliente, Object^ persistObject)
+{
+    StreamWriter^ writer;
+    try {
+        writer = gcnew StreamWriter(fileCliente);
+        if (persistObject->GetType() == List<Cliente^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<Cliente^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (writer != nullptr) writer->Close();
+    }
+}
+
+Object^ EstacionamientoPersistance::Persistance::LoadClientesXmlFile(String^ fileCliente)
+{
+    StreamReader^ reader;
+    Object^ result = gcnew List<Cliente^>();
+    XmlSerializer^ xmlSerializer;
+
+    try {
+        if (File::Exists(fileCliente)) {
+            reader = gcnew StreamReader(fileCliente);
+            xmlSerializer = gcnew XmlSerializer(List<Cliente^>::typeid);
+            result = (List<Cliente^>^) xmlSerializer->Deserialize(reader); //Se concatena a string
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
+
 void EstacionamientoPersistance::Persistance::PersistXMLFileVeedor(String^ fileName, Object^ persistObject)
 {
     StreamWriter^ writer;

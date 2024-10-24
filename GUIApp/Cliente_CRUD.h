@@ -314,7 +314,6 @@ namespace GUIApp {
 			this->txtPersonPoints->Name = L"txtPersonPoints";
 			this->txtPersonPoints->Size = System::Drawing::Size(132, 22);
 			this->txtPersonPoints->TabIndex = 27;
-			this->txtPersonPoints->Text = L"0";
 			this->txtPersonPoints->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// txtPassword
@@ -752,6 +751,7 @@ namespace GUIApp {
 			txtPlaca->Clear();
 			txtModelo->Clear();
 			txtColor->Clear();
+			txtPersonPoints->Clear();
 		}
 		void EnableControls() {
 			txtFirstName->ReadOnly = false;
@@ -762,6 +762,7 @@ namespace GUIApp {
 			txtPhoneNumber->ReadOnly = false;
 			txtEmail->ReadOnly = false;
 			txtDescuento->ReadOnly = false;
+			txtPersonPoints->ReadOnly = false;
 			txtPlaca->ReadOnly = false;
 			txtModelo->ReadOnly = false;
 			txtColor->ReadOnly = false;
@@ -775,6 +776,7 @@ namespace GUIApp {
 			txtPhoneNumber->ReadOnly = true;
 			txtEmail->ReadOnly = true;
 			txtDescuento->ReadOnly = true;
+			txtPersonPoints->ReadOnly = true;
 			txtPlaca->ReadOnly = true;
 			txtModelo->ReadOnly = true;
 			txtColor->ReadOnly = true;
@@ -801,6 +803,8 @@ namespace GUIApp {
 			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
 			clientes->Email = txtEmail->Text;
 			clientes->Descuento = Int32::Parse(txtDescuento->Text);
+			clientes->PuntosCliene = Int32::Parse(txtPersonPoints->Text);
+
 			
 			vehiculos->Placa = txtPlaca->Text;
 			vehiculos->Modelo = txtModelo->Text;
@@ -840,11 +844,12 @@ private: System::Void dgvPersons_CellContentClick(System::Object^ sender, System
 		}
 		txtEmail->Text = clientes->Email;
 		txtDescuento->Text = ""+clientes->Descuento;
+		txtPersonPoints->Text = "" + clientes->PuntosCliene;
 		txtPlaca->Text= clientes->MiVehiculo->Placa;
 		txtModelo->Text = clientes->MiVehiculo->Modelo;
 		txtColor->Text = clientes->MiVehiculo->Color;
 	}
-	DisableControls();
+	//DisableControls();
 
 }
 private: System::Void Cliente_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -864,14 +869,23 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 }
 private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ Id = txtPersonId->Text->Trim();
-	Cliente^ clientes = gcnew Cliente();
-	Vehiculo^ vehiculos = gcnew Vehiculo();
+	//Cliente^ clientes = gcnew Cliente();
+	//Vehiculo^ vehiculos = gcnew Vehiculo();
+	//Cliente^ clientes = Service::QueryClienteById(Convert::ToInt32(Id));
 	if (Id->Equals("")) {
 		MessageBox::Show("Debe seleccionar un cliente");
 		return;
 	}
+	if (txtFirstName->Text->Trim() == "" || txtLastName->Text->Trim() == "" || txtDNI->Text->Trim() == ""
+		|| txtUsername->Text->Trim() == "" || txtPassword->Text->Trim() == "" || txtPlaca->Text->Trim() == "" || txtModelo->Text->Trim() == "" ||
+		txtColor->Text->Trim() == "" || txtPhoneNumber->Text->Trim() == "" || txtEmail->Text->Trim() == "" || txtDescuento->Text->Trim() == "" ||
+		txtPersonPoints->Text->Trim() == "") {
+		MessageBox::Show("Todos los parámetros son obligatorios");
+		return;
+	}
 	try{
-		
+		Vehiculo^ vehiculos = gcnew Vehiculo();
+		Cliente^ clientes = Service::QueryClienteById(Convert::ToInt32(Id));
 		//clientes->Id = Int32::Parse(txtPersonId->Text);
 		//clientes->Id = Service::QueryAllClientes()->Count + 1;
 		clientes->Nombre = txtFirstName->Text;
@@ -881,8 +895,15 @@ private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::Even
 		clientes->DNI = Int32::Parse(txtDNI->Text);
 		clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
 		clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
+		if (clientes->Estado = "Activo") {
+			rbtnMasc->Checked;
+		}
+		if (clientes->Estado = "Inactivo") {
+			rbtnFem->Checked;
+		}
 		clientes->Email = txtEmail->Text;
 		clientes->Descuento = Int32::Parse(txtDescuento->Text);
+		clientes->PuntosCliene= Int32::Parse(txtPersonPoints->Text);
 
 		vehiculos->Placa = txtPlaca->Text;
 		vehiculos->Modelo = txtModelo->Text;
@@ -893,6 +914,8 @@ private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::Even
 		ClearControls();
 		DisableControls();
 		btnUpdatePerson->Enabled = false;
+		btnDeletePerson->Enabled = false;
+		MessageBox::Show("Se ha modificado el cliente " + clientes->Id + " - " + clientes->Nombre);
 	}
 	catch(Exception^ex){
 		MessageBox::Show("No se ha podido modificar el cliente por el siguiente motivo:\n" +
@@ -901,12 +924,33 @@ private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::Even
 
 }
 private: System::Void btnDeletePerson_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ Id = txtPersonId->Text->Trim();
+	Cliente^ clientes = Service::QueryClienteById(Convert::ToInt32(Id));
+	if (Id->Equals("")) {
+		MessageBox::Show("Debe seleccionar un cliente.");
+		return;
+	}
+	
+	try {
+		Service::DeleteCliente(Convert::ToInt32(Id));
+		ShowCliente();
+		MessageBox::Show("Se ha eliminado el cliente numero " + Id + " de manera exitosa.");
+		ClearControls();
+		DisableControls();
+		btnAddPerson->Enabled = false;
+		btnUpdatePerson->Enabled = false;
+		btnDeletePerson->Enabled = false;
+	}
+	catch (Exception^ ex) {
+		MessageBox::Show("No ha sido posible eliminar el clienter por el siguiente motivo: \n" +
+			ex->Message);
+	}
 }
 private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	ClearControls();
 	btnAddPerson->Enabled = false;
 	btnUpdatePerson->Enabled = true;
-	btnDeletePerson->Enabled = false;
+	btnDeletePerson->Enabled = true;
 	EnableControls();
 }
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {

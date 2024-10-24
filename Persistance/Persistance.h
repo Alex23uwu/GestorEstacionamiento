@@ -16,6 +16,9 @@ namespace EstacionamientoPersistance {
 		static void PersistXMLFileVeedor(String^ fileName, Object^ persistObject);
 		static Object^ LoadVeedorXmlFile(String^ filename);
 		
+		//Persistencia del clientes 
+		static void PersistXMLFileClientes(String^ fileName, Object^ persistObject);
+		static Object^ LoadClientesXmlFile(String^ fileCliente);
 		//Colocar Avance
 	};
 }

@@ -174,6 +174,7 @@ void EstacionamientoService::Service::OrdenarVeedorID(List<Veedor^>^ VeedorLista
 void EstacionamientoService::Service::AddCliente(Cliente^ cliente)
 {
 	ListaCliente->Add(cliente);
+	Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
 }
 
 void EstacionamientoService::Service::UpdateCliente(Cliente^ cliente)
@@ -181,6 +182,7 @@ void EstacionamientoService::Service::UpdateCliente(Cliente^ cliente)
 	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->Id == cliente->Id) {
 			ListaCliente[i] = cliente;
+			Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
 			return;
 		}
 	}
@@ -191,6 +193,7 @@ void EstacionamientoService::Service::DeleteCliente(int ClienteID)
 	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->Id == ClienteID) {
 			ListaCliente->RemoveAt(i);
+			Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
 			return;
 		}
 	}
@@ -198,6 +201,14 @@ void EstacionamientoService::Service::DeleteCliente(int ClienteID)
 
 List<Cliente^>^ EstacionamientoService::Service::QueryAllClientes()
 {
+	ListaCliente = gcnew List<Cliente^>();
+	try
+	{
+		ListaCliente = (List<Cliente^>^)Persistance::LoadClientesXmlFile(XML_CLIENTES_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
 	return ListaCliente;
 }
 
