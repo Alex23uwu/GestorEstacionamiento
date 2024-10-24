@@ -12,6 +12,9 @@ namespace EstacionamientoPersistance {
 		//Persistencia del Limpiador 
 		static void PersistXMLFilePersonalLimpieza(String^ fileName, Object^ persistObject);
 		static Object^ LoadPersonalLimpiezaXmlFile(String^ filename);
+		//Persistencia del Veedor
+		static void PersistXMLFileVeedor(String^ fileName, Object^ persistObject);
+		static Object^ LoadVeedorXmlFile(String^ filename);
 		
 		//Colocar Avance
 	};

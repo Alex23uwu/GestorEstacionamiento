@@ -65,6 +65,7 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
 	ListaVeedor->Add(veedor);
+	Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
 }
 
 void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
@@ -72,6 +73,7 @@ void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == veedor->Id) {
 			ListaVeedor[i] = veedor;
+			Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
 	}
@@ -81,6 +83,7 @@ void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			ListaVeedor->RemoveAt(i);
+			Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
 	}
@@ -88,6 +91,14 @@ void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
 
 List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
 {
+	ListaVeedor = gcnew List<Veedor^>();
+	try
+	{
+		ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
 	return ListaVeedor;
 }
 

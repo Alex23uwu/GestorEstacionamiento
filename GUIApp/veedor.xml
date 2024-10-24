@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVeedor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Veedor>
+    <Id>1</Id>
+    <Nombre>Renzo</Nombre>
+    <Apellido>Regalado</Apellido>
+    <NombreUsuario>Reibow</NombreUsuario>
+    <Clave>1234</Clave>
+    <DNI>75087634</DNI>
+    <Email>joaquinrr02@gmail.com</Email>
+    <Celular>938128462</Celular>
+    <Salario>0</Salario>
+    <Piso>0</Piso>
+    <Experiencia />
+  </Veedor>
+</ArrayOfVeedor>

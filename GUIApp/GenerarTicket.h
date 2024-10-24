@@ -104,12 +104,13 @@ namespace GUIApp {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(349, 212);
+			this->button1->Location = System::Drawing::Point(95, 239);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
 			this->button1->Text = L"Generar";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &GenerarTicket::button1_Click);
 			// 
 			// label3
 			// 
@@ -175,7 +176,7 @@ namespace GUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(531, 425);
+			this->ClientSize = System::Drawing::Size(495, 345);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label5);
@@ -196,5 +197,7 @@ namespace GUIApp {
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

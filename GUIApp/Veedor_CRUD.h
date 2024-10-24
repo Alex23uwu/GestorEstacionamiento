@@ -117,6 +117,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorCelular;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorPiso;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ VeedorSalario;
+private: System::Windows::Forms::ComboBox^ comboBox1;
 
 
 
@@ -171,6 +172,7 @@ namespace GUIApp {
 			this->txtExperiencia = (gcnew System::Windows::Forms::TextBox());
 			this->bt_nuevo = (gcnew System::Windows::Forms::Button());
 			this->CheckboxClave = (gcnew System::Windows::Forms::CheckBox());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dvgVeedor))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -469,11 +471,21 @@ namespace GUIApp {
 			this->CheckboxClave->UseVisualStyleBackColor = true;
 			this->CheckboxClave->CheckedChanged += gcnew System::EventHandler(this, &Veedor_CRUD::checkBox1_CheckedChanged);
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(79, 263);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(163, 21);
+			this->comboBox1->TabIndex = 34;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Veedor_CRUD::comboBox1_SelectedIndexChanged);
+			// 
 			// Veedor_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(860, 586);
+			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->CheckboxClave);
 			this->Controls->Add(this->bt_nuevo);
 			this->Controls->Add(this->txtExperiencia);
@@ -668,8 +680,8 @@ namespace GUIApp {
 		}
 		try {
 			Veedor^ veedor = Service::QueryVeedorById(Convert::ToInt32(ID));
-			MessageBox::Show("Se ha eliminado el Veedor " + veedor->Apellido + " " + veedor->Nombre + " de manera exitosa.");
 			Service::DeleteVeedor(Convert::ToInt32(ID));
+			MessageBox::Show("Se ha eliminado el Veedor " + veedor->Apellido + " " + veedor->Nombre + " de manera exitosa.");
 			ShowVeedor();
 		}
 		catch (Exception^ ex) {
@@ -705,6 +717,14 @@ namespace GUIApp {
 		List<Veedor^>^ VeedorLista = Service::QueryAllVeedor();
 		txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 		ShowVeedor();
+		FillCmbRandom();
 	}
+
+		   void FillCmbRandom() {
+			   comboBox1->Items->Add("Hola");
+			   comboBox1->Items->Add("Adios");
+		   }
+private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

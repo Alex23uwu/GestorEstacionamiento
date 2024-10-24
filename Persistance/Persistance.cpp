@@ -43,3 +43,44 @@ Object^ EstacionamientoPersistance::Persistance::LoadPersonalLimpiezaXmlFile(Str
     return result; 
 
 }
+
+void EstacionamientoPersistance::Persistance::PersistXMLFileVeedor(String^ fileName, Object^ persistObject)
+{
+    StreamWriter^ writer;
+    try {
+        writer = gcnew StreamWriter(fileName);
+        if (persistObject->GetType() == List<Veedor^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<Veedor^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (writer != nullptr) writer->Close();
+    }
+
+}
+
+Object^ EstacionamientoPersistance::Persistance::LoadVeedorXmlFile(String^ filename)
+{
+    StreamReader^ reader;
+    Object^ result = gcnew List<Veedor^>();
+    XmlSerializer^ xmlSerializer;
+
+    try {
+        if (File::Exists(filename)) {
+            reader = gcnew StreamReader(filename);
+            xmlSerializer = gcnew XmlSerializer(List<Veedor^>::typeid);
+            result = (List<Veedor^>^) xmlSerializer->Deserialize(reader); //Se concatena a string
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
