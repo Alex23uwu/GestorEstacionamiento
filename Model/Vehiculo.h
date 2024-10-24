@@ -18,7 +18,6 @@ namespace Model {
         property String^ Color;
         property String^ TipoVehiculo;
         property Estacionamiento^ AsigandoA;
-        property DateTime^ Fecha;
         //property Cliente^ MiVehiculo;
     };
 }
