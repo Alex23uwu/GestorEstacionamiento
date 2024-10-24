@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEstacionamiento xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>1</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>1</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>1</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>2</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>2</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>2</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>3</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>3</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>3</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>4</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>4</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>4</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>5</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>5</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>5</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>6</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>6</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>6</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>7</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>7</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>7</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>8</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>8</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>8</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>9</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>9</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>9</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>10</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>10</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>10</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>11</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>11</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>11</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>12</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>12</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>12</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>13</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>13</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>13</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>14</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>14</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>14</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>15</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>15</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>15</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+  <Estacionamiento>
+    <HoraInicio />
+    <HoraSalida />
+    <Id>16</Id>
+    <MiSensor>
+      <Detecta>false</Detecta>
+      <Id>16</Id>
+    </MiSensor>
+    <Ubicacion>
+      <Piso>1</Piso>
+      <NumeroEstacionamiento>16</NumeroEstacionamiento>
+    </Ubicacion>
+  </Estacionamiento>
+</ArrayOfEstacionamiento>

@@ -11,11 +11,12 @@
 using namespace System;
 
 namespace Model {
-    public ref class Estacionamiento : public Sensor {
+    public ref class Estacionamiento{
     public:
         String^ HoraInicio;
         String^ HoraSalida;
         int Id;
+        Sensor^ MiSensor;
         Coordenadas^ Ubicacion;
     };
 }

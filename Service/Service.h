@@ -53,6 +53,7 @@ namespace EstacionamientoService {
 		static void DeleteCliente(int ClienteID);
 		static List<Cliente^>^ QueryAllClientes();
 		static Cliente^ QueryClienteById(int ClienteID);
+
 		// CRUD PARA VEHICULOS
 		static void AddVehiculo(Vehiculo^);
 		static void UpdateVehiculo(Vehiculo^);
@@ -74,6 +75,7 @@ namespace EstacionamientoService {
 		static List<Estacionamiento^>^ QueryAllEstacionamientos();
 		static Estacionamiento^ QueryEstacionamientosbyId(int id);
 		static int UpdateEstacionamientoID();
+		static int DetectarEstacionamientoMasProximoDisponible();
 
 		// CRUD PARA ADMINISTRADORES
 		static void AddAdministrador(Administrador^);

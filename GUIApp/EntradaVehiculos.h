@@ -183,12 +183,19 @@ namespace GUIApp {
 		Vehiculo^ vehiculo = gcnew Vehiculo();
 		DetalleTicket^ detalle = gcnew DetalleTicket();
 		Ticket^ ticket = gcnew Ticket();
+		//Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId();
+
 		vehiculo->Placa = txtPlaca->Text;
 		ticket->Detalle = detalle;
 		ticket->GeneradoA = vehiculo;
 		detalle->HoraEntrada = labelIngresoVehiculo->Text;
+		
+
 		EstacionamientoService::Service::AddTicket(ticket);
 		EstacionamientoService::Service::AddVehiculo(vehiculo);
+
+
+
 		MessageBox::Show("Se ha agregado el vehiculo de placa, " + vehiculo->Placa);
 	}
 };

@@ -372,6 +372,19 @@ int EstacionamientoService::Service::UpdateEstacionamientoID() {
 	return prueba;
 }
 
+int EstacionamientoService::Service::DetectarEstacionamientoMasProximoDisponible() {
+	int prueba = 1;
+	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
+		if (ListaEstacionamiento[i]->MiSensor->Detecta == true) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
+}
+
 // CRUD ADMINISTRADOR
 void EstacionamientoService::Service::AddAdministrador(Administrador^ admin) {
 	ListaAdministrador->Add(admin);
