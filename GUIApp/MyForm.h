@@ -98,9 +98,9 @@ namespace GUIApp {
 			this->transaccionesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->entradaDeVeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->generarTicketToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->reservacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->reservacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -209,6 +209,13 @@ namespace GUIApp {
 			this->generarTicketToolStripMenuItem->Text = L"Generar Ticket";
 			this->generarTicketToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generarTicketToolStripMenuItem_Click);
 			// 
+			// reservacionToolStripMenuItem
+			// 
+			this->reservacionToolStripMenuItem->Name = L"reservacionToolStripMenuItem";
+			this->reservacionToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->reservacionToolStripMenuItem->Text = L"Reservacion";
+			this->reservacionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::reservacionToolStripMenuItem_Click);
+			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
@@ -221,13 +228,6 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// reservacionToolStripMenuItem
-			// 
-			this->reservacionToolStripMenuItem->Name = L"reservacionToolStripMenuItem";
-			this->reservacionToolStripMenuItem->Size = System::Drawing::Size(183, 22);
-			this->reservacionToolStripMenuItem->Text = L"Reservacion";
-			this->reservacionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::reservacionToolStripMenuItem_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -239,7 +239,6 @@ namespace GUIApp {
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Sistema de Estacionamiento";
-			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
