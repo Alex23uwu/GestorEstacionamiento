@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPersonalLimpieza xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PersonalLimpieza>
+    <Id>1</Id>
+    <Nombre>Alexander</Nombre>
+    <Apellido>Avila</Apellido>
+    <DNI>0</DNI>
+    <Estado>Activo</Estado>
+    <Celular>0</Celular>
+    <Salario>0</Salario>
+    <Piso>2</Piso>
+    <Tips>0</Tips>
+  </PersonalLimpieza>
+</ArrayOfPersonalLimpieza>
