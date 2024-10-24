@@ -40,6 +40,8 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 }
 System::Void GUIApp::LoginForm::LoginForm_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 
-	if (MyForm::User== nullptr)
-		Application::Exit();
+	//if ((MyForm::User== nullptr)&&(MyForm::Cliente == nullptr) && (MyForm::Veedor == nullptr) && (MyForm::PersonalLimpieza == nullptr) && (MyForm::Administrador == nullptr))
+	//if ((MyForm::Cliente == nullptr) && (MyForm::Veedor == nullptr) && (MyForm::PersonalLimpieza == nullptr) && (MyForm::Administrador == nullptr))
+	//if(MyForm::Cliente == nullptr)
+		//Application::Exit();
 }

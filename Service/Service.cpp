@@ -433,41 +433,49 @@ Usuario^ EstacionamientoService::Service::Login(String^ userName, String^ passwo
 
 Cliente^ EstacionamientoService::Service::ValidaCliente(String^ userName, String^ password)
 {
-	for (int i = 0; i < ListaCliente->Count; i++) {
-		if (ListaCliente[i]->NombreUsuario->Equals(userName) &&
-			ListaCliente[i]->Clave->Equals(password))
-			return ListaCliente[i];
+	List<Cliente^>^ clienteList = QueryAllClientes();
+	for (int i = 0; i < clienteList->Count; i++) {
+		Cliente^ cliente = clienteList[i];
+		if (cliente->NombreUsuario->Equals(userName) &&
+			cliente->Clave->Equals(password))
+			return cliente;
 	}
-	return nullptr;
+	//return nullptr;
 
 }
 
 Veedor^ EstacionamientoService::Service::ValidaVeedor(String^ userName, String^ password)
 {
-	for (int i = 0; i < ListaVeedor->Count; i++) {
-		if (ListaVeedor[i]->NombreUsuario->Equals(userName) &&
-			ListaVeedor[i]->Clave->Equals(password))
-			return ListaVeedor[i];
+	List<Veedor^>^ veedorList = QueryAllVeedor();
+	for (int i = 0; i < veedorList->Count; i++) {
+		Veedor^ veedor = veedorList[i];
+		if (veedor->NombreUsuario->Equals(userName) &&
+			veedor->Clave->Equals(password))
+			return veedor;
 	}
-	return nullptr;
+	//return nullptr;
 }
 
 PersonalLimpieza^ EstacionamientoService::Service::ValidaPersonalLimpieza(String^ userName, String^ password)
 {
-	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-		if (ListaPersonalLimpieza[i]->NombreUsuario->Equals(userName) &&
-			ListaPersonalLimpieza[i]->Clave->Equals(password))
-			return ListaPersonalLimpieza[i];
+	List<PersonalLimpieza^>^ personalLimpiezaList = QueryAllPersonalLimpieza();
+	for (int i = 0; i < personalLimpiezaList->Count; i++) {
+		PersonalLimpieza^ personalLimpieza = personalLimpiezaList[i];
+		if (personalLimpieza->NombreUsuario->Equals(userName) &&
+			personalLimpieza->Clave->Equals(password))
+			return personalLimpieza;
 	}
-	return nullptr;
+	//return nullptr;
 }
 
 Administrador^ EstacionamientoService::Service::ValidaAdministrador(String^ userName, String^ password)
 {
-	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->NombreUsuario->Equals(userName) &&
-			ListaAdministrador[i]->Clave->Equals(password))
-			return ListaAdministrador[i];
+	List<Administrador^>^ administradorList = QueryAllAdministrador();
+	for (int i = 0; i < administradorList->Count; i++) {
+		Administrador^ administrador = administradorList[i];
+		if (administrador->NombreUsuario->Equals(userName) &&
+			administrador->Clave->Equals(password))
+			return administrador;
 	}
-	return nullptr;
+	//return nullptr;
 }
