@@ -308,7 +308,7 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(484, 516);
+			this->ClientSize = System::Drawing::Size(617, 516);
 			this->Controls->Add(this->imgBox);
 			this->Name = L"InterfazVistaVehiculos";
 			this->Text = L"InterfazVistaVehiculos";

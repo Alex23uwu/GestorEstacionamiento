@@ -15,6 +15,7 @@ namespace EstacionamientoService {
 		static String^ XML_CLIENTES_FILE_NAME = "clientes.xml";
 		static String^ XML_TICKET_FILE_NAME = "ticket.xml";
 		static String^ XML_DETALLE_FILE_NAME = "detalleticket.xml";
+		static String^ XML_ESTACIONAMIENTO_FILE_NAME = "estacionamientos.xml";
 	private:
 		static List<Estacionamiento^>^ ListaEstacionamiento = gcnew List<Estacionamiento^>();
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();
@@ -27,8 +28,7 @@ namespace EstacionamientoService {
 		static List<Ticket^>^ ListaTicket = gcnew List<Ticket^>();
 		static List<DetalleTicket^>^ ListaDetalle = gcnew List<DetalleTicket^>();
 
-		/*
-			static int administradorId = 1;*/
+
 	public:
 		// CRUD PARA EL PERSONAL DE LIMPIEZA
 		static void AddPersonalLimpieza(PersonalLimpieza^);
@@ -60,6 +60,7 @@ namespace EstacionamientoService {
 		static List<Vehiculo^>^ QueryAllVehiculo();
 		static Vehiculo^ QueryVehiculoById(int VehiculoID);
 		static Vehiculo^ QueryVehiculoByPlaca(String^ Placa);
+
 		//CRUD PARA TICKET
 		static void AddTicket(Ticket^);
 		static List<Ticket^>^ QueryAllTicket();
@@ -67,6 +68,12 @@ namespace EstacionamientoService {
 		static int GeneracionIDTicket();
 		static double CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle);
 
+		//CRUD PARA ESTACIONAMIENTOS
+		static void AddEstacionamiento(Estacionamiento^);
+		static void DeleteEstacionamiento(int EstacionamientoId);
+		static List<Estacionamiento^>^ QueryAllEstacionamientos();
+		static Estacionamiento^ QueryEstacionamientosbyId(int id);
+		static int UpdateEstacionamientoID();
 
 		// CRUD PARA ADMINISTRADORES
 		static void AddAdministrador(Administrador^);

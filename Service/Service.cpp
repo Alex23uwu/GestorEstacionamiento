@@ -14,7 +14,7 @@ void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ pers
 		}
 	}
 	ListaPersonalLimpieza->Add(personalLimpieza);
-	Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
+	Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 }
 
 void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ personalLimpieza)
@@ -22,7 +22,7 @@ void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ p
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == personalLimpieza->Id) {
 			ListaPersonalLimpieza[i] = personalLimpieza;
-			Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
+			Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 			return;
 		}
 	}
@@ -34,7 +34,7 @@ void EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiez
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaID) {
 			ListaPersonalLimpieza->RemoveAt(i);
-			Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
+			Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 			return;
 		}
 	}
@@ -66,7 +66,7 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
 	ListaVeedor->Add(veedor);
-	Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
+	Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 }
 
 void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
@@ -74,7 +74,7 @@ void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == veedor->Id) {
 			ListaVeedor[i] = veedor;
-			Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
+			Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
 	}
@@ -84,7 +84,7 @@ void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			ListaVeedor->RemoveAt(i);
-			Persistance::PersistXMLFileVeedor(XML_VEEDOR_FILE_NAME, ListaVeedor);
+			Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
 	}
@@ -175,7 +175,7 @@ void EstacionamientoService::Service::OrdenarVeedorID(List<Veedor^>^ VeedorLista
 void EstacionamientoService::Service::AddCliente(Cliente^ cliente)
 {
 	ListaCliente->Add(cliente);
-	Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
+	Persistance::PersistXMLFile(XML_CLIENTES_FILE_NAME, ListaCliente);
 }
 
 void EstacionamientoService::Service::UpdateCliente(Cliente^ cliente)
@@ -183,7 +183,7 @@ void EstacionamientoService::Service::UpdateCliente(Cliente^ cliente)
 	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->Id == cliente->Id) {
 			ListaCliente[i] = cliente;
-			Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
+			Persistance::PersistXMLFile(XML_CLIENTES_FILE_NAME, ListaCliente);
 			return;
 		}
 	}
@@ -194,7 +194,7 @@ void EstacionamientoService::Service::DeleteCliente(int ClienteID)
 	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->Id == ClienteID) {
 			ListaCliente->RemoveAt(i);
-			Persistance::PersistXMLFileClientes(XML_CLIENTES_FILE_NAME, ListaCliente);
+			Persistance::PersistXMLFile(XML_CLIENTES_FILE_NAME, ListaCliente);
 			return;
 		}
 	}
@@ -317,6 +317,59 @@ double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV ,D
 	detalle->Tarifa = tarifa;
 	detalle->Cantidad = horasDiferencia * tarifa + (minutosDiferencia * tarifa / 60);
 	return (detalle->Cantidad+detalle->IGV);
+}
+
+void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estacionamiento)
+{
+	for each (Estacionamiento^ personalLimp in ListaEstacionamiento) {
+		if (personalLimp->Id == estacionamiento->Id) {
+			throw gcnew DuplicatedLimpiadorException("El código del Estacionamiento ya existe en la base de datos.");
+		}
+	}
+	ListaEstacionamiento->Add(estacionamiento);
+	Persistance::PersistXMLFile(XML_ESTACIONAMIENTO_FILE_NAME, ListaEstacionamiento);
+}
+
+void EstacionamientoService::Service::DeleteEstacionamiento(int EstacionamientoId){
+	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
+		if (ListaEstacionamiento[i]->Id == EstacionamientoId) {
+			ListaEstacionamiento->RemoveAt(i);
+			Persistance::PersistXMLFile(XML_ESTACIONAMIENTO_FILE_NAME, ListaEstacionamiento);
+			return;
+		}
+	}
+}
+
+List<Estacionamiento^>^ EstacionamientoService::Service::QueryAllEstacionamientos() {
+	ListaEstacionamiento = gcnew List<Estacionamiento^>();
+	try {
+		ListaEstacionamiento = (List<Estacionamiento^>^)Persistance::LoadEstacionamientosXmlFile(XML_ESTACIONAMIENTO_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
+	return ListaEstacionamiento;
+}
+
+Estacionamiento^ EstacionamientoService::Service::QueryEstacionamientosbyId(int id) {
+	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
+		if (ListaEstacionamiento[i]->Id == id) {
+			return ListaEstacionamiento[i];
+		}
+	}
+}
+
+int EstacionamientoService::Service::UpdateEstacionamientoID() {
+	int prueba = 1;
+	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
+		if (ListaEstacionamiento[i]->Id == prueba) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
 }
 
 // CRUD ADMINISTRADOR
