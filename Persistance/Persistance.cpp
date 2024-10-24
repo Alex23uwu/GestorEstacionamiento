@@ -3,7 +3,7 @@
 
 using namespace System::IO;
 
-void EstacionamientoPersistance::Persistance::PersistXMLFilePersonalLimpieza(String^ fileName, Object^ persistObject){
+void EstacionamientoPersistance::Persistance::PersistXMLFilePersonalLimpieza(String^ fileName, Object^ persistObject) {
 
     StreamWriter^ writer;
     try {
@@ -19,7 +19,7 @@ void EstacionamientoPersistance::Persistance::PersistXMLFilePersonalLimpieza(Str
     finally {
         if (writer != nullptr) writer->Close();
     }
-    
+
 }
 
 Object^ EstacionamientoPersistance::Persistance::LoadPersonalLimpiezaXmlFile(String^ filename) {
@@ -40,7 +40,7 @@ Object^ EstacionamientoPersistance::Persistance::LoadPersonalLimpiezaXmlFile(Str
     finally {
         if (reader != nullptr) reader->Close();
     }
-    return result; 
+    return result;
 
 }
 
@@ -114,6 +114,87 @@ Object^ EstacionamientoPersistance::Persistance::LoadVeedorXmlFile(String^ filen
             reader = gcnew StreamReader(filename);
             xmlSerializer = gcnew XmlSerializer(List<Veedor^>::typeid);
             result = (List<Veedor^>^) xmlSerializer->Deserialize(reader); //Se concatena a string
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
+
+
+void EstacionamientoPersistance::Persistance::PersistTicketFileVeedor(String^ fileName, Object^ persistObject)
+{
+    StreamWriter^ writer;
+    try {
+        writer = gcnew StreamWriter(fileName);
+        if (persistObject->GetType() == List<Ticket^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<Ticket^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (writer != nullptr) writer->Close();
+    }
+}
+
+Object^ EstacionamientoPersistance::Persistance::LoadTicketXmlFile(String^ filename)
+{
+    StreamReader^ reader;
+    Object^ result = gcnew List<Ticket^>();
+    XmlSerializer^ xmlSerializer;
+
+    try {
+        if (File::Exists(filename)) {
+            reader = gcnew StreamReader(filename);
+            xmlSerializer = gcnew XmlSerializer(List<Ticket^>::typeid);
+            result = (List<Ticket^>^) xmlSerializer->Deserialize(reader); //Se concatena a string
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
+
+void EstacionamientoPersistance::Persistance::PersistDetalleTicketFileVeedor(String^ fileName, Object^ persistObject)
+{
+    StreamWriter^ writer;
+    try {
+        writer = gcnew StreamWriter(fileName);
+        if (persistObject->GetType() == List<DetalleTicket^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<DetalleTicket^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (writer != nullptr) writer->Close();
+    }
+}
+
+Object^ EstacionamientoPersistance::Persistance::LoadDetalleTicketXmlFile(String^ filename)
+{
+    StreamReader^ reader;
+    Object^ result = gcnew List<DetalleTicket^>();
+    XmlSerializer^ xmlSerializer;
+
+    try {
+        if (File::Exists(filename)) {
+            reader = gcnew StreamReader(filename);
+            xmlSerializer = gcnew XmlSerializer(List<DetalleTicket^>::typeid);
+            result = (List<DetalleTicket^>^) xmlSerializer->Deserialize(reader); //Se concatena a string
         }
     }
     catch (Exception^ ex) {

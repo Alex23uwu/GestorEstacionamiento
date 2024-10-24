@@ -6,8 +6,8 @@ using namespace System::Xml::Serialization;
 using namespace Model;
 
 namespace EstacionamientoPersistance {
-	public ref class Persistance{
-		
+	public ref class Persistance {
+
 	public:
 		//Persistencia del Limpiador 
 		static void PersistXMLFilePersonalLimpieza(String^ fileName, Object^ persistObject);
@@ -15,10 +15,15 @@ namespace EstacionamientoPersistance {
 		//Persistencia del Veedor
 		static void PersistXMLFileVeedor(String^ fileName, Object^ persistObject);
 		static Object^ LoadVeedorXmlFile(String^ filename);
-		
+
 		//Persistencia del clientes 
 		static void PersistXMLFileClientes(String^ fileName, Object^ persistObject);
 		static Object^ LoadClientesXmlFile(String^ fileCliente);
 		//Colocar Avance
+		//Persistencia de los tickets
+		static void PersistTicketFileVeedor(String^ fileName, Object^ persistObject);
+		static Object^ LoadTicketXmlFile(String^ filename);
+		static void PersistDetalleTicketFileVeedor(String^ fileName, Object^ persistObject);
+		static Object^ LoadDetalleTicketXmlFile(String^ filename);
 	};
 }

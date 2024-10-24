@@ -6,7 +6,7 @@
 
 using namespace System::IO;
 // CRUD PERSONAL LIMPIEZA
-void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza ){
+void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza) {
 
 	for each (PersonalLimpieza ^ personalLimp in ListaPersonalLimpieza) {
 		if (personalLimp->Id == personalLimpieza->Id) {
@@ -14,7 +14,7 @@ void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ pers
 		}
 	}
 	ListaPersonalLimpieza->Add(personalLimpieza);
-	Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME,ListaPersonalLimpieza);
+	Persistance::PersistXMLFilePersonalLimpieza(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
 }
 
 void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ personalLimpieza)
@@ -44,15 +44,16 @@ List<PersonalLimpieza^>^ EstacionamientoService::Service::QueryAllPersonalLimpie
 {
 	ListaPersonalLimpieza = gcnew List<PersonalLimpieza^>();
 	try
-	{ListaPersonalLimpieza = (List<PersonalLimpieza^>^)Persistance::LoadPersonalLimpiezaXmlFile(XML_LIMPIADOR_FILE_NAME);
+	{
+		ListaPersonalLimpieza = (List<PersonalLimpieza^>^)Persistance::LoadPersonalLimpiezaXmlFile(XML_LIMPIADOR_FILE_NAME);
 	}
-	catch (FileNotFoundException^ ex){
+	catch (FileNotFoundException^ ex) {
 
 	}
 	return ListaPersonalLimpieza;
 }
 
-PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int PersonalLimpiezaId){
+PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int PersonalLimpiezaId) {
 	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
 		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaId) {
 			return ListaPersonalLimpieza[i];
@@ -260,6 +261,18 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 		}
 	}
 }
+// CRUD TICKET
+
+void EstacionamientoService::Service::AddTicket(Ticket^)
+{
+	throw gcnew System::NotImplementedException();
+}
+
+List<Ticket^>^ EstacionamientoService::Service::QueryAllTicket()
+{
+	throw gcnew System::NotImplementedException();
+	// TODO: Insertar una instrucción "return" aquí
+}
 
 // CRUD ADMINISTRADOR
 void EstacionamientoService::Service::AddAdministrador(Administrador^ admin) {
@@ -300,7 +313,7 @@ Administrador^ EstacionamientoService::Service::QueryAdministradorById(int admin
 int EstacionamientoService::Service::UpdateAdministradorId() {
 	int prueba = 1;
 	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->Id  == prueba) {
+		if (ListaAdministrador[i]->Id == prueba) {
 			prueba++;
 		}
 		else {
@@ -322,7 +335,7 @@ Usuario^ EstacionamientoService::Service::Login(String^ userName, String^ passwo
 
 Cliente^ EstacionamientoService::Service::ValidaCliente(String^ userName, String^ password)
 {
-	for (int i = 0;i< ListaCliente->Count; i++) {
+	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->NombreUsuario->Equals(userName) &&
 			ListaCliente[i]->Clave->Equals(password))
 			return ListaCliente[i];
