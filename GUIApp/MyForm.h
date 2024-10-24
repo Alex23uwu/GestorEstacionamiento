@@ -7,6 +7,7 @@
 #include "GenerarTicket.h"
 #include "Reservacion.h"
 #include "LoginForm.h"
+#include "InterfazVistaVehiculos.h"
 #include "Estacionamiento_CRUD.h"
 
 namespace GUIApp {
@@ -30,6 +31,8 @@ namespace GUIApp {
 		static Cliente^ Cliente;
 		static Veedor^ Veedor;
 		static PersonalLimpieza^ PersonalLimpieza;
+	private: System::Windows::Forms::ToolStripMenuItem^ espaciosDisponiblesToolStripMenuItem;
+	public:
 	private: System::Windows::Forms::ToolStripMenuItem^ estacionamientosToolStripMenuItem;
 	public:
 		static Administrador^ Administrador;
@@ -57,14 +60,14 @@ namespace GUIApp {
 	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ historialToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ mantenimientoToolStripMenuItem;
 
 
 	private: System::Windows::Forms::ToolStripMenuItem^ transaccionesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ guardarCambiosToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ personalLimpiezaToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ veedoresToolStripMenuItem;
@@ -94,8 +97,6 @@ namespace GUIApp {
 		{
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->historialToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->guardarCambiosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->mantenimientoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->personalLimpiezaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -108,6 +109,7 @@ namespace GUIApp {
 			this->reservacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->espaciosDisponiblesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->estacionamientosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -121,6 +123,8 @@ namespace GUIApp {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(904, 28);
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
 			this->menuStrip1->Size = System::Drawing::Size(678, 24);
 			this->menuStrip1->TabIndex = 0;
@@ -128,25 +132,10 @@ namespace GUIApp {
 			// 
 			// archivoToolStripMenuItem
 			// 
-			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->historialToolStripMenuItem,
-					this->guardarCambiosToolStripMenuItem, this->salirToolStripMenuItem
-			});
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
 			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
-			// 
-			// historialToolStripMenuItem
-			// 
-			this->historialToolStripMenuItem->Name = L"historialToolStripMenuItem";
-			this->historialToolStripMenuItem->Size = System::Drawing::Size(164, 22);
-			this->historialToolStripMenuItem->Text = L"Historial";
-			// 
-			// guardarCambiosToolStripMenuItem
-			// 
-			this->guardarCambiosToolStripMenuItem->Name = L"guardarCambiosToolStripMenuItem";
-			this->guardarCambiosToolStripMenuItem->Size = System::Drawing::Size(164, 22);
-			this->guardarCambiosToolStripMenuItem->Text = L"Guardar cambios";
 			// 
 			// salirToolStripMenuItem
 			// 
@@ -195,9 +184,9 @@ namespace GUIApp {
 			// 
 			// transaccionesToolStripMenuItem
 			// 
-			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->entradaDeVeToolStripMenuItem,
-					this->generarTicketToolStripMenuItem, this->reservacionToolStripMenuItem
+					this->generarTicketToolStripMenuItem, this->reservacionToolStripMenuItem, this->espaciosDisponiblesToolStripMenuItem
 			});
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
 			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(92, 20);
@@ -236,6 +225,13 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
+			// espaciosDisponiblesToolStripMenuItem
+			// 
+			this->espaciosDisponiblesToolStripMenuItem->Name = L"espaciosDisponiblesToolStripMenuItem";
+			this->espaciosDisponiblesToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->espaciosDisponiblesToolStripMenuItem->Text = L"Espacios disponibles";
+			this->espaciosDisponiblesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::espaciosDisponiblesToolStripMenuItem_Click);
+			// 
 			// estacionamientosToolStripMenuItem
 			// 
 			this->estacionamientosToolStripMenuItem->Name = L"estacionamientosToolStripMenuItem";
@@ -262,6 +258,21 @@ namespace GUIApp {
 
 		}
 #pragma endregion
+
+		public:
+			void EnableClienteOptions() {
+				archivoToolStripMenuItem->Visible = true;
+				mantenimientoToolStripMenuItem->Visible = false;
+				transaccionesToolStripMenuItem->Visible = true;
+				entradaDeVeToolStripMenuItem->Visible = false;
+				generarTicketToolStripMenuItem->Visible = false;
+				reservacionToolStripMenuItem->Visible = false;
+				espaciosDisponiblesToolStripMenuItem->Visible = false;
+
+			}
+			void EnableVeedorOptions() {}
+			void EnablePersonalLimpiezaOptions() {}
+			void EnableAdministardorOptions() {}
 
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
@@ -312,6 +323,11 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 	form->ShowDialog();
 }
 	void EnableManagerOptions();
+private: System::Void espaciosDisponiblesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	InterfazVistaVehiculos^ form = gcnew InterfazVistaVehiculos();
+	form->MdiParent = this;
+	form->Show();
+}
 private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Estacionamiento_CRUD^ form = gcnew Estacionamiento_CRUD();
 	form->MdiParent = this;
