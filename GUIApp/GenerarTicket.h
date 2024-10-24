@@ -51,6 +51,7 @@ namespace GUIApp {
 
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ LabelTimeOut;
+	private: System::Windows::Forms::CheckBox^ checkUsoPersonal;
 
 
 
@@ -81,14 +82,17 @@ namespace GUIApp {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->LabelTimeOut = (gcnew System::Windows::Forms::Label());
+			this->checkUsoPersonal = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(41, 47);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(116, 13);
+			this->label1->Size = System::Drawing::Size(133, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"PLACA DE VEHICULO";
 			// 
@@ -101,7 +105,7 @@ namespace GUIApp {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(256, 95);
+			this->button1->Location = System::Drawing::Point(124, 179);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
@@ -113,9 +117,11 @@ namespace GUIApp {
 			// 
 			this->label4->AutoSize = true;
 			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->label4->Location = System::Drawing::Point(361, 47);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(41, 81);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(97, 13);
+			this->label4->Size = System::Drawing::Size(111, 13);
 			this->label4->TabIndex = 8;
 			this->label4->Text = L"HORA DE SALIDA";
 			this->label4->Click += gcnew System::EventHandler(this, &GenerarTicket::label4_Click);
@@ -129,18 +135,29 @@ namespace GUIApp {
 			// LabelTimeOut
 			// 
 			this->LabelTimeOut->AutoSize = true;
-			this->LabelTimeOut->Location = System::Drawing::Point(489, 47);
+			this->LabelTimeOut->Location = System::Drawing::Point(174, 81);
 			this->LabelTimeOut->Name = L"LabelTimeOut";
 			this->LabelTimeOut->Size = System::Drawing::Size(35, 13);
 			this->LabelTimeOut->TabIndex = 13;
 			this->LabelTimeOut->Text = L"label6";
 			// 
+			// checkUsoPersonal
+			// 
+			this->checkUsoPersonal->AutoSize = true;
+			this->checkUsoPersonal->Location = System::Drawing::Point(40, 119);
+			this->checkUsoPersonal->Name = L"checkUsoPersonal";
+			this->checkUsoPersonal->Size = System::Drawing::Size(104, 17);
+			this->checkUsoPersonal->TabIndex = 14;
+			this->checkUsoPersonal->Text = L"Incluye Personal";
+			this->checkUsoPersonal->UseVisualStyleBackColor = true;
+			// 
 			// GenerarTicket
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(637, 345);
+			this->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->ClientSize = System::Drawing::Size(398, 241);
+			this->Controls->Add(this->checkUsoPersonal);
 			this->Controls->Add(this->LabelTimeOut);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
@@ -162,20 +179,39 @@ namespace GUIApp {
 		ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 		ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
 		ticket->Dia = System::DateTime::Now;
-		ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
-		String^ Boleta = "******** TICKET ********\n";
-		Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
-		Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
-		Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
-		Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
-		Boleta += "-------------------------\n";
-		Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
-		Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
-		Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
-		Boleta += "-------------------------\n";
-		Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
-		Boleta += "*************************\n";
-		MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+		if (checkUsoPersonal->Checked) {
+			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(8, 0.18, ticket->Detalle);
+			String^ Boleta = "******** TICKET ********\n";
+			Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
+			Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
+			Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
+			Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
+			Boleta += "-------------------------\n";
+			Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
+			Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
+			Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
+			Boleta += "-------------------------\n";
+			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
+			Boleta += "*************************\n";
+			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		else {
+			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
+			String^ Boleta = "******** TICKET ********\n";
+			Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
+			Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
+			Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
+			Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
+			Boleta += "-------------------------\n";
+			Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
+			Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
+			Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
+			Boleta += "-------------------------\n";
+			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
+			Boleta += "*************************\n";
+			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
 	}
 	private: System::Void GenerarTicket_Load(System::Object^ sender, System::EventArgs^ e) {
 

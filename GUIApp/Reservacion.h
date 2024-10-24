@@ -38,10 +38,12 @@ namespace GUIApp {
 	protected:
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ bttReservar;
+
 	private: System::Windows::Forms::DateTimePicker^ dtpHoraEntrada;
 	private: System::Windows::Forms::DateTimePicker^ dtpHoraSalida;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Button^ bttCancel;
 
 	private:
 		/// <summary>
@@ -59,27 +61,32 @@ namespace GUIApp {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->bttReservar = (gcnew System::Windows::Forms::Button());
 			this->dtpHoraEntrada = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpHoraSalida = (gcnew System::Windows::Forms::DateTimePicker());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->bttCancel = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(36, 32);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(130, 13);
+			this->label1->Size = System::Drawing::Size(150, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"HORA INICIO RESERVA:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(36, 77);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(128, 13);
+			this->label2->Size = System::Drawing::Size(147, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"HORA FINAL RESERVA:";
 			this->label2->Click += gcnew System::EventHandler(this, &Reservacion::label2_Click);
@@ -87,20 +94,22 @@ namespace GUIApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(36, 124);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(137, 13);
+			this->label3->Size = System::Drawing::Size(158, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"ESPACIOS DISPONIBLES:";
 			// 
-			// button1
+			// bttReservar
 			// 
-			this->button1->Location = System::Drawing::Point(420, 65);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(176, 36);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"RESERVAR";
-			this->button1->UseVisualStyleBackColor = true;
+			this->bttReservar->Location = System::Drawing::Point(373, 32);
+			this->bttReservar->Name = L"bttReservar";
+			this->bttReservar->Size = System::Drawing::Size(124, 36);
+			this->bttReservar->TabIndex = 3;
+			this->bttReservar->Text = L"RESERVAR";
+			this->bttReservar->UseVisualStyleBackColor = true;
 			// 
 			// dtpHoraEntrada
 			// 
@@ -127,15 +136,26 @@ namespace GUIApp {
 			this->comboBox1->Size = System::Drawing::Size(124, 21);
 			this->comboBox1->TabIndex = 6;
 			// 
+			// bttCancel
+			// 
+			this->bttCancel->Location = System::Drawing::Point(373, 95);
+			this->bttCancel->Name = L"bttCancel";
+			this->bttCancel->Size = System::Drawing::Size(124, 42);
+			this->bttCancel->TabIndex = 7;
+			this->bttCancel->Text = L"CANCELAR";
+			this->bttCancel->UseVisualStyleBackColor = true;
+			this->bttCancel->Click += gcnew System::EventHandler(this, &Reservacion::bttCancel_Click);
+			// 
 			// Reservacion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(641, 168);
+			this->ClientSize = System::Drawing::Size(535, 205);
+			this->Controls->Add(this->bttCancel);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->dtpHoraSalida);
 			this->Controls->Add(this->dtpHoraEntrada);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->bttReservar);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -159,5 +179,8 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 	dtpHoraSalida->Value = DateTime::Now;
 }
 
+private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	Application::Exit();
+}
 };
 }
