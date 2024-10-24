@@ -14,24 +14,24 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		this->Close();
 	}
 	else if(cliente != nullptr){
+		MyForm::Cliente = cliente;
 		MessageBox::Show("Bienvenido "+cliente->Nombre+" "+cliente->Apellido);
 		this->Close();
-		MyForm::Cliente = cliente;
 	}
 	else if (veedor != nullptr) {
+		MyForm::Veedor = veedor;
 		MessageBox::Show("Bienvenido " + veedor->Nombre + " " + veedor->Apellido);
 		this->Close();
-		MyForm::Veedor = veedor;
 	}
 	else if (personalLimpieza != nullptr) {
+		MyForm::PersonalLimpieza = personalLimpieza;
 		MessageBox::Show("Bienvenido " + personalLimpieza->Nombre + " " + personalLimpieza->Apellido);
 		this->Close();
-		MyForm::PersonalLimpieza = personalLimpieza;
 	}
 	else if (administardor != nullptr) {
+		MyForm::Administrador = administardor;
 		MessageBox::Show("Bienvenido " + administardor->Nombre + " " + administardor->Apellido);
 		this->Close();
-		MyForm::Administrador = administardor;
 	}
 	else {
 		MessageBox::Show("Usuario y contraseña incorrectos.");
@@ -43,5 +43,5 @@ System::Void GUIApp::LoginForm::LoginForm_FormClosing(System::Object^ sender, Sy
 	//if ((MyForm::User== nullptr)&&(MyForm::Cliente == nullptr) && (MyForm::Veedor == nullptr) && (MyForm::PersonalLimpieza == nullptr) && (MyForm::Administrador == nullptr))
 	//if ((MyForm::Cliente == nullptr) && (MyForm::Veedor == nullptr) && (MyForm::PersonalLimpieza == nullptr) && (MyForm::Administrador == nullptr))
 	//if(MyForm::Cliente == nullptr)
-		//Application::Exit();
+		Application::Exit();
 }

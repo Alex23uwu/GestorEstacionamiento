@@ -101,7 +101,7 @@ namespace GUIApp {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(256, 95);
+			this->button1->Location = System::Drawing::Point(243, 113);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
@@ -140,7 +140,7 @@ namespace GUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(637, 345);
+			this->ClientSize = System::Drawing::Size(637, 178);
 			this->Controls->Add(this->LabelTimeOut);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
