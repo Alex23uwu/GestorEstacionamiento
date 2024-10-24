@@ -132,6 +132,7 @@
     <ClCompile Include="Cliente_CRUD.cpp" />
     <ClCompile Include="EntradaVehiculos.cpp" />
     <ClCompile Include="GenerarTicket.cpp" />
+    <ClCompile Include="InterfazVistaVehiculos.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonalLimpieza_CRUD.cpp" />
@@ -149,6 +150,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GenerarTicket.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfazVistaVehiculos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="LoginForm.h">
@@ -179,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarTicket.resx">
       <DependentUpon>GenerarTicket.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazVistaVehiculos.resx">
+      <DependentUpon>InterfazVistaVehiculos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>
