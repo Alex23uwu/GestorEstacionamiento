@@ -66,5 +66,10 @@ namespace EstacionamientoService {
 
 
 		static Usuario^ Login(String^ userName, String^ password);
+		static Cliente^ ValidaCliente(String^ userName, String^ password);
+		static Veedor^ ValidaVeedor(String^ userName, String^ password);
+		static PersonalLimpieza^ ValidaPersonalLimpieza(String^ userName, String^ password);
+		static Administrador^ ValidaAdministrador(String^ userName, String^ password);
+
 	};
 }

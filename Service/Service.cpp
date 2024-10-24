@@ -319,3 +319,44 @@ Usuario^ EstacionamientoService::Service::Login(String^ userName, String^ passwo
 	}
 	return user;
 }
+
+Cliente^ EstacionamientoService::Service::ValidaCliente(String^ userName, String^ password)
+{
+	for (int i = 0;i< ListaCliente->Count; i++) {
+		if (ListaCliente[i]->NombreUsuario->Equals(userName) &&
+			ListaCliente[i]->Clave->Equals(password))
+			return ListaCliente[i];
+	}
+	return nullptr;
+
+}
+
+Veedor^ EstacionamientoService::Service::ValidaVeedor(String^ userName, String^ password)
+{
+	for (int i = 0; i < ListaVeedor->Count; i++) {
+		if (ListaVeedor[i]->NombreUsuario->Equals(userName) &&
+			ListaVeedor[i]->Clave->Equals(password))
+			return ListaVeedor[i];
+	}
+	return nullptr;
+}
+
+PersonalLimpieza^ EstacionamientoService::Service::ValidaPersonalLimpieza(String^ userName, String^ password)
+{
+	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
+		if (ListaPersonalLimpieza[i]->NombreUsuario->Equals(userName) &&
+			ListaPersonalLimpieza[i]->Clave->Equals(password))
+			return ListaPersonalLimpieza[i];
+	}
+	return nullptr;
+}
+
+Administrador^ EstacionamientoService::Service::ValidaAdministrador(String^ userName, String^ password)
+{
+	for (int i = 0; i < ListaAdministrador->Count; i++) {
+		if (ListaAdministrador[i]->NombreUsuario->Equals(userName) &&
+			ListaAdministrador[i]->Clave->Equals(password))
+			return ListaAdministrador[i];
+	}
+	return nullptr;
+}
