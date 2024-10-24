@@ -6,6 +6,8 @@
 #include "EntradaVehiculos.h"
 #include "GenerarTicket.h"
 #include "Reservacion.h"
+#include "LoginForm.h"
+
 
 namespace GUIApp {
 
@@ -24,6 +26,8 @@ namespace GUIApp {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		static Usuario^ User;
+
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -244,9 +248,6 @@ namespace GUIApp {
 
 		}
 #pragma endregion
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	
-}
 
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
@@ -292,5 +293,10 @@ private: System::Void reservacionToolStripMenuItem_Click(System::Object^ sender,
 	form->Show();
 
 }
+private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	LoginForm^ form = gcnew LoginForm(this);
+	form->ShowDialog();
+}
+	void EnableManagerOptions();
 };
 }

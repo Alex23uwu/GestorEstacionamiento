@@ -61,5 +61,8 @@ namespace EstacionamientoService {
 		static List<Administrador^>^ QueryAllAdministrador();
 		static Administrador^ QueryAdministradorById(int adminId);
 		static int UpdateAdministradorId();
+
+
+		static Usuario^ Login(String^ userName, String^ password);
 	};
 }

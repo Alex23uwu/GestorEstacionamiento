@@ -11,3 +11,7 @@ void Main(array<String^>^ args) {
 	GUIApp::MyForm form;
 	Application::Run(% form);
 }
+void GUIApp::MyForm::EnableManagerOptions(){
+
+	throw gcnew System::NotImplementedException();
+}

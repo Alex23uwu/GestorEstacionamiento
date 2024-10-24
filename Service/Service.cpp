@@ -287,3 +287,13 @@ int EstacionamientoService::Service::UpdateAdministradorId() {
 	}
 	return prueba;
 }
+
+Usuario^ EstacionamientoService::Service::Login(String^ userName, String^ password)
+{
+	Usuario^ user;
+	if (userName->Equals("usuario") && password->Equals("contraseña")) {
+		user = gcnew Usuario();
+		user->Id = 1;
+	}
+	return user;
+}
