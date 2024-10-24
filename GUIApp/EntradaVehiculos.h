@@ -8,6 +8,8 @@ namespace GUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace EstacionamientoService;
+	using namespace Model;
 
 	/// <summary>
 	/// Resumen de EntradaVehiculos
@@ -38,11 +40,13 @@ namespace GUIApp {
 	protected:
 	private: System::Windows::Forms::Label^ labelIngresoVehiculo;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txtPlaca;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ btAgregar;
+
 	private: System::ComponentModel::IContainer^ components;
 
 	private:
@@ -62,11 +66,11 @@ namespace GUIApp {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->labelIngresoVehiculo = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtPlaca = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btAgregar = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -97,12 +101,12 @@ namespace GUIApp {
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"PLACA DEL VEHICULO";
 			// 
-			// textBox1
+			// txtPlaca
 			// 
-			this->textBox1->Location = System::Drawing::Point(167, 47);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(133, 20);
-			this->textBox1->TabIndex = 2;
+			this->txtPlaca->Location = System::Drawing::Point(167, 47);
+			this->txtPlaca->Name = L"txtPlaca";
+			this->txtPlaca->Size = System::Drawing::Size(133, 20);
+			this->txtPlaca->TabIndex = 2;
 			// 
 			// label2
 			// 
@@ -135,18 +139,19 @@ namespace GUIApp {
 			this->comboBox1->Size = System::Drawing::Size(123, 21);
 			this->comboBox1->TabIndex = 5;
 			// 
-			// button1
+			// btAgregar
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::ControlDark;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btAgregar->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->btAgregar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button1->Location = System::Drawing::Point(311, 126);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(151, 46);
-			this->button1->TabIndex = 6;
-			this->button1->Text = L"Agregar";
-			this->button1->UseVisualStyleBackColor = false;
+			this->btAgregar->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->btAgregar->Location = System::Drawing::Point(311, 126);
+			this->btAgregar->Name = L"btAgregar";
+			this->btAgregar->Size = System::Drawing::Size(151, 46);
+			this->btAgregar->TabIndex = 6;
+			this->btAgregar->Text = L"Agregar";
+			this->btAgregar->UseVisualStyleBackColor = false;
+			this->btAgregar->Click += gcnew System::EventHandler(this, &EntradaVehiculos::button1_Click);
 			// 
 			// EntradaVehiculos
 			// 
@@ -154,11 +159,11 @@ namespace GUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
 			this->ClientSize = System::Drawing::Size(682, 268);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->btAgregar);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtPlaca);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelIngresoVehiculo);
 			this->Name = L"EntradaVehiculos";
@@ -172,7 +177,19 @@ namespace GUIApp {
 		
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		labelIngresoVehiculo->Text = (DateTime::Now).ToString("HH:mm:ss");
+		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   ");
 	}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		Vehiculo^ vehiculo = gcnew Vehiculo();
+		DetalleTicket^ detalle = gcnew DetalleTicket();
+		Ticket^ ticket = gcnew Ticket();
+		vehiculo->Placa = txtPlaca->Text;
+		ticket->Detalle = detalle;
+		ticket->GeneradoA = vehiculo;
+		detalle->HoraEntrada = labelIngresoVehiculo->Text;
+		EstacionamientoService::Service::AddTicket(ticket);
+		EstacionamientoService::Service::AddVehiculo(vehiculo);
+		MessageBox::Show("Se ha agregado el vehiculo de placa, " + vehiculo->Placa);
+	}
+};
 }

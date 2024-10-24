@@ -59,9 +59,13 @@ namespace EstacionamientoService {
 		static void DeleteVehiculo(int VehiculoID);
 		static List<Vehiculo^>^ QueryAllVehiculo();
 		static Vehiculo^ QueryVehiculoById(int VehiculoID);
+		static Vehiculo^ QueryVehiculoByPlaca(String^ Placa);
 		//CRUD PARA TICKET
 		static void AddTicket(Ticket^);
 		static List<Ticket^>^ QueryAllTicket();
+		static Ticket^ QueryTicketbyPlaca(String^ placa);
+		static int GeneracionIDTicket();
+		static double CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle);
 
 
 		// CRUD PARA ADMINISTRADORES

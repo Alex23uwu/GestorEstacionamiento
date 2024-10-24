@@ -261,17 +261,62 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 		}
 	}
 }
+Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
+{
+	for (int i = 0; i < ListaVehiculo->Count; i++) {
+		if (ListaVehiculo[i]->Placa == Placa) {
+			return ListaVehiculo[i];
+		}
+	}
+}
 // CRUD TICKET
 
-void EstacionamientoService::Service::AddTicket(Ticket^)
+void EstacionamientoService::Service::AddTicket(Ticket^ ticket)
 {
-	throw gcnew System::NotImplementedException();
+	ListaTicket->Add(ticket);
 }
 
 List<Ticket^>^ EstacionamientoService::Service::QueryAllTicket()
 {
-	throw gcnew System::NotImplementedException();
-	// TODO: Insertar una instrucción "return" aquí
+	return ListaTicket;
+}
+
+Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
+{
+	for (int i = 0; i < ListaTicket->Count; i++) {
+		if (ListaTicket[i]->GeneradoA->Placa == placa) {
+			return ListaTicket[i];
+		}
+	}
+}
+
+int EstacionamientoService::Service::GeneracionIDTicket()
+{
+	int prueba = 1;
+	for (int i = 0; i < ListaTicket->Count; i++) {
+		if (ListaTicket[i]->Id == prueba) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
+}
+
+double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV ,DetalleTicket^ detalle)
+{
+	String^ formato = "   HH   :   mm   ";
+	DateTime ingreso = DateTime::ParseExact(detalle->HoraEntrada, formato, nullptr);
+	DateTime salida = DateTime::ParseExact(detalle->HoraSalida, formato, nullptr);
+	TimeSpan diferencia = salida - ingreso;
+	double horasDiferencia = diferencia.TotalHours; // Diferencia en horas
+	double minutosDiferencia = diferencia.TotalMinutes; // Diferencia en minutos
+	detalle->IGV = horasDiferencia * IGV + (minutosDiferencia * IGV / 60);
+	detalle->HorasConsumidas = Convert::ToString(diferencia);
+	detalle->Tarifa = tarifa;
+	detalle->Cantidad = horasDiferencia * tarifa + (minutosDiferencia * tarifa / 60);
+	return (detalle->Cantidad+detalle->IGV);
 }
 
 // CRUD ADMINISTRADOR
