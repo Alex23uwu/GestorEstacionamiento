@@ -341,6 +341,16 @@ void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estaci
 	Persistance::PersistXMLFile(XML_ESTACIONAMIENTO_FILE_NAME, ListaEstacionamiento);
 }
 
+void EstacionamientoService::Service::UpdateEstacionamiento(Estacionamiento^ estacionamiento) {
+	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
+		if (ListaEstacionamiento[i]->Id == estacionamiento->Id) {
+			ListaEstacionamiento[i] = estacionamiento;
+			Persistance::PersistXMLFile(XML_ESTACIONAMIENTO_FILE_NAME, ListaEstacionamiento);
+			return;
+		}
+	}
+}
+
 void EstacionamientoService::Service::DeleteEstacionamiento(int EstacionamientoId){
 	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
 		if (ListaEstacionamiento[i]->Id == EstacionamientoId) {

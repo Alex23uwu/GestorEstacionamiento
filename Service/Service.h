@@ -72,6 +72,7 @@ namespace EstacionamientoService {
 
 		//CRUD PARA ESTACIONAMIENTOS
 		static void AddEstacionamiento(Estacionamiento^);
+		static void UpdateEstacionamiento(Estacionamiento^);
 		static void DeleteEstacionamiento(int EstacionamientoId);
 		static List<Estacionamiento^>^ QueryAllEstacionamientos();
 		static Estacionamiento^ QueryEstacionamientosbyId(int id);

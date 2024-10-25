@@ -102,6 +102,8 @@ namespace GUIApp {
 
 	private: System::Windows::Forms::GroupBox^ imgBox;
 	private: System::Windows::Forms::Button^ btnActualizarVehiculos;
+	private: System::Windows::Forms::Button^ btnReinicio;
+
 
 
 	protected:
@@ -143,6 +145,7 @@ namespace GUIApp {
 			this->est9 = (gcnew System::Windows::Forms::PictureBox());
 			this->imgBox = (gcnew System::Windows::Forms::GroupBox());
 			this->btnActualizarVehiculos = (gcnew System::Windows::Forms::Button());
+			this->btnReinicio = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est4))->BeginInit();
@@ -332,11 +335,22 @@ namespace GUIApp {
 			this->btnActualizarVehiculos->UseVisualStyleBackColor = true;
 			this->btnActualizarVehiculos->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::btnActualizarVehiculos_Click);
 			// 
+			// btnReinicio
+			// 
+			this->btnReinicio->Location = System::Drawing::Point(461, 390);
+			this->btnReinicio->Name = L"btnReinicio";
+			this->btnReinicio->Size = System::Drawing::Size(144, 64);
+			this->btnReinicio->TabIndex = 50;
+			this->btnReinicio->Text = L"Reiniciar Estacionamientos";
+			this->btnReinicio->UseVisualStyleBackColor = true;
+			this->btnReinicio->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::btnReinicio_Click);
+			// 
 			// InterfazVistaVehiculos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(617, 516);
+			this->Controls->Add(this->btnReinicio);
 			this->Controls->Add(this->btnActualizarVehiculos);
 			this->Controls->Add(this->imgBox);
 			this->Name = L"InterfazVistaVehiculos";
@@ -398,6 +412,18 @@ namespace GUIApp {
 		else est15->Image = imgListaEstacionamiento->Images[1];
 		if (estacionamientoLista[15]->MiSensor->Detecta == false) est16->Image = imgListaEstacionamiento->Images[0];
 		else est16->Image = imgListaEstacionamiento->Images[1];
+	}
+
+	private: System::Void btnReinicio_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
+
+		for (int i = 0; i < estacionamientoLista->Count; i++) {
+			estacionamientoLista[i]->HoraInicio = "";
+			estacionamientoLista[i]->HoraSalida = "";
+			estacionamientoLista[i]->MiSensor->Detecta = false;
+			
+			Service::UpdateEstacionamiento(estacionamientoLista[i]);
+		}
 	}
 };
 }

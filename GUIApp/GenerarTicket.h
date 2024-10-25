@@ -175,6 +175,7 @@ namespace GUIApp {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ placa = txtPlacaVehiculo->Text;
+		//Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 		Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
 		ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 		ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();

@@ -225,6 +225,7 @@ namespace GUIApp {
 
 		EstacionamientoService::Service::AddTicket(ticket);
 		EstacionamientoService::Service::AddVehiculo(vehiculo);
+		EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
 
 
 
