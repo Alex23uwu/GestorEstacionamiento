@@ -9,6 +9,7 @@ namespace GUIApp {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace Model;
+	using namespace EstacionamientoService;
 
 	/// <summary>
 	/// Resumen de GenerarTicket
@@ -175,11 +176,18 @@ namespace GUIApp {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ placa = txtPlacaVehiculo->Text;
-		//Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
+		
 		Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
 		ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 		ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
 		ticket->Dia = System::DateTime::Now;
+
+		Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
+		int estacionamientoId = vehiculo->AsigandoA->Id;
+		Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
+		estacionamiento->MiSensor->Detecta = false;
+		estacionamiento->HoraInicio = "";
+		Service::UpdateEstacionamiento(estacionamiento);
 
 		if (checkUsoPersonal->Checked) {
 			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(8, 0.18, ticket->Detalle);
