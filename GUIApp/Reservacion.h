@@ -110,6 +110,7 @@ namespace GUIApp {
 			this->bttReservar->TabIndex = 3;
 			this->bttReservar->Text = L"RESERVAR";
 			this->bttReservar->UseVisualStyleBackColor = true;
+			this->bttReservar->Click += gcnew System::EventHandler(this, &Reservacion::bttReservar_Click);
 			// 
 			// dtpHoraEntrada
 			// 
@@ -181,6 +182,8 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 
 private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
+}
+private: System::Void bttReservar_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

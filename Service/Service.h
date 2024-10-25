@@ -16,6 +16,7 @@ namespace EstacionamientoService {
 		static String^ XML_TICKET_FILE_NAME = "ticket.xml";
 		static String^ XML_DETALLE_FILE_NAME = "detalleticket.xml";
 		static String^ XML_ESTACIONAMIENTO_FILE_NAME = "estacionamientos.xml";
+		static String^ XML_VEHICULO_FILE_NAME = "estacionamientos.xml";
 	private:
 		static List<Estacionamiento^>^ ListaEstacionamiento = gcnew List<Estacionamiento^>();
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();
@@ -85,12 +86,15 @@ namespace EstacionamientoService {
 		static Administrador^ QueryAdministradorById(int adminId);
 		static int UpdateAdministradorId();
 
-
+		// CRUD PARA CLIENTE
 		static Usuario^ Login(String^ userName, String^ password);
 		static Cliente^ ValidaCliente(String^ userName, String^ password);
 		static Veedor^ ValidaVeedor(String^ userName, String^ password);
 		static PersonalLimpieza^ ValidaPersonalLimpieza(String^ userName, String^ password);
 		static Administrador^ ValidaAdministrador(String^ userName, String^ password);
+
+
+
 
 	};
 }

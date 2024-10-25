@@ -105,7 +105,7 @@ namespace GUIApp {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(124, 179);
+			this->button1->Location = System::Drawing::Point(134, 185);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
@@ -119,7 +119,7 @@ namespace GUIApp {
 			this->label4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(41, 81);
+			this->label4->Location = System::Drawing::Point(41, 94);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(111, 13);
 			this->label4->TabIndex = 8;
@@ -135,7 +135,7 @@ namespace GUIApp {
 			// LabelTimeOut
 			// 
 			this->LabelTimeOut->AutoSize = true;
-			this->LabelTimeOut->Location = System::Drawing::Point(174, 81);
+			this->LabelTimeOut->Location = System::Drawing::Point(174, 94);
 			this->LabelTimeOut->Name = L"LabelTimeOut";
 			this->LabelTimeOut->Size = System::Drawing::Size(35, 13);
 			this->LabelTimeOut->TabIndex = 13;
@@ -144,7 +144,7 @@ namespace GUIApp {
 			// checkUsoPersonal
 			// 
 			this->checkUsoPersonal->AutoSize = true;
-			this->checkUsoPersonal->Location = System::Drawing::Point(40, 119);
+			this->checkUsoPersonal->Location = System::Drawing::Point(44, 136);
 			this->checkUsoPersonal->Name = L"checkUsoPersonal";
 			this->checkUsoPersonal->Size = System::Drawing::Size(104, 17);
 			this->checkUsoPersonal->TabIndex = 14;
@@ -156,7 +156,7 @@ namespace GUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->ClientSize = System::Drawing::Size(398, 241);
+			this->ClientSize = System::Drawing::Size(407, 226);
 			this->Controls->Add(this->checkUsoPersonal);
 			this->Controls->Add(this->LabelTimeOut);
 			this->Controls->Add(this->label4);

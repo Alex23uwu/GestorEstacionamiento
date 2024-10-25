@@ -18,7 +18,6 @@ namespace EstacionamientoPersistance {
 		//Persistencia del Veedor
 			//static void PersistXMLFileVeedor(String^ fileName, Object^ persistObject);
 		static Object^ LoadVeedorXmlFile(String^ filename);
-
 		//Persistencia del clientes 
 			//static void PersistXMLFileClientes(String^ fileName, Object^ persistObject);
 		static Object^ LoadClientesXmlFile(String^ fileCliente);
@@ -28,10 +27,10 @@ namespace EstacionamientoPersistance {
 		static Object^ LoadTicketXmlFile(String^ filename);
 			//static void PersistDetalleTicketFileVeedor(String^ fileName, Object^ persistObject);
 		static Object^ LoadDetalleTicketXmlFile(String^ filename);
-
 		//Persistencia de los estacionamientos
 			//static void PersistXMLFileEstacionamientos(String^ fileName, Object^ persistObject);
 		static Object^ LoadEstacionamientosXmlFile(String^ fileName);
-
+		//Persistencia de Vehiculos
+		static Object^ LoadVehiculosXmlFile(String^ fileName);
 	};
 }

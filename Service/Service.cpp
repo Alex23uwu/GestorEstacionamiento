@@ -226,6 +226,8 @@ Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 {
 	ListaVehiculo->Add(vehiculo);
+	Persistance::PersistXMLFile(XML_VEHICULO_FILE_NAME, ListaVehiculo);
+
 }
 
 void EstacionamientoService::Service::UpdateVehiculo(Vehiculo^ vehiculo)
@@ -233,6 +235,7 @@ void EstacionamientoService::Service::UpdateVehiculo(Vehiculo^ vehiculo)
 	for (int i = 0; i < ListaVehiculo->Count; i++) {
 		if (ListaVehiculo[i]->Id == vehiculo->Id) {
 			ListaVehiculo[i] = vehiculo;
+			Persistance::PersistXMLFile(XML_VEHICULO_FILE_NAME, ListaVehiculo);
 			return;
 		}
 	}
@@ -243,13 +246,21 @@ void EstacionamientoService::Service::DeleteVehiculo(int VehiculoID)
 	for (int i = 0; i < ListaVehiculo->Count; i++) {
 		if (ListaVehiculo[i]->Id == VehiculoID) {
 			ListaVehiculo->RemoveAt(i);
+			Persistance::PersistXMLFile(XML_VEHICULO_FILE_NAME, ListaVehiculo);
 			return;
 		}
 	}
 }
 
-List<Vehiculo^>^ EstacionamientoService::Service::QueryAllVehiculo()
-{
+List<Vehiculo^>^ EstacionamientoService::Service::QueryAllVehiculo(){
+
+	try
+	{
+		ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
 	return ListaVehiculo;
 }
 
