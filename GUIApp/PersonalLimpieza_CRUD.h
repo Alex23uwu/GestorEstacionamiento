@@ -250,6 +250,7 @@ namespace GUIApp {
 			// 
 			// txtId
 			// 
+			this->txtId->Enabled = false;
 			this->txtId->Location = System::Drawing::Point(109, 36);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(99, 20);
@@ -399,8 +400,7 @@ namespace GUIApp {
 		}
 #pragma endregion
 	private: System::Void bttAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-		try
-		{
+		try{	
 			int id = Convert::ToInt32(txtId->Text);
 			PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
 			personalLimp->Nombre = txtNombre->Text;
@@ -419,7 +419,7 @@ namespace GUIApp {
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
 		}
-
+		txtId->Text = "" + Service::UpdatePersonalLimpiezaID();
 	}
 	public:
 		void ShowPersonal() {
@@ -510,13 +510,15 @@ namespace GUIApp {
 		bttDelete->Enabled = false;
 		ShowPersonal();
 		DisableControls();
+		txtId->Text = "" + Service::UpdatePersonalLimpiezaID();
 	}
-private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) { //Nuevo
 	ClearControls();
 	bttAdd->Enabled = true;
 	bttUpdate->Enabled = false;
 	bttDelete->Enabled = false;
 	EnableConttols();
+	txtId->Text = "" + Service::UpdatePersonalLimpiezaID();
 }
 private: System::Void toolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -534,6 +536,8 @@ private: System::Void Editar_Click(System::Object^ sender, System::EventArgs^ e)
 		   txtId->ReadOnly = false;
 		   txtNombre->ReadOnly = false;
 		   txtPiso->ReadOnly = false;
+		   txtUsuario->ReadOnly = false;
+		   txtPassword->ReadOnly = false;
 	   }
 	   void DisableControls() {
 		   txtApellido->ReadOnly = true;
@@ -541,6 +545,8 @@ private: System::Void Editar_Click(System::Object^ sender, System::EventArgs^ e)
 		   txtId->ReadOnly = true;
 		   txtNombre->ReadOnly = true;
 		   txtPiso->ReadOnly = true;
+		   txtUsuario->ReadOnly = true;
+		   txtPassword->ReadOnly = true;
 	   }
 };
 }

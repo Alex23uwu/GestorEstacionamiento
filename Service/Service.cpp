@@ -61,6 +61,21 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 	}
 }
 
+int EstacionamientoService::Service::UpdatePersonalLimpiezaID(){
+		int prueba = 1;
+		for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
+			if (ListaPersonalLimpieza[i]->Id == prueba) {
+				prueba++;
+			}
+			else {
+				return prueba;
+			}
+		}
+		return prueba;
+}
+
+
+
 //CRUD VEEDORES
 
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)

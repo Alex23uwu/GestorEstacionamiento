@@ -37,6 +37,8 @@ namespace EstacionamientoService {
 		static void DeletePersonalLimpieza(int PersonalLimpiezaID);
 		static List<PersonalLimpieza^>^ QueryAllPersonalLimpieza();
 		static PersonalLimpieza^ QueryPersonalLimpiezaById(int PersonalLimpiezaId);
+		static int UpdatePersonalLimpiezaID();
+
 		// CRUD PARA VEEDORES
 		static void AddVeedor(Veedor^);
 		static void UpdateVeedora(Veedor^);

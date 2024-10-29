@@ -13,17 +13,4 @@
     <Piso>1</Piso>
     <Tips>0</Tips>
   </PersonalLimpieza>
-  <PersonalLimpieza>
-    <Id>2</Id>
-    <Nombre>Juan</Nombre>
-    <Apellido>Mendoza</Apellido>
-    <NombreUsuario />
-    <Clave />
-    <DNI>0</DNI>
-    <Estado>Inactivo</Estado>
-    <Celular>0</Celular>
-    <Salario>0</Salario>
-    <Piso>1</Piso>
-    <Tips>0</Tips>
-  </PersonalLimpieza>
 </ArrayOfPersonalLimpieza>
