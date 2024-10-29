@@ -2,13 +2,13 @@
 <ArrayOfVeedor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Veedor>
     <Id>1</Id>
-    <Nombre>Renzo</Nombre>
-    <Apellido>Regalado</Apellido>
-    <NombreUsuario>Reibow</NombreUsuario>
-    <Clave>password</Clave>
-    <DNI>75087634</DNI>
-    <Email>joaquinrr02@gmail.com</Email>
-    <Celular>938128462</Celular>
+    <Nombre>Rem</Nombre>
+    <Apellido>Zo</Apellido>
+    <NombreUsuario>123</NombreUsuario>
+    <Clave>123</Clave>
+    <DNI>123</DNI>
+    <Email>123</Email>
+    <Celular>123</Celular>
     <Salario>0</Salario>
     <Piso>0</Piso>
     <Experiencia />
