@@ -163,19 +163,21 @@ namespace GUIApp {
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ placa = txtPlacaVehiculo->Text;
-		
-		Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
-		ticket->Detalle->HoraSalida = LabelTimeOut->Text;
-		ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
-		ticket->Dia = System::DateTime::Now;
+		try
+		{
+			String^ placa = txtPlacaVehiculo->Text;
 
-		Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
-		int estacionamientoId = vehiculo->AsigandoA->Id;
-		Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
-		estacionamiento->MiSensor->Detecta = false;
-		estacionamiento->HoraInicio = "";
-		Service::UpdateEstacionamiento(estacionamiento);
+			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
+			ticket->Detalle->HoraSalida = LabelTimeOut->Text;
+			ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
+			ticket->Dia = System::DateTime::Now;
+
+			Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
+			int estacionamientoId = vehiculo->AsigandoA->Id;
+			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
+			estacionamiento->MiSensor->Detecta = false;
+			estacionamiento->HoraInicio = "";
+			Service::UpdateEstacionamiento(estacionamiento);
 
 			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 			String^ Boleta = "******** TICKET ********\n";
@@ -191,6 +193,10 @@ namespace GUIApp {
 			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
 			Boleta += "*************************\n";
 			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		catch (Exception^ ex){
+			MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);
+		}
 	}
 	private: System::Void GenerarTicket_Load(System::Object^ sender, System::EventArgs^ e) {
 

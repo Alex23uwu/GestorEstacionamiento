@@ -402,7 +402,7 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 }
 
 private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	this->Close();
 }
 private: System::Void bttReservar_Click(System::Object^ sender, System::EventArgs^ e) {
 }

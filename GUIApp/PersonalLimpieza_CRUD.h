@@ -67,6 +67,21 @@ namespace GUIApp {
 
 
 
+	private: System::Windows::Forms::MenuStrip^ menuStrip2;
+	private: System::Windows::Forms::ToolStripMenuItem^ archivoToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ Nuevo;
+	private: System::Windows::Forms::ToolStripMenuItem^ Editar;
+	private: System::Windows::Forms::ToolStripMenuItem^ Salir;
+
+
+
+
+
+	private: System::ComponentModel::IContainer^ components;
+
+
+
+
 
 
 
@@ -78,7 +93,7 @@ namespace GUIApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -87,6 +102,7 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(PersonalLimpieza_CRUD::typeid));
 			this->bttAdd = (gcnew System::Windows::Forms::Button());
 			this->bttUpdate = (gcnew System::Windows::Forms::Button());
 			this->bttDelete = (gcnew System::Windows::Forms::Button());
@@ -110,12 +126,18 @@ namespace GUIApp {
 			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
+			this->menuStrip2 = (gcnew System::Windows::Forms::MenuStrip());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Nuevo = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Editar = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->Salir = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
+			this->menuStrip2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// bttAdd
 			// 
-			this->bttAdd->Location = System::Drawing::Point(51, 185);
+			this->bttAdd->Location = System::Drawing::Point(49, 201);
 			this->bttAdd->Name = L"bttAdd";
 			this->bttAdd->Size = System::Drawing::Size(91, 31);
 			this->bttAdd->TabIndex = 0;
@@ -125,7 +147,7 @@ namespace GUIApp {
 			// 
 			// bttUpdate
 			// 
-			this->bttUpdate->Location = System::Drawing::Point(214, 185);
+			this->bttUpdate->Location = System::Drawing::Point(212, 201);
 			this->bttUpdate->Name = L"bttUpdate";
 			this->bttUpdate->Size = System::Drawing::Size(89, 31);
 			this->bttUpdate->TabIndex = 1;
@@ -135,7 +157,7 @@ namespace GUIApp {
 			// 
 			// bttDelete
 			// 
-			this->bttDelete->Location = System::Drawing::Point(377, 185);
+			this->bttDelete->Location = System::Drawing::Point(375, 201);
 			this->bttDelete->Name = L"bttDelete";
 			this->bttDelete->Size = System::Drawing::Size(88, 31);
 			this->bttDelete->TabIndex = 2;
@@ -146,7 +168,7 @@ namespace GUIApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(31, 20);
+			this->label1->Location = System::Drawing::Point(29, 36);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(16, 13);
 			this->label1->TabIndex = 3;
@@ -155,7 +177,7 @@ namespace GUIApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(31, 53);
+			this->label2->Location = System::Drawing::Point(29, 69);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(44, 13);
 			this->label2->TabIndex = 4;
@@ -164,7 +186,7 @@ namespace GUIApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(31, 88);
+			this->label3->Location = System::Drawing::Point(29, 104);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(44, 13);
 			this->label3->TabIndex = 5;
@@ -173,7 +195,7 @@ namespace GUIApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(31, 119);
+			this->label4->Location = System::Drawing::Point(29, 135);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(40, 13);
 			this->label4->TabIndex = 6;
@@ -182,7 +204,7 @@ namespace GUIApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(31, 153);
+			this->label5->Location = System::Drawing::Point(29, 169);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(27, 13);
 			this->label5->TabIndex = 7;
@@ -195,7 +217,7 @@ namespace GUIApp {
 				this->ColumnaId,
 					this->ColumnaNombre, this->ColumnaApellido, this->ColumnaEstado, this->ColumnaPiso
 			});
-			this->dgvPersonalLimpiez->Location = System::Drawing::Point(12, 237);
+			this->dgvPersonalLimpiez->Location = System::Drawing::Point(10, 253);
 			this->dgvPersonalLimpiez->Name = L"dgvPersonalLimpiez";
 			this->dgvPersonalLimpiez->Size = System::Drawing::Size(543, 203);
 			this->dgvPersonalLimpiez->TabIndex = 8;
@@ -228,35 +250,35 @@ namespace GUIApp {
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(111, 20);
+			this->txtId->Location = System::Drawing::Point(109, 36);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(99, 20);
 			this->txtId->TabIndex = 9;
 			// 
 			// txtNombre
 			// 
-			this->txtNombre->Location = System::Drawing::Point(111, 50);
+			this->txtNombre->Location = System::Drawing::Point(109, 66);
 			this->txtNombre->Name = L"txtNombre";
 			this->txtNombre->Size = System::Drawing::Size(99, 20);
 			this->txtNombre->TabIndex = 10;
 			// 
 			// txtApellido
 			// 
-			this->txtApellido->Location = System::Drawing::Point(111, 81);
+			this->txtApellido->Location = System::Drawing::Point(109, 97);
 			this->txtApellido->Name = L"txtApellido";
 			this->txtApellido->Size = System::Drawing::Size(99, 20);
 			this->txtApellido->TabIndex = 11;
 			// 
 			// txtEstado
 			// 
-			this->txtEstado->Location = System::Drawing::Point(111, 116);
+			this->txtEstado->Location = System::Drawing::Point(109, 132);
 			this->txtEstado->Name = L"txtEstado";
 			this->txtEstado->Size = System::Drawing::Size(99, 20);
 			this->txtEstado->TabIndex = 12;
 			// 
 			// txtPiso
 			// 
-			this->txtPiso->Location = System::Drawing::Point(111, 150);
+			this->txtPiso->Location = System::Drawing::Point(109, 166);
 			this->txtPiso->Name = L"txtPiso";
 			this->txtPiso->Size = System::Drawing::Size(99, 20);
 			this->txtPiso->TabIndex = 13;
@@ -264,7 +286,7 @@ namespace GUIApp {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(307, 37);
+			this->label6->Location = System::Drawing::Point(305, 53);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(43, 13);
 			this->label6->TabIndex = 14;
@@ -272,7 +294,7 @@ namespace GUIApp {
 			// 
 			// txtUsuario
 			// 
-			this->txtUsuario->Location = System::Drawing::Point(377, 34);
+			this->txtUsuario->Location = System::Drawing::Point(375, 50);
 			this->txtUsuario->Name = L"txtUsuario";
 			this->txtUsuario->Size = System::Drawing::Size(115, 20);
 			this->txtUsuario->TabIndex = 15;
@@ -280,7 +302,7 @@ namespace GUIApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(307, 68);
+			this->label7->Location = System::Drawing::Point(305, 84);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(61, 13);
 			this->label7->TabIndex = 16;
@@ -288,18 +310,65 @@ namespace GUIApp {
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(377, 68);
+			this->txtPassword->Location = System::Drawing::Point(375, 84);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(115, 20);
 			this->txtPassword->TabIndex = 17;
 			// 
+			// menuStrip2
+			// 
+			this->menuStrip2->AllowMerge = false;
+			this->menuStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
+			this->menuStrip2->Location = System::Drawing::Point(0, 0);
+			this->menuStrip2->Name = L"menuStrip2";
+			this->menuStrip2->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip2->Size = System::Drawing::Size(567, 24);
+			this->menuStrip2->TabIndex = 20;
+			this->menuStrip2->Text = L"Archivo";
+			// 
+			// archivoToolStripMenuItem
+			// 
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->Nuevo,
+					this->Editar, this->Salir
+			});
+			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+			this->archivoToolStripMenuItem->Text = L"Archivo";
+			// 
+			// Nuevo
+			// 
+			this->Nuevo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Nuevo.Image")));
+			this->Nuevo->Name = L"Nuevo";
+			this->Nuevo->Size = System::Drawing::Size(184, 26);
+			this->Nuevo->Text = L"Nuevo";
+			this->Nuevo->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::toolStripMenuItem1_Click);
+			// 
+			// Editar
+			// 
+			this->Editar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Editar.Image")));
+			this->Editar->Name = L"Editar";
+			this->Editar->Size = System::Drawing::Size(184, 26);
+			this->Editar->Text = L"Editar";
+			this->Editar->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::Editar_Click);
+			// 
+			// Salir
+			// 
+			this->Salir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Salir.Image")));
+			this->Salir->Name = L"Salir";
+			this->Salir->Size = System::Drawing::Size(184, 26);
+			this->Salir->Text = L"Salir";
+			this->Salir->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::toolStripMenuItem3_Click);
+			// 
 			// PersonalLimpieza_CRUD
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(567, 452);
+			this->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->ClientSize = System::Drawing::Size(567, 470);
+			this->Controls->Add(this->menuStrip2);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->txtUsuario);
@@ -322,6 +391,8 @@ namespace GUIApp {
 			this->Text = L"Mantenimiento Personal de Limpiez";
 			this->Load += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::PersonalLimpieza_CRUD_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->EndInit();
+			this->menuStrip2->ResumeLayout(false);
+			this->menuStrip2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -340,6 +411,9 @@ namespace GUIApp {
 			personalLimp->Clave = txtPassword->Text;
 			Service::AddPersonalLimpieza(personalLimp);
 			ShowPersonal();
+			ClearControls();
+			DisableControls();
+			bttAdd->Enabled = false;
 			MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
 		}
 		catch (Exception^ ex){
@@ -431,7 +505,42 @@ namespace GUIApp {
 		}
 	}
 	private: System::Void PersonalLimpieza_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
+		bttAdd->Enabled = false;
+		bttUpdate->Enabled = false;
+		bttDelete->Enabled = false;
 		ShowPersonal();
+		DisableControls();
 	}
+private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	bttAdd->Enabled = true;
+	bttUpdate->Enabled = false;
+	bttDelete->Enabled = false;
+	EnableConttols();
+}
+private: System::Void toolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void Editar_Click(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	bttAdd->Enabled = false;
+	bttUpdate->Enabled = true;
+	bttDelete->Enabled = true;
+	EnableConttols();
+}
+	   void EnableConttols() {
+		   txtApellido->ReadOnly = false;
+		   txtEstado->ReadOnly = false;
+		   txtId->ReadOnly = false;
+		   txtNombre->ReadOnly = false;
+		   txtPiso->ReadOnly = false;
+	   }
+	   void DisableControls() {
+		   txtApellido->ReadOnly = true;
+		   txtEstado->ReadOnly = true;
+		   txtId->ReadOnly = true;
+		   txtNombre->ReadOnly = true;
+		   txtPiso->ReadOnly = true;
+	   }
 };
 }
