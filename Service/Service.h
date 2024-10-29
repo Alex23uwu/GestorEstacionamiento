@@ -16,7 +16,7 @@ namespace EstacionamientoService {
 		static String^ XML_TICKET_FILE_NAME = "ticket.xml";
 		static String^ XML_DETALLE_FILE_NAME = "detalleticket.xml";
 		static String^ XML_ESTACIONAMIENTO_FILE_NAME = "estacionamientos.xml";
-		static String^ XML_VEHICULO_FILE_NAME = "estacionamientos.xml";
+		static String^ XML_VEHICULO_FILE_NAME = "vehiculo.xml";
 	private:
 		static List<Estacionamiento^>^ ListaEstacionamiento = gcnew List<Estacionamiento^>();
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();

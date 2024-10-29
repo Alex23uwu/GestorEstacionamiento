@@ -52,7 +52,7 @@ namespace GUIApp {
 
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ LabelTimeOut;
-	private: System::Windows::Forms::CheckBox^ checkUsoPersonal;
+
 
 
 
@@ -83,7 +83,6 @@ namespace GUIApp {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->LabelTimeOut = (gcnew System::Windows::Forms::Label());
-			this->checkUsoPersonal = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -106,7 +105,7 @@ namespace GUIApp {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(134, 185);
+			this->button1->Location = System::Drawing::Point(141, 134);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(124, 29);
 			this->button1->TabIndex = 4;
@@ -142,23 +141,12 @@ namespace GUIApp {
 			this->LabelTimeOut->TabIndex = 13;
 			this->LabelTimeOut->Text = L"label6";
 			// 
-			// checkUsoPersonal
-			// 
-			this->checkUsoPersonal->AutoSize = true;
-			this->checkUsoPersonal->Location = System::Drawing::Point(44, 136);
-			this->checkUsoPersonal->Name = L"checkUsoPersonal";
-			this->checkUsoPersonal->Size = System::Drawing::Size(104, 17);
-			this->checkUsoPersonal->TabIndex = 14;
-			this->checkUsoPersonal->Text = L"Incluye Personal";
-			this->checkUsoPersonal->UseVisualStyleBackColor = true;
-			// 
 			// GenerarTicket
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonFace;
-			this->ClientSize = System::Drawing::Size(407, 226);
-			this->Controls->Add(this->checkUsoPersonal);
+			this->ClientSize = System::Drawing::Size(407, 185);
 			this->Controls->Add(this->LabelTimeOut);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
@@ -189,23 +177,6 @@ namespace GUIApp {
 		estacionamiento->HoraInicio = "";
 		Service::UpdateEstacionamiento(estacionamiento);
 
-		if (checkUsoPersonal->Checked) {
-			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(8, 0.18, ticket->Detalle);
-			String^ Boleta = "******** TICKET ********\n";
-			Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
-			Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
-			Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
-			Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
-			Boleta += "-------------------------\n";
-			Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
-			Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
-			Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
-			Boleta += "-------------------------\n";
-			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
-			Boleta += "*************************\n";
-			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		}
-		else {
 			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 			String^ Boleta = "******** TICKET ********\n";
 			Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
@@ -220,7 +191,6 @@ namespace GUIApp {
 			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
 			Boleta += "*************************\n";
 			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
-		}
 	}
 	private: System::Void GenerarTicket_Load(System::Object^ sender, System::EventArgs^ e) {
 

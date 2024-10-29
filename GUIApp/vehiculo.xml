@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   21   :   45   </HoraInicio>
+      <HoraSalida />
+      <Id>2</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>2</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>2</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <Placa>UWU</Placa>
+    <Id>0</Id>
+  </Vehiculo>
+</ArrayOfVehiculo>
