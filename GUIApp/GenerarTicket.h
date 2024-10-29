@@ -135,11 +135,13 @@ namespace GUIApp {
 			// LabelTimeOut
 			// 
 			this->LabelTimeOut->AutoSize = true;
+			this->LabelTimeOut->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->LabelTimeOut->Location = System::Drawing::Point(174, 94);
 			this->LabelTimeOut->Name = L"LabelTimeOut";
-			this->LabelTimeOut->Size = System::Drawing::Size(35, 13);
+			this->LabelTimeOut->Size = System::Drawing::Size(71, 13);
 			this->LabelTimeOut->TabIndex = 13;
-			this->LabelTimeOut->Text = L"label6";
+			this->LabelTimeOut->Text = L"tiempoHora";
 			// 
 			// GenerarTicket
 			// 
@@ -171,28 +173,26 @@ namespace GUIApp {
 			ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 			ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
 			ticket->Dia = System::DateTime::Now;
-
 			Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 			int estacionamientoId = vehiculo->AsigandoA->Id;
 			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
 			estacionamiento->MiSensor->Detecta = false;
 			estacionamiento->HoraInicio = "";
 			Service::UpdateEstacionamiento(estacionamiento);
-
-			ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
-			String^ Boleta = "******** TICKET ********\n";
-			Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
-			Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
-			Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
-			Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
-			Boleta += "-------------------------\n";
-			Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
-			Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
-			Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
-			Boleta += "-------------------------\n";
-			Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
-			Boleta += "*************************\n";
-			MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
+				String^ Boleta = "******** TICKET ********\n";
+				Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
+				Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
+				Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
+				Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
+				Boleta += "-------------------------\n";
+				Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
+				Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
+				Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
+				Boleta += "-------------------------\n";
+				Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
+				Boleta += "*************************\n";
+				MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		}
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);

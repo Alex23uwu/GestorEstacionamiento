@@ -249,7 +249,7 @@ namespace GUIApp {
 		
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   : ss");
+		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   ");
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		try{
@@ -264,6 +264,7 @@ namespace GUIApp {
 			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(Service::DetectarEstacionamientoMasProximoDisponible());
 
 			vehiculo->Placa = txtPlaca->Text;
+			ticket->UsoPersonal = checkServicioLimpieza->Checked;
 			ticket->Detalle = detalle;
 			ticket->GeneradoA = vehiculo;
 			detalle->HoraEntrada = labelIngresoVehiculo->Text;
@@ -274,7 +275,13 @@ namespace GUIApp {
 			EstacionamientoService::Service::AddTicket(ticket);
 			EstacionamientoService::Service::AddVehiculo(vehiculo);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
-			MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
+			if (checkServicioLimpieza->Checked) {
+				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " , con personal de Limpieza");
+			}
+			else {
+				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
+			}
+
 		}
 		catch(Exception^ ex){
 			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
