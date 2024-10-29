@@ -2,19 +2,36 @@
 <ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   21   :   45   </HoraInicio>
+      <HoraInicio>   14   :   53   : 17</HoraInicio>
       <HoraSalida />
-      <Id>2</Id>
+      <Id>1</Id>
       <MiSensor>
         <Detecta>true</Detecta>
-        <Id>2</Id>
+        <Id>1</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <Placa>UWU</Placa>
+    <Placa>BXN45</Placa>
+    <Id>0</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   14   :   53   : 50</HoraInicio>
+      <HoraSalida />
+      <Id>3</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>3</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <Placa>AR456</Placa>
     <Id>0</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

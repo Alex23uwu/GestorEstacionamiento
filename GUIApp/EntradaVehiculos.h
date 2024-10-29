@@ -46,14 +46,16 @@ namespace GUIApp {
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ cmbTipoVehiculo;
+
 	private: System::Windows::Forms::Button^ btAgregar;
 	private: System::Windows::Forms::DateTimePicker^ DateTimeVehiculo;
 
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::ComboBox^ cmbEstacionamientos;
 
 
-	private: System::Windows::Forms::ComboBox^ comboBox2;
+
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::CheckBox^ checkServicioLimpieza;
 
@@ -81,11 +83,11 @@ namespace GUIApp {
 			this->txtPlaca = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmbTipoVehiculo = (gcnew System::Windows::Forms::ComboBox());
 			this->btAgregar = (gcnew System::Windows::Forms::Button());
 			this->DateTimeVehiculo = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->cmbEstacionamientos = (gcnew System::Windows::Forms::ComboBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->checkServicioLimpieza = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
@@ -147,14 +149,14 @@ namespace GUIApp {
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"TIPO DE VEHICULO";
 			// 
-			// comboBox1
+			// cmbTipoVehiculo
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Moto", L"Auto" });
-			this->comboBox1->Location = System::Drawing::Point(491, 35);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(133, 21);
-			this->comboBox1->TabIndex = 5;
+			this->cmbTipoVehiculo->FormattingEnabled = true;
+			this->cmbTipoVehiculo->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Moto", L"Auto" });
+			this->cmbTipoVehiculo->Location = System::Drawing::Point(491, 35);
+			this->cmbTipoVehiculo->Name = L"cmbTipoVehiculo";
+			this->cmbTipoVehiculo->Size = System::Drawing::Size(133, 21);
+			this->cmbTipoVehiculo->TabIndex = 5;
 			// 
 			// btAgregar
 			// 
@@ -188,13 +190,13 @@ namespace GUIApp {
 			this->label4->TabIndex = 8;
 			this->label4->Text = L"FECHA";
 			// 
-			// comboBox2
+			// cmbEstacionamientos
 			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(22, 169);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(148, 21);
-			this->comboBox2->TabIndex = 10;
+			this->cmbEstacionamientos->FormattingEnabled = true;
+			this->cmbEstacionamientos->Location = System::Drawing::Point(22, 169);
+			this->cmbEstacionamientos->Name = L"cmbEstacionamientos";
+			this->cmbEstacionamientos->Size = System::Drawing::Size(148, 21);
+			this->cmbEstacionamientos->TabIndex = 10;
 			// 
 			// label5
 			// 
@@ -225,11 +227,11 @@ namespace GUIApp {
 			this->ClientSize = System::Drawing::Size(636, 289);
 			this->Controls->Add(this->checkServicioLimpieza);
 			this->Controls->Add(this->label5);
-			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->cmbEstacionamientos);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->DateTimeVehiculo);
 			this->Controls->Add(this->btAgregar);
-			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->cmbTipoVehiculo);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->txtPlaca);
@@ -237,6 +239,7 @@ namespace GUIApp {
 			this->Controls->Add(this->labelIngresoVehiculo);
 			this->Name = L"EntradaVehiculos";
 			this->Text = L"EntradaVehiculos";
+			this->Load += gcnew System::EventHandler(this, &EntradaVehiculos::EntradaVehiculos_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -246,31 +249,36 @@ namespace GUIApp {
 		
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   ");
+		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   : ss");
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ placa = txtPlaca->Text->Trim();
-		if (placa ->Equals("")) {
-			MessageBox::Show("Debe registar una placa");
-			return;
+		try{
+			String^ placa = txtPlaca->Text->Trim();
+			if (placa->Equals("")) {
+				MessageBox::Show("Debe registar una placa");
+				return;
+			}
+			Vehiculo^ vehiculo = gcnew Vehiculo();
+			DetalleTicket^ detalle = gcnew DetalleTicket();
+			Ticket^ ticket = gcnew Ticket();
+			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(Service::DetectarEstacionamientoMasProximoDisponible());
+
+			vehiculo->Placa = txtPlaca->Text;
+			ticket->Detalle = detalle;
+			ticket->GeneradoA = vehiculo;
+			detalle->HoraEntrada = labelIngresoVehiculo->Text;
+			estacionamiento->MiSensor->Detecta = true;
+			estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
+			vehiculo->AsigandoA = estacionamiento;
+
+			EstacionamientoService::Service::AddTicket(ticket);
+			EstacionamientoService::Service::AddVehiculo(vehiculo);
+			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
+			MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
 		}
-		Vehiculo^ vehiculo = gcnew Vehiculo();
-		DetalleTicket^ detalle = gcnew DetalleTicket();
-		Ticket^ ticket = gcnew Ticket();
-		Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(Service::DetectarEstacionamientoMasProximoDisponible());
-
-		vehiculo->Placa = txtPlaca->Text;
-		ticket->Detalle = detalle;
-		ticket->GeneradoA = vehiculo;
-		detalle->HoraEntrada = labelIngresoVehiculo->Text;
-		estacionamiento->MiSensor->Detecta = true;
-		estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
-		vehiculo->AsigandoA = estacionamiento;
-
-		EstacionamientoService::Service::AddTicket(ticket);
-		EstacionamientoService::Service::AddVehiculo(vehiculo);
-		EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
-		MessageBox::Show("Se ha agregado el vehiculo de placa, " + vehiculo->Placa);
+		catch(Exception^ ex){
+			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
+		}
 	}
 	public:
 
@@ -281,5 +289,10 @@ namespace GUIApp {
 				   }
 			   }
 	}
+
+private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
+
+
+}
 };
 }

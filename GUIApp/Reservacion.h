@@ -124,7 +124,7 @@ namespace GUIApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(720, 49);
+			this->label1->Location = System::Drawing::Point(586, 88);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(150, 13);
 			this->label1->TabIndex = 0;
@@ -143,7 +143,7 @@ namespace GUIApp {
 			// 
 			// bttReservar
 			// 
-			this->bttReservar->Location = System::Drawing::Point(723, 105);
+			this->bttReservar->Location = System::Drawing::Point(589, 144);
 			this->bttReservar->Name = L"bttReservar";
 			this->bttReservar->Size = System::Drawing::Size(124, 36);
 			this->bttReservar->TabIndex = 3;
@@ -154,7 +154,7 @@ namespace GUIApp {
 			// dtpHoraEntrada
 			// 
 			this->dtpHoraEntrada->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpHoraEntrada->Location = System::Drawing::Point(892, 43);
+			this->dtpHoraEntrada->Location = System::Drawing::Point(758, 82);
 			this->dtpHoraEntrada->Name = L"dtpHoraEntrada";
 			this->dtpHoraEntrada->Size = System::Drawing::Size(124, 20);
 			this->dtpHoraEntrada->TabIndex = 4;
@@ -162,7 +162,7 @@ namespace GUIApp {
 			// 
 			// bttCancel
 			// 
-			this->bttCancel->Location = System::Drawing::Point(892, 102);
+			this->bttCancel->Location = System::Drawing::Point(758, 141);
 			this->bttCancel->Name = L"bttCancel";
 			this->bttCancel->Size = System::Drawing::Size(124, 42);
 			this->bttCancel->TabIndex = 7;
@@ -361,7 +361,7 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1069, 642);
+			this->ClientSize = System::Drawing::Size(938, 642);
 			this->Controls->Add(this->button10);
 			this->Controls->Add(this->button9);
 			this->Controls->Add(this->button8);
