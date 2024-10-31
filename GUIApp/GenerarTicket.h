@@ -170,6 +170,9 @@ namespace GUIApp {
 			String^ placa = txtPlacaVehiculo->Text;
 
 			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
+			if (ticket == nullptr) {
+				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
+			}
 			ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 			ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
 			ticket->Dia = System::DateTime::Now;
@@ -178,6 +181,7 @@ namespace GUIApp {
 			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
 			estacionamiento->MiSensor->Detecta = false;
 			estacionamiento->HoraInicio = "";
+			vehiculo->AsigandoA->MiSensor->Detecta = false;
 			Service::UpdateEstacionamiento(estacionamiento);
 				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 				String^ Boleta = "******** TICKET ********\n";

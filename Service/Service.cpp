@@ -295,6 +295,7 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 }
 Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
 {
+	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
 	for (int i = 0; i < ListaVehiculo->Count; i++) {
 		if (ListaVehiculo[i]->Placa == Placa) {
 			return ListaVehiculo[i];
@@ -306,15 +307,24 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
 void EstacionamientoService::Service::AddTicket(Ticket^ ticket)
 {
 	ListaTicket->Add(ticket);
+	Persistance::PersistXMLFile(XML_TICKET_FILE_NAME, ListaTicket);
 }
 
 List<Ticket^>^ EstacionamientoService::Service::QueryAllTicket()
 {
+	try
+	{
+		ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
 	return ListaTicket;
 }
 
 Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
 {
+	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
 	for (int i = 0; i < ListaTicket->Count; i++) {
 		if (ListaTicket[i]->GeneradoA->Placa == placa) {
 			return ListaTicket[i];
@@ -324,6 +334,7 @@ Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
 
 int EstacionamientoService::Service::GeneracionIDTicket()
 {
+	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
 	int prueba = 1;
 	for (int i = 0; i < ListaTicket->Count; i++) {
 		if (ListaTicket[i]->Id == prueba) {
@@ -394,6 +405,7 @@ List<Estacionamiento^>^ EstacionamientoService::Service::QueryAllEstacionamiento
 }
 
 Estacionamiento^ EstacionamientoService::Service::QueryEstacionamientosbyId(int id) {
+	ListaEstacionamiento = (List<Estacionamiento^>^)Persistance::LoadEstacionamientosXmlFile(XML_ESTACIONAMIENTO_FILE_NAME);
 	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
 		if (ListaEstacionamiento[i]->Id == id) {
 			return ListaEstacionamiento[i];

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTicket xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Ticket>
+    <Id>0</Id>
+    <CantTotal>0</CantTotal>
+    <Dia>0001-01-01T00:00:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   03   :   04   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Placa>abc</Placa>
+      <Id>0</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>0</Cantidad>
+      <Id>0</Id>
+      <IGV>0</IGV>
+      <HoraEntrada>   03   :   04   </HoraEntrada>
+      <Tarifa>0</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+</ArrayOfTicket>

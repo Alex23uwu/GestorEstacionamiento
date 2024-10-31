@@ -2,7 +2,7 @@
 <ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   15   :   16   : 39</HoraInicio>
+      <HoraInicio>   03   :   04   </HoraInicio>
       <HoraSalida />
       <Id>1</Id>
       <MiSensor>
@@ -14,7 +14,7 @@
         <NumeroEstacionamiento>1</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <Placa>BXN</Placa>
+    <Placa>abc</Placa>
     <Id>0</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

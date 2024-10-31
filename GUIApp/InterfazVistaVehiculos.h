@@ -204,6 +204,7 @@ namespace GUIApp {
 			this->est3->Size = System::Drawing::Size(90, 90);
 			this->est3->TabIndex = 2;
 			this->est3->TabStop = false;
+			this->est3->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::est3_Click);
 			// 
 			// est8
 			// 
@@ -425,5 +426,7 @@ namespace GUIApp {
 			Service::UpdateEstacionamiento(estacionamientoLista[i]);
 		}
 	}
+private: System::Void est3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

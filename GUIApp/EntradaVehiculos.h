@@ -95,6 +95,7 @@ namespace GUIApp {
 			// timer1
 			// 
 			this->timer1->Enabled = true;
+			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &EntradaVehiculos::timer1_Tick);
 			// 
 			// labelIngresoVehiculo
@@ -298,8 +299,7 @@ namespace GUIApp {
 	}
 
 private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
-
-
+	List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
 }
 };
 }
