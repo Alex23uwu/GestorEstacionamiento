@@ -14,10 +14,13 @@ namespace GUIApp {
 	/// </summary>
 	public ref class LoginForm : public System::Windows::Forms::Form
 	{
+	private:
+		Form^ refMainForm;
 	public:
 		Form^ form;
 		LoginForm(Form^ refForm)
 		{
+			//refMainForm = form;
 			InitializeComponent();
 			//
 			//TODO: agregar código de constructor aquí

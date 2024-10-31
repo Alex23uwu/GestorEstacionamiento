@@ -17,6 +17,9 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MessageBox::Show("Bienvenido "+cliente->Nombre+" "+cliente->Apellido);
 		this->Close();
 		MyForm::Cliente = cliente;
+		form->Text = "Sistema de estacionamiento - Cliente: " + MyForm::Cliente->Nombre + " " + MyForm::Cliente->Apellido;
+		((MyForm^)form)->EnableClienteOptions();
+
 	}
 	else if (veedor != nullptr) {
 		MessageBox::Show("Bienvenido " + veedor->Nombre + " " + veedor->Apellido);
