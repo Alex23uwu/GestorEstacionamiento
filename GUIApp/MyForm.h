@@ -332,6 +332,6 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 		   }
 		   void EnableVeedorOptions() {}
 		   void EnablePersonalLimpiezaOptions() {}
-		   void EnableAdministardorOptions() {}
+		   void EnableAdministradorOptions() {}
 };
 }

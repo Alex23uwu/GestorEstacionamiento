@@ -25,16 +25,22 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MessageBox::Show("Bienvenido " + veedor->Nombre + " " + veedor->Apellido);
 		this->Close();
 		MyForm::Veedor = veedor;
+		form->Text = "Sistema de estacionamiento - Veedor: " + MyForm::Veedor->Nombre + " " + MyForm::Veedor->Apellido;
+		((MyForm^)form)->EnableVeedorOptions();
 	}
 	else if (personalLimpieza != nullptr) {
 		MessageBox::Show("Bienvenido " + personalLimpieza->Nombre + " " + personalLimpieza->Apellido);
 		this->Close();
 		MyForm::PersonalLimpieza = personalLimpieza;
+		form->Text = "Sistema de estacionamiento - Personal de Limpieza: " + MyForm::PersonalLimpieza->Nombre + " " + MyForm::PersonalLimpieza->Apellido;
+		((MyForm^)form)->EnablePersonalLimpiezaOptions();
 	}
 	else if (administardor != nullptr) {
 		MessageBox::Show("Bienvenido " + administardor->Nombre + " " + administardor->Apellido);
 		this->Close();
 		MyForm::Administrador = administardor;
+		form->Text = "Sistema de estacionamiento - Administardor: " + MyForm::Administrador->Nombre + " " + MyForm::Administrador->Apellido;
+		((MyForm^)form)->EnableAdministradorOptions();
 	}
 	else {
 		MessageBox::Show("Usuario y contraseña incorrectos.");
