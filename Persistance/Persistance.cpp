@@ -53,7 +53,10 @@ void EstacionamientoPersistance::Persistance::PersistXMLFile(String^ fileName, O
         else if(persistObject->GetType() == List<Vehiculo^>::typeid) {
             XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<Vehiculo^>::typeid);
             xmlSerializer->Serialize(writer, persistObject);
-
+        }
+        else if (persistObject->GetType() == List<Sensor^>::typeid) {
+            XmlSerializer^ xmlSerializer = gcnew XmlSerializer(List<Sensor^>::typeid);
+            xmlSerializer->Serialize(writer, persistObject);
         }
     }
     catch (Exception^ ex) {
@@ -286,6 +289,28 @@ Object^ EstacionamientoPersistance::Persistance::LoadVehiculosXmlFile(String^ fi
             reader = gcnew StreamReader(fileName);
             xmlSerializer = gcnew XmlSerializer(List<Vehiculo^>::typeid);
             result = (List<Vehiculo^>^) xmlSerializer->Deserialize(reader);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (reader != nullptr) reader->Close();
+    }
+    return result;
+}
+
+Object^ EstacionamientoPersistance::Persistance::LoadSensorXmlFile(String^ fileName)
+{
+    StreamReader^ reader;
+    Object^ result = gcnew List<Sensor^>();
+    XmlSerializer^ xmlSerializer;
+
+    try {
+        if (File::Exists(fileName)) {
+            reader = gcnew StreamReader(fileName);
+            xmlSerializer = gcnew XmlSerializer(List<Sensor^>::typeid);
+            result = (List<Sensor^>^) xmlSerializer->Deserialize(reader);
         }
     }
     catch (Exception^ ex) {

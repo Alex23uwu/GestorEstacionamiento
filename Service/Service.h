@@ -17,6 +17,7 @@ namespace EstacionamientoService {
 		static String^ XML_DETALLE_FILE_NAME = "detalleticket.xml";
 		static String^ XML_ESTACIONAMIENTO_FILE_NAME = "estacionamientos.xml";
 		static String^ XML_VEHICULO_FILE_NAME = "vehiculo.xml";
+		static String^ XML_SENSOR_FILE_NAME = "sensor.xml";
 	private:
 		static List<Estacionamiento^>^ ListaEstacionamiento = gcnew List<Estacionamiento^>();
 		static List<Usuario^>^ ListaUsuario = gcnew List<Usuario^>();
@@ -28,7 +29,7 @@ namespace EstacionamientoService {
 		static List<Administrador^>^ ListaAdministrador = gcnew List<Administrador^>();
 		static List<Ticket^>^ ListaTicket = gcnew List<Ticket^>();
 		static List<DetalleTicket^>^ ListaDetalle = gcnew List<DetalleTicket^>();
-
+		static List<Sensor^>^ ListaSensor = gcnew List<Sensor^>();
 
 	public:
 		// CRUD PARA EL PERSONAL DE LIMPIEZA
@@ -71,6 +72,7 @@ namespace EstacionamientoService {
 		static Ticket^ QueryTicketbyPlaca(String^ placa);
 		static int GeneracionIDTicket();
 		static double CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle);
+		static void UpdateTicket(Ticket^);
 
 		//CRUD PARA ESTACIONAMIENTOS
 		static void AddEstacionamiento(Estacionamiento^);
@@ -96,8 +98,11 @@ namespace EstacionamientoService {
 		static PersonalLimpieza^ ValidaPersonalLimpieza(String^ userName, String^ password);
 		static Administrador^ ValidaAdministrador(String^ userName, String^ password);
 
-
-
-
+		// CRUD PARA SENSOR
+		static void AddSensor(Sensor^);
+		static int GenerateID();
+		static void UpdateSensor(Sensor^);
+		static void DeleteSensor(Sensor^);
+		static Sensor^ QuerySensorbyID(int ID);
 	};
 }

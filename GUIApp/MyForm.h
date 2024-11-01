@@ -9,6 +9,7 @@
 #include "LoginForm.h"
 #include "InterfazVistaVehiculos.h"
 #include "Estacionamiento_CRUD.h"
+#include "SensorEstacionamiento.h"
 
 namespace GUIApp {
 
@@ -34,6 +35,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ espaciosDisponiblesToolStripMenuItem;
 	public:
 	private: System::Windows::Forms::ToolStripMenuItem^ estacionamientosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ sensorToolStripMenuItem;
 	public:
 		static Administrador^ Administrador;
 
@@ -111,6 +113,7 @@ namespace GUIApp {
 			this->espaciosDisponiblesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sensorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -144,9 +147,10 @@ namespace GUIApp {
 			// 
 			// mantenimientoToolStripMenuItem
 			// 
-			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->mantenimientoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->personalLimpiezaToolStripMenuItem,
-					this->veedoresToolStripMenuItem, this->administradoresToolStripMenuItem, this->clientesToolStripMenuItem, this->estacionamientosToolStripMenuItem
+					this->veedoresToolStripMenuItem, this->administradoresToolStripMenuItem, this->clientesToolStripMenuItem, this->estacionamientosToolStripMenuItem,
+					this->sensorToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
 			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 24);
@@ -237,6 +241,13 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
+			// sensorToolStripMenuItem
+			// 
+			this->sensorToolStripMenuItem->Name = L"sensorToolStripMenuItem";
+			this->sensorToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->sensorToolStripMenuItem->Text = L"Sensor";
+			this->sensorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::sensorToolStripMenuItem_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -246,7 +257,7 @@ namespace GUIApp {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyForm";
 			this->Text = L"Sistema de Estacionamiento";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -333,5 +344,10 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 		   void EnableVeedorOptions() {}
 		   void EnablePersonalLimpiezaOptions() {}
 		   void EnableAdministradorOptions() {}
+private: System::Void sensorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	SensorEstacionamiento^ form = gcnew SensorEstacionamiento();
+	form->MdiParent = this;
+	form->Show();
+}
 };
 }

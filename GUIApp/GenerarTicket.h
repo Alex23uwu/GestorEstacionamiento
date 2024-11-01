@@ -170,6 +170,7 @@ namespace GUIApp {
 			String^ placa = txtPlacaVehiculo->Text;
 
 			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
+			
 			if (ticket == nullptr) {
 				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
 			}
@@ -177,12 +178,17 @@ namespace GUIApp {
 			ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
 			ticket->Dia = System::DateTime::Now;
 			Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
-			int estacionamientoId = vehiculo->AsigandoA->Id;
-			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(estacionamientoId);
+			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
+			Sensor^ sensor = Service::QuerySensorbyID(vehiculo->AsigandoA->Id);
+			sensor->Detecta = false;
 			estacionamiento->MiSensor->Detecta = false;
-			estacionamiento->HoraInicio = "";
 			vehiculo->AsigandoA->MiSensor->Detecta = false;
+			estacionamiento->HoraInicio = "";
+			Service::UpdateSensor(sensor);
 			Service::UpdateEstacionamiento(estacionamiento);
+			Service::UpdateVehiculo(vehiculo);
+			Service::UpdateTicket(ticket);
+
 				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 				String^ Boleta = "******** TICKET ********\n";
 				Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";

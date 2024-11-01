@@ -1,12 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfTicket xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Ticket>
-    <Id>0</Id>
+    <Id>1</Id>
     <CantTotal>0</CantTotal>
     <Dia>0001-01-01T00:00:00</Dia>
     <GeneradoA>
       <AsigandoA>
-        <HoraInicio>   03   :   04   </HoraInicio>
+        <HoraInicio>   21   :   23   </HoraInicio>
+        <HoraSalida />
+        <Id>6</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>6</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>6</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Placa>123</Placa>
+      <Id>0</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>0</Cantidad>
+      <Id>0</Id>
+      <IGV>0</IGV>
+      <HoraEntrada>   21   :   23   </HoraEntrada>
+      <Tarifa>0</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>2</Id>
+    <CantTotal>0</CantTotal>
+    <Dia>0001-01-01T00:00:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   21   :   24   </HoraInicio>
+        <HoraSalida />
+        <Id>7</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>7</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>7</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Placa>456</Placa>
+      <Id>0</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>0</Cantidad>
+      <Id>0</Id>
+      <IGV>0</IGV>
+      <HoraEntrada>   21   :   24   </HoraEntrada>
+      <Tarifa>0</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>3</Id>
+    <CantTotal>0</CantTotal>
+    <Dia>0001-01-01T00:00:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   21   :   24   </HoraInicio>
         <HoraSalida />
         <Id>1</Id>
         <MiSensor>
@@ -18,14 +78,14 @@
           <NumeroEstacionamiento>1</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
-      <Placa>abc</Placa>
+      <Placa>123456</Placa>
       <Id>0</Id>
     </GeneradoA>
     <Detalle>
       <Cantidad>0</Cantidad>
       <Id>0</Id>
       <IGV>0</IGV>
-      <HoraEntrada>   03   :   04   </HoraEntrada>
+      <HoraEntrada>   21   :   24   </HoraEntrada>
       <Tarifa>0</Tarifa>
     </Detalle>
     <UsoPersonal>false</UsoPersonal>

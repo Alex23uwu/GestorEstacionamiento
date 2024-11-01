@@ -138,6 +138,7 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PersonalLimpieza_CRUD.cpp" />
     <ClCompile Include="Reservacion.cpp" />
+    <ClCompile Include="SensorEstacionamiento.cpp" />
     <ClCompile Include="Veedor_CRUD.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +170,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Reservacion.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SensorEstacionamiento.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Veedor_CRUD.h">
@@ -207,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reservacion.resx">
       <DependentUpon>Reservacion.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SensorEstacionamiento.resx">
+      <DependentUpon>SensorEstacionamiento.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Veedor_CRUD.resx">
       <DependentUpon>Veedor_CRUD.h</DependentUpon>

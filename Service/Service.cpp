@@ -81,12 +81,14 @@ int EstacionamientoService::Service::UpdatePersonalLimpiezaID(){
 
 void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	ListaVeedor->Add(veedor);
 	Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 }
 
 void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
 {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == veedor->Id) {
 			ListaVeedor[i] = veedor;
@@ -97,6 +99,7 @@ void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
 }
 
 void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			ListaVeedor->RemoveAt(i);
@@ -108,7 +111,8 @@ void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
 
 List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
 {
-	ListaVeedor = gcnew List<Veedor^>();
+
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	try
 	{
 		ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
@@ -121,6 +125,7 @@ List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
 
 Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
 {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			return ListaVeedor[i];
@@ -130,6 +135,7 @@ Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
 
 int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	int prueba = 1;
 	for (int i = 0; i < VeedorLista->Count; i++) {
 		if (VeedorLista[i]->Id == prueba) {
@@ -144,6 +150,7 @@ int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 
 void  EstacionamientoService::Service::VerificarDuplicadoVeedor(List<Veedor^>^ ListaVeedor, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular)
 {
+	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for each (Veedor ^ veedor in ListaVeedor) {
 		if (veedor->DNI == DNI) {
 			throw gcnew DuplicatedVeedorException("El DNI del Veedor ya existe en la base de datos.");
@@ -241,6 +248,7 @@ Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 // VEHICULO CRUD
 void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 {
+	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
 	for each (Vehiculo ^ vehiculo1 in ListaVehiculo) {
 		if (vehiculo1->Placa == vehiculo->Placa) {
 			throw gcnew DuplicatedPlacaVehiculo("La placa ya ha sido rregistrada , ingrese una placa nueva");
@@ -253,6 +261,7 @@ void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 
 void EstacionamientoService::Service::UpdateVehiculo(Vehiculo^ vehiculo)
 {
+	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
 	for (int i = 0; i < ListaVehiculo->Count; i++) {
 		if (ListaVehiculo[i]->Id == vehiculo->Id) {
 			ListaVehiculo[i] = vehiculo;
@@ -306,6 +315,7 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
 
 void EstacionamientoService::Service::AddTicket(Ticket^ ticket)
 {
+	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
 	ListaTicket->Add(ticket);
 	Persistance::PersistXMLFile(XML_TICKET_FILE_NAME, ListaTicket);
 }
@@ -362,6 +372,19 @@ double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV ,D
 	return (detalle->Cantidad+detalle->IGV);
 }
 
+void EstacionamientoService::Service::UpdateTicket(Ticket^ ticket)
+{
+	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
+	for (int i = 0; i < ListaTicket->Count; i++) {
+		if (ListaTicket[i]->Id == ticket->Id) {
+			ListaTicket[i] = ticket;
+			Persistance::PersistXMLFile(XML_TICKET_FILE_NAME, ListaTicket);
+			return;
+		}
+	}
+}
+
+//CRUD ESTACIONAMIENTO
 void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estacionamiento)
 {
 	for each (Estacionamiento^ personalLimp in ListaEstacionamiento) {
@@ -374,6 +397,7 @@ void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estaci
 }
 
 void EstacionamientoService::Service::UpdateEstacionamiento(Estacionamiento^ estacionamiento) {
+	ListaEstacionamiento = (List<Estacionamiento^>^)Persistance::LoadEstacionamientosXmlFile(XML_ESTACIONAMIENTO_FILE_NAME);
 	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
 		if (ListaEstacionamiento[i]->Id == estacionamiento->Id) {
 			ListaEstacionamiento[i] = estacionamiento;
@@ -427,6 +451,7 @@ int EstacionamientoService::Service::UpdateEstacionamientoID() {
 }
 
 int EstacionamientoService::Service::DetectarEstacionamientoMasProximoDisponible() {
+	ListaEstacionamiento = (List<Estacionamiento^>^)Persistance::LoadEstacionamientosXmlFile(XML_ESTACIONAMIENTO_FILE_NAME);
 	int prueba = 1;
 	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
 		if (ListaEstacionamiento[i]->MiSensor->Detecta == true) {
@@ -545,4 +570,52 @@ Administrador^ EstacionamientoService::Service::ValidaAdministrador(String^ user
 			return administrador;
 	}
 	//return nullptr;
+}
+
+//CRUD SENSOR
+void EstacionamientoService::Service::AddSensor(Sensor^ sensor)
+{
+	ListaSensor = (List<Sensor^>^)Persistance::LoadSensorXmlFile(XML_SENSOR_FILE_NAME);
+	ListaSensor->Add(sensor);
+	Persistance::PersistXMLFile(XML_SENSOR_FILE_NAME, ListaSensor);
+}
+
+int EstacionamientoService::Service::GenerateID()
+{
+	ListaSensor = (List<Sensor^>^)Persistance::LoadSensorXmlFile(XML_SENSOR_FILE_NAME);
+	return ListaSensor->Count;
+}
+
+void EstacionamientoService::Service::UpdateSensor(Sensor^ sensor)
+{
+	ListaSensor = (List<Sensor^>^)Persistance::LoadSensorXmlFile(XML_SENSOR_FILE_NAME);
+	for (int i = 0; i < ListaSensor->Count; i++) {
+		if (ListaSensor[i]->Id == sensor->Id) {
+			ListaSensor[i] = sensor;
+			Persistance::PersistXMLFile(XML_SENSOR_FILE_NAME, ListaSensor);
+			return;
+		}
+	}
+}
+
+void EstacionamientoService::Service::DeleteSensor(Sensor^ sensor)
+{
+	ListaSensor = (List<Sensor^>^)Persistance::LoadSensorXmlFile(XML_SENSOR_FILE_NAME);
+	for (int i = 0; i < ListaSensor->Count; i++) {
+		if (ListaSensor[i]->Id == sensor->Id) {
+			ListaSensor->RemoveAt(i);
+			Persistance::PersistXMLFile(XML_SENSOR_FILE_NAME, ListaSensor);
+			return;
+		}
+	}
+}
+
+Sensor^ EstacionamientoService::Service::QuerySensorbyID(int ID)
+{
+	ListaSensor = (List<Sensor^>^)Persistance::LoadSensorXmlFile(XML_SENSOR_FILE_NAME);
+	for (int i = 0; i < ListaSensor->Count; i++) {
+		if (ListaSensor[i]->Id == ID) {
+			return ListaSensor[i];
+		}
+	}
 }

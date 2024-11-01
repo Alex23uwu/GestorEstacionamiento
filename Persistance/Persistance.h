@@ -32,5 +32,7 @@ namespace EstacionamientoPersistance {
 		static Object^ LoadEstacionamientosXmlFile(String^ fileName);
 		//Persistencia de Vehiculos
 		static Object^ LoadVehiculosXmlFile(String^ fileName);
+		//Persistencia de Sensores
+		static Object^ LoadSensorXmlFile(String^ fileName);
 	};
 }

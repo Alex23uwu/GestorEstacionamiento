@@ -253,28 +253,34 @@ namespace GUIApp {
 		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   ");
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		try{
+		try {
 			String^ placa = txtPlaca->Text->Trim();
 			if (placa->Equals("")) {
 				MessageBox::Show("Debe registar una placa");
 				return;
 			}
+			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
 			Vehiculo^ vehiculo = gcnew Vehiculo();
 			DetalleTicket^ detalle = gcnew DetalleTicket();
 			Ticket^ ticket = gcnew Ticket();
-			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(Service::DetectarEstacionamientoMasProximoDisponible());
+			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(IDEstacionamiento);
+			Sensor^ sensor = Service::QuerySensorbyID(IDEstacionamiento);
 
+			estacionamiento->MiSensor = sensor;
+			vehiculo->AsigandoA = estacionamiento;
 			vehiculo->Placa = txtPlaca->Text;
 			ticket->UsoPersonal = checkServicioLimpieza->Checked;
+			ticket->Id = Service::GeneracionIDTicket();
 			ticket->Detalle = detalle;
 			ticket->GeneradoA = vehiculo;
 			detalle->HoraEntrada = labelIngresoVehiculo->Text;
+			sensor->Detecta = true;
 			estacionamiento->MiSensor->Detecta = true;
+			vehiculo->AsigandoA->MiSensor->Detecta = true;
 			estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
-			vehiculo->AsigandoA = estacionamiento;
-
 			EstacionamientoService::Service::AddTicket(ticket);
 			EstacionamientoService::Service::AddVehiculo(vehiculo);
+			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
 			if (checkServicioLimpieza->Checked) {
 				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " , con personal de Limpieza");
@@ -285,7 +291,7 @@ namespace GUIApp {
 
 		}
 		catch(Exception^ ex){
-			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
+			//MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
 		}
 	}
 	public:
