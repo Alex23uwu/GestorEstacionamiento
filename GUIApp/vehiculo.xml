@@ -2,8 +2,8 @@
 <ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   21   :   24   </HoraInicio>
-      <HoraSalida />
+      <HoraInicio>   01   :   11   </HoraInicio>
+      <HoraSalida>   01   :   21   </HoraSalida>
       <Id>1</Id>
       <MiSensor>
         <Detecta>false</Detecta>
@@ -14,33 +14,53 @@
         <NumeroEstacionamiento>1</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <Placa>123456</Placa>
-    <Id>0</Id>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>XYZ</Placa>
+    <Id>1</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   21   :   24   </HoraInicio>
+      <HoraInicio>   00   :   33   </HoraInicio>
       <HoraSalida />
-      <Id>7</Id>
+      <Id>2</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>7</Id>
+        <Detecta>false</Detecta>
+        <Id>2</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>7</NumeroEstacionamiento>
+        <NumeroEstacionamiento>2</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <Placa>456</Placa>
-    <Id>0</Id>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>ABC</Placa>
+    <Id>2</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   21   :   24   </HoraInicio>
-      <HoraSalida />
+      <HoraInicio>   00   :   34   </HoraInicio>
+      <HoraSalida>   01   :   26   </HoraSalida>
+      <Id>3</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>3</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>QWE</Placa>
+    <Id>3</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   01   :   11   </HoraInicio>
+      <HoraSalida>   01   :   14   </HoraSalida>
       <Id>1</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>1</Id>
       </MiSensor>
       <Ubicacion>
@@ -48,7 +68,62 @@
         <NumeroEstacionamiento>1</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <Placa>123456</Placa>
-    <Id>0</Id>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>JKL</Placa>
+    <Id>4</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   01   :   22   </HoraInicio>
+      <HoraSalida>   01   :   22   </HoraSalida>
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo />
+    <Placa>FFF</Placa>
+    <Id>5</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   01   :   27   </HoraInicio>
+      <HoraSalida>   01   :   27   </HoraSalida>
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo />
+    <Placa>ASD</Placa>
+    <Id>6</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   01   :   31   </HoraInicio>
+      <HoraSalida>   01   :   31   </HoraSalida>
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo />
+    <Placa>bbb</Placa>
+    <Id>7</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

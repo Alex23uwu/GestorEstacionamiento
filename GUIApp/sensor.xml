@@ -5,11 +5,11 @@
     <Id>1</Id>
   </Sensor>
   <Sensor>
-    <Detecta>true</Detecta>
+    <Detecta>false</Detecta>
     <Id>2</Id>
   </Sensor>
   <Sensor>
-    <Detecta>true</Detecta>
+    <Detecta>false</Detecta>
     <Id>3</Id>
   </Sensor>
   <Sensor>

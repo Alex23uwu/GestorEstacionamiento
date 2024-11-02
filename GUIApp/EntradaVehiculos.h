@@ -263,27 +263,33 @@ namespace GUIApp {
 			Vehiculo^ vehiculo = gcnew Vehiculo();
 			DetalleTicket^ detalle = gcnew DetalleTicket();
 			Ticket^ ticket = gcnew Ticket();
+			//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
 			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(IDEstacionamiento);
 			Sensor^ sensor = Service::QuerySensorbyID(IDEstacionamiento);
-
+			//llenamos los atributos de la variable SENSOR
+			sensor->Detecta = true;
+			//llenamos los atributos de la variable ESTACIONAMIENTO
 			estacionamiento->MiSensor = sensor;
+			estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
+			//llenamos los atributos de la variable VEHICULO
 			vehiculo->AsigandoA = estacionamiento;
 			vehiculo->Placa = txtPlaca->Text;
-			ticket->UsoPersonal = checkServicioLimpieza->Checked;
-			ticket->Id = Service::GeneracionIDTicket();
-			ticket->Detalle = detalle;
+			vehiculo->Id = Service::QueryAllVehiculo()->Count + 1;//este id de vehiculo representa el número de carros ingresados hasta la fecha
+			vehiculo->TipoVehiculo = cmbTipoVehiculo->Text;
+			//llenamos los atributos de TICKET
 			ticket->GeneradoA = vehiculo;
+			ticket->Id = Service::GeneracionIDTicket();
+			ticket->UsoPersonal = checkServicioLimpieza->Checked;
+
 			detalle->HoraEntrada = labelIngresoVehiculo->Text;
-			sensor->Detecta = true;
-			estacionamiento->MiSensor->Detecta = true;
-			vehiculo->AsigandoA->MiSensor->Detecta = true;
-			estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
+			ticket->Detalle = detalle;
+
 			EstacionamientoService::Service::AddTicket(ticket);
 			EstacionamientoService::Service::AddVehiculo(vehiculo);
 			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
 			if (checkServicioLimpieza->Checked) {
-				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " , con personal de Limpieza");
+				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " , y se ha solicitado el servicio de Limpieza");
 			}
 			else {
 				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
@@ -291,7 +297,7 @@ namespace GUIApp {
 
 		}
 		catch(Exception^ ex){
-			//MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
+			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
 		}
 	}
 	public:

@@ -174,20 +174,24 @@ namespace GUIApp {
 			if (ticket == nullptr) {
 				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
 			}
-			ticket->Detalle->HoraSalida = LabelTimeOut->Text;
-			ticket->Id = EstacionamientoService::Service::GeneracionIDTicket();
-			ticket->Dia = System::DateTime::Now;
-			Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
-			Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
-			Sensor^ sensor = Service::QuerySensorbyID(vehiculo->AsigandoA->Id);
-			sensor->Detecta = false;
-			estacionamiento->MiSensor->Detecta = false;
-			vehiculo->AsigandoA->MiSensor->Detecta = false;
-			estacionamiento->HoraInicio = "";
-			Service::UpdateSensor(sensor);
-			Service::UpdateEstacionamiento(estacionamiento);
-			Service::UpdateVehiculo(vehiculo);
-			Service::UpdateTicket(ticket);
+			if(ticket->GeneradoA->AsigandoA->MiSensor->Detecta==false){//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
+				txtPlacaVehiculo->Clear();
+				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
+			}
+			else {
+				//llenamos los atributos faltantes de ticket
+				ticket->Detalle->HoraSalida = LabelTimeOut->Text;
+				ticket->Dia = System::DateTime::Now;
+				//direccionamos al sensor que debe apagarse
+				Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
+				Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
+				Sensor^ sensor = Service::QuerySensorbyID(vehiculo->AsigandoA->Id);
+				sensor->Detecta = false;//apagamos el sensor 
+				estacionamiento->MiSensor = sensor;
+				estacionamiento->HoraSalida = LabelTimeOut->Text;
+				vehiculo->AsigandoA = estacionamiento;
+				ticket->GeneradoA = vehiculo;//actualiza la variable ticket
+				//estacionamiento->HoraInicio = "";	
 
 				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 				String^ Boleta = "******** TICKET ********\n";
@@ -203,6 +207,13 @@ namespace GUIApp {
 				Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
 				Boleta += "*************************\n";
 				MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+				Service::UpdateSensor(sensor);
+				Service::UpdateEstacionamiento(estacionamiento);
+				Service::UpdateVehiculo(vehiculo);
+				Service::UpdateTicket(ticket);
+				txtPlacaVehiculo->Clear();
+			}
 		}
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);
