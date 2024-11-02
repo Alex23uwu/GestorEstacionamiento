@@ -259,6 +259,9 @@ namespace GUIApp {
 				MessageBox::Show("Debe registar una placa");
 				return;
 			}
+			//validacion que diga si el auto ya fue registrado y si se retira me permita volver a ingresarlo al sistema
+
+
 			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
 			Vehiculo^ vehiculo = gcnew Vehiculo();
 			DetalleTicket^ detalle = gcnew DetalleTicket();
