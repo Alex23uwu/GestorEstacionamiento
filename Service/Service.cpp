@@ -335,9 +335,9 @@ List<Ticket^>^ EstacionamientoService::Service::QueryAllTicket()
 Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
 {
 	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
-	for (int i = 0; i < ListaTicket->Count; i++) {
-		if (ListaTicket[i]->GeneradoA->Placa == placa) {
-			return ListaTicket[i];
+	for (int i = ListaTicket->Count; i>0; i--) {
+		if (ListaTicket[i-1]->GeneradoA->Placa == placa) {
+			return ListaTicket[i-1];
 		}
 	}
 }
