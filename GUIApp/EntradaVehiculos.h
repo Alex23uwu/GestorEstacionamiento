@@ -260,7 +260,12 @@ namespace GUIApp {
 				return;
 			}
 			//validacion que diga si el auto ya fue registrado y si se retira me permita volver a ingresarlo al sistema
-
+			Vehiculo^ vehiculoValida = Service::QueryVehiculoByPlaca(placa);
+			if (vehiculoValida != nullptr) {
+				if (vehiculoValida->AsigandoA->HoraSalida == "") {
+					throw gcnew InvalidOperationException("El auto aún no ha salido del estacionamiento");
+				}
+			}
 
 			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
 			Vehiculo^ vehiculo = gcnew Vehiculo();
@@ -274,6 +279,7 @@ namespace GUIApp {
 			//llenamos los atributos de la variable ESTACIONAMIENTO
 			estacionamiento->MiSensor = sensor;
 			estacionamiento->HoraInicio = labelIngresoVehiculo->Text;
+			estacionamiento->HoraSalida = "";
 			//llenamos los atributos de la variable VEHICULO
 			vehiculo->AsigandoA = estacionamiento;
 			vehiculo->Placa = txtPlaca->Text;
@@ -297,7 +303,7 @@ namespace GUIApp {
 			else {
 				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
 			}
-
+			txtPlaca->Clear();
 		}
 		catch(Exception^ ex){
 			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);

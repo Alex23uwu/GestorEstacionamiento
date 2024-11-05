@@ -305,9 +305,9 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
 {
 	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
-	for (int i = 0; i < ListaVehiculo->Count; i++) {
-		if (ListaVehiculo[i]->Placa == Placa) {
-			return ListaVehiculo[i];
+	for (int i = ListaVehiculo->Count;i>0; i--) {
+		if (ListaVehiculo[i-1]->Placa == Placa) {
+			return ListaVehiculo[i-1];
 		}
 	}
 }
