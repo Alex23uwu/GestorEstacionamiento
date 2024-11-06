@@ -133,6 +133,8 @@
     <ClCompile Include="EntradaVehiculos.cpp" />
     <ClCompile Include="Estacionamiento_CRUD.cpp" />
     <ClCompile Include="GenerarTicket.cpp" />
+    <ClCompile Include="GraficosAdmin1.cpp" />
+    <ClCompile Include="GraficosCliente.cpp" />
     <ClCompile Include="InterfazVistaVehiculos.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
@@ -155,6 +157,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GenerarTicket.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GraficosAdmin1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GraficosCliente.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="InterfazVistaVehiculos.h">
