@@ -18,6 +18,8 @@ namespace GUIApp {
 	public ref class InterfazVistaVehiculos : public System::Windows::Forms::Form
 	{
 	public:
+		Dictionary<String^, int>^ DictEstacionamientos = gcnew Dictionary<String^, int>();
+
 		InterfazVistaVehiculos(void)
 		{
 			InitializeComponent();
@@ -37,76 +39,10 @@ namespace GUIApp {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ImageList^ imgListaEstacionamiento;
-	private: System::Windows::Forms::PictureBox^ est1;
 
 
-	private: System::Windows::Forms::PictureBox^ est2;
-	private: System::Windows::Forms::PictureBox^ est4;
-	private: System::Windows::Forms::PictureBox^ est3;
-	private: System::Windows::Forms::PictureBox^ est8;
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::PictureBox^ est7;
-
-	private: System::Windows::Forms::PictureBox^ est6;
-
-	private: System::Windows::Forms::PictureBox^ est5;
-	private: System::Windows::Forms::PictureBox^ est16;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::PictureBox^ est15;
-
-	private: System::Windows::Forms::PictureBox^ est14;
-
-	private: System::Windows::Forms::PictureBox^ est13;
-
-	private: System::Windows::Forms::PictureBox^ est12;
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::PictureBox^ est11;
-
-	private: System::Windows::Forms::PictureBox^ est10;
-
-	private: System::Windows::Forms::PictureBox^ est9;
-
-	private: System::Windows::Forms::GroupBox^ imgBox;
-	private: System::Windows::Forms::Button^ btnActualizarVehiculos;
 	private: System::Windows::Forms::Button^ btnReinicio;
-
-
-
-	protected:
+	private: System::Windows::Forms::Timer^ timer1;
 
 	protected:
 	private: System::ComponentModel::IContainer^ components;
@@ -125,235 +61,9 @@ namespace GUIApp {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(InterfazVistaVehiculos::typeid));
-			this->imgListaEstacionamiento = (gcnew System::Windows::Forms::ImageList(this->components));
-			this->est1 = (gcnew System::Windows::Forms::PictureBox());
-			this->est2 = (gcnew System::Windows::Forms::PictureBox());
-			this->est4 = (gcnew System::Windows::Forms::PictureBox());
-			this->est3 = (gcnew System::Windows::Forms::PictureBox());
-			this->est8 = (gcnew System::Windows::Forms::PictureBox());
-			this->est7 = (gcnew System::Windows::Forms::PictureBox());
-			this->est6 = (gcnew System::Windows::Forms::PictureBox());
-			this->est5 = (gcnew System::Windows::Forms::PictureBox());
-			this->est16 = (gcnew System::Windows::Forms::PictureBox());
-			this->est15 = (gcnew System::Windows::Forms::PictureBox());
-			this->est14 = (gcnew System::Windows::Forms::PictureBox());
-			this->est13 = (gcnew System::Windows::Forms::PictureBox());
-			this->est12 = (gcnew System::Windows::Forms::PictureBox());
-			this->est11 = (gcnew System::Windows::Forms::PictureBox());
-			this->est10 = (gcnew System::Windows::Forms::PictureBox());
-			this->est9 = (gcnew System::Windows::Forms::PictureBox());
-			this->imgBox = (gcnew System::Windows::Forms::GroupBox());
-			this->btnActualizarVehiculos = (gcnew System::Windows::Forms::Button());
 			this->btnReinicio = (gcnew System::Windows::Forms::Button());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est8))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est7))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est6))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est16))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est15))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est14))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est13))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est12))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est11))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est10))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est9))->BeginInit();
-			this->imgBox->SuspendLayout();
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
-			// 
-			// imgListaEstacionamiento
-			// 
-			this->imgListaEstacionamiento->ImageStream = (cli::safe_cast<System::Windows::Forms::ImageListStreamer^>(resources->GetObject(L"imgListaEstacionamiento.ImageStream")));
-			this->imgListaEstacionamiento->TransparentColor = System::Drawing::Color::Transparent;
-			this->imgListaEstacionamiento->Images->SetKeyName(0, L"Espacio_Disponible.png");
-			this->imgListaEstacionamiento->Images->SetKeyName(1, L"Espacio_Lleno.png");
-			this->imgListaEstacionamiento->Images->SetKeyName(2, L"Espacio_Reservado.png");
-			// 
-			// est1
-			// 
-			this->est1->Location = System::Drawing::Point(12, 5);
-			this->est1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est1->Name = L"est1";
-			this->est1->Size = System::Drawing::Size(120, 111);
-			this->est1->TabIndex = 0;
-			this->est1->TabStop = false;
-			// 
-			// est2
-			// 
-			this->est2->Location = System::Drawing::Point(140, 5);
-			this->est2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est2->Name = L"est2";
-			this->est2->Size = System::Drawing::Size(120, 111);
-			this->est2->TabIndex = 1;
-			this->est2->TabStop = false;
-			// 
-			// est4
-			// 
-			this->est4->Location = System::Drawing::Point(396, 5);
-			this->est4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est4->Name = L"est4";
-			this->est4->Size = System::Drawing::Size(120, 111);
-			this->est4->TabIndex = 3;
-			this->est4->TabStop = false;
-			// 
-			// est3
-			// 
-			this->est3->Location = System::Drawing::Point(268, 5);
-			this->est3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est3->Name = L"est3";
-			this->est3->Size = System::Drawing::Size(120, 111);
-			this->est3->TabIndex = 2;
-			this->est3->TabStop = false;
-			this->est3->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::est3_Click);
-			// 
-			// est8
-			// 
-			this->est8->Location = System::Drawing::Point(396, 123);
-			this->est8->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est8->Name = L"est8";
-			this->est8->Size = System::Drawing::Size(120, 111);
-			this->est8->TabIndex = 15;
-			this->est8->TabStop = false;
-			// 
-			// est7
-			// 
-			this->est7->Location = System::Drawing::Point(268, 123);
-			this->est7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est7->Name = L"est7";
-			this->est7->Size = System::Drawing::Size(120, 111);
-			this->est7->TabIndex = 14;
-			this->est7->TabStop = false;
-			// 
-			// est6
-			// 
-			this->est6->Location = System::Drawing::Point(140, 123);
-			this->est6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est6->Name = L"est6";
-			this->est6->Size = System::Drawing::Size(120, 111);
-			this->est6->TabIndex = 13;
-			this->est6->TabStop = false;
-			// 
-			// est5
-			// 
-			this->est5->Location = System::Drawing::Point(12, 123);
-			this->est5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est5->Name = L"est5";
-			this->est5->Size = System::Drawing::Size(120, 111);
-			this->est5->TabIndex = 12;
-			this->est5->TabStop = false;
-			// 
-			// est16
-			// 
-			this->est16->Location = System::Drawing::Point(396, 406);
-			this->est16->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est16->Name = L"est16";
-			this->est16->Size = System::Drawing::Size(120, 111);
-			this->est16->TabIndex = 39;
-			this->est16->TabStop = false;
-			// 
-			// est15
-			// 
-			this->est15->Location = System::Drawing::Point(268, 406);
-			this->est15->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est15->Name = L"est15";
-			this->est15->Size = System::Drawing::Size(120, 111);
-			this->est15->TabIndex = 38;
-			this->est15->TabStop = false;
-			// 
-			// est14
-			// 
-			this->est14->Location = System::Drawing::Point(140, 406);
-			this->est14->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est14->Name = L"est14";
-			this->est14->Size = System::Drawing::Size(120, 111);
-			this->est14->TabIndex = 37;
-			this->est14->TabStop = false;
-			// 
-			// est13
-			// 
-			this->est13->Location = System::Drawing::Point(12, 406);
-			this->est13->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est13->Name = L"est13";
-			this->est13->Size = System::Drawing::Size(120, 111);
-			this->est13->TabIndex = 36;
-			this->est13->TabStop = false;
-			// 
-			// est12
-			// 
-			this->est12->Location = System::Drawing::Point(396, 288);
-			this->est12->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est12->Name = L"est12";
-			this->est12->Size = System::Drawing::Size(120, 111);
-			this->est12->TabIndex = 27;
-			this->est12->TabStop = false;
-			// 
-			// est11
-			// 
-			this->est11->Location = System::Drawing::Point(268, 288);
-			this->est11->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est11->Name = L"est11";
-			this->est11->Size = System::Drawing::Size(120, 111);
-			this->est11->TabIndex = 26;
-			this->est11->TabStop = false;
-			// 
-			// est10
-			// 
-			this->est10->Location = System::Drawing::Point(140, 288);
-			this->est10->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est10->Name = L"est10";
-			this->est10->Size = System::Drawing::Size(120, 111);
-			this->est10->TabIndex = 25;
-			this->est10->TabStop = false;
-			// 
-			// est9
-			// 
-			this->est9->Location = System::Drawing::Point(12, 288);
-			this->est9->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->est9->Name = L"est9";
-			this->est9->Size = System::Drawing::Size(120, 111);
-			this->est9->TabIndex = 24;
-			this->est9->TabStop = false;
-			// 
-			// imgBox
-			// 
-			this->imgBox->Controls->Add(this->est16);
-			this->imgBox->Controls->Add(this->est15);
-			this->imgBox->Controls->Add(this->est14);
-			this->imgBox->Controls->Add(this->est13);
-			this->imgBox->Controls->Add(this->est12);
-			this->imgBox->Controls->Add(this->est11);
-			this->imgBox->Controls->Add(this->est10);
-			this->imgBox->Controls->Add(this->est9);
-			this->imgBox->Controls->Add(this->est8);
-			this->imgBox->Controls->Add(this->est7);
-			this->imgBox->Controls->Add(this->est6);
-			this->imgBox->Controls->Add(this->est5);
-			this->imgBox->Controls->Add(this->est4);
-			this->imgBox->Controls->Add(this->est3);
-			this->imgBox->Controls->Add(this->est2);
-			this->imgBox->Controls->Add(this->est1);
-			this->imgBox->Location = System::Drawing::Point(40, 42);
-			this->imgBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->imgBox->Name = L"imgBox";
-			this->imgBox->Padding = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->imgBox->Size = System::Drawing::Size(531, 527);
-			this->imgBox->TabIndex = 48;
-			this->imgBox->TabStop = false;
-			// 
-			// btnActualizarVehiculos
-			// 
-			this->btnActualizarVehiculos->Location = System::Drawing::Point(615, 47);
-			this->btnActualizarVehiculos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
-			this->btnActualizarVehiculos->Name = L"btnActualizarVehiculos";
-			this->btnActualizarVehiculos->Size = System::Drawing::Size(192, 57);
-			this->btnActualizarVehiculos->TabIndex = 49;
-			this->btnActualizarVehiculos->Text = L"Actualizar";
-			this->btnActualizarVehiculos->UseVisualStyleBackColor = true;
-			this->btnActualizarVehiculos->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::btnActualizarVehiculos_Click);
 			// 
 			// btnReinicio
 			// 
@@ -366,118 +76,69 @@ namespace GUIApp {
 			this->btnReinicio->UseVisualStyleBackColor = true;
 			this->btnReinicio->Click += gcnew System::EventHandler(this, &InterfazVistaVehiculos::btnReinicio_Click);
 			// 
+			// timer1
+			// 
+			this->timer1->Interval = 1000;
+			this->timer1->Tick += gcnew System::EventHandler(this, &InterfazVistaVehiculos::timer1_Tick);
+			// 
 			// InterfazVistaVehiculos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(823, 635);
+			this->ClientSize = System::Drawing::Size(620, 471);
 			this->Controls->Add(this->btnReinicio);
-			this->Controls->Add(this->btnActualizarVehiculos);
-			this->Controls->Add(this->imgBox);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"InterfazVistaVehiculos";
 			this->Text = L"InterfazVistaVehiculos";
 			this->Load += gcnew System::EventHandler(this, &InterfazVistaVehiculos::InterfazVistaVehiculos_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est8))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est7))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est6))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est16))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est15))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est14))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est13))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est12))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est11))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est10))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->est9))->EndInit();
-			this->imgBox->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-		public:
-			void ShowEstacionamientos() {
-				List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
-				if (estacionamientoLista[0]->MiSensor->Detecta == false) est1->Image = imgListaEstacionamiento->Images[0];
-				else est1->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[1]->MiSensor->Detecta == false) est2->Image = imgListaEstacionamiento->Images[0];
-				else est2->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[2]->MiSensor->Detecta == false) est3->Image = imgListaEstacionamiento->Images[0];
-				else est3->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[3]->MiSensor->Detecta == false) est4->Image = imgListaEstacionamiento->Images[0];
-				else est4->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[4]->MiSensor->Detecta == false) est5->Image = imgListaEstacionamiento->Images[0];
-				else est5->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[5]->MiSensor->Detecta == false) est6->Image = imgListaEstacionamiento->Images[0];
-				else est6->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[6]->MiSensor->Detecta == false) est7->Image = imgListaEstacionamiento->Images[0];
-				else est7->Image = imgListaEstacionamiento->Images[1];
-
-				if (estacionamientoLista[7]->MiSensor->Detecta == false) est8->Image = imgListaEstacionamiento->Images[0];
-				else est8->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[8]->MiSensor->Detecta == false) est9->Image = imgListaEstacionamiento->Images[0];
-				else est9->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[9]->MiSensor->Detecta == false) est10->Image = imgListaEstacionamiento->Images[0];
-				else est10->Image = imgListaEstacionamiento->Images[1];
-
-				if (estacionamientoLista[10]->MiSensor->Detecta == false) est11->Image = imgListaEstacionamiento->Images[0];
-				else est11->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[11]->MiSensor->Detecta == false) est12->Image = imgListaEstacionamiento->Images[0];
-				else est12->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[12]->MiSensor->Detecta == false) est13->Image = imgListaEstacionamiento->Images[0];
-				else est13->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[13]->MiSensor->Detecta == false) est14->Image = imgListaEstacionamiento->Images[0];
-				else est14->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[14]->MiSensor->Detecta == false) est15->Image = imgListaEstacionamiento->Images[0];
-				else est15->Image = imgListaEstacionamiento->Images[1];
-				if (estacionamientoLista[15]->MiSensor->Detecta == false) est16->Image = imgListaEstacionamiento->Images[0];
-				else est16->Image = imgListaEstacionamiento->Images[1];
-			}
-	private: System::Void btnActualizarVehiculos_Click(System::Object^ sender, System::EventArgs^ e) {
-		List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
-		if (estacionamientoLista[0]->MiSensor->Detecta == false) est1->Image = imgListaEstacionamiento->Images[0];
-		else est1->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[1]->MiSensor->Detecta == false) est2->Image = imgListaEstacionamiento->Images[0];
-		else est2->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[2]->MiSensor->Detecta == false) est3->Image = imgListaEstacionamiento->Images[0];
-		else est3->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[3]->MiSensor->Detecta == false) est4->Image = imgListaEstacionamiento->Images[0];
-		else est4->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[4]->MiSensor->Detecta == false) est5->Image = imgListaEstacionamiento->Images[0];
-		else est5->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[5]->MiSensor->Detecta == false) est6->Image = imgListaEstacionamiento->Images[0];
-		else est6->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[6]->MiSensor->Detecta == false) est7->Image = imgListaEstacionamiento->Images[0];
-		else est7->Image = imgListaEstacionamiento->Images[1];
-
-		if (estacionamientoLista[7]->MiSensor->Detecta == false) est8->Image = imgListaEstacionamiento->Images[0];
-		else est8->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[8]->MiSensor->Detecta == false) est9->Image = imgListaEstacionamiento->Images[0];
-		else est9->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[9]->MiSensor->Detecta == false) est10->Image = imgListaEstacionamiento->Images[0];
-		else est10->Image = imgListaEstacionamiento->Images[1];
-
-		if (estacionamientoLista[10]->MiSensor->Detecta == false) est11->Image = imgListaEstacionamiento->Images[0];
-		else est11->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[11]->MiSensor->Detecta == false) est12->Image = imgListaEstacionamiento->Images[0];
-		else est12->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[12]->MiSensor->Detecta == false) est13->Image = imgListaEstacionamiento->Images[0];
-		else est13->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[13]->MiSensor->Detecta == false) est14->Image = imgListaEstacionamiento->Images[0];
-		else est14->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[14]->MiSensor->Detecta == false) est15->Image = imgListaEstacionamiento->Images[0];
-		else est15->Image = imgListaEstacionamiento->Images[1];
-		if (estacionamientoLista[15]->MiSensor->Detecta == false) est16->Image = imgListaEstacionamiento->Images[0];
-		else est16->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[0]->MiSensor->Detecta == false) est1->Image = imgListaEstacionamiento->Images[0];
+		//else est1->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[1]->MiSensor->Detecta == false) est2->Image = imgListaEstacionamiento->Images[0];
+		//else est2->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[2]->MiSensor->Detecta == false) est3->Image = imgListaEstacionamiento->Images[0];
+		//else est3->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[3]->MiSensor->Detecta == false) est4->Image = imgListaEstacionamiento->Images[0];
+		//else est4->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[4]->MiSensor->Detecta == false) est5->Image = imgListaEstacionamiento->Images[0];
+		//else est5->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[5]->MiSensor->Detecta == false) est6->Image = imgListaEstacionamiento->Images[0];
+		//else est6->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[6]->MiSensor->Detecta == false) est7->Image = imgListaEstacionamiento->Images[0];
+		//else est7->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[7]->MiSensor->Detecta == false) est8->Image = imgListaEstacionamiento->Images[0];
+		//else est8->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[8]->MiSensor->Detecta == false) est9->Image = imgListaEstacionamiento->Images[0];
+		//else est9->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[9]->MiSensor->Detecta == false) est10->Image = imgListaEstacionamiento->Images[0];
+		//else est10->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[10]->MiSensor->Detecta == false) est11->Image = imgListaEstacionamiento->Images[0];
+		//else est11->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[11]->MiSensor->Detecta == false) est12->Image = imgListaEstacionamiento->Images[0];
+		//else est12->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[12]->MiSensor->Detecta == false) est13->Image = imgListaEstacionamiento->Images[0];
+		//else est13->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[13]->MiSensor->Detecta == false) est14->Image = imgListaEstacionamiento->Images[0];
+		//else est14->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[14]->MiSensor->Detecta == false) est15->Image = imgListaEstacionamiento->Images[0];
+		//else est15->Image = imgListaEstacionamiento->Images[1];
+		//if (estacionamientoLista[15]->MiSensor->Detecta == false) est16->Image = imgListaEstacionamiento->Images[0];
+		//else est16->Image = imgListaEstacionamiento->Images[1];
+	void CreatePictureBox(String^ nombre, int x, int y, int ancho, int alto, String^ rutaImagen) {
+		PictureBox^ pictureBox = gcnew PictureBox();
+		pictureBox->Location = Point(x, y);
+		pictureBox->Name = nombre;
+		pictureBox->Size = System::Drawing::Size(ancho, alto);
+		pictureBox->ImageLocation = rutaImagen;
+		pictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+		this->Controls->Add(pictureBox); // Agrega el PictureBox al formulario			
 	}
+
 
 	private: System::Void btnReinicio_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
-
 		for (int i = 0; i < estacionamientoLista->Count; i++) {
 			estacionamientoLista[i]->HoraInicio = "";
 			estacionamientoLista[i]->HoraSalida = "";
@@ -486,10 +147,31 @@ namespace GUIApp {
 			Service::UpdateEstacionamiento(estacionamientoLista[i]);
 		}
 	}
-private: System::Void est3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+	
 }
+
 private: System::Void InterfazVistaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
-	ShowEstacionamientos();
+	
+	int x = 0, y = 10;
+	for (int i = 0; i < 16; i++) {
+		int index = i + i;
+		
+		if (i % 4 == 0) {
+			x = 10;
+			y = 10 + (i / 4) * 100;
+		}
+		else {
+			x = 10 + (i % 4) * 100;
+		}
+
+		String^ nombreEst = "imgEstacionamiento" + index;
+		DictEstacionamientos->Add(nombreEst, index);
+		CreatePictureBox(nombreEst, x, y, 80, 80, "Imagenes/Espacio_Disponible.png");
+	}
 }
+
+
 };
 }
