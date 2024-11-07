@@ -238,6 +238,7 @@ List<Cliente^>^ EstacionamientoService::Service::QueryAllClientes()
 
 Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 {
+	ListaCliente = (List<Cliente^>^)Persistance::LoadClientesXmlFile(XML_CLIENTES_FILE_NAME);
 	for (int i = 0; i < ListaCliente->Count; i++) {
 		if (ListaCliente[i]->Id == ClienteID) {
 			return ListaCliente[i];

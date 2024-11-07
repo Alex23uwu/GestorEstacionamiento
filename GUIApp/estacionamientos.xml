@@ -31,7 +31,7 @@
     <HoraSalida>   00   :   39   </HoraSalida>
     <Id>3</Id>
     <MiSensor>
-      <Detecta>false</Detecta>
+      <Detecta>true</Detecta>
       <Id>3</Id>
     </MiSensor>
     <Ubicacion>

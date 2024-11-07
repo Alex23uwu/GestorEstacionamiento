@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfReservacion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Reservacion>
+    <Id>1</Id>
+    <Permitido>false</Permitido>
+    <InicioReserva>3</InicioReserva>
+  </Reservacion>
+</ArrayOfReservacion>

@@ -465,12 +465,14 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 		if (resultado == System::Windows::Forms::DialogResult::Yes) {
 			Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
 			Model::Reservacion^ reserva = gcnew Model::Reservacion();
-			reserva->Id = 1;
+			reserva->Id = EstacionamientoService::Service::GenerateIDReserva();
 			reserva->InicioReserva = Convert::ToString(cmbHora->SelectedIndex);
-			ClienteActual->MiReservación = reserva;
+			ClienteActual->LugarReservado = true;
+			ClienteActual->MiReservacion = reserva;
 			ClienteActual->MiVehiculo->AsigandoA = EstacionamientoSeleccionado;
 			EstacionamientoSeleccionado->MiSensor->Detecta = true;
 			ClienteActual->MiVehiculo->AsigandoA->MiSensor->Detecta = true;
+			Service::AddReserva(reserva);
 			Service::UpdateEstacionamiento(EstacionamientoSeleccionado);
 			Service::UpdateCliente(ClienteActual);
 			MessageBox::Show("Reserva Exitosa");

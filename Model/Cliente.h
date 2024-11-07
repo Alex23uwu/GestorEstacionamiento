@@ -17,6 +17,6 @@ namespace Model {
          property bool LugarReservado;
          property String^ Profession;
          property Vehiculo^ MiVehiculo;
-         property Reservacion^ MiReservación;
+         property Reservacion^ MiReservacion;
     };
 }
