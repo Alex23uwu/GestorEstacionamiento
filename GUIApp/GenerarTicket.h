@@ -176,7 +176,7 @@ namespace GUIApp {
 			}
 			if(ticket->GeneradoA->AsigandoA->MiSensor->Detecta==false){//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
 				txtPlacaVehiculo->Clear();
-				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
+				throw gcnew InvalidOperationException("La placa no se encuentra en el estacionamiento.");
 			}
 			else {
 				//llenamos los atributos faltantes de ticket
@@ -200,7 +200,7 @@ namespace GUIApp {
 				Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
 				Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
 				Boleta += "-------------------------\n";
-				Boleta += "Tarifa Base: S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
+				Boleta += "Tarifa Base (pago por hora): S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
 				Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
 				Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
 				Boleta += "-------------------------\n";

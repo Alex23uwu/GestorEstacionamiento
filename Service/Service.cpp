@@ -357,7 +357,7 @@ int EstacionamientoService::Service::GeneracionIDTicket()
 	return prueba;
 }
 
-double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV ,DetalleTicket^ detalle)
+double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle)
 {
 	String^ formato = "   HH   :   mm   ";
 	DateTime ingreso = DateTime::ParseExact(detalle->HoraEntrada, formato, nullptr);
@@ -365,11 +365,19 @@ double EstacionamientoService::Service::CalculoPago(double tarifa, double IGV ,D
 	TimeSpan diferencia = salida - ingreso;
 	double horasDiferencia = diferencia.TotalHours; // Diferencia en horas
 	double minutosDiferencia = diferencia.TotalMinutes; // Diferencia en minutos
-	detalle->IGV = horasDiferencia * IGV + (minutosDiferencia * IGV / 60);
-	detalle->HorasConsumidas = Convert::ToString(diferencia);
-	detalle->Tarifa = tarifa;
-	detalle->Cantidad = horasDiferencia * tarifa + (minutosDiferencia * tarifa / 60);
-	return (detalle->Cantidad+detalle->IGV);
+	if (horasDiferencia < 1) {
+		detalle->IGV = 0.9;
+		detalle->HorasConsumidas = Convert::ToString(diferencia);
+		detalle->Cantidad = tarifa - detalle->IGV;
+		detalle->Tarifa = tarifa;
+	}
+	else {
+		detalle->IGV = horasDiferencia * IGV + (minutosDiferencia * IGV / 60);
+		detalle->HorasConsumidas = Convert::ToString(diferencia);
+		detalle->Tarifa = tarifa;
+		detalle->Cantidad = horasDiferencia * tarifa + (minutosDiferencia * tarifa / 60);
+	}
+	return (detalle->Cantidad + detalle->IGV);
 }
 
 void EstacionamientoService::Service::UpdateTicket(Ticket^ ticket)
