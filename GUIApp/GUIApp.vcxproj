@@ -208,6 +208,9 @@
     <EmbeddedResource Include="GenerarTicket.resx">
       <DependentUpon>GenerarTicket.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GraficosAdmin1.resx">
+      <DependentUpon>GraficosAdmin1.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfazEstadisticasAdmin.resx">
       <DependentUpon>InterfazEstadisticasAdmin.h</DependentUpon>
     </EmbeddedResource>

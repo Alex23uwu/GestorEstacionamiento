@@ -128,24 +128,26 @@ namespace GUIApp {
 		
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		chartGanancias->Invalidate(); 
+		chartGanancias->Update();
+
 		DateTime fechaIn = Convert::ToDateTime(dtpInicio);
 		DateTime fechaFin = Convert::ToDateTime(dtpFin);
-		DateTime fecha;
+		String^ fecha;
 		
 		if (fechaIn > fechaFin) {
 			MessageBox::Show("Debe Elegir una fecha de inicio anterior a la fecha final.");
 			return;
 		}
-		List<DateTime>^ fechasList = Service::QueryFechas(fechaIn, fechaFin);
-		Dictionary<DateTime, double>^ MontosDiariosDict = Service::QueryAmountsbyFecha(fechaIn, fechaFin);
+		List<String^>^ fechasList = Service::QueryFechas(fechaIn, fechaFin);
+		Dictionary<String^, double>^ MontosDiariosDict = Service::QueryAmountsbyFecha(fechaIn, fechaFin);
 
 
 		for (int i = 0; i < MontosDiariosDict->Count; i++) {
 			fecha = fechasList[i];
 			chartGanancias->Series["Monto diario"]->Points->Add(MontosDiariosDict[fecha]);
 			chartGanancias->Series["Monto diario"]->Points[i]->Label = "S/. " + MontosDiariosDict[fecha];
-			chartGanancias->Series["Monto diario"]->Points[i]->AxisLabel = " " + fecha.ToString("dd/MM/yy");
+			chartGanancias->Series["Monto diario"]->Points[i]->AxisLabel = fecha;
 		}
 	}
 };

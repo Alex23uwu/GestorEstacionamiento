@@ -392,14 +392,14 @@ void EstacionamientoService::Service::UpdateTicket(Ticket^ ticket)
 	}
 }
 
-Dictionary<DateTime, double>^ EstacionamientoService::Service::QueryAmountsbyFecha(DateTime FechaInicio, DateTime FechaFin) {
+Dictionary<String^, double>^ EstacionamientoService::Service::QueryAmountsbyFecha(DateTime FechaInicio, DateTime FechaFin) {
 	List<Ticket^>^ ticketList = QueryAllTicket();
-	Dictionary<DateTime, double>^ dict = gcnew Dictionary<DateTime, double>();
-	DateTime fecha;
+	Dictionary<String^, double>^ dict = gcnew Dictionary<String^, double>();
+	String^ fecha = "0";
 	for (int i = 0; i < ticketList->Count; i++) {
 		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
-			if (fecha != ticketList[i]->Dia) {
-				fecha = ticketList[i]->Dia;
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
 				dict->Add(fecha, 0);
 				dict[fecha] += ticketList[i]->CantTotal;
 			}
@@ -409,19 +409,17 @@ Dictionary<DateTime, double>^ EstacionamientoService::Service::QueryAmountsbyFec
 		}
 	}
 	return dict;
-
-
 }
 
-List<DateTime>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio, DateTime FechaFin) {
+List<String^>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio, DateTime FechaFin) {
 	List<Ticket^>^ ticketList = QueryAllTicket();
-	List<DateTime>^ fechasList = gcnew List<DateTime>();
-	DateTime fecha;
+	List<String^>^ fechasList = gcnew List<String^>();
+	String^ fecha = "0";
 
 	for (int i = 0; i < ticketList->Count; i++) {
 		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
-			if (fecha != ticketList[i]->Dia) {
-				fecha = ticketList[i]->Dia;
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
 				fechasList->Add(fecha);
 			}
 		}
