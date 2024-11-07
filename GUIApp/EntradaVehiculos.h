@@ -265,12 +265,8 @@ namespace GUIApp {
 				if(vehiculoValida->AsigandoA != nullptr){
 					if (vehiculoValida->AsigandoA->HoraSalida == "") {
 						throw gcnew InvalidOperationException("El auto aún no ha salido del estacionamiento");
-				
 					}
-				}
-				
-				
-				
+				}	
 			}
 
 			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
@@ -289,7 +285,6 @@ namespace GUIApp {
 			//llenamos los atributos de la variable VEHICULO
 			vehiculo->AsigandoA = estacionamiento;
 			vehiculo->Placa = txtPlaca->Text;
-			vehiculo->Id = Service::QueryAllVehiculo()->Count + 1;//este id de vehiculo representa el número de carros ingresados hasta la fecha
 			vehiculo->TipoVehiculo = cmbTipoVehiculo->Text;
 			//llenamos los atributos de TICKET
 			ticket->GeneradoA = vehiculo;
@@ -300,7 +295,15 @@ namespace GUIApp {
 			ticket->Detalle = detalle;
 
 			EstacionamientoService::Service::AddTicket(ticket);
-			EstacionamientoService::Service::AddVehiculo(vehiculo);
+			if (vehiculoValida == nullptr) { // Si la placa no esta en la base de datos se añade uno nuevo
+				vehiculo->Id = Service::QueryAllVehiculo()->Count + 1;//este id de vehiculo representa el número de carros ingresados hasta la fecha
+				EstacionamientoService::Service::AddVehiculo(vehiculo);
+			}
+			else {
+				vehiculo->Id = vehiculoValida->Id;
+				EstacionamientoService::Service::UpdateVehiculo(vehiculo);
+			}
+			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
 			if (checkServicioLimpieza->Checked) {
