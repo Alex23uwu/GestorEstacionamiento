@@ -62,17 +62,17 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 	}
 }
 
-int EstacionamientoService::Service::UpdatePersonalLimpiezaID(){
-		int prueba = 1;
-		for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-			if (ListaPersonalLimpieza[i]->Id == prueba) {
-				prueba++;
-			}
-			else {
-				return prueba;
-			}
+int EstacionamientoService::Service::UpdatePersonalLimpiezaID() {
+	int prueba = 1;
+	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
+		if (ListaPersonalLimpieza[i]->Id == prueba) {
+			prueba++;
 		}
-		return prueba;
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
 }
 
 
@@ -137,8 +137,8 @@ int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 {
 	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	int prueba = 1;
-	for (int i = 0; i < VeedorLista->Count; i++) {
-		if (VeedorLista[i]->Id == prueba) {
+	for (int i = 0; i < ListaVeedor->Count; i++) {
+		if (ListaVeedor[i]->Id == prueba) {
 			prueba++;
 		}
 		else {
@@ -282,7 +282,7 @@ void EstacionamientoService::Service::DeleteVehiculo(int VehiculoID)
 	}
 }
 
-List<Vehiculo^>^ EstacionamientoService::Service::QueryAllVehiculo(){
+List<Vehiculo^>^ EstacionamientoService::Service::QueryAllVehiculo() {
 
 	try
 	{
@@ -305,9 +305,9 @@ Vehiculo^ EstacionamientoService::Service::QueryVehiculoById(int VehiculoID)
 Vehiculo^ EstacionamientoService::Service::QueryVehiculoByPlaca(String^ Placa)
 {
 	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
-	for (int i = ListaVehiculo->Count;i>0; i--) {
-		if (ListaVehiculo[i-1]->Placa == Placa) {
-			return ListaVehiculo[i-1];
+	for (int i = ListaVehiculo->Count; i > 0; i--) {
+		if (ListaVehiculo[i - 1]->Placa == Placa) {
+			return ListaVehiculo[i - 1];
 		}
 	}
 }
@@ -335,9 +335,9 @@ List<Ticket^>^ EstacionamientoService::Service::QueryAllTicket()
 Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
 {
 	ListaTicket = (List<Ticket^>^)Persistance::LoadTicketXmlFile(XML_TICKET_FILE_NAME);
-	for (int i = ListaTicket->Count; i>0; i--) {
-		if (ListaTicket[i-1]->GeneradoA->Placa == placa) {
-			return ListaTicket[i-1];
+	for (int i = ListaTicket->Count; i > 0; i--) {
+		if (ListaTicket[i - 1]->GeneradoA->Placa == placa) {
+			return ListaTicket[i - 1];
 		}
 	}
 }
@@ -427,10 +427,11 @@ List<String^>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio
 	return fechasList;
 }
 
+
 //CRUD ESTACIONAMIENTO
 void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estacionamiento)
 {
-	for each (Estacionamiento^ personalLimp in ListaEstacionamiento) {
+	for each (Estacionamiento ^ personalLimp in ListaEstacionamiento) {
 		if (personalLimp->Id == estacionamiento->Id) {
 			throw gcnew DuplicatedLimpiadorException("El código del Estacionamiento ya existe en la base de datos.");
 		}
@@ -450,7 +451,7 @@ void EstacionamientoService::Service::UpdateEstacionamiento(Estacionamiento^ est
 	}
 }
 
-void EstacionamientoService::Service::DeleteEstacionamiento(int EstacionamientoId){
+void EstacionamientoService::Service::DeleteEstacionamiento(int EstacionamientoId) {
 	for (int i = 0; i < ListaEstacionamiento->Count; i++) {
 		if (ListaEstacionamiento[i]->Id == EstacionamientoId) {
 			ListaEstacionamiento->RemoveAt(i);
@@ -661,4 +662,63 @@ Sensor^ EstacionamientoService::Service::QuerySensorbyID(int ID)
 			return ListaSensor[i];
 		}
 	}
+}
+
+//CRUD RESERVACIONES
+
+
+void EstacionamientoService::Service::AddReserva(Reservacion^ reservacion)
+{
+	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	ListaReservacion->Add(reservacion);
+	Persistance::PersistXMLFile(XML_RESERVACION_FILE_NAME, ListaReservacion);
+}
+
+int EstacionamientoService::Service::GenerateIDReserva()
+{
+	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	int prueba = 1;
+	for (int i = 0; i < ListaReservacion->Count; i++) {
+		if (ListaReservacion[i]->Id == prueba) {
+			prueba++;
+		}
+		else {
+			return prueba;
+		}
+	}
+	return prueba;
+}
+
+void EstacionamientoService::Service::DeleteReserva(int ID)
+{
+	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	for (int i = 0; i < ListaReservacion->Count; i++) {
+		if (ListaReservacion[i]->Id == ID) {
+			ListaReservacion->RemoveAt(i);
+			Persistance::PersistXMLFile(XML_RESERVACION_FILE_NAME, ListaReservacion);
+			return;
+		}
+	}
+}
+
+Reservacion^ EstacionamientoService::Service::QueryReservabyID(int ID)
+{
+	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	for (int i = 0; i < ListaReservacion->Count; i++) {
+		if (ListaReservacion[i]->Id == ID) {
+			return ListaReservacion[i];
+		}
+	}
+}
+
+List<Reservacion^>^ EstacionamientoService::Service::QueryAllReservacion()
+{
+	ListaReservacion = gcnew List<Reservacion^>();
+	try {
+		ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	}
+	catch (FileNotFoundException^ ex) {
+
+	}
+	return ListaReservacion;
 }

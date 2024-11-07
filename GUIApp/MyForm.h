@@ -333,7 +333,7 @@ private: System::Void generarTicketToolStripMenuItem_Click(System::Object^ sende
 	form->Show();
 }
 private: System::Void reservacionToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	Reservacion^ form = gcnew Reservacion();
+	Reservacion^ form = gcnew Reservacion(Cliente);
 	form->MdiParent = this;
 	form->Show();
 

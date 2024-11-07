@@ -1,5 +1,4 @@
 #pragma once
-
 namespace GUIApp {
 
 	using namespace System;
@@ -15,17 +14,19 @@ namespace GUIApp {
 	/// <summary>
 	/// Resumen de Reservacion
 	/// </summary>
+
 	public ref class Reservacion : public System::Windows::Forms::Form
 	{
 	public:
-		Reservacion(void)
-		{
+		Reservacion(Cliente^ Clientes) {
 			InitializeComponent();
 			isButtonPressed = 0;
 			LastButtonPressed = nullptr;
 			now = DateTime::Now;
 			tiempo = gcnew List<String^>();
+			ClienteActual = Clientes;
 		}
+
 
 	protected:
 		/// <summary>
@@ -43,6 +44,7 @@ namespace GUIApp {
 		Button^ LastButtonPressed;
 		DateTime now;
 		List<String^>^ tiempo;
+		Cliente^ ClienteActual;  
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 
@@ -455,6 +457,28 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 	if (isButtonPressed == 0) {
 		MessageBox::Show("Presione un boton");
 	}
+	else {
+		System::Windows::Forms::DialogResult resultado = MessageBox::Show("¿Estás seguro de reservar este espacio?",
+			"Confirmación de Reserva",
+			System::Windows::Forms::MessageBoxButtons::YesNo,
+			System::Windows::Forms::MessageBoxIcon::Question);
+		if (resultado == System::Windows::Forms::DialogResult::Yes) {
+			Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
+			Model::Reservacion^ reserva = gcnew Model::Reservacion();
+			reserva->Id = 1;
+			reserva->InicioReserva = Convert::ToString(cmbHora->SelectedIndex);
+			ClienteActual->MiReservación = reserva;
+			ClienteActual->MiVehiculo->AsigandoA = EstacionamientoSeleccionado;
+			EstacionamientoSeleccionado->MiSensor->Detecta = true;
+			ClienteActual->MiVehiculo->AsigandoA->MiSensor->Detecta = true;
+			Service::UpdateEstacionamiento(EstacionamientoSeleccionado);
+			Service::UpdateCliente(ClienteActual);
+			MessageBox::Show("Reserva Exitosa");
+		}
+		else {
+			MessageBox::Show("Reserva cancelada.");
+		}
+	}
 }
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	array<Button^>^ botones = gcnew array<Button^> { est1, est2, est3, est4, est5, est6, est7, est8, est9, est10, est11, est12, est13, est14, est15, est16 };
@@ -471,6 +495,21 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		}
 	}
 
+}
+
+	private: Estacionamiento^ SeleccionEstacionamiento() {
+		int i = 0;
+		Estacionamiento^ EstacionamientoSeleccionado;
+		array<Button^>^ botones = gcnew array<Button^> { est1, est2, est3, est4, est5, est6, est7, est8, est9, est10, est11, est12, est13, est14, est15, est16 };
+		List<Estacionamiento^>^ EstacionamientosLista = Service::QueryAllEstacionamientos();
+		while (i < 16) {
+			if (LastButtonPressed == botones[i]) {
+				break;
+			}
+			i++;
+		}	
+		EstacionamientoSeleccionado = EstacionamientosLista[i];
+		return EstacionamientoSeleccionado;
 }
 private: void CalculoHora() {
 	int minutosactuales = now.Minute;
