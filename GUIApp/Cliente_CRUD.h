@@ -813,7 +813,7 @@ namespace GUIApp {
 			MessageBox::Show("Se agrego al cliente " + clientes->Nombre +" " + clientes->Apellido + " con placa " + vehiculos->Placa);
 
 			Service::AddCliente(clientes);
-			//Service::AddVehiculo(vehiculos);
+			Service::AddVehiculo(vehiculos);
 			ShowCliente();
 			ClearControls();
 			DisableControls();
@@ -910,6 +910,7 @@ private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::Even
 		vehiculos->Color = txtColor->Text;
 		clientes->MiVehiculo = vehiculos;
 		Service::UpdateCliente(clientes);
+		Service::UpdateVehiculo(vehiculos);
 		ShowCliente();
 		ClearControls();
 		DisableControls();
