@@ -262,9 +262,15 @@ namespace GUIApp {
 			//validacion que diga si el auto ya fue registrado y si se retira me permita volver a ingresarlo al sistema
 			Vehiculo^ vehiculoValida = Service::QueryVehiculoByPlaca(placa);
 			if (vehiculoValida != nullptr) {
-				if (vehiculoValida->AsigandoA->HoraSalida == "") {
-					throw gcnew InvalidOperationException("El auto aún no ha salido del estacionamiento");
+				if(vehiculoValida->AsigandoA != nullptr){
+					if (vehiculoValida->AsigandoA->HoraSalida == "") {
+						throw gcnew InvalidOperationException("El auto aún no ha salido del estacionamiento");
+				
+					}
 				}
+				
+				
+				
 			}
 
 			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();

@@ -1,45 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   01   :   11   </HoraInicio>
-      <HoraSalida>   01   :   21   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo>Auto</TipoVehiculo>
-    <Placa>XYZ</Placa>
-    <Id>1</Id>
+    <Color>Rojo</Color>
+    <Modelo>Toyota</Modelo>
+    <Placa>XML123</Placa>
+    <Id>0</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   00   :   33   </HoraInicio>
-      <HoraSalida />
-      <Id>2</Id>
+      <HoraInicio>   00   :   27   </HoraInicio>
+      <HoraSalida>   00   :   27   </HoraSalida>
+      <Id>3</Id>
       <MiSensor>
         <Detecta>false</Detecta>
-        <Id>2</Id>
+        <Id>3</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <TipoVehiculo>Auto</TipoVehiculo>
-    <Placa>ABC</Placa>
+    <TipoVehiculo />
+    <Placa>BJT123</Placa>
     <Id>2</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   00   :   34   </HoraInicio>
-      <HoraSalida>   01   :   26   </HoraSalida>
+      <HoraInicio>   00   :   28   </HoraInicio>
+      <HoraSalida>   00   :   28   </HoraSalida>
       <Id>3</Id>
       <MiSensor>
         <Detecta>false</Detecta>
@@ -50,746 +38,50 @@
         <NumeroEstacionamiento>3</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <TipoVehiculo>Auto</TipoVehiculo>
-    <Placa>QWE</Placa>
+    <TipoVehiculo />
+    <Placa>BJT123</Placa>
     <Id>3</Id>
   </Vehiculo>
   <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   01   :   11   </HoraInicio>
-      <HoraSalida>   01   :   14   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo>Auto</TipoVehiculo>
-    <Placa>JKL</Placa>
-    <Id>4</Id>
+    <Color>ROJO</Color>
+    <Modelo>Ferrari</Modelo>
+    <Placa>STARK841</Placa>
+    <Id>0</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   01   :   22   </HoraInicio>
-      <HoraSalida>   01   :   22   </HoraSalida>
-      <Id>1</Id>
+      <HoraInicio>   00   :   38   </HoraInicio>
+      <HoraSalida>   00   :   39   </HoraSalida>
+      <Id>3</Id>
       <MiSensor>
         <Detecta>false</Detecta>
-        <Id>1</Id>
+        <Id>3</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
     <TipoVehiculo />
-    <Placa>FFF</Placa>
+    <Placa>STARK841</Placa>
     <Id>5</Id>
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   01   :   27   </HoraInicio>
-      <HoraSalida>   01   :   27   </HoraSalida>
-      <Id>1</Id>
+      <HoraInicio>   00   :   39   </HoraInicio>
+      <HoraSalida>   00   :   39   </HoraSalida>
+      <Id>3</Id>
       <MiSensor>
         <Detecta>false</Detecta>
-        <Id>1</Id>
+        <Id>3</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
     <TipoVehiculo />
-    <Placa>ASD</Placa>
+    <Placa>STARK841</Placa>
     <Id>6</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   01   :   31   </HoraInicio>
-      <HoraSalida>   01   :   31   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>bbb</Placa>
-    <Id>7</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   09   </HoraInicio>
-      <HoraSalida>   20   :   09   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>GHJ</Placa>
-    <Id>8</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   09   </HoraInicio>
-      <HoraSalida>   20   :   10   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>GHJ</Placa>
-    <Id>9</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   10   </HoraInicio>
-      <HoraSalida>   20   :   10   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>GHJ</Placa>
-    <Id>10</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   10   </HoraInicio>
-      <HoraSalida>   20   :   10   </HoraSalida>
-      <Id>2</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>2</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>GHJ</Placa>
-    <Id>11</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   11   </HoraInicio>
-      <HoraSalida>   20   :   11   </HoraSalida>
-      <Id>2</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>2</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>XYZ</Placa>
-    <Id>12</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   11   </HoraInicio>
-      <HoraSalida>   20   :   11   </HoraSalida>
-      <Id>2</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>2</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>XYZ</Placa>
-    <Id>13</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   11   </HoraInicio>
-      <HoraSalida>   01   :   26   </HoraSalida>
-      <Id>3</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>3</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>3</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>XYZ</Placa>
-    <Id>14</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   11   </HoraInicio>
-      <HoraSalida />
-      <Id>4</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>4</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>4</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>XYZ</Placa>
-    <Id>15</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   11   </HoraInicio>
-      <HoraSalida />
-      <Id>5</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>5</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>5</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>AAA</Placa>
-    <Id>16</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   12   </HoraInicio>
-      <HoraSalida />
-      <Id>6</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>6</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>6</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>YYY</Placa>
-    <Id>17</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   12   </HoraInicio>
-      <HoraSalida>   20   :   12   </HoraSalida>
-      <Id>7</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>7</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>7</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>ERT</Placa>
-    <Id>18</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   12   </HoraInicio>
-      <HoraSalida>   20   :   12   </HoraSalida>
-      <Id>7</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>7</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>7</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>ERT</Placa>
-    <Id>19</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   20   :   12   </HoraInicio>
-      <HoraSalida />
-      <Id>8</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>8</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>8</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>ERT</Placa>
-    <Id>20</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   23   :   59   </HoraInicio>
-      <HoraSalida>   00   :   00   </HoraSalida>
-      <Id>9</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>9</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>9</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>MMM</Placa>
-    <Id>21</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   00   :   00   </HoraInicio>
-      <HoraSalida>   00   :   00   </HoraSalida>
-      <Id>9</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>9</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>9</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>MMM</Placa>
-    <Id>22</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   00   :   00   </HoraInicio>
-      <HoraSalida>   00   :   00   </HoraSalida>
-      <Id>10</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>10</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>10</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>MMM</Placa>
-    <Id>23</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   00   :   13   </HoraInicio>
-      <HoraSalida>   00   :   00   </HoraSalida>
-      <Id>10</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>10</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>10</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>TYU</Placa>
-    <Id>24</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   00   :   13   </HoraInicio>
-      <HoraSalida />
-      <Id>11</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>11</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>11</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>TYU</Placa>
-    <Id>25</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   00   :   18   </HoraInicio>
-      <HoraSalida />
-      <Id>12</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>12</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>12</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>UWU</Placa>
-    <Id>26</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   14   :   47   </HoraInicio>
-      <HoraSalida>   14   :   49   </HoraSalida>
-      <Id>13</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>13</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>13</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>FGH</Placa>
-    <Id>27</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   14   :   49   </HoraInicio>
-      <HoraSalida>   14   :   49   </HoraSalida>
-      <Id>13</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>13</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>13</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>FGH</Placa>
-    <Id>28</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   14   :   49   </HoraInicio>
-      <HoraSalida>   14   :   50   </HoraSalida>
-      <Id>14</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>14</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>14</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>FGH</Placa>
-    <Id>29</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   14   :   52   </HoraInicio>
-      <HoraSalida>   14   :   50   </HoraSalida>
-      <Id>14</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>14</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>14</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>TTT1</Placa>
-    <Id>30</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   14   :   58   </HoraInicio>
-      <HoraSalida>   15   :   00   </HoraSalida>
-      <Id>15</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>15</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>15</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>ZYX</Placa>
-    <Id>31</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   02   </HoraInicio>
-      <HoraSalida>   15   :   02   </HoraSalida>
-      <Id>15</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>15</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>15</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>OPP</Placa>
-    <Id>32</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   02   </HoraInicio>
-      <HoraSalida>   15   :   02   </HoraSalida>
-      <Id>15</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>15</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>15</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>ZYX</Placa>
-    <Id>33</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   38   </HoraInicio>
-      <HoraSalida>   15   :   40   </HoraSalida>
-      <Id>16</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>16</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>16</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>BBCT</Placa>
-    <Id>34</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   40   </HoraInicio>
-      <HoraSalida>   15   :   40   </HoraSalida>
-      <Id>16</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>16</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>16</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>BBCT</Placa>
-    <Id>35</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   40   </HoraInicio>
-      <HoraSalida>   15   :   41   </HoraSalida>
-      <Id>16</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>16</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>16</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>BBCT</Placa>
-    <Id>36</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   41   </HoraInicio>
-      <HoraSalida>   15   :   41   </HoraSalida>
-      <Id>16</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>16</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>16</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>BBCT</Placa>
-    <Id>37</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   41   </HoraInicio>
-      <HoraSalida />
-      <Id>16</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>16</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>16</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>BBCT</Placa>
-    <Id>38</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   42   </HoraInicio>
-      <HoraSalida>   15   :   42   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA1</Placa>
-    <Id>39</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   42   </HoraInicio>
-      <HoraSalida>   15   :   43   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA1</Placa>
-    <Id>40</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   43   </HoraInicio>
-      <HoraSalida>   15   :   44   </HoraSalida>
-      <Id>1</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>1</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>1</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA2</Placa>
-    <Id>41</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   43   </HoraInicio>
-      <HoraSalida>   15   :   43   </HoraSalida>
-      <Id>2</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>2</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA3</Placa>
-    <Id>42</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   43   </HoraInicio>
-      <HoraSalida>   15   :   44   </HoraSalida>
-      <Id>3</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>3</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>3</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA4</Placa>
-    <Id>43</Id>
-  </Vehiculo>
-  <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   15   :   43   </HoraInicio>
-      <HoraSalida>   15   :   44   </HoraSalida>
-      <Id>2</Id>
-      <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>2</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>2</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
-    <TipoVehiculo />
-    <Placa>PLACA3</Placa>
-    <Id>44</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

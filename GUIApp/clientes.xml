@@ -2,42 +2,22 @@
 <ArrayOfCliente xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Cliente>
     <Id>1</Id>
-    <Nombre>Jesus Anthony</Nombre>
-    <Apellido>Vasquez Pizarro</Apellido>
+    <Nombre>Anthony</Nombre>
+    <Apellido>Vasquez</Apellido>
     <NombreUsuario>avasquez</NombreUsuario>
     <Clave>password</Clave>
     <DNI>76324228</DNI>
-    <Estado>Inactivo</Estado>
-    <Email>a20181938@pucp.edu.pe</Email>
+    <Estado>Activo</Estado>
+    <Email>a20181938@gmail.com</Email>
     <Celular>984103760</Celular>
     <MiVehiculo>
-      <Color>Plomo</Color>
-      <Modelo>Nisan</Modelo>
-      <Placa>BPW144</Placa>
+      <Color>ROJO</Color>
+      <Modelo>Ferrari</Modelo>
+      <Placa>STARK841</Placa>
       <Id>0</Id>
     </MiVehiculo>
     <LugarReservado>false</LugarReservado>
     <Descuento>5</Descuento>
-    <PuntosCliene>20</PuntosCliene>
-  </Cliente>
-  <Cliente>
-    <Id>2</Id>
-    <Nombre>Jose</Nombre>
-    <Apellido>Baldeon</Apellido>
-    <NombreUsuario>jbaldeon</NombreUsuario>
-    <Clave>password</Clave>
-    <DNI>99824228</DNI>
-    <Estado>Inactivo</Estado>
-    <Email>a19951938@pucp.edu.pe</Email>
-    <Celular>947103760</Celular>
-    <MiVehiculo>
-      <Color>Rojo</Color>
-      <Modelo>Toyota</Modelo>
-      <Placa>XYZ144</Placa>
-      <Id>0</Id>
-    </MiVehiculo>
-    <LugarReservado>false</LugarReservado>
-    <Descuento>10</Descuento>
     <PuntosCliene>100</PuntosCliene>
   </Cliente>
 </ArrayOfCliente>

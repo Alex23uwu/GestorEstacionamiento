@@ -248,8 +248,8 @@ Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 // VEHICULO CRUD
 void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 {
-	/*ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
-	for each (Vehiculo ^ vehiculo1 in ListaVehiculo) {
+	ListaVehiculo = (List<Vehiculo^>^)Persistance::LoadVehiculosXmlFile(XML_VEHICULO_FILE_NAME);
+	/*for each (Vehiculo ^ vehiculo1 in ListaVehiculo) {
 		if (vehiculo1->Placa == vehiculo->Placa) {
 			throw gcnew DuplicatedPlacaVehiculo("La placa ya ha sido rregistrada , ingrese una placa nueva");
 		}
