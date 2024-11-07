@@ -51,6 +51,9 @@
     <ClCompile Include="SensorEstacionamiento.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="InterfazEstadisticasAdmin.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="GraficosCliente.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -99,6 +102,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GraficosAdmin1.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfazEstadisticasAdmin.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

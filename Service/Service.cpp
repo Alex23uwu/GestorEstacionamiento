@@ -392,6 +392,43 @@ void EstacionamientoService::Service::UpdateTicket(Ticket^ ticket)
 	}
 }
 
+Dictionary<DateTime, double>^ EstacionamientoService::Service::QueryAmountsbyFecha(DateTime FechaInicio, DateTime FechaFin) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	Dictionary<DateTime, double>^ dict = gcnew Dictionary<DateTime, double>();
+	DateTime fecha;
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
+			if (fecha != ticketList[i]->Dia) {
+				fecha = ticketList[i]->Dia;
+				dict->Add(fecha, 0);
+				dict[fecha] += ticketList[i]->CantTotal;
+			}
+			else {
+				dict[fecha] += ticketList[i]->CantTotal;
+			}
+		}
+	}
+	return dict;
+
+
+}
+
+List<DateTime>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio, DateTime FechaFin) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	List<DateTime>^ fechasList = gcnew List<DateTime>();
+	DateTime fecha;
+
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
+			if (fecha != ticketList[i]->Dia) {
+				fecha = ticketList[i]->Dia;
+				fechasList->Add(fecha);
+			}
+		}
+	}
+	return fechasList;
+}
+
 //CRUD ESTACIONAMIENTO
 void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estacionamiento)
 {
