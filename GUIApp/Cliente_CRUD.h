@@ -792,6 +792,7 @@ namespace GUIApp {
 		try {
 			Cliente^ clientes = gcnew Cliente();
 			Vehiculo^ vehiculos = gcnew Vehiculo();
+			Vehiculo^ vehiculoexistente = EstacionamientoService::Service::QueryVehiculoByPlaca(txtPlaca->Text);
 			//clientes->Id = Int32::Parse(txtPersonId->Text);
 			clientes->Id = Service::QueryAllClientes()->Count+1;
 			clientes->Nombre = txtFirstName->Text;
@@ -813,7 +814,13 @@ namespace GUIApp {
 			MessageBox::Show("Se agrego al cliente " + clientes->Nombre +" " + clientes->Apellido + " con placa " + vehiculos->Placa);
 
 			Service::AddCliente(clientes);
-			Service::AddVehiculo(vehiculos);
+			if (vehiculoexistente == nullptr) {
+				Service::AddVehiculo(vehiculos);
+			}
+			else {
+				vehiculos->Id = vehiculoexistente->Id;
+				Service::UpdateVehiculo(vehiculos);
+			}
 			ShowCliente();
 			ClearControls();
 			DisableControls();

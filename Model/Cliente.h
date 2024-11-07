@@ -5,6 +5,7 @@
 #pragma once
 #include "Usuario.h"
 #include "Vehiculo.h"
+#include "Reservacion.h"
 
 using namespace System;
 
@@ -16,5 +17,6 @@ namespace Model {
          property bool LugarReservado;
          property String^ Profession;
          property Vehiculo^ MiVehiculo;
+         property Reservacion^ MiReservación;
     };
 }
