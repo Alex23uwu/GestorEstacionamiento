@@ -287,7 +287,7 @@ private: System::Void Estacionamiento_CRUD_Load(System::Object^ sender, System::
 
 private: System::Void btnDeleteEstacionamiento_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
-		Service::DeleteAdministrador(Convert::ToInt32(txtId->Text->Trim()));
+		Service::DeleteEstacionamiento(Convert::ToInt32(txtId->Text->Trim()));
 		ShowEstacionamientos();
 		MessageBox::Show("Se ha eliminado el Estacionamiento");
 	}

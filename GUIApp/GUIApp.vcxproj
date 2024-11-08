@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClCompile Include="Administrador_CRUD.cpp" />
     <ClCompile Include="Cliente_CRUD.cpp" />
+    <ClCompile Include="ComboBoxItem.cpp" />
     <ClCompile Include="EntradaVehiculos.cpp" />
     <ClCompile Include="Estacionamiento_CRUD.cpp" />
     <ClCompile Include="GenerarTicket.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Cliente_CRUD.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ComboBoxItem.h" />
     <ClInclude Include="EntradaVehiculos.h">
       <FileType>CppForm</FileType>
     </ClInclude>

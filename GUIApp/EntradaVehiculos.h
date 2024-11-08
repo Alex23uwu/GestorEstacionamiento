@@ -1,5 +1,5 @@
 #pragma once
-
+#include "ComboBoxItem.h"
 namespace GUIApp {
 
 	using namespace System;
@@ -329,7 +329,19 @@ namespace GUIApp {
 	}
 
 private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
-	List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
+	LoadEstacionamientos();
 }
+	   public:
+		   void LoadEstacionamientos() {
+			   List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
+			   for each (Estacionamiento ^ estacionamiento in estacionamientoLista) {
+				   //Sensor^ sensor = gcnew Sensor();
+				   //estacionamiento->MiSensor = sensor;
+				   if (estacionamiento->MiSensor->Detecta == false) {
+					   ComboBoxItem^ item = gcnew ComboBoxItem(estacionamiento->Id);
+					   cmbEstacionamientos->Items->Add(item);
+				   }
+			   }
+		   }
 };
 }

@@ -156,4 +156,22 @@
     <Placa>aaaaa</Placa>
     <Id>10</Id>
   </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   21   :   37   </HoraInicio>
+      <HoraSalida>   21   :   38   </HoraSalida>
+      <Id>2</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>2</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>2</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>BXNL</Placa>
+    <Id>11</Id>
+  </Vehiculo>
 </ArrayOfVehiculo>

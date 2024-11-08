@@ -1895,4 +1895,37 @@
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
   </Ticket>
+  <Ticket>
+    <Id>60</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-07T21:38:07.8212264-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   21   :   37   </HoraInicio>
+        <HoraSalida>   21   :   38   </HoraSalida>
+        <Id>2</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>2</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Moto</TipoVehiculo>
+      <Placa>BXNL</Placa>
+      <Id>11</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   21   :   37   </HoraEntrada>
+      <HoraSalida>   21   :   38   </HoraSalida>
+      <HorasConsumidas>00:01:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>true</UsoPersonal>
+  </Ticket>
 </ArrayOfTicket>
