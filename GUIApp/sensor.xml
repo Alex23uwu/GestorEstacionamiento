@@ -13,7 +13,7 @@
     <Id>3</Id>
   </Sensor>
   <Sensor>
-    <Detecta>false</Detecta>
+    <Detecta>true</Detecta>
     <Id>4</Id>
   </Sensor>
   <Sensor>

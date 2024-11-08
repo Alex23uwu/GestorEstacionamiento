@@ -412,6 +412,44 @@ Dictionary<String^, double>^ EstacionamientoService::Service::QueryAmountsbyFech
 	return dict;
 }
 
+Dictionary<String^, double>^ EstacionamientoService::Service::QueryAmountsbyFechabyPlaca(DateTime FechaInicio, DateTime FechaFin, String^ Placa) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	Dictionary<String^, double>^ dict = gcnew Dictionary<String^, double>();
+	String^ fecha = "0";
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin && ticketList[i]->GeneradoA->Placa == Placa) {
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
+				dict->Add(fecha, 0);
+				dict[fecha] += ticketList[i]->CantTotal;
+			}
+			else {
+				dict[fecha] += ticketList[i]->CantTotal;
+			}
+		}
+	}
+	return dict;
+}
+
+Dictionary<String^, int>^ EstacionamientoService::Service::QueryTimesbyFecha(DateTime FechaInicio, DateTime FechaFin) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	Dictionary<String^, int>^ dict = gcnew Dictionary<String^, int>();
+	String^ fecha = "0";
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
+				dict->Add(fecha, 0);
+				dict[fecha]++;
+			}
+			else {
+				dict[fecha]++;
+			}
+		}
+	}
+	return dict;
+}
+
 List<String^>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio, DateTime FechaFin) {
 	List<Ticket^>^ ticketList = QueryAllTicket();
 	List<String^>^ fechasList = gcnew List<String^>();
@@ -419,6 +457,22 @@ List<String^>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio
 
 	for (int i = 0; i < ticketList->Count; i++) {
 		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
+				fechasList->Add(fecha);
+			}
+		}
+	}
+	return fechasList;
+}
+
+List<String^>^ EstacionamientoService::Service::QueryFechasbyPlaca(DateTime FechaInicio, DateTime FechaFin, String^ Placa) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	List<String^>^ fechasList = gcnew List<String^>();
+	String^ fecha = "0";
+
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin && ticketList[i]->GeneradoA->Placa) {
 			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
 				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
 				fechasList->Add(fecha);

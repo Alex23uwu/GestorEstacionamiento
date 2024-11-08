@@ -84,4 +84,76 @@
     <Placa>STARK841</Placa>
     <Id>6</Id>
   </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   18   :   20   </HoraInicio>
+      <HoraSalida />
+      <Id>4</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>4</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>4</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>123123</Placa>
+    <Id>7</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   19   :   08   </HoraInicio>
+      <HoraSalida />
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>aaa</Placa>
+    <Id>8</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   19   :   09   </HoraInicio>
+      <HoraSalida />
+      <Id>2</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>2</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>2</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>vvvv</Placa>
+    <Id>9</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   19   :   13   </HoraInicio>
+      <HoraSalida />
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>aaaaa</Placa>
+    <Id>10</Id>
+  </Vehiculo>
 </ArrayOfVehiculo>

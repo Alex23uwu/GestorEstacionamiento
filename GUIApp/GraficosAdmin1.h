@@ -41,6 +41,9 @@ namespace GUIApp {
 	private: System::Windows::Forms::DateTimePicker^ dtpInicio;
 	private: System::Windows::Forms::DateTimePicker^ dtpFin;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartVeces;
+
+
 	protected:
 
 	protected:
@@ -61,11 +64,16 @@ namespace GUIApp {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chartGanancias = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->dtpInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpFin = (gcnew System::Windows::Forms::DateTimePicker());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->chartVeces = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVeces))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chartGanancias
@@ -107,11 +115,28 @@ namespace GUIApp {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &GraficosAdmin1::button1_Click);
 			// 
+			// chartVeces
+			// 
+			chartArea2->Name = L"ChartArea1";
+			this->chartVeces->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chartVeces->Legends->Add(legend2);
+			this->chartVeces->Location = System::Drawing::Point(633, 36);
+			this->chartVeces->Name = L"chartVeces";
+			series2->ChartArea = L"ChartArea1";
+			series2->Legend = L"Legend1";
+			series2->Name = L"Veces por dia";
+			this->chartVeces->Series->Add(series2);
+			this->chartVeces->Size = System::Drawing::Size(541, 409);
+			this->chartVeces->TabIndex = 4;
+			this->chartVeces->Text = L"chartVeces";
+			// 
 			// GraficosAdmin1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1186, 555);
+			this->Controls->Add(this->chartVeces);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dtpFin);
 			this->Controls->Add(this->dtpInicio);
@@ -120,6 +145,7 @@ namespace GUIApp {
 			this->Text = L"GraficosAdmin1";
 			this->Load += gcnew System::EventHandler(this, &GraficosAdmin1::GraficosAdmin1_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVeces))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -128,6 +154,8 @@ namespace GUIApp {
 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		chartGanancias->Invalidate();
+		chartGanancias->Update();
 
 		DateTime fechaIn;
 		DateTime fechaFin;
@@ -140,9 +168,9 @@ namespace GUIApp {
 			MessageBox::Show("Debe Elegir una fecha de inicio anterior a la fecha final.");
 			return;
 		}
+
 		List<String^>^ fechasList = Service::QueryFechas(fechaIn, fechaFin);
 		Dictionary<String^, double>^ MontosDiariosDict = Service::QueryAmountsbyFecha(fechaIn, fechaFin);
-
 
 		for (int i = 0; i < MontosDiariosDict->Count; i++) {
 			fecha = fechasList[i];
@@ -150,6 +178,17 @@ namespace GUIApp {
 			chartGanancias->Series["Monto diario"]->Points[i]->Label = "S/. " + MontosDiariosDict[fecha];
 			chartGanancias->Series["Monto diario"]->Points[i]->AxisLabel = fecha;
 		}
+
+
+		Dictionary<String^, int>^ VecesDiarias = Service::QueryTimesbyFecha(fechaIn, fechaFin);
+		for (int i = 0; i < MontosDiariosDict->Count; i++) {
+			fecha = fechasList[i];
+			chartVeces->Series["Veces por dia"]->Points->Add(VecesDiarias[fecha]);
+			chartVeces->Series["Veces por dia"]->Points[i]->Label = "" + VecesDiarias[fecha];
+			chartVeces->Series["Veces por dia"]->Points[i]->AxisLabel = fecha;
+		}
+			
+
 	}
 	};
 }

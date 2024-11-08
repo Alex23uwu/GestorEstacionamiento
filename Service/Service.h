@@ -76,7 +76,10 @@ namespace EstacionamientoService {
 		static double CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle);
 		static void UpdateTicket(Ticket^);
 		static Dictionary<String^, double>^ QueryAmountsbyFecha(DateTime, DateTime);
+		static Dictionary<String^, double>^ QueryAmountsbyFechabyPlaca(DateTime, DateTime, String^);
+		static Dictionary<String^, int>^ QueryTimesbyFecha(DateTime, DateTime);
 		static List<String^>^ QueryFechas(DateTime, DateTime);
+		static List<String^>^ QueryFechasbyPlaca(DateTime, DateTime, String^);
 
 		//CRUD PARA ESTACIONAMIENTOS
 		static void AddEstacionamiento(Estacionamiento^);

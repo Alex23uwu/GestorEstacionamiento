@@ -19,6 +19,7 @@ namespace GUIApp {
 	{
 	public:
 		Dictionary<String^, int>^ DictEstacionamientos = gcnew Dictionary<String^, int>();
+		List<PictureBox^>^ ListImagenes = gcnew List<PictureBox^>();
 
 		InterfazVistaVehiculos(void)
 		{
@@ -67,10 +68,9 @@ namespace GUIApp {
 			// 
 			// btnReinicio
 			// 
-			this->btnReinicio->Location = System::Drawing::Point(615, 480);
-			this->btnReinicio->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnReinicio->Location = System::Drawing::Point(461, 390);
 			this->btnReinicio->Name = L"btnReinicio";
-			this->btnReinicio->Size = System::Drawing::Size(192, 79);
+			this->btnReinicio->Size = System::Drawing::Size(144, 64);
 			this->btnReinicio->TabIndex = 50;
 			this->btnReinicio->Text = L"Reiniciar Estacionamientos";
 			this->btnReinicio->UseVisualStyleBackColor = true;
@@ -83,10 +83,11 @@ namespace GUIApp {
 			// 
 			// InterfazVistaVehiculos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(620, 471);
+			this->ClientSize = System::Drawing::Size(632, 484);
 			this->Controls->Add(this->btnReinicio);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"InterfazVistaVehiculos";
 			this->Text = L"InterfazVistaVehiculos";
 			this->Load += gcnew System::EventHandler(this, &InterfazVistaVehiculos::InterfazVistaVehiculos_Load);
@@ -133,7 +134,8 @@ namespace GUIApp {
 		pictureBox->Size = System::Drawing::Size(ancho, alto);
 		pictureBox->ImageLocation = rutaImagen;
 		pictureBox->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-		this->Controls->Add(pictureBox); // Agrega el PictureBox al formulario			
+		this->Controls->Add(pictureBox); // Agrega el PictureBox al formulario	
+		ListImagenes->Add(pictureBox);
 	}
 
 
@@ -143,20 +145,27 @@ namespace GUIApp {
 			estacionamientoLista[i]->HoraInicio = "";
 			estacionamientoLista[i]->HoraSalida = "";
 			estacionamientoLista[i]->MiSensor->Detecta = false;
-			
+
 			Service::UpdateEstacionamiento(estacionamientoLista[i]);
 		}
 	}
 
 private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+	String^ nombreEst = "imgEstacionamiento";
+	List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
 	
+	for (int i = 0; i < 16; i++) {
+		if (estacionamientoLista[i]->MiSensor->Detecta == true) ListImagenes[i]->ImageLocation = "Imagenes/Espacio_Lleno.png";
+		else ListImagenes[i]->ImageLocation = "Imagenes/Espacio_Disponible.png";
+		
+	}
 }
 
 private: System::Void InterfazVistaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
 	
 	int x = 0, y = 10;
 	for (int i = 0; i < 16; i++) {
-		int index = i + i;
+		int index = i + 1;
 		
 		if (i % 4 == 0) {
 			x = 10;

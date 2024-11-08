@@ -386,7 +386,8 @@ private: System::Void sensorToolStripMenuItem_Click(System::Object^ sender, Syst
 	form->Show();
 }
 private: System::Void misReportesDeClienteToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	GraficosCliente^ form = gcnew GraficosCliente();
+	GraficosCliente^ form = gcnew GraficosCliente(Cliente);
+
 	form->MdiParent = this;
 	form->Show();
 }
