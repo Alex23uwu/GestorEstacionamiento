@@ -112,6 +112,7 @@ namespace EstacionamientoService {
 		//CRUD PARA RESERVACIONES
 		static void AddReserva(Reservacion^);
 		static int GenerateIDReserva();
+		static void UpdateReserva(Reservacion^);
 		static void DeleteReserva(int ID);
 		static Reservacion^ QueryReservabyID(int ID);
 		static List<Reservacion^>^ QueryAllReservacion();

@@ -690,6 +690,18 @@ int EstacionamientoService::Service::GenerateIDReserva()
 	return prueba;
 }
 
+void EstacionamientoService::Service::UpdateReserva(Reservacion^ reserva)
+{
+	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	for (int i = 0; i < ListaReservacion->Count; i++) {
+		if (ListaReservacion[i]->Id == reserva->Id) {
+			ListaReservacion[i] = reserva;
+			Persistance::PersistXMLFile(XML_SENSOR_FILE_NAME, ListaSensor);
+			return;
+		}
+	}
+}
+
 void EstacionamientoService::Service::DeleteReserva(int ID)
 {
 	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);

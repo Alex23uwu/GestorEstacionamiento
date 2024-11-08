@@ -11,6 +11,7 @@ namespace Model {
     public:
         int Id;
         bool Permitido;
+        bool Completada;
         String^ InicioReserva;
         String^ FinReserva;
     };

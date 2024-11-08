@@ -155,9 +155,10 @@ namespace GUIApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(586, 88);
+			this->label1->Location = System::Drawing::Point(781, 108);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(150, 13);
+			this->label1->Size = System::Drawing::Size(184, 17);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"HORA INICIO RESERVA:";
 			// 
@@ -166,17 +167,19 @@ namespace GUIApp {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(12, 33);
+			this->label3->Location = System::Drawing::Point(16, 41);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(158, 13);
+			this->label3->Size = System::Drawing::Size(195, 17);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"ESPACIOS DISPONIBLES:";
 			// 
 			// bttReservar
 			// 
-			this->bttReservar->Location = System::Drawing::Point(589, 144);
+			this->bttReservar->Location = System::Drawing::Point(785, 177);
+			this->bttReservar->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->bttReservar->Name = L"bttReservar";
-			this->bttReservar->Size = System::Drawing::Size(124, 36);
+			this->bttReservar->Size = System::Drawing::Size(165, 44);
 			this->bttReservar->TabIndex = 3;
 			this->bttReservar->Text = L"RESERVAR";
 			this->bttReservar->UseVisualStyleBackColor = true;
@@ -184,9 +187,10 @@ namespace GUIApp {
 			// 
 			// bttCancel
 			// 
-			this->bttCancel->Location = System::Drawing::Point(758, 141);
+			this->bttCancel->Location = System::Drawing::Point(1011, 174);
+			this->bttCancel->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->bttCancel->Name = L"bttCancel";
-			this->bttCancel->Size = System::Drawing::Size(124, 42);
+			this->bttCancel->Size = System::Drawing::Size(165, 52);
 			this->bttCancel->TabIndex = 7;
 			this->bttCancel->Text = L"CANCELAR";
 			this->bttCancel->UseVisualStyleBackColor = true;
@@ -197,9 +201,10 @@ namespace GUIApp {
 			this->est2->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est2.BackgroundImage")));
 			this->est2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est2->Location = System::Drawing::Point(177, 78);
+			this->est2->Location = System::Drawing::Point(236, 96);
+			this->est2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est2->Name = L"est2";
-			this->est2->Size = System::Drawing::Size(101, 91);
+			this->est2->Size = System::Drawing::Size(135, 112);
 			this->est2->TabIndex = 9;
 			this->est2->UseVisualStyleBackColor = false;
 			this->est2->Click += gcnew System::EventHandler(this, &Reservacion::est2_Click);
@@ -215,9 +220,10 @@ namespace GUIApp {
 			this->est7->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est7.BackgroundImage")));
 			this->est7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est7->Location = System::Drawing::Point(309, 211);
+			this->est7->Location = System::Drawing::Point(412, 260);
+			this->est7->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est7->Name = L"est7";
-			this->est7->Size = System::Drawing::Size(101, 91);
+			this->est7->Size = System::Drawing::Size(135, 112);
 			this->est7->TabIndex = 24;
 			this->est7->UseVisualStyleBackColor = false;
 			this->est7->Click += gcnew System::EventHandler(this, &Reservacion::est7_Click);
@@ -227,9 +233,10 @@ namespace GUIApp {
 			this->est1->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est1.BackgroundImage")));
 			this->est1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est1->Location = System::Drawing::Point(49, 78);
+			this->est1->Location = System::Drawing::Point(65, 96);
+			this->est1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est1->Name = L"est1";
-			this->est1->Size = System::Drawing::Size(101, 91);
+			this->est1->Size = System::Drawing::Size(135, 112);
 			this->est1->TabIndex = 24;
 			this->est1->UseVisualStyleBackColor = false;
 			this->est1->Click += gcnew System::EventHandler(this, &Reservacion::est1_Click);
@@ -239,9 +246,10 @@ namespace GUIApp {
 			this->est3->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est3.BackgroundImage")));
 			this->est3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est3->Location = System::Drawing::Point(309, 78);
+			this->est3->Location = System::Drawing::Point(412, 96);
+			this->est3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est3->Name = L"est3";
-			this->est3->Size = System::Drawing::Size(101, 91);
+			this->est3->Size = System::Drawing::Size(135, 112);
 			this->est3->TabIndex = 25;
 			this->est3->UseVisualStyleBackColor = false;
 			this->est3->Click += gcnew System::EventHandler(this, &Reservacion::est3_Click);
@@ -251,9 +259,10 @@ namespace GUIApp {
 			this->est4->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est4.BackgroundImage")));
 			this->est4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est4->Location = System::Drawing::Point(445, 78);
+			this->est4->Location = System::Drawing::Point(593, 96);
+			this->est4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est4->Name = L"est4";
-			this->est4->Size = System::Drawing::Size(101, 91);
+			this->est4->Size = System::Drawing::Size(135, 112);
 			this->est4->TabIndex = 26;
 			this->est4->UseVisualStyleBackColor = false;
 			this->est4->Click += gcnew System::EventHandler(this, &Reservacion::est4_Click);
@@ -263,9 +272,10 @@ namespace GUIApp {
 			this->est6->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est6.BackgroundImage")));
 			this->est6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est6->Location = System::Drawing::Point(177, 211);
+			this->est6->Location = System::Drawing::Point(236, 260);
+			this->est6->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est6->Name = L"est6";
-			this->est6->Size = System::Drawing::Size(101, 91);
+			this->est6->Size = System::Drawing::Size(135, 112);
 			this->est6->TabIndex = 27;
 			this->est6->UseVisualStyleBackColor = false;
 			this->est6->Click += gcnew System::EventHandler(this, &Reservacion::est6_Click);
@@ -275,9 +285,10 @@ namespace GUIApp {
 			this->est8->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est8.BackgroundImage")));
 			this->est8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est8->Location = System::Drawing::Point(445, 211);
+			this->est8->Location = System::Drawing::Point(593, 260);
+			this->est8->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est8->Name = L"est8";
-			this->est8->Size = System::Drawing::Size(101, 91);
+			this->est8->Size = System::Drawing::Size(135, 112);
 			this->est8->TabIndex = 28;
 			this->est8->UseVisualStyleBackColor = false;
 			this->est8->Click += gcnew System::EventHandler(this, &Reservacion::est8_Click);
@@ -287,9 +298,10 @@ namespace GUIApp {
 			this->est9->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est9.BackgroundImage")));
 			this->est9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est9->Location = System::Drawing::Point(49, 359);
+			this->est9->Location = System::Drawing::Point(65, 442);
+			this->est9->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est9->Name = L"est9";
-			this->est9->Size = System::Drawing::Size(101, 91);
+			this->est9->Size = System::Drawing::Size(135, 112);
 			this->est9->TabIndex = 29;
 			this->est9->UseVisualStyleBackColor = false;
 			this->est9->Click += gcnew System::EventHandler(this, &Reservacion::est9_Click);
@@ -299,9 +311,10 @@ namespace GUIApp {
 			this->est11->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est11->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est11.BackgroundImage")));
 			this->est11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est11->Location = System::Drawing::Point(309, 359);
+			this->est11->Location = System::Drawing::Point(412, 442);
+			this->est11->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est11->Name = L"est11";
-			this->est11->Size = System::Drawing::Size(101, 91);
+			this->est11->Size = System::Drawing::Size(135, 112);
 			this->est11->TabIndex = 30;
 			this->est11->UseVisualStyleBackColor = false;
 			this->est11->Click += gcnew System::EventHandler(this, &Reservacion::est11_Click);
@@ -311,9 +324,10 @@ namespace GUIApp {
 			this->est13->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est13.BackgroundImage")));
 			this->est13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est13->Location = System::Drawing::Point(49, 505);
+			this->est13->Location = System::Drawing::Point(65, 622);
+			this->est13->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est13->Name = L"est13";
-			this->est13->Size = System::Drawing::Size(101, 91);
+			this->est13->Size = System::Drawing::Size(135, 112);
 			this->est13->TabIndex = 31;
 			this->est13->UseVisualStyleBackColor = false;
 			this->est13->Click += gcnew System::EventHandler(this, &Reservacion::est13_Click);
@@ -323,9 +337,10 @@ namespace GUIApp {
 			this->est10->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est10->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est10.BackgroundImage")));
 			this->est10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est10->Location = System::Drawing::Point(177, 359);
+			this->est10->Location = System::Drawing::Point(236, 442);
+			this->est10->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est10->Name = L"est10";
-			this->est10->Size = System::Drawing::Size(101, 91);
+			this->est10->Size = System::Drawing::Size(135, 112);
 			this->est10->TabIndex = 32;
 			this->est10->UseVisualStyleBackColor = false;
 			this->est10->Click += gcnew System::EventHandler(this, &Reservacion::est10_Click);
@@ -335,9 +350,10 @@ namespace GUIApp {
 			this->est5->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est5->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est5.BackgroundImage")));
 			this->est5->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est5->Location = System::Drawing::Point(49, 211);
+			this->est5->Location = System::Drawing::Point(65, 260);
+			this->est5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est5->Name = L"est5";
-			this->est5->Size = System::Drawing::Size(101, 91);
+			this->est5->Size = System::Drawing::Size(135, 112);
 			this->est5->TabIndex = 33;
 			this->est5->UseVisualStyleBackColor = false;
 			this->est5->Click += gcnew System::EventHandler(this, &Reservacion::est5_Click);
@@ -347,9 +363,10 @@ namespace GUIApp {
 			this->est16->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est16->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est16.BackgroundImage")));
 			this->est16->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est16->Location = System::Drawing::Point(445, 505);
+			this->est16->Location = System::Drawing::Point(593, 622);
+			this->est16->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est16->Name = L"est16";
-			this->est16->Size = System::Drawing::Size(101, 91);
+			this->est16->Size = System::Drawing::Size(135, 112);
 			this->est16->TabIndex = 34;
 			this->est16->UseVisualStyleBackColor = false;
 			this->est16->Click += gcnew System::EventHandler(this, &Reservacion::est16_Click);
@@ -359,9 +376,10 @@ namespace GUIApp {
 			this->est12->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est12->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est12.BackgroundImage")));
 			this->est12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est12->Location = System::Drawing::Point(445, 359);
+			this->est12->Location = System::Drawing::Point(593, 442);
+			this->est12->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est12->Name = L"est12";
-			this->est12->Size = System::Drawing::Size(101, 91);
+			this->est12->Size = System::Drawing::Size(135, 112);
 			this->est12->TabIndex = 35;
 			this->est12->UseVisualStyleBackColor = false;
 			this->est12->Click += gcnew System::EventHandler(this, &Reservacion::est12_Click);
@@ -371,9 +389,10 @@ namespace GUIApp {
 			this->est15->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est15->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est15.BackgroundImage")));
 			this->est15->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est15->Location = System::Drawing::Point(309, 505);
+			this->est15->Location = System::Drawing::Point(412, 622);
+			this->est15->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est15->Name = L"est15";
-			this->est15->Size = System::Drawing::Size(101, 91);
+			this->est15->Size = System::Drawing::Size(135, 112);
 			this->est15->TabIndex = 36;
 			this->est15->UseVisualStyleBackColor = false;
 			this->est15->Click += gcnew System::EventHandler(this, &Reservacion::est15_Click);
@@ -383,9 +402,10 @@ namespace GUIApp {
 			this->est14->BackColor = System::Drawing::SystemColors::HighlightText;
 			this->est14->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"est14.BackgroundImage")));
 			this->est14->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
-			this->est14->Location = System::Drawing::Point(177, 505);
+			this->est14->Location = System::Drawing::Point(236, 622);
+			this->est14->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->est14->Name = L"est14";
-			this->est14->Size = System::Drawing::Size(101, 91);
+			this->est14->Size = System::Drawing::Size(135, 112);
 			this->est14->TabIndex = 37;
 			this->est14->UseVisualStyleBackColor = false;
 			this->est14->Click += gcnew System::EventHandler(this, &Reservacion::est14_Click);
@@ -400,16 +420,17 @@ namespace GUIApp {
 			// cmbHora
 			// 
 			this->cmbHora->FormattingEnabled = true;
-			this->cmbHora->Location = System::Drawing::Point(761, 85);
+			this->cmbHora->Location = System::Drawing::Point(1015, 105);
+			this->cmbHora->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->cmbHora->Name = L"cmbHora";
-			this->cmbHora->Size = System::Drawing::Size(121, 21);
+			this->cmbHora->Size = System::Drawing::Size(160, 24);
 			this->cmbHora->TabIndex = 38;
 			// 
 			// Reservacion
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(938, 642);
+			this->ClientSize = System::Drawing::Size(1251, 790);
 			this->Controls->Add(this->cmbHora);
 			this->Controls->Add(this->est14);
 			this->Controls->Add(this->est15);
@@ -431,6 +452,7 @@ namespace GUIApp {
 			this->Controls->Add(this->bttReservar);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"Reservacion";
 			this->Text = L"Reservacion";
 			this->Load += gcnew System::EventHandler(this, &Reservacion::Reservacion_Load);
@@ -466,7 +488,8 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 			Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
 			Model::Reservacion^ reserva = gcnew Model::Reservacion();
 			reserva->Id = EstacionamientoService::Service::GenerateIDReserva();
-			reserva->InicioReserva = Convert::ToString(cmbHora->SelectedIndex);
+			reserva->InicioReserva = cmbHora->SelectedItem->ToString();
+			reserva->Completada = false;
 			ClienteActual->LugarReservado = true;
 			ClienteActual->MiReservacion = reserva;
 			ClienteActual->MiVehiculo->AsigandoA = EstacionamientoSeleccionado;
