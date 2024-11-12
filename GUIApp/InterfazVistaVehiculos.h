@@ -68,9 +68,10 @@ namespace GUIApp {
 			// 
 			// btnReinicio
 			// 
-			this->btnReinicio->Location = System::Drawing::Point(461, 390);
+			this->btnReinicio->Location = System::Drawing::Point(615, 480);
+			this->btnReinicio->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnReinicio->Name = L"btnReinicio";
-			this->btnReinicio->Size = System::Drawing::Size(144, 64);
+			this->btnReinicio->Size = System::Drawing::Size(192, 79);
 			this->btnReinicio->TabIndex = 50;
 			this->btnReinicio->Text = L"Reiniciar Estacionamientos";
 			this->btnReinicio->UseVisualStyleBackColor = true;
@@ -78,16 +79,17 @@ namespace GUIApp {
 			// 
 			// timer1
 			// 
+			this->timer1->Enabled = true;
 			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &InterfazVistaVehiculos::timer1_Tick);
 			// 
 			// InterfazVistaVehiculos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(632, 484);
+			this->ClientSize = System::Drawing::Size(843, 596);
 			this->Controls->Add(this->btnReinicio);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"InterfazVistaVehiculos";
 			this->Text = L"InterfazVistaVehiculos";
 			this->Load += gcnew System::EventHandler(this, &InterfazVistaVehiculos::InterfazVistaVehiculos_Load);

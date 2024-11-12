@@ -27,8 +27,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio />
-    <HoraSalida />
+    <HoraInicio>   21   :   46   </HoraInicio>
+    <HoraSalida>   21   :   51   </HoraSalida>
     <Id>3</Id>
     <MiSensor>
       <Detecta>false</Detecta>

@@ -192,4 +192,22 @@
     <Placa>Q456</Placa>
     <Id>12</Id>
   </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   21   :   46   </HoraInicio>
+      <HoraSalida>   21   :   51   </HoraSalida>
+      <Id>3</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>3</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>U2018</Placa>
+    <Id>13</Id>
+  </Vehiculo>
 </ArrayOfVehiculo>
