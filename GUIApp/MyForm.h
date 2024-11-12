@@ -373,13 +373,16 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 			entradaDeVeToolStripMenuItem->Visible = false;
 			generarTicketToolStripMenuItem->Visible = false;
 			reservacionToolStripMenuItem->Visible = true;
-			espaciosDisponiblesToolStripMenuItem->Visible = true;
-			   
-
+			espaciosDisponiblesToolStripMenuItem->Visible = false;
+			listaDeReservasToolStripMenuItem->Visible = false;
+			gráficosDeAdministradorToolStripMenuItem->Visible = false;
 		   }
 		   void EnableVeedorOptions() {}
 		   void EnablePersonalLimpiezaOptions() {}
-		   void EnableAdministradorOptions() {}
+		   void EnableAdministradorOptions() {
+		   reservacionToolStripMenuItem->Visible = false;
+		   misReportesDeClienteToolStripMenuItem->Visible = false;
+		   }
 private: System::Void sensorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	SensorEstacionamiento^ form = gcnew SensorEstacionamiento();
 	form->MdiParent = this;
