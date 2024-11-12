@@ -300,17 +300,16 @@ private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventAr
 	reserva->Completada = true;
 	//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
 	Estacionamiento^ estacionamiento = vehiculo->AsigandoA;
+	Sensor^ sensor = estacionamiento->MiSensor;
 	//llenamos los atributos de la variable ESTACIONAMIENTO
 	estacionamiento->HoraInicio = cliente->MiReservacion->InicioReserva;
 	estacionamiento->HoraSalida = "";
-	//llenamos los atributos de la variable VEHICULO
-	vehiculo->AsigandoA = estacionamiento;
 	//llenamos los atributos de TICKET
 	ticket->GeneradoA = vehiculo;
 	ticket->Id = Service::GeneracionIDTicket();
 	detalle->HoraEntrada = estacionamiento->HoraInicio;
 	ticket->Detalle = detalle;
-	cliente->MiReservacion->Completada = true;
+	cliente->LugarReservado = false;
 	EstacionamientoService::Service::AddTicket(ticket);
 	EstacionamientoService::Service::UpdateVehiculo(vehiculo);
 	EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);

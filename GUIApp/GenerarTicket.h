@@ -165,8 +165,8 @@ namespace GUIApp {
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		try
-		{
+		
+	
 			String^ placa = txtPlacaVehiculo->Text;
 
 			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
@@ -185,11 +185,11 @@ namespace GUIApp {
 				//direccionamos al sensor que debe apagarse
 				Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 				Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
-				Sensor^ sensor = Service::QuerySensorbyID(vehiculo->AsigandoA->Id);
+				Sensor^ sensor = Service::QuerySensorbyID(estacionamiento->MiSensor->Id);
 				sensor->Detecta = false;//apagamos el sensor 
+				vehiculo->AsigandoA = estacionamiento;
 				estacionamiento->MiSensor = sensor;
 				estacionamiento->HoraSalida = LabelTimeOut->Text;
-				vehiculo->AsigandoA = estacionamiento;
 				ticket->GeneradoA = vehiculo;//actualiza la variable ticket
 				//estacionamiento->HoraInicio = "";	
 
@@ -214,10 +214,12 @@ namespace GUIApp {
 				Service::UpdateTicket(ticket);
 				txtPlacaVehiculo->Clear();
 			}
-		}
+		
+		/*
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);
 		}
+		*/
 	}
 	private: System::Void GenerarTicket_Load(System::Object^ sender, System::EventArgs^ e) {
 
