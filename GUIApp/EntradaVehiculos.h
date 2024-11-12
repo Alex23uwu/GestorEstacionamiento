@@ -255,8 +255,8 @@ namespace GUIApp {
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		try {
 			String^ placa = txtPlaca->Text->Trim();
-			if (placa->Equals("")) {
-				MessageBox::Show("Debe registar una placa");
+			if (placa->Equals("")||cmbTipoVehiculo->Text->Equals("") ||cmbEstacionamientos->Text->Equals("")) {
+				MessageBox::Show("Debe completar todos los parámetros");
 				return;
 			}
 			//validacion que diga si el auto ya fue registrado y si se retira me permita volver a ingresarlo al sistema
@@ -269,7 +269,8 @@ namespace GUIApp {
 				}	
 			}
 
-			int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
+			//int IDEstacionamiento = Service::DetectarEstacionamientoMasProximoDisponible();
+			int IDEstacionamiento= Int32::Parse(cmbEstacionamientos->Text);
 			Vehiculo^ vehiculo = gcnew Vehiculo();
 			DetalleTicket^ detalle = gcnew DetalleTicket();
 			Ticket^ ticket = gcnew Ticket();
@@ -312,7 +313,14 @@ namespace GUIApp {
 			else {
 				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa);
 			}
+			//ACTUALIZO EL cmbEstacionamiento
+			cmbEstacionamientos->Items->Clear();
+			LoadEstacionamientos();
+			//limpio la ventana
 			txtPlaca->Clear();
+			cmbEstacionamientos->ResetText();
+			cmbTipoVehiculo->ResetText();
+			
 		}
 		catch(Exception^ ex){
 			MessageBox::Show("No se ha podido registrar la placa por el siguiente motivo:\n" + ex->Message);
@@ -335,8 +343,6 @@ private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::Even
 		   void LoadEstacionamientos() {
 			   List<Estacionamiento^>^ estacionamientoLista = Service::QueryAllEstacionamientos();
 			   for each (Estacionamiento ^ estacionamiento in estacionamientoLista) {
-				   //Sensor^ sensor = gcnew Sensor();
-				   //estacionamiento->MiSensor = sensor;
 				   if (estacionamiento->MiSensor->Detecta == false) {
 					   ComboBoxItem^ item = gcnew ComboBoxItem(estacionamiento->Id);
 					   cmbEstacionamientos->Items->Add(item);
