@@ -1866,15 +1866,15 @@
   </Ticket>
   <Ticket>
     <Id>59</Id>
-    <CantTotal>0</CantTotal>
-    <Dia>0001-01-01T00:00:00</Dia>
+    <CantTotal>25.209333333333333</CantTotal>
+    <Dia>2024-11-11T21:39:42.6599617-05:00</Dia>
     <GeneradoA>
       <AsigandoA>
         <HoraInicio>   19   :   13   </HoraInicio>
-        <HoraSalida />
+        <HoraSalida>   21   :   39   </HoraSalida>
         <Id>1</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
+          <Detecta>false</Detecta>
           <Id>1</Id>
         </MiSensor>
         <Ubicacion>
@@ -1884,14 +1884,16 @@
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>aaaaa</Placa>
-      <Id>0</Id>
+      <Id>10</Id>
     </GeneradoA>
     <Detalle>
-      <Cantidad>0</Cantidad>
+      <Cantidad>24.333333333333332</Cantidad>
       <Id>0</Id>
-      <IGV>0</IGV>
+      <IGV>0.87599999999999989</IGV>
       <HoraEntrada>   19   :   13   </HoraEntrada>
-      <Tarifa>0</Tarifa>
+      <HoraSalida>   21   :   39   </HoraSalida>
+      <HorasConsumidas>02:26:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
   </Ticket>
@@ -1927,5 +1929,36 @@
       <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>61</Id>
+    <CantTotal>0</CantTotal>
+    <Dia>0001-01-01T00:00:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   21   :   42   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>Q456</Placa>
+      <Id>0</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>0</Cantidad>
+      <Id>0</Id>
+      <IGV>0</IGV>
+      <HoraEntrada>   21   :   42   </HoraEntrada>
+      <Tarifa>0</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
   </Ticket>
 </ArrayOfTicket>

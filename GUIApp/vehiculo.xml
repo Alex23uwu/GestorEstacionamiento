@@ -141,10 +141,10 @@
   <Vehiculo>
     <AsigandoA>
       <HoraInicio>   19   :   13   </HoraInicio>
-      <HoraSalida />
+      <HoraSalida>   21   :   39   </HoraSalida>
       <Id>1</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>1</Id>
       </MiSensor>
       <Ubicacion>
@@ -173,5 +173,23 @@
     <TipoVehiculo>Moto</TipoVehiculo>
     <Placa>BXNL</Placa>
     <Id>11</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   21   :   42   </HoraInicio>
+      <HoraSalida />
+      <Id>1</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>1</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>1</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>Q456</Placa>
+    <Id>12</Id>
   </Vehiculo>
 </ArrayOfVehiculo>
