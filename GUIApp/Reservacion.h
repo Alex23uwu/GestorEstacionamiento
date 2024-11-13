@@ -91,6 +91,8 @@ namespace GUIApp {
 	private: System::Windows::Forms::Button^ est14;
 	private: System::Windows::Forms::ImageList^ imageListaEstacionamiento;
 	private: System::Windows::Forms::ComboBox^ cmbHora;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ReservaFecha;
 
 
 
@@ -149,6 +151,9 @@ namespace GUIApp {
 			this->est14 = (gcnew System::Windows::Forms::Button());
 			this->imageListaEstacionamiento = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->cmbHora = (gcnew System::Windows::Forms::ComboBox());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->ReservaFecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -406,11 +411,27 @@ namespace GUIApp {
 			this->cmbHora->Size = System::Drawing::Size(121, 21);
 			this->cmbHora->TabIndex = 38;
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->ReservaFecha });
+			this->dataGridView1->Location = System::Drawing::Point(589, 211);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(293, 106);
+			this->dataGridView1->TabIndex = 39;
+			// 
+			// ReservaFecha
+			// 
+			this->ReservaFecha->HeaderText = L"Fecha";
+			this->ReservaFecha->Name = L"ReservaFecha";
+			this->ReservaFecha->ReadOnly = true;
+			// 
 			// Reservacion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(938, 609);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->cmbHora);
 			this->Controls->Add(this->est14);
 			this->Controls->Add(this->est15);
@@ -435,6 +456,7 @@ namespace GUIApp {
 			this->Name = L"Reservacion";
 			this->Text = L"Reservacion";
 			this->Load += gcnew System::EventHandler(this, &Reservacion::Reservacion_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -457,6 +479,11 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 		if (ClienteActual->LugarReservado == false) {
 			throw gcnew InvalidOperationException("No cuenta con ninguna reserva");
 		}
+		if (!ConfirmarValidezReserva()) {
+			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
+			ClienteActual->LugarReservado = false;
+			throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite");
+		}
 		System::Windows::Forms::DialogResult resultado = MessageBox::Show("¿Estás seguro de cancelar su reserva?",
 			"Cancelacion de reserva",
 			System::Windows::Forms::MessageBoxButtons::YesNo,
@@ -470,6 +497,7 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 			Service::UpdateCliente(ClienteActual);
 			Service::UpdateEstacionamiento(estacionamiento);
 			Service::UpdateVehiculo(vehiculo);
+			Service::UpdateSensor(sensor);
 			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 			MessageBox::Show("Reserva Cancelada");
 		}
@@ -480,6 +508,11 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void bttReservar_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
+		if (!ConfirmarValidezReserva()) {
+			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
+			ClienteActual->LugarReservado = false;
+			throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
+		}
 		if (ClienteActual->LugarReservado == true) {
 			throw gcnew InvalidOperationException("Solo puede realizar una reserva a la vez");
 		}
@@ -558,7 +591,12 @@ private: void CalculoHora() {
 	int horaredondeada = horasactuales;
 	int minutosredondeados = (minutosactuales / 5) * 5;
 	if (minutosactuales > 55) {
-		horaredondeada = horasactuales + 1;
+		if (horasactuales == 23) {
+			horaredondeada = 0;
+		}
+		else {
+			horaredondeada = horasactuales + 1;
+		}
 		minutosredondeados = 0;
 	}
 	else if (minutosactuales % 5 >= 3) {
@@ -599,7 +637,7 @@ private: void CalculoHora() {
 			   }
 		   }
 		   else {
-			   return true;
+			   return false;
 		   }
 	   }
 private: System::Void est1_Click(System::Object^ sender, System::EventArgs^ e) {
