@@ -166,15 +166,15 @@ namespace GUIApp {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
-	
+		try {
 			String^ placa = txtPlacaVehiculo->Text;
 
 			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
-			
+
 			if (ticket == nullptr) {
 				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
 			}
-			if(ticket->GeneradoA->AsigandoA->MiSensor->Detecta==false){//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
+			if (ticket->GeneradoA->AsigandoA->MiSensor->Detecta == false) {//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
 				txtPlacaVehiculo->Clear();
 				throw gcnew InvalidOperationException("La placa no se encuentra en el estacionamiento.");
 			}
@@ -214,12 +214,12 @@ namespace GUIApp {
 				Service::UpdateTicket(ticket);
 				txtPlacaVehiculo->Clear();
 			}
-		
-		/*
-		catch (Exception^ ex){
-			MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);
+
 		}
-		*/
+			catch (Exception^ ex) {
+				MessageBox::Show("No se ha podido generar el Ticket por el siguiente motivo:\n" + ex->Message);
+			}
+
 	}
 	private: System::Void GenerarTicket_Load(System::Object^ sender, System::EventArgs^ e) {
 
