@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVehiculo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Vehiculo>
-    <Color>Rojo</Color>
-    <Modelo>Toyota</Modelo>
-    <Placa>XML123</Placa>
+    <AsigandoA>
+      <HoraInicio>   00   :   39   </HoraInicio>
+      <HoraSalida>   00   :   39   </HoraSalida>
+      <Id>3</Id>
+      <MiSensor>
+        <Detecta>true</Detecta>
+        <Id>3</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <Color>ROJO</Color>
+    <Modelo>Ferrari</Modelo>
+    <Placa>STARK841</Placa>
     <Id>0</Id>
   </Vehiculo>
   <Vehiculo>
@@ -86,11 +99,11 @@
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   18   :   20   </HoraInicio>
-      <HoraSalida />
+      <HoraInicio />
+      <HoraSalida>   14   :   44   </HoraSalida>
       <Id>4</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>4</Id>
       </MiSensor>
       <Ubicacion>
@@ -104,11 +117,11 @@
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   19   :   08   </HoraInicio>
-      <HoraSalida />
+      <HoraInicio>   21   :   42   </HoraInicio>
+      <HoraSalida>   14   :   43   </HoraSalida>
       <Id>1</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>1</Id>
       </MiSensor>
       <Ubicacion>
@@ -122,11 +135,11 @@
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   19   :   09   </HoraInicio>
-      <HoraSalida />
+      <HoraInicio />
+      <HoraSalida>   14   :   44   </HoraSalida>
       <Id>2</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>2</Id>
       </MiSensor>
       <Ubicacion>
@@ -177,10 +190,10 @@
   <Vehiculo>
     <AsigandoA>
       <HoraInicio>   21   :   42   </HoraInicio>
-      <HoraSalida />
+      <HoraSalida>   14   :   43   </HoraSalida>
       <Id>1</Id>
       <MiSensor>
-        <Detecta>true</Detecta>
+        <Detecta>false</Detecta>
         <Id>1</Id>
       </MiSensor>
       <Ubicacion>
@@ -209,5 +222,77 @@
     <TipoVehiculo>Moto</TipoVehiculo>
     <Placa>U2018</Placa>
     <Id>13</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   14   :   30   </HoraInicio>
+      <HoraSalida>   14   :   42   </HoraSalida>
+      <Id>7</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>7</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>7</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>POO2024</Placa>
+    <Id>14</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   14   :   24   </HoraInicio>
+      <HoraSalida>   14   :   42   </HoraSalida>
+      <Id>15</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>15</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>15</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>BMW148</Placa>
+    <Id>15</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   14   :   28   </HoraInicio>
+      <HoraSalida>   14   :   28   </HoraSalida>
+      <Id>6</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>6</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>6</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>QWE963</Placa>
+    <Id>16</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <AsigandoA>
+      <HoraInicio>   14   :   48   </HoraInicio>
+      <HoraSalida>   14   :   48   </HoraSalida>
+      <Id>6</Id>
+      <MiSensor>
+        <Detecta>false</Detecta>
+        <Id>6</Id>
+      </MiSensor>
+      <Ubicacion>
+        <Piso>1</Piso>
+        <NumeroEstacionamiento>6</NumeroEstacionamiento>
+      </Ubicacion>
+    </AsigandoA>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>HJK841</Placa>
+    <Id>17</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

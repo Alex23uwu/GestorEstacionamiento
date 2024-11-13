@@ -1773,15 +1773,15 @@
   </Ticket>
   <Ticket>
     <Id>56</Id>
-    <CantTotal>0</CantTotal>
-    <Dia>0001-01-01T00:00:00</Dia>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:44:00.7433036-05:00</Dia>
     <GeneradoA>
       <AsigandoA>
-        <HoraInicio>   18   :   20   </HoraInicio>
-        <HoraSalida />
+        <HoraInicio />
+        <HoraSalida>   14   :   44   </HoraSalida>
         <Id>4</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
+          <Detecta>false</Detecta>
           <Id>4</Id>
         </MiSensor>
         <Ubicacion>
@@ -1791,28 +1791,30 @@
       </AsigandoA>
       <TipoVehiculo>Moto</TipoVehiculo>
       <Placa>123123</Placa>
-      <Id>0</Id>
+      <Id>7</Id>
     </GeneradoA>
     <Detalle>
-      <Cantidad>0</Cantidad>
+      <Cantidad>4.1</Cantidad>
       <Id>0</Id>
-      <IGV>0</IGV>
+      <IGV>0.9</IGV>
       <HoraEntrada>   18   :   20   </HoraEntrada>
-      <Tarifa>0</Tarifa>
+      <HoraSalida>   14   :   44   </HoraSalida>
+      <HorasConsumidas>-03:36:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
   </Ticket>
   <Ticket>
     <Id>57</Id>
-    <CantTotal>0</CantTotal>
-    <Dia>0001-01-01T00:00:00</Dia>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:43:34.3131551-05:00</Dia>
     <GeneradoA>
       <AsigandoA>
-        <HoraInicio>   19   :   08   </HoraInicio>
-        <HoraSalida />
+        <HoraInicio>   21   :   42   </HoraInicio>
+        <HoraSalida>   14   :   43   </HoraSalida>
         <Id>1</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
+          <Detecta>false</Detecta>
           <Id>1</Id>
         </MiSensor>
         <Ubicacion>
@@ -1822,28 +1824,30 @@
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>aaa</Placa>
-      <Id>0</Id>
+      <Id>8</Id>
     </GeneradoA>
     <Detalle>
-      <Cantidad>0</Cantidad>
+      <Cantidad>4.1</Cantidad>
       <Id>0</Id>
-      <IGV>0</IGV>
+      <IGV>0.9</IGV>
       <HoraEntrada>   19   :   08   </HoraEntrada>
-      <Tarifa>0</Tarifa>
+      <HoraSalida>   14   :   43   </HoraSalida>
+      <HorasConsumidas>-04:25:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
   </Ticket>
   <Ticket>
     <Id>58</Id>
-    <CantTotal>0</CantTotal>
-    <Dia>0001-01-01T00:00:00</Dia>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:44:52.8514537-05:00</Dia>
     <GeneradoA>
       <AsigandoA>
-        <HoraInicio>   19   :   09   </HoraInicio>
-        <HoraSalida />
+        <HoraInicio />
+        <HoraSalida>   14   :   44   </HoraSalida>
         <Id>2</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
+          <Detecta>false</Detecta>
           <Id>2</Id>
         </MiSensor>
         <Ubicacion>
@@ -1853,14 +1857,16 @@
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>vvvv</Placa>
-      <Id>0</Id>
+      <Id>9</Id>
     </GeneradoA>
     <Detalle>
-      <Cantidad>0</Cantidad>
+      <Cantidad>4.1</Cantidad>
       <Id>0</Id>
-      <IGV>0</IGV>
+      <IGV>0.9</IGV>
       <HoraEntrada>   19   :   09   </HoraEntrada>
-      <Tarifa>0</Tarifa>
+      <HoraSalida>   14   :   44   </HoraSalida>
+      <HorasConsumidas>-04:25:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>true</UsoPersonal>
   </Ticket>
@@ -1932,15 +1938,15 @@
   </Ticket>
   <Ticket>
     <Id>61</Id>
-    <CantTotal>0</CantTotal>
-    <Dia>0001-01-01T00:00:00</Dia>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:43:13.1002358-05:00</Dia>
     <GeneradoA>
       <AsigandoA>
         <HoraInicio>   21   :   42   </HoraInicio>
-        <HoraSalida />
+        <HoraSalida>   14   :   43   </HoraSalida>
         <Id>1</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
+          <Detecta>false</Detecta>
           <Id>1</Id>
         </MiSensor>
         <Ubicacion>
@@ -1950,14 +1956,16 @@
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>Q456</Placa>
-      <Id>0</Id>
+      <Id>12</Id>
     </GeneradoA>
     <Detalle>
-      <Cantidad>0</Cantidad>
+      <Cantidad>4.1</Cantidad>
       <Id>0</Id>
-      <IGV>0</IGV>
+      <IGV>0.9</IGV>
       <HoraEntrada>   21   :   42   </HoraEntrada>
-      <Tarifa>0</Tarifa>
+      <HoraSalida>   14   :   43   </HoraSalida>
+      <HorasConsumidas>-06:59:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>false</UsoPersonal>
   </Ticket>
@@ -1990,6 +1998,204 @@
       <HoraEntrada>   21   :   46   </HoraEntrada>
       <HoraSalida>   21   :   51   </HoraSalida>
       <HorasConsumidas>00:05:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>63</Id>
+    <CantTotal>0</CantTotal>
+    <Dia>0001-01-01T00:00:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   00   :   39   </HoraInicio>
+        <HoraSalida>   00   :   39   </HoraSalida>
+        <Id>3</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>3</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>3</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Color>ROJO</Color>
+      <Modelo>Ferrari</Modelo>
+      <Placa>STARK841</Placa>
+      <Id>0</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>0</Cantidad>
+      <Id>0</Id>
+      <IGV>0</IGV>
+      <HoraEntrada>3</HoraEntrada>
+      <Tarifa>0</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>64</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:42:09.8524417-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   14   :   24   </HoraInicio>
+        <HoraSalida>   14   :   42   </HoraSalida>
+        <Id>15</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>15</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>15</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>BMW148</Placa>
+      <Id>15</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   14   :   24   </HoraEntrada>
+      <HoraSalida>   14   :   42   </HoraSalida>
+      <HorasConsumidas>00:18:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>65</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:26:39.6931444-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   14   :   30   </HoraInicio>
+        <HoraSalida>   14   :   26   </HoraSalida>
+        <Id>9</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>9</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>9</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Color>Azul</Color>
+      <Modelo>Toyota</Modelo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   14   :   30   </HoraEntrada>
+      <HoraSalida>   14   :   26   </HoraSalida>
+      <HorasConsumidas>-00:04:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>66</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:28:57.1838779-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   14   :   28   </HoraInicio>
+        <HoraSalida>   14   :   28   </HoraSalida>
+        <Id>6</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>6</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>6</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>QWE963</Placa>
+      <Id>16</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   14   :   28   </HoraEntrada>
+      <HoraSalida>   14   :   28   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>67</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:42:25.2363336-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   14   :   30   </HoraInicio>
+        <HoraSalida>   14   :   42   </HoraSalida>
+        <Id>7</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>7</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>7</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Moto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   14   :   30   </HoraEntrada>
+      <HoraSalida>   14   :   42   </HoraSalida>
+      <HorasConsumidas>00:12:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>68</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-13T14:48:17.7283389-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   14   :   48   </HoraInicio>
+        <HoraSalida>   14   :   48   </HoraSalida>
+        <Id>6</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>6</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>6</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Moto</TipoVehiculo>
+      <Placa>HJK841</Placa>
+      <Id>17</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   14   :   48   </HoraEntrada>
+      <HoraSalida>   14   :   48   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
       <Tarifa>5</Tarifa>
     </Detalle>
     <UsoPersonal>false</UsoPersonal>

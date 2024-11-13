@@ -292,7 +292,7 @@ private: System::Void ReservacionesList_Load(System::Object^ sender, System::Eve
 	ShowReservaciones();
 }
 private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventArgs^ e) {
-	DetalleTicket^ detalle = gcnew DetalleTicket();
+	/*DetalleTicket^ detalle = gcnew DetalleTicket();
 	Ticket^ ticket = gcnew Ticket();
 	Cliente^ cliente = Service::QueryClienteById(Convert::ToInt32(txtID->Text));
 	Vehiculo^ vehiculo = cliente->MiVehiculo;
@@ -310,6 +310,32 @@ private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventAr
 	detalle->HoraEntrada = estacionamiento->HoraInicio;
 	ticket->Detalle = detalle;
 	cliente->LugarReservado = false;
+	EstacionamientoService::Service::AddTicket(ticket);
+	EstacionamientoService::Service::UpdateVehiculo(vehiculo);
+	EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
+	EstacionamientoService::Service::UpdateReserva(reserva);
+	EstacionamientoService::Service::UpdateCliente(cliente);
+	MessageBox::Show("Se confirmo la reserva");
+	ShowReservaciones();*/
+
+	DetalleTicket^ detalle = gcnew DetalleTicket();
+	Ticket^ ticket = gcnew Ticket();
+	Cliente^ cliente = Service::QueryClienteById(Convert::ToInt32(txtID->Text));
+	Vehiculo^ vehiculo = cliente->MiVehiculo;
+	Model::Reservacion^ reserva = cliente->MiReservacion;
+	reserva->Completada = true;
+	Estacionamiento^ estacionamiento = vehiculo->AsigandoA;
+	//llenamos los atributos de la variable ESTACIONAMIENTO
+	//estacionamiento->HoraInicio = cliente->MiReservacion->InicioReserva;
+	//estacionamiento->HoraSalida = "";
+	//llenamos los atributos de la variable VEHICULO
+	vehiculo->AsigandoA = estacionamiento;
+	//llenamos los atributos de TICKET
+	ticket->GeneradoA = cliente->MiVehiculo;
+	ticket->Id = Service::GeneracionIDTicket();
+	detalle->HoraEntrada = cliente->MiReservacion->InicioReserva;
+	ticket->Detalle = detalle;
+	cliente->MiReservacion = reserva;
 	EstacionamientoService::Service::AddTicket(ticket);
 	EstacionamientoService::Service::UpdateVehiculo(vehiculo);
 	EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);

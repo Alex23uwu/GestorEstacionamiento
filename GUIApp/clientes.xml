@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfCliente xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Cliente>
-    <Id>1</Id>
-    <Nombre>Anthony</Nombre>
-    <Apellido>Vasquez</Apellido>
-    <NombreUsuario>avasquez</NombreUsuario>
+    <Id>2</Id>
+    <Nombre>Jose</Nombre>
+    <Apellido>Baldeon</Apellido>
+    <NombreUsuario>jbaldeon</NombreUsuario>
     <Clave>password</Clave>
-    <DNI>76324228</DNI>
+    <DNI>4321</DNI>
     <Estado>Activo</Estado>
-    <Email>a20181938@gmail.com</Email>
-    <Celular>984103760</Celular>
+    <Email>jb@gmail.com</Email>
+    <Celular>6544</Celular>
     <MiReservacion>
-      <Id>1</Id>
+      <Id>2</Id>
       <Permitido>false</Permitido>
-      <InicioReserva>3</InicioReserva>
+      <Completada>true</Completada>
+      <InicioReserva>   14   :   30   </InicioReserva>
     </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   00   :   39   </HoraInicio>
-        <HoraSalida>   00   :   39   </HoraSalida>
-        <Id>3</Id>
+        <HoraInicio>   14   :   30   </HoraInicio>
+        <HoraSalida />
+        <Id>9</Id>
         <MiSensor>
           <Detecta>true</Detecta>
-          <Id>3</Id>
+          <Id>9</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>3</NumeroEstacionamiento>
+          <NumeroEstacionamiento>9</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
-      <Color>ROJO</Color>
-      <Modelo>Ferrari</Modelo>
-      <Placa>STARK841</Placa>
-      <Id>0</Id>
+      <Color>Azul</Color>
+      <Modelo>Toyota</Modelo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
     </MiVehiculo>
     <LugarReservado>true</LugarReservado>
-    <Descuento>5</Descuento>
+    <Descuento>4</Descuento>
     <PuntosCliene>100</PuntosCliene>
   </Cliente>
 </ArrayOfCliente>

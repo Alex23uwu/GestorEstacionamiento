@@ -491,12 +491,13 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 		if (resultado == System::Windows::Forms::DialogResult::Yes) {
 			Estacionamiento^ estacionamiento = ClienteActual->MiVehiculo->AsigandoA;
 			Sensor^ sensor = estacionamiento->MiSensor;
-			Vehiculo^ vehiculo = ClienteActual->MiVehiculo;
+			//Vehiculo^ vehiculo = ClienteActual->MiVehiculo;
 			sensor->Detecta = false;
 			ClienteActual->LugarReservado = false;
+			//estacionamiento->MiSensor = sensor;
 			Service::UpdateCliente(ClienteActual);
 			Service::UpdateEstacionamiento(estacionamiento);
-			Service::UpdateVehiculo(vehiculo);
+			//Service::UpdateVehiculo(vehiculo);
 			Service::UpdateSensor(sensor);
 			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 			MessageBox::Show("Reserva Cancelada");
@@ -508,10 +509,12 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void bttReservar_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
-		if (!ConfirmarValidezReserva()) {
-			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
-			ClienteActual->LugarReservado = false;
-			throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
+		if (ClienteActual->LugarReservado == true) {
+			if (!ConfirmarValidezReserva()) {
+				Service::DeleteReserva(ClienteActual->MiReservacion->Id);
+				ClienteActual->LugarReservado = false;
+				throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
+			}
 		}
 		if (ClienteActual->LugarReservado == true) {
 			throw gcnew InvalidOperationException("Solo puede realizar una reserva a la vez");
@@ -524,7 +527,7 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				System::Windows::Forms::MessageBoxButtons::YesNo,
 				System::Windows::Forms::MessageBoxIcon::Question);
 			if (resultado == System::Windows::Forms::DialogResult::Yes) {
-				Model::Reservacion^ reserva = gcnew Model::Reservacion();
+				/*Model::Reservacion^ reserva = gcnew Model::Reservacion();
 				Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
 				Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(ClienteActual->MiVehiculo->Placa);
 				Sensor^ SensorSeleccionado = Service::QuerySensorbyID(EstacionamientoSeleccionado->Id);
@@ -542,7 +545,30 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				Service::AddReserva(reserva);
 				Service::UpdateEstacionamiento(EstacionamientoSeleccionado);
 				MessageBox::Show("Reserva Exitosa");
-				LimpiarColor();
+				LimpiarColor();*/
+				Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
+				Model::Reservacion^ reserva = gcnew Model::Reservacion();
+				reserva->Id = EstacionamientoService::Service::GenerateIDReserva();
+				reserva->InicioReserva = cmbHora->SelectedItem->ToString();
+				reserva->Completada = false;
+				ClienteActual->LugarReservado = true;
+				ClienteActual->MiReservacion = reserva;
+				//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
+				Sensor^ sensor = Service::QuerySensorbyID(EstacionamientoSeleccionado->Id);
+				//llenamos los atributos de la variable SENSOR
+				sensor->Detecta = true;
+				//llenamos los atributos de la variable ESTACIONAMIENTO
+				EstacionamientoSeleccionado->MiSensor = sensor;
+				EstacionamientoSeleccionado->HoraInicio = reserva->InicioReserva;
+				EstacionamientoSeleccionado->HoraSalida = "";
+
+				ClienteActual->MiVehiculo->AsigandoA = EstacionamientoSeleccionado;
+
+				Service::AddReserva(reserva);
+				Service::UpdateEstacionamiento(EstacionamientoSeleccionado);
+				Service::UpdateCliente(ClienteActual);
+				Service::UpdateSensor(sensor);
+				MessageBox::Show("Reserva Exitosa");
 			}
 			else {
 				MessageBox::Show("Reserva cancelada.");

@@ -3,6 +3,13 @@
   <Reservacion>
     <Id>1</Id>
     <Permitido>false</Permitido>
+    <Completada>false</Completada>
     <InicioReserva>3</InicioReserva>
+  </Reservacion>
+  <Reservacion>
+    <Id>2</Id>
+    <Permitido>false</Permitido>
+    <Completada>false</Completada>
+    <InicioReserva>   14   :   30   </InicioReserva>
   </Reservacion>
 </ArrayOfReservacion>

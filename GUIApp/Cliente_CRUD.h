@@ -806,7 +806,7 @@ namespace GUIApp {
 			clientes->Descuento = Int32::Parse(txtDescuento->Text);
 			clientes->PuntosCliene = Int32::Parse(txtPersonPoints->Text);
 
-			
+			vehiculos->Id = Service::QueryAllVehiculo()->Count + 1;
 			vehiculos->Placa = txtPlaca->Text;
 			vehiculos->Modelo = txtModelo->Text;
 			vehiculos->Color = txtColor->Text;
