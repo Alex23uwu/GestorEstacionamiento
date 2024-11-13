@@ -334,7 +334,7 @@ namespace GUIApp {
 
 		array<String^>^ arrayTiposdeUso = { "Con reserva", "Sin reserva" };
 		//int cantidadTotalRango = Service::MostrarCantidad(fechaIn, fechaFin);
-		List<String
+		//List<String
 
 
 			
