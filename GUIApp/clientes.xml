@@ -11,27 +11,27 @@
     <Email>jb@gmail.com</Email>
     <Celular>6544</Celular>
     <MiReservacion>
-      <Id>2</Id>
+      <Id>1</Id>
       <Permitido>false</Permitido>
-      <Completada>true</Completada>
-      <InicioReserva>   14   :   30   </InicioReserva>
+      <Completada>false</Completada>
+      <FechaReserva>2024-11-13T17:47:55.5342737-05:00</FechaReserva>
+      <InicioReserva>   18   :   05   </InicioReserva>
     </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   14   :   30   </HoraInicio>
+        <HoraInicio>   18   :   05   </HoraInicio>
         <HoraSalida />
-        <Id>9</Id>
+        <Id>8</Id>
         <MiSensor>
           <Detecta>true</Detecta>
-          <Id>9</Id>
+          <Id>8</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>9</NumeroEstacionamiento>
+          <NumeroEstacionamiento>8</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
-      <Color>Azul</Color>
-      <Modelo>Toyota</Modelo>
+      <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>POO2024</Placa>
       <Id>14</Id>
     </MiVehiculo>

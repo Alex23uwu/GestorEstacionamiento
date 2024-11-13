@@ -59,6 +59,7 @@ namespace EstacionamientoService {
 		static void DeleteCliente(int ClienteID);
 		static List<Cliente^>^ QueryAllClientes();
 		static Cliente^ QueryClienteById(int ClienteID);
+		static Cliente^ QueryClientebyPlaca(String^ placa);
 
 		// CRUD PARA VEHICULOS
 		static void AddVehiculo(Vehiculo^);

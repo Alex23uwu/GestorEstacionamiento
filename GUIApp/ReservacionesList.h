@@ -343,7 +343,15 @@ private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventAr
 	EstacionamientoService::Service::UpdateCliente(cliente);
 	MessageBox::Show("Se confirmo la reserva");
 	ShowReservaciones();
-
+	ClearControls();
 }
+	   public:
+		   void ClearControls() {
+			   for each (Control ^ control in this->Controls) {
+				   if (control->GetType() == TextBox::typeid) {
+					   dynamic_cast<TextBox^>(control)->Text = "";
+				   }
+			   }
+		   }
 };
 }

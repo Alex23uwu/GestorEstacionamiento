@@ -12,6 +12,7 @@ namespace Model {
         int Id;
         bool Permitido;
         bool Completada;
+        DateTime FechaReserva;
         String^ InicioReserva;
         String^ FinReserva;
     };

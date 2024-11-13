@@ -127,6 +127,7 @@ namespace GUIApp {
 			this->txtPlaca->Name = L"txtPlaca";
 			this->txtPlaca->Size = System::Drawing::Size(133, 20);
 			this->txtPlaca->TabIndex = 2;
+			this->txtPlaca->TextChanged += gcnew System::EventHandler(this, &EntradaVehiculos::txtPlaca_TextChanged);
 			// 
 			// label2
 			// 
@@ -251,6 +252,7 @@ namespace GUIApp {
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		labelIngresoVehiculo->Text = (DateTime::Now).ToString("   HH   :   mm   ");
+
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		try {
@@ -338,6 +340,19 @@ namespace GUIApp {
 			   }
 	}
 
+	String^ PlacaExistente() {
+		String^ placa = txtPlaca->Text;
+		List<Cliente^>^ listacliente = Service::QueryAllClientes();
+		for (int i = 0; i < listacliente->Count; i++) {
+			if (listacliente[i]->MiVehiculo->Placa == placa) {
+				Vehiculo^ vehiculo = listacliente[i]->MiVehiculo;
+				return vehiculo->Modelo;
+			}
+		}
+		return "";
+		
+	}
+
 private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::EventArgs^ e) {
 	LoadEstacionamientos();
 }
@@ -351,5 +366,18 @@ private: System::Void EntradaVehiculos_Load(System::Object^ sender, System::Even
 				   }
 			   }
 		   }
+	private: System::Void txtPlaca_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ modelo = PlacaExistente();
+
+		if (modelo != "") {
+			if (modelo == "Auto") {
+				cmbTipoVehiculo->SelectedIndex = 0;
+			}
+			else {
+				cmbTipoVehiculo->SelectedIndex = 1;
+			}
+		}
+
+	}
 };
 }

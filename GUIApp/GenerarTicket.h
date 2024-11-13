@@ -183,11 +183,12 @@ namespace GUIApp {
 				ticket->Detalle->HoraSalida = LabelTimeOut->Text;
 				ticket->Dia = System::DateTime::Now;
 				//direccionamos al sensor que debe apagarse
+				Cliente^ cliente = Service::QueryClientebyPlaca(placa);
 				Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 				Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
 				Sensor^ sensor = Service::QuerySensorbyID(estacionamiento->MiSensor->Id);
 				sensor->Detecta = false;//apagamos el sensor 
-				vehiculo->AsigandoA = estacionamiento;
+				vehiculo->AsigandoA = nullptr;
 				estacionamiento->MiSensor = sensor;
 				estacionamiento->HoraSalida = LabelTimeOut->Text;
 				ticket->GeneradoA = vehiculo;//actualiza la variable ticket
@@ -195,6 +196,11 @@ namespace GUIApp {
 
 				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 				String^ Boleta = "******** TICKET ********\n";
+				if (cliente != nullptr) {
+					cliente->MiVehiculo = vehiculo;
+					Boleta += "Cliente: " + cliente->Apellido + " " + cliente->Nombre + "\n";
+					Service::UpdateCliente(cliente);
+				}
 				Boleta += "Día: " + ticket->Dia.ToString("dd/MM/yyyy") + "\n";
 				Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
 				Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
@@ -231,7 +237,7 @@ namespace GUIApp {
 			   LabelTimeOut->Text = System::DateTime::Now.ToString("   HH   :   mm   "); // Formato de hora
 		   }
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		
 	}
 };
 }

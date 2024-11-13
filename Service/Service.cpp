@@ -246,6 +246,16 @@ Cliente^ EstacionamientoService::Service::QueryClienteById(int ClienteID)
 	}
 }
 
+Cliente^ EstacionamientoService::Service::QueryClientebyPlaca(String^ placa)
+{
+	ListaCliente = (List<Cliente^>^)Persistance::LoadClientesXmlFile(XML_CLIENTES_FILE_NAME);
+	for (int i = 0; i < ListaCliente->Count; i++) {
+		if (ListaCliente[i]->MiVehiculo->Placa == placa) {
+			return ListaCliente[i];
+		}
+	}
+}
+
 // VEHICULO CRUD
 void EstacionamientoService::Service::AddVehiculo(Vehiculo^ vehiculo)
 {
