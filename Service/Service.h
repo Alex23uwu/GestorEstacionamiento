@@ -80,6 +80,7 @@ namespace EstacionamientoService {
 		static Dictionary<String^, int>^ QueryTimesbyFecha(DateTime, DateTime);
 		static List<String^>^ QueryFechas(DateTime, DateTime);
 		static List<String^>^ QueryFechasbyPlaca(DateTime, DateTime, String^);
+		static int MostrarCantidad(DateTime, DateTime);
 
 		//CRUD PARA ESTACIONAMIENTOS
 		static void AddEstacionamiento(Estacionamiento^);

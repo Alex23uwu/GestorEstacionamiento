@@ -2200,4 +2200,37 @@
     </Detalle>
     <UsoPersonal>false</UsoPersonal>
   </Ticket>
+  <Ticket>
+    <Id>60</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-07T20:17:03.0040684-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   20   :   15   </HoraInicio>
+        <HoraSalida>   20   :   17   </HoraSalida>
+        <Id>2</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>2</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>STARK841</Placa>
+      <Id>6</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   20   :   15   </HoraEntrada>
+      <HoraSalida>   20   :   17   </HoraSalida>
+      <HorasConsumidas>00:02:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>true</UsoPersonal>
+  </Ticket>
 </ArrayOfTicket>

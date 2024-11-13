@@ -46,6 +46,10 @@ namespace GUIApp {
 	private: System::Windows::Forms::DateTimePicker^ dtpFin;
 	private: System::Windows::Forms::DateTimePicker^ dtpInicio;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartGanancias;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart;
+
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
 
 	private:
 		/// <summary>
@@ -60,6 +64,9 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
@@ -67,12 +74,16 @@ namespace GUIApp {
 			this->dtpFin = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->chartGanancias = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->chart = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(519, 436);
+			this->button1->Location = System::Drawing::Point(784, 27);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(200, 36);
 			this->button1->TabIndex = 7;
@@ -82,38 +93,76 @@ namespace GUIApp {
 			// 
 			// dtpFin
 			// 
-			this->dtpFin->Location = System::Drawing::Point(260, 436);
+			this->dtpFin->Location = System::Drawing::Point(266, 43);
 			this->dtpFin->Name = L"dtpFin";
 			this->dtpFin->Size = System::Drawing::Size(200, 20);
 			this->dtpFin->TabIndex = 6;
 			// 
 			// dtpInicio
 			// 
-			this->dtpInicio->Location = System::Drawing::Point(12, 436);
+			this->dtpInicio->Location = System::Drawing::Point(12, 43);
 			this->dtpInicio->Name = L"dtpInicio";
 			this->dtpInicio->Size = System::Drawing::Size(200, 20);
 			this->dtpInicio->TabIndex = 5;
 			// 
 			// chartGanancias
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chartGanancias->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chartGanancias->Legends->Add(legend2);
-			this->chartGanancias->Location = System::Drawing::Point(12, 21);
+			chartArea1->Name = L"ChartArea1";
+			this->chartGanancias->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chartGanancias->Legends->Add(legend1);
+			this->chartGanancias->Location = System::Drawing::Point(12, 105);
 			this->chartGanancias->Name = L"chartGanancias";
-			series2->ChartArea = L"ChartArea1";
-			series2->Legend = L"Legend1";
-			series2->Name = L"Monto diario";
-			this->chartGanancias->Series->Add(series2);
-			this->chartGanancias->Size = System::Drawing::Size(559, 409);
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Monto diario";
+			this->chartGanancias->Series->Add(series1);
+			this->chartGanancias->Size = System::Drawing::Size(510, 409);
 			this->chartGanancias->TabIndex = 4;
+			// 
+			// chart
+			// 
+			chartArea2->Name = L"ChartArea1";
+			this->chart->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chart->Legends->Add(legend2);
+			this->chart->Location = System::Drawing::Point(572, 105);
+			this->chart->Name = L"chart";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Series1";
+			this->chart->Series->Add(series2);
+			this->chart->Size = System::Drawing::Size(503, 409);
+			this->chart->TabIndex = 8;
+			this->chart->Text = L"chart1";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(12, 27);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(80, 13);
+			this->label1->TabIndex = 10;
+			this->label1->Text = L"Fecha de Inicio";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(263, 27);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(69, 13);
+			this->label2->TabIndex = 11;
+			this->label2->Text = L"Fecha de Fin";
 			// 
 			// GraficosCliente
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1087, 551);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->chart);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dtpFin);
 			this->Controls->Add(this->dtpInicio);
@@ -121,7 +170,9 @@ namespace GUIApp {
 			this->Name = L"GraficosCliente";
 			this->Text = L"GraficosCliente";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -152,6 +203,9 @@ namespace GUIApp {
 			chartGanancias->Series["Monto diario"]->Points[i]->Label = "S/. " + MontosDiariosDict[fecha];
 			chartGanancias->Series["Monto diario"]->Points[i]->AxisLabel = fecha;
 		}
+
+		
+
 	}
 };
 }

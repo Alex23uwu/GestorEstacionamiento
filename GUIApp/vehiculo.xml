@@ -81,19 +81,19 @@
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   00   :   39   </HoraInicio>
-      <HoraSalida>   00   :   39   </HoraSalida>
-      <Id>3</Id>
+      <HoraInicio>   20   :   15   </HoraInicio>
+      <HoraSalida>   20   :   17   </HoraSalida>
+      <Id>2</Id>
       <MiSensor>
         <Detecta>false</Detecta>
-        <Id>3</Id>
+        <Id>2</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>3</NumeroEstacionamiento>
+        <NumeroEstacionamiento>2</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <TipoVehiculo />
+    <TipoVehiculo>Auto</TipoVehiculo>
     <Placa>STARK841</Placa>
     <Id>6</Id>
   </Vehiculo>

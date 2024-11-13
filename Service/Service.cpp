@@ -482,6 +482,21 @@ List<String^>^ EstacionamientoService::Service::QueryFechasbyPlaca(DateTime Fech
 	return fechasList;
 }
 
+int EstacionamientoService::Service::MostrarCantidad(DateTime FechaInicio, DateTime FechaFin) {
+	List<Ticket^>^ ticketList = QueryAllTicket();
+	String^ fecha = "0";
+	int number = 0;
+	for (int i = 0; i < ticketList->Count; i++) {
+		if (ticketList[i]->Dia >= FechaInicio && ticketList[i]->Dia <= FechaFin) {
+			if (fecha != ticketList[i]->Dia.ToString("dd/MM/yy")) {
+				fecha = ticketList[i]->Dia.ToString("dd/MM/yy");
+				number++;
+			}
+		}
+	}
+	return number;
+}
+
 
 //CRUD ESTACIONAMIENTO
 void EstacionamientoService::Service::AddEstacionamiento(Estacionamiento^ estacionamiento)
