@@ -812,7 +812,7 @@ void EstacionamientoService::Service::UpdateReserva(Reservacion^ reserva)
 	for (int i = 0; i < ListaReservacion->Count; i++) {
 		if (ListaReservacion[i]->Id == reserva->Id) {
 			ListaReservacion[i] = reserva;
-			Persistance::PersistXMLFile(XML_SENSOR_FILE_NAME, ListaSensor);
+			Persistance::PersistXMLFile(XML_RESERVACION_FILE_NAME, ListaReservacion);
 			return;
 		}
 	}

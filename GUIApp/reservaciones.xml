@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfReservacion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Reservacion>
+    <Id>1</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T10:46:44.5343966-05:00</FechaReserva>
+    <InicioReserva>   10   :   45   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>2</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T11:26:52.7639631-05:00</FechaReserva>
+    <InicioReserva>   11   :   30   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>3</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T11:38:00.3462635-05:00</FechaReserva>
+    <InicioReserva>   11   :   45   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>4</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T11:51:11.8357453-05:00</FechaReserva>
+    <InicioReserva>   11   :   55   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>5</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T12:47:50.5845164-05:00</FechaReserva>
+    <InicioReserva>   12   :   50   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>6</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T13:02:51.1887459-05:00</FechaReserva>
+    <InicioReserva>   13   :   05   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>7</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T13:29:59.9013361-05:00</FechaReserva>
+    <InicioReserva>   13   :   30   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>8</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T13:41:30.2218812-05:00</FechaReserva>
+    <InicioReserva>   13   :   45   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>9</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T13:54:34.3617602-05:00</FechaReserva>
+    <InicioReserva>   13   :   55   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>10</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T13:59:02.1848764-05:00</FechaReserva>
+    <InicioReserva>   14   :   00   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>11</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-14T14:26:12.9725328-05:00</FechaReserva>
+    <InicioReserva>   14   :   30   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+</ArrayOfReservacion>

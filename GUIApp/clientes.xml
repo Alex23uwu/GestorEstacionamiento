@@ -42,27 +42,18 @@
     <Estado>Activo</Estado>
     <Email>er</Email>
     <Celular>1234</Celular>
-    <MiReservacion>
-      <Id>1</Id>
-      <TiempoExcedido>false</TiempoExcedido>
-      <Completada>false</Completada>
-      <FechaReserva>2024-11-13T21:25:18.1049601-05:00</FechaReserva>
-      <InicioReserva>   21   :   25   </InicioReserva>
-      <FinReserva>Cancelado</FinReserva>
-      <ClienteID>3</ClienteID>
-    </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   21   :   25   </HoraInicio>
+        <HoraInicio>   14   :   30   </HoraInicio>
         <HoraSalida />
-        <Id>11</Id>
+        <Id>4</Id>
         <MiSensor>
           <Detecta>false</Detecta>
-          <Id>11</Id>
+          <Id>4</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>11</NumeroEstacionamiento>
+          <NumeroEstacionamiento>4</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
       <Color>blu</Color>

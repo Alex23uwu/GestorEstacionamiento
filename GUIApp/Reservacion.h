@@ -26,6 +26,7 @@ namespace GUIApp {
 			now = DateTime::Now;
 			tiempo = gcnew List<String^>();
 			ClienteActual = Clientes;
+			contador = 0;
 		}
 
 
@@ -45,7 +46,8 @@ namespace GUIApp {
 		Button^ LastButtonPressed;
 		DateTime now;
 		List<String^>^ tiempo;
-		Cliente^ ClienteActual;  
+		Cliente^ ClienteActual;
+		int contador;
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 
@@ -736,6 +738,7 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 	cmbHora->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 	cmbHora->Items->Clear();
 	cmbHora->Items->AddRange(tiempo->ToArray());
+	ClienteActual = Service::QueryClienteById(ClienteActual->Id);
 	if (ClienteActual->MiReservacion != nullptr) {
 		if (!ConfirmarValidezReserva()) {
 			ClienteActual->LugarReservado = false;
@@ -744,7 +747,9 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 			sensor->Detecta = false;
 			Model::Reservacion^ reserva = ClienteActual->MiReservacion;
 			reserva->FinReserva = "Cancelado";
+			reserva->TiempoExcedido = true;
 			Service::UpdateReserva(reserva);
+			ClienteActual->MiReservacion = nullptr;
 			Service::UpdateCliente(ClienteActual);
 			Service::UpdateEstacionamiento(estacionamiento);
 			//Service::UpdateVehiculo(vehiculo);
@@ -757,6 +762,7 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 
 private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
+		ClienteActual = Service::QueryClienteById(ClienteActual->Id);
 		if (ClienteActual->LugarReservado == false) {
 			throw gcnew InvalidOperationException("No cuenta con ninguna reserva");
 		}
@@ -766,12 +772,15 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 			Sensor^ sensor = estacionamiento->MiSensor;
 			Model::Reservacion^ reserva = ClienteActual->MiReservacion;
 			sensor->Detecta = false;
+			reserva->TiempoExcedido = true;
 			reserva->FinReserva="Cancelado";
 			Service::UpdateReserva(reserva);
+			ClienteActual->MiReservacion = nullptr;
 			Service::UpdateCliente(ClienteActual);
 			Service::UpdateEstacionamiento(estacionamiento);
 			//Service::UpdateVehiculo(vehiculo);
 			Service::UpdateSensor(sensor);
+			ShowReservas();
 			throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite");
 		}
 		System::Windows::Forms::DialogResult resultado = MessageBox::Show("¿Estás seguro de cancelar su reserva?",
@@ -800,19 +809,23 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 }
 private: System::Void bttReservar_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
-		if (ClienteActual->LugarReservado == true) {
+		ClienteActual = Service::QueryClienteById(ClienteActual->Id);
+		if (ClienteActual->MiReservacion!=nullptr) {
 			if (!ConfirmarValidezReserva()) {
 				ClienteActual->LugarReservado = false;
 				Estacionamiento^ estacionamiento = ClienteActual->MiVehiculo->AsigandoA;
 				Sensor^ sensor = estacionamiento->MiSensor;
 				sensor->Detecta = false;
 				Model::Reservacion^ reserva = ClienteActual->MiReservacion;
+				reserva->TiempoExcedido = true;
 				reserva->FinReserva = "Cancelado";
 				Service::UpdateReserva(reserva);
+				ClienteActual->MiReservacion = nullptr;
 				Service::UpdateCliente(ClienteActual);
 				Service::UpdateEstacionamiento(estacionamiento);
 				//Service::UpdateVehiculo(vehiculo);
 				Service::UpdateSensor(sensor);
+				ShowReservas();
 				throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
 			}
 		}
@@ -856,6 +869,7 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				reserva->Completada = false;
 				reserva->FechaReserva = now;
 				reserva->ClienteID = ClienteActual->Id;
+				reserva->TiempoExcedido = false;
 				ClienteActual->LugarReservado = true;
 				ClienteActual->MiReservacion = reserva;
 				//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
@@ -901,6 +915,13 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			botones[i]->Enabled = false;
 		}
 	}
+	contador++;
+	if (contador == 60) {
+		CalculoHora();
+		cmbHora->Items->Clear();
+		cmbHora->Items->AddRange(tiempo->ToArray());
+		contador = 0;
+	}
 
 }
 	   private: void ShowReservas() {
@@ -909,8 +930,11 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			   dgvReserva->Rows->Clear();
 			   String^ estado;
 			   for (int i = ReservaLista->Count; i > 0; i--) {
-				   if (ReservaLista[i-1]->ClienteID == ClienteActual->Id) {
-					   if (ReservaLista[i - 1]->Completada == true) {
+				   if (ReservaLista[i - 1]->ClienteID == ClienteActual->Id) {
+					   if(ReservaLista[i-1]->TiempoExcedido==true) {
+						   estado = "Expirada";
+				       }
+					   else if (ReservaLista[i - 1]->Completada == true) {
 						   estado = "Completada";
 					   }
 					   else {
@@ -941,11 +965,12 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		EstacionamientoSeleccionado = EstacionamientosLista[i];
 		return EstacionamientoSeleccionado;
 }
+
 private: void CalculoHora() {
-	int minutosactuales = now.Minute;
-	int horasactuales = now.Hour;
+	int minutosactuales = DateTime::Now.Minute;
+	int horasactuales = DateTime::Now.Hour;
 	int horaredondeada = horasactuales;
-	int minutosredondeados = (minutosactuales / 5) * 5;
+	int minutosredondeados = (minutosactuales / 5) * 5 + 5;
 	if (minutosactuales > 55) {
 		if (horasactuales == 23) {
 			horaredondeada = 0;
@@ -955,10 +980,10 @@ private: void CalculoHora() {
 		}
 		minutosredondeados = 0;
 	}
-	else if (minutosactuales % 5 >= 3) {
+	else {
 		horaredondeada = horasactuales;
-		minutosredondeados += 5;
 	}
+	tiempo->Clear();
 	DateTime TiempoRedondeado(now.Year, now.Month, now.Day, horaredondeada, minutosredondeados, 0);
 	tiempo->Add(TiempoRedondeado.ToString("   HH   :   mm   "));
 	for (int i = 0; i < 5; i++) {
@@ -976,19 +1001,19 @@ private: void CalculoHora() {
 	}
 }
 	   private: bool ConfirmarValidezReserva() {
-		   int minutosactuales = now.Minute;
-		   int horaactual = now.Hour;
+		   int minutosactuales = DateTime::Now.Minute;
+		   int horaactual = DateTime::Now.Hour;
 		   DateTime tiemporeserva = DateTime::ParseExact(ClienteActual->MiReservacion->InicioReserva, "   HH   :   mm   ", CultureInfo::InvariantCulture);
 		   int horareserva = tiemporeserva.Hour;
 		   int minutoreserva = tiemporeserva.Minute;
 		   if (horareserva > horaactual) {
 			   return true;
 		   }
-		   else if (horareserva = horaactual) {
-			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 5) {
+		   else if (horareserva == horaactual) {
+			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 1) {
 				   return true;
 			   }
-			   else if (minutosactuales - minutoreserva > 5) {
+			   else if (minutosactuales - minutoreserva > 1) {
 				   return false;
 			   }
 		   }
