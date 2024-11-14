@@ -263,7 +263,7 @@ Object^ EstacionamientoPersistance::Persistance::LoadDetalleTicketXmlFile(String
 Object^ EstacionamientoPersistance::Persistance::LoadEstacionamientosXmlFile(String^ filename)
 {
     StreamReader^ reader;
-    Object^ result = gcnew List<DetalleTicket^>();
+    Object^ result = gcnew List<Estacionamiento^>();
     XmlSerializer^ xmlSerializer;
 
     try {

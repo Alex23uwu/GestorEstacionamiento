@@ -74,4 +74,45 @@
     <Descuento>0</Descuento>
     <PuntosCliene>0</PuntosCliene>
   </Cliente>
+  <Cliente>
+    <Id>1</Id>
+    <Nombre>Jhon</Nombre>
+    <Apellido>Barco</Apellido>
+    <NombreUsuario>12</NombreUsuario>
+    <Clave>12</Clave>
+    <DNI>4321</DNI>
+    <Estado>Activo</Estado>
+    <Email>jb@gmail.com</Email>
+    <Celular>6544</Celular>
+    <MiReservacion>
+      <Id>2</Id>
+      <TiempoExcedido>false</TiempoExcedido>
+      <Completada>true</Completada>
+      <FechaReserva>2024-11-14T00:35:33.0576246-05:00</FechaReserva>
+      <InicioReserva>   00   :   45   </InicioReserva>
+      <FinReserva>Cancelado</FinReserva>
+      <ClienteID>1</ClienteID>
+    </MiReservacion>
+    <MiVehiculo>
+      <AsigandoA>
+        <HoraInicio>   00   :   37   </HoraInicio>
+        <HoraSalida />
+        <Id>2</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>2</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>PLACA12</Placa>
+      <Id>24</Id>
+    </MiVehiculo>
+    <LugarReservado>false</LugarReservado>
+    <Descuento>4</Descuento>
+    <PuntosCliene>100</PuntosCliene>
+  </Cliente>
 </ArrayOfCliente>

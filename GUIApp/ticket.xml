@@ -130,4 +130,103 @@
     </Detalle>
     <UsoPersonal>false</UsoPersonal>
   </Ticket>
+  <Ticket>
+    <Id>5</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-14T00:37:34.0321361-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   00   :   37   </HoraInicio>
+        <HoraSalida />
+        <Id>2</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>2</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>PLACA12</Placa>
+      <Id>24</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   00   :   37   </HoraEntrada>
+      <HoraSalida>   00   :   37   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>6</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-14T01:28:38.9126459-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   01   :   28   </HoraInicio>
+        <HoraSalida />
+        <Id>2</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>2</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>2</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>BOT1</Placa>
+      <Id>25</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   01   :   28   </HoraEntrada>
+      <HoraSalida>   01   :   28   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>7</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-11-14T01:28:45.589107-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   01   :   28   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>BOT2</Placa>
+      <Id>26</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   01   :   28   </HoraEntrada>
+      <HoraSalida>   01   :   28   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
 </ArrayOfTicket>

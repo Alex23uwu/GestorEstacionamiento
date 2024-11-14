@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfEstacionamiento xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Estacionamiento>
-    <HoraInicio>   20   :   35   </HoraInicio>
-    <HoraSalida />
+    <HoraInicio>   01   :   28   </HoraInicio>
+    <HoraSalida>   01   :   28   </HoraSalida>
     <Id>1</Id>
     <MiSensor>
       <Detecta>false</Detecta>
@@ -14,8 +14,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   20   :   40   </HoraInicio>
-    <HoraSalida />
+    <HoraInicio>   01   :   28   </HoraInicio>
+    <HoraSalida>   01   :   28   </HoraSalida>
     <Id>2</Id>
     <MiSensor>
       <Detecta>false</Detecta>
@@ -27,7 +27,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   30   </HoraInicio>
+    <HoraInicio />
     <HoraSalida />
     <Id>3</Id>
     <MiSensor>
@@ -66,7 +66,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   50   </HoraInicio>
+    <HoraInicio />
     <HoraSalida />
     <Id>6</Id>
     <MiSensor>
@@ -79,8 +79,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   20   :   58   </HoraInicio>
-    <HoraSalida>   20   :   59   </HoraSalida>
+    <HoraInicio />
+    <HoraSalida />
     <Id>7</Id>
     <MiSensor>
       <Detecta>false</Detecta>
@@ -92,7 +92,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   05   </HoraInicio>
+    <HoraInicio />
     <HoraSalida />
     <Id>8</Id>
     <MiSensor>
@@ -131,7 +131,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   25   </HoraInicio>
+    <HoraInicio />
     <HoraSalida />
     <Id>11</Id>
     <MiSensor>
@@ -157,8 +157,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   02   </HoraInicio>
-    <HoraSalida>   21   :   03   </HoraSalida>
+    <HoraInicio />
+    <HoraSalida />
     <Id>13</Id>
     <MiSensor>
       <Detecta>false</Detecta>

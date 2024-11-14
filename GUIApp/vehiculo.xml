@@ -326,4 +326,19 @@
     <Placa>987654321</Placa>
     <Id>23</Id>
   </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>PLACA12</Placa>
+    <Id>24</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>BOT1</Placa>
+    <Id>25</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>BOT2</Placa>
+    <Id>26</Id>
+  </Vehiculo>
 </ArrayOfVehiculo>
