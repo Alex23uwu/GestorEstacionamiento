@@ -10,10 +10,11 @@ namespace Model {
     public ref class Reservacion {
     public:
         int Id;
-        bool Permitido;
+        bool TiempoExcedido;
         bool Completada;
         DateTime FechaReserva;
         String^ InicioReserva;
         String^ FinReserva;
+        int ClienteID;
     };
 }

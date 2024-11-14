@@ -225,19 +225,19 @@
   </Vehiculo>
   <Vehiculo>
     <AsigandoA>
-      <HoraInicio>   14   :   30   </HoraInicio>
-      <HoraSalida>   14   :   42   </HoraSalida>
-      <Id>7</Id>
+      <HoraInicio>   21   :   30   </HoraInicio>
+      <HoraSalida />
+      <Id>3</Id>
       <MiSensor>
-        <Detecta>false</Detecta>
-        <Id>7</Id>
+        <Detecta>true</Detecta>
+        <Id>3</Id>
       </MiSensor>
       <Ubicacion>
         <Piso>1</Piso>
-        <NumeroEstacionamiento>7</NumeroEstacionamiento>
+        <NumeroEstacionamiento>3</NumeroEstacionamiento>
       </Ubicacion>
     </AsigandoA>
-    <TipoVehiculo>Moto</TipoVehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
     <Placa>POO2024</Placa>
     <Id>14</Id>
   </Vehiculo>
@@ -294,5 +294,36 @@
     <TipoVehiculo>Moto</TipoVehiculo>
     <Placa>HJK841</Placa>
     <Id>17</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <Color>blu</Color>
+    <Modelo>macuin</Modelo>
+    <Placa>PLACAPRUEBA5</Placa>
+    <Id>18</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>XD2005uwu</Placa>
+    <Id>19</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>DXuwu2</Placa>
+    <Id>20</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>hola321</Placa>
+    <Id>21</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Auto</TipoVehiculo>
+    <Placa>12345</Placa>
+    <Id>22</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>987654321</Placa>
+    <Id>23</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

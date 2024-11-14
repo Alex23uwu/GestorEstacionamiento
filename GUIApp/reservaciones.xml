@@ -2,9 +2,10 @@
 <ArrayOfReservacion xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Reservacion>
     <Id>1</Id>
-    <Permitido>false</Permitido>
+    <TiempoExcedido>false</TiempoExcedido>
     <Completada>false</Completada>
-    <FechaReserva>2024-11-13T17:47:55.5342737-05:00</FechaReserva>
-    <InicioReserva>   18   :   05   </InicioReserva>
+    <FechaReserva>2024-11-13T21:25:18.1049601-05:00</FechaReserva>
+    <InicioReserva>   21   :   25   </InicioReserva>
+    <ClienteID>3</ClienteID>
   </Reservacion>
 </ArrayOfReservacion>

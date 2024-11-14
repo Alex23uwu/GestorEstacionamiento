@@ -794,7 +794,7 @@ namespace GUIApp {
 			Vehiculo^ vehiculos = gcnew Vehiculo();
 			Vehiculo^ vehiculoexistente = EstacionamientoService::Service::QueryVehiculoByPlaca(txtPlaca->Text);
 			//clientes->Id = Int32::Parse(txtPersonId->Text);
-			clientes->Id = Service::QueryAllClientes()->Count+1;
+			clientes->Id = Service::GenerateClienteID();
 			clientes->Nombre = txtFirstName->Text;
 			clientes->Apellido = txtLastName->Text;
 			clientes->NombreUsuario = txtUsername->Text;

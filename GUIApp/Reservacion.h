@@ -91,11 +91,12 @@ namespace GUIApp {
 	private: System::Windows::Forms::Button^ est14;
 	private: System::Windows::Forms::ImageList^ imageListaEstacionamiento;
 	private: System::Windows::Forms::ComboBox^ cmbHora;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Status;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fecha;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Inicio;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fin;
+	private: System::Windows::Forms::DataGridView^ dgvReserva;
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
@@ -112,6 +113,10 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label16;
 	private: System::Windows::Forms::Label^ label17;
 	private: System::Windows::Forms::Label^ label18;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Status;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fecha;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Inicio;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fin;
 
 
 
@@ -175,11 +180,7 @@ namespace GUIApp {
 			this->est14 = (gcnew System::Windows::Forms::Button());
 			this->imageListaEstacionamiento = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->cmbHora = (gcnew System::Windows::Forms::ComboBox());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Reserva_Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Fecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Inicio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Fin = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvReserva = (gcnew System::Windows::Forms::DataGridView());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -196,7 +197,11 @@ namespace GUIApp {
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label18 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->Reserva_Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Fecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Inicio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Fin = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvReserva))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -454,44 +459,18 @@ namespace GUIApp {
 			this->cmbHora->Size = System::Drawing::Size(121, 21);
 			this->cmbHora->TabIndex = 38;
 			// 
-			// dataGridView1
+			// dgvReserva
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dgvReserva->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvReserva->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Reserva_Status,
 					this->Reserva_Fecha, this->Reserva_Inicio, this->Reserva_Fin
 			});
-			this->dataGridView1->Location = System::Drawing::Point(569, 211);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->ReadOnly = true;
-			this->dataGridView1->Size = System::Drawing::Size(344, 149);
-			this->dataGridView1->TabIndex = 39;
-			// 
-			// Reserva_Status
-			// 
-			this->Reserva_Status->HeaderText = L"Estado";
-			this->Reserva_Status->Name = L"Reserva_Status";
-			this->Reserva_Status->ReadOnly = true;
-			// 
-			// Reserva_Fecha
-			// 
-			this->Reserva_Fecha->HeaderText = L"Fecha";
-			this->Reserva_Fecha->Name = L"Reserva_Fecha";
-			this->Reserva_Fecha->ReadOnly = true;
-			// 
-			// Reserva_Inicio
-			// 
-			this->Reserva_Inicio->HeaderText = L"Inicio";
-			this->Reserva_Inicio->Name = L"Reserva_Inicio";
-			this->Reserva_Inicio->ReadOnly = true;
-			this->Reserva_Inicio->Width = 50;
-			// 
-			// Reserva_Fin
-			// 
-			this->Reserva_Fin->HeaderText = L"Fin";
-			this->Reserva_Fin->Name = L"Reserva_Fin";
-			this->Reserva_Fin->ReadOnly = true;
-			this->Reserva_Fin->Width = 50;
+			this->dgvReserva->Location = System::Drawing::Point(577, 207);
+			this->dgvReserva->Name = L"dgvReserva";
+			this->dgvReserva->ReadOnly = true;
+			this->dgvReserva->Size = System::Drawing::Size(336, 149);
+			this->dgvReserva->TabIndex = 39;
 			// 
 			// label2
 			// 
@@ -669,6 +648,32 @@ namespace GUIApp {
 			this->label18->TabIndex = 55;
 			this->label18->Text = L"16";
 			// 
+			// Reserva_Status
+			// 
+			this->Reserva_Status->HeaderText = L"Estado";
+			this->Reserva_Status->Name = L"Reserva_Status";
+			this->Reserva_Status->ReadOnly = true;
+			// 
+			// Reserva_Fecha
+			// 
+			this->Reserva_Fecha->HeaderText = L"Fecha";
+			this->Reserva_Fecha->Name = L"Reserva_Fecha";
+			this->Reserva_Fecha->ReadOnly = true;
+			// 
+			// Reserva_Inicio
+			// 
+			this->Reserva_Inicio->HeaderText = L"Inicio";
+			this->Reserva_Inicio->Name = L"Reserva_Inicio";
+			this->Reserva_Inicio->ReadOnly = true;
+			this->Reserva_Inicio->Width = 75;
+			// 
+			// Reserva_Fin
+			// 
+			this->Reserva_Fin->HeaderText = L"Fin";
+			this->Reserva_Fin->Name = L"Reserva_Fin";
+			this->Reserva_Fin->ReadOnly = true;
+			this->Reserva_Fin->Width = 75;
+			// 
 			// Reservacion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -690,7 +695,7 @@ namespace GUIApp {
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->dgvReserva);
 			this->Controls->Add(this->cmbHora);
 			this->Controls->Add(this->est14);
 			this->Controls->Add(this->est15);
@@ -715,7 +720,7 @@ namespace GUIApp {
 			this->Name = L"Reservacion";
 			this->Text = L"Reservacion";
 			this->Load += gcnew System::EventHandler(this, &Reservacion::Reservacion_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvReserva))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -731,6 +736,23 @@ private: System::Void Reservacion_Load(System::Object^ sender, System::EventArgs
 	cmbHora->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 	cmbHora->Items->Clear();
 	cmbHora->Items->AddRange(tiempo->ToArray());
+	if (ClienteActual->MiReservacion != nullptr) {
+		if (!ConfirmarValidezReserva()) {
+			ClienteActual->LugarReservado = false;
+			Estacionamiento^ estacionamiento = ClienteActual->MiVehiculo->AsigandoA;
+			Sensor^ sensor = estacionamiento->MiSensor;
+			sensor->Detecta = false;
+			Model::Reservacion^ reserva = ClienteActual->MiReservacion;
+			reserva->FinReserva = "Cancelado";
+			Service::UpdateReserva(reserva);
+			Service::UpdateCliente(ClienteActual);
+			Service::UpdateEstacionamiento(estacionamiento);
+			//Service::UpdateVehiculo(vehiculo);
+			Service::UpdateSensor(sensor);
+			MessageBox::Show("Su anterior reserva expiró");
+		}
+	}
+	ShowReservas();
 }
 
 private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -739,9 +761,17 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 			throw gcnew InvalidOperationException("No cuenta con ninguna reserva");
 		}
 		if (!ConfirmarValidezReserva()) {
-			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 			ClienteActual->LugarReservado = false;
+			Estacionamiento^ estacionamiento = ClienteActual->MiVehiculo->AsigandoA;
+			Sensor^ sensor = estacionamiento->MiSensor;
+			Model::Reservacion^ reserva = ClienteActual->MiReservacion;
+			sensor->Detecta = false;
+			reserva->FinReserva="Cancelado";
+			Service::UpdateReserva(reserva);
 			Service::UpdateCliente(ClienteActual);
+			Service::UpdateEstacionamiento(estacionamiento);
+			//Service::UpdateVehiculo(vehiculo);
+			Service::UpdateSensor(sensor);
 			throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite");
 		}
 		System::Windows::Forms::DialogResult resultado = MessageBox::Show("¿Estás seguro de cancelar su reserva?",
@@ -754,14 +784,15 @@ private: System::Void bttCancel_Click(System::Object^ sender, System::EventArgs^
 			//Vehiculo^ vehiculo = ClienteActual->MiVehiculo;
 			sensor->Detecta = false;
 			ClienteActual->LugarReservado = false;
+			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 			//estacionamiento->MiSensor = sensor;
 			Service::UpdateCliente(ClienteActual);
 			Service::UpdateEstacionamiento(estacionamiento);
 			//Service::UpdateVehiculo(vehiculo);
 			Service::UpdateSensor(sensor);
-			Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 			MessageBox::Show("Reserva Cancelada");
 		}
+		ShowReservas();
 	}
 	catch (Exception^ ex) {
 		MessageBox::Show(ex->Message);
@@ -771,9 +802,17 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 	try {
 		if (ClienteActual->LugarReservado == true) {
 			if (!ConfirmarValidezReserva()) {
-				Service::DeleteReserva(ClienteActual->MiReservacion->Id);
 				ClienteActual->LugarReservado = false;
+				Estacionamiento^ estacionamiento = ClienteActual->MiVehiculo->AsigandoA;
+				Sensor^ sensor = estacionamiento->MiSensor;
+				sensor->Detecta = false;
+				Model::Reservacion^ reserva = ClienteActual->MiReservacion;
+				reserva->FinReserva = "Cancelado";
+				Service::UpdateReserva(reserva);
 				Service::UpdateCliente(ClienteActual);
+				Service::UpdateEstacionamiento(estacionamiento);
+				//Service::UpdateVehiculo(vehiculo);
+				Service::UpdateSensor(sensor);
 				throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
 			}
 		}
@@ -782,6 +821,9 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 		}
 		if (isButtonPressed == 0) {
 			throw gcnew InvalidOperationException("Tiene que seleccionar un estacionamiento");
+		}
+		if (cmbHora->SelectedItem == nullptr) {
+			throw gcnew InvalidOperationException("Seleccione una hora");
 		}
 			System::Windows::Forms::DialogResult resultado = MessageBox::Show("¿Estás seguro de reservar este espacio?",
 				"Confirmación de Reserva",
@@ -813,6 +855,7 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				reserva->InicioReserva = cmbHora->SelectedItem->ToString();
 				reserva->Completada = false;
 				reserva->FechaReserva = now;
+				reserva->ClienteID = ClienteActual->Id;
 				ClienteActual->LugarReservado = true;
 				ClienteActual->MiReservacion = reserva;
 				//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
@@ -831,10 +874,12 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				Service::UpdateCliente(ClienteActual);
 				Service::UpdateSensor(sensor);
 				MessageBox::Show("Reserva Exitosa");
+				LimpiarColor();
 			}
 			else {
 				MessageBox::Show("Reserva cancelada.");
 			}
+			ShowReservas();
 	}
 	catch (Exception^ ex) {
 		MessageBox::Show("No se ha podido realiza la reserva por el siguiente motivo:\n" + ex->Message);
@@ -858,6 +903,29 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	}
 
 }
+	   private: void ShowReservas() {
+		   List <Model::Reservacion^>^ ReservaLista = Service::QueryAllReservacion();
+		   if (ReservaLista != nullptr) {
+			   dgvReserva->Rows->Clear();
+			   String^ estado;
+			   for (int i = ReservaLista->Count; i > 0; i--) {
+				   if (ReservaLista[i-1]->ClienteID == ClienteActual->Id) {
+					   if (ReservaLista[i - 1]->Completada == true) {
+						   estado = "Completada";
+					   }
+					   else {
+						   estado = "Pendiente";
+					   }
+					   dgvReserva->Rows->Add(gcnew array<String^>{
+								estado,
+							   (ReservaLista[i - 1]->FechaReserva).Date.ToString("yyyy-MM-dd"),
+							   ReservaLista[i - 1]->InicioReserva,
+							   ReservaLista[i - 1]->FinReserva,
+					   });
+				   }
+			   }
+		   }
+	   }
 
 	private: Estacionamiento^ SeleccionEstacionamiento() {
 		int i = 0;

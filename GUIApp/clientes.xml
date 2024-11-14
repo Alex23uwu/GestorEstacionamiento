@@ -10,33 +10,68 @@
     <Estado>Activo</Estado>
     <Email>jb@gmail.com</Email>
     <Celular>6544</Celular>
-    <MiReservacion>
-      <Id>1</Id>
-      <Permitido>false</Permitido>
-      <Completada>false</Completada>
-      <FechaReserva>2024-11-13T17:47:55.5342737-05:00</FechaReserva>
-      <InicioReserva>   18   :   05   </InicioReserva>
-    </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   18   :   05   </HoraInicio>
+        <HoraInicio>   21   :   30   </HoraInicio>
         <HoraSalida />
-        <Id>8</Id>
+        <Id>3</Id>
         <MiSensor>
-          <Detecta>true</Detecta>
-          <Id>8</Id>
+          <Detecta>false</Detecta>
+          <Id>3</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>8</NumeroEstacionamiento>
+          <NumeroEstacionamiento>3</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
       <Placa>POO2024</Placa>
       <Id>14</Id>
     </MiVehiculo>
-    <LugarReservado>true</LugarReservado>
+    <LugarReservado>false</LugarReservado>
     <Descuento>4</Descuento>
     <PuntosCliene>100</PuntosCliene>
+  </Cliente>
+  <Cliente>
+    <Id>3</Id>
+    <Nombre>re</Nombre>
+    <Apellido>re</Apellido>
+    <NombreUsuario>1234</NombreUsuario>
+    <Clave>1234</Clave>
+    <DNI>234</DNI>
+    <Estado>Activo</Estado>
+    <Email>er</Email>
+    <Celular>1234</Celular>
+    <MiReservacion>
+      <Id>1</Id>
+      <TiempoExcedido>false</TiempoExcedido>
+      <Completada>false</Completada>
+      <FechaReserva>2024-11-13T21:25:18.1049601-05:00</FechaReserva>
+      <InicioReserva>   21   :   25   </InicioReserva>
+      <FinReserva>Cancelado</FinReserva>
+      <ClienteID>3</ClienteID>
+    </MiReservacion>
+    <MiVehiculo>
+      <AsigandoA>
+        <HoraInicio>   21   :   25   </HoraInicio>
+        <HoraSalida />
+        <Id>11</Id>
+        <MiSensor>
+          <Detecta>false</Detecta>
+          <Id>11</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>11</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <Color>blu</Color>
+      <Modelo>macuin</Modelo>
+      <Placa>PLACAPRUEBA5</Placa>
+      <Id>18</Id>
+    </MiVehiculo>
+    <LugarReservado>false</LugarReservado>
+    <Descuento>0</Descuento>
+    <PuntosCliene>0</PuntosCliene>
   </Cliente>
 </ArrayOfCliente>

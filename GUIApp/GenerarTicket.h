@@ -168,13 +168,13 @@ namespace GUIApp {
 		
 		try {
 			String^ placa = txtPlacaVehiculo->Text;
-
+			Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 			Ticket^ ticket = EstacionamientoService::Service::QueryTicketbyPlaca(placa);
 
-			if (ticket == nullptr) {
+			if (vehiculo==nullptr) {
 				throw gcnew InvalidOperationException("La placa no figura en la base de datos.");
 			}
-			if (ticket->GeneradoA->AsigandoA->MiSensor->Detecta == false) {//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
+			if (vehiculo->AsigandoA==nullptr) {//Si generamos el ticket a la misma placa, cuyo sensor ya esta en false no permitira cobrar 
 				txtPlacaVehiculo->Clear();
 				throw gcnew InvalidOperationException("La placa no se encuentra en el estacionamiento.");
 			}
@@ -184,20 +184,26 @@ namespace GUIApp {
 				ticket->Dia = System::DateTime::Now;
 				//direccionamos al sensor que debe apagarse
 				Cliente^ cliente = Service::QueryClientebyPlaca(placa);
-				Vehiculo^ vehiculo = Service::QueryVehiculoByPlaca(placa);
 				Estacionamiento^ estacionamiento = Service::QueryEstacionamientosbyId(vehiculo->AsigandoA->Id);
 				Sensor^ sensor = Service::QuerySensorbyID(estacionamiento->MiSensor->Id);
 				sensor->Detecta = false;//apagamos el sensor 
-				vehiculo->AsigandoA = nullptr;
 				estacionamiento->MiSensor = sensor;
 				estacionamiento->HoraSalida = LabelTimeOut->Text;
-				ticket->GeneradoA = vehiculo;//actualiza la variable ticket
+				ticket->GeneradoA = vehiculo;
+				//actualiza la variable ticket
 				//estacionamiento->HoraInicio = "";	
 
 				ticket->CantTotal = EstacionamientoService::Service::CalculoPago(5, 0.18, ticket->Detalle);
 				String^ Boleta = "******** TICKET ********\n";
 				if (cliente != nullptr) {
 					cliente->MiVehiculo = vehiculo;
+					if (cliente->LugarReservado==true) {
+						Model::Reservacion^ reserva = cliente->MiReservacion;
+						reserva->FinReserva = LabelTimeOut->Text;
+						reserva->Completada = true;
+						cliente->LugarReservado = false;
+						Service::UpdateReserva(reserva);
+					}
 					Boleta += "Cliente: " + cliente->Apellido + " " + cliente->Nombre + "\n";
 					Service::UpdateCliente(cliente);
 				}
@@ -216,8 +222,9 @@ namespace GUIApp {
 
 				Service::UpdateSensor(sensor);
 				Service::UpdateEstacionamiento(estacionamiento);
-				Service::UpdateVehiculo(vehiculo);
 				Service::UpdateTicket(ticket);
+				vehiculo->AsigandoA = nullptr;
+				Service::UpdateVehiculo(vehiculo);
 				txtPlacaVehiculo->Clear();
 			}
 
