@@ -47,7 +47,8 @@ namespace GUIApp {
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::DateTimePicker^ FechaFin2;
 	private: System::Windows::Forms::DateTimePicker^ FechaInicio2;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartPie;
+	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartPorcentaje;
+
 
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
@@ -76,15 +77,15 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chartGanancias = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->dtpInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpFin = (gcnew System::Windows::Forms::DateTimePicker());
@@ -95,32 +96,32 @@ namespace GUIApp {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->FechaFin2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->FechaInicio2 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->chartPie = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->chartPorcentaje = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVeces))->BeginInit();
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPie))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPorcentaje))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chartGanancias
 			// 
-			chartArea4->Name = L"ChartArea1";
-			this->chartGanancias->ChartAreas->Add(chartArea4);
-			legend4->Name = L"Legend1";
-			this->chartGanancias->Legends->Add(legend4);
+			chartArea1->Name = L"ChartArea1";
+			this->chartGanancias->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chartGanancias->Legends->Add(legend1);
 			this->chartGanancias->Location = System::Drawing::Point(8, 85);
 			this->chartGanancias->Name = L"chartGanancias";
-			series4->ChartArea = L"ChartArea1";
-			series4->Legend = L"Legend1";
-			series4->Name = L"Monto diario";
-			this->chartGanancias->Series->Add(series4);
+			series1->ChartArea = L"ChartArea1";
+			series1->Legend = L"Legend1";
+			series1->Name = L"Monto diario";
+			this->chartGanancias->Series->Add(series1);
 			this->chartGanancias->Size = System::Drawing::Size(590, 409);
 			this->chartGanancias->TabIndex = 0;
 			// 
@@ -150,16 +151,16 @@ namespace GUIApp {
 			// 
 			// chartVeces
 			// 
-			chartArea5->Name = L"ChartArea1";
-			this->chartVeces->ChartAreas->Add(chartArea5);
-			legend5->Name = L"Legend1";
-			this->chartVeces->Legends->Add(legend5);
+			chartArea2->Name = L"ChartArea1";
+			this->chartVeces->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chartVeces->Legends->Add(legend2);
 			this->chartVeces->Location = System::Drawing::Point(646, 85);
 			this->chartVeces->Name = L"chartVeces";
-			series5->ChartArea = L"ChartArea1";
-			series5->Legend = L"Legend1";
-			series5->Name = L"Veces por dia";
-			this->chartVeces->Series->Add(series5);
+			series2->ChartArea = L"ChartArea1";
+			series2->Legend = L"Legend1";
+			series2->Name = L"Veces por dia";
+			this->chartVeces->Series->Add(series2);
 			this->chartVeces->Size = System::Drawing::Size(541, 409);
 			this->chartVeces->TabIndex = 4;
 			this->chartVeces->Text = L"chartVeces";
@@ -216,7 +217,7 @@ namespace GUIApp {
 			this->tabPage2->Controls->Add(this->label1);
 			this->tabPage2->Controls->Add(this->FechaFin2);
 			this->tabPage2->Controls->Add(this->FechaInicio2);
-			this->tabPage2->Controls->Add(this->chartPie);
+			this->tabPage2->Controls->Add(this->chartPorcentaje);
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
@@ -224,6 +225,16 @@ namespace GUIApp {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(872, 28);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(200, 36);
+			this->button2->TabIndex = 14;
+			this->button2->Text = L"Ver Gráficos";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &GraficosAdmin1::button2_Click);
 			// 
 			// label2
 			// 
@@ -257,32 +268,22 @@ namespace GUIApp {
 			this->FechaInicio2->Size = System::Drawing::Size(200, 20);
 			this->FechaInicio2->TabIndex = 3;
 			// 
-			// chartPie
+			// chartPorcentaje
 			// 
-			chartArea6->Name = L"ChartArea1";
-			this->chartPie->ChartAreas->Add(chartArea6);
-			legend6->Name = L"Legend1";
-			this->chartPie->Legends->Add(legend6);
-			this->chartPie->Location = System::Drawing::Point(28, 108);
-			this->chartPie->Name = L"chartPie";
-			series6->ChartArea = L"ChartArea1";
-			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series6->Legend = L"Legend1";
-			series6->Name = L"Series1";
-			this->chartPie->Series->Add(series6);
-			this->chartPie->Size = System::Drawing::Size(518, 345);
-			this->chartPie->TabIndex = 0;
-			this->chartPie->Text = L"chart1";
-			// 
-			// button2
-			// 
-			this->button2->Location = System::Drawing::Point(872, 28);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(200, 36);
-			this->button2->TabIndex = 14;
-			this->button2->Text = L"Ver Gráficos";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &GraficosAdmin1::button2_Click);
+			chartArea3->Name = L"ChartArea1";
+			this->chartPorcentaje->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chartPorcentaje->Legends->Add(legend3);
+			this->chartPorcentaje->Location = System::Drawing::Point(28, 108);
+			this->chartPorcentaje->Name = L"chartPorcentaje";
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series3->Legend = L"Legend1";
+			series3->Name = L"Series1";
+			this->chartPorcentaje->Series->Add(series3);
+			this->chartPorcentaje->Size = System::Drawing::Size(518, 345);
+			this->chartPorcentaje->TabIndex = 0;
+			this->chartPorcentaje->Text = L"Porcentaje Estacionamientos con Reserva";
 			// 
 			// GraficosAdmin1
 			// 
@@ -300,7 +301,7 @@ namespace GUIApp {
 			this->tabPage1->PerformLayout();
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPie))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartPorcentaje))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -347,14 +348,28 @@ namespace GUIApp {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		DateTime fechaFin = Convert::ToDateTime(FechaFin2->Text);
 		DateTime fechaIn = Convert::ToDateTime(FechaInicio2->Text);
-		
+
 		if (fechaIn > fechaFin) {
 			MessageBox::Show("Debe Elegir una fecha de inicio anterior a la fecha final.");
 			return;
 		}
 
+		int cantTickets = Service::MostrarCantidadTickets(fechaIn, fechaFin);
+		int cantReservaciones = Service::MostrarCantidadReservaciones(fechaIn, fechaFin);
 
-		
+		Dictionary<String^, int>^ ConSinReserva = gcnew Dictionary<String^, int>();
+
+		ConSinReserva->Add("Sin reserva", cantTickets - cantReservaciones);
+		ConSinReserva->Add("Con reserva", cantReservaciones);
+
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points->Add(ConSinReserva["Sin reserva"]);
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->LegendText = "Sin reserva";
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->Label = "" + ConSinReserva["Sin reserva"];
+
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points->Add(ConSinReserva["Con reserva"]);
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->LegendText = "Con reserva";
+		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->Label = "" + ConSinReserva["Con reserva"];
+
 	}
 };
 }

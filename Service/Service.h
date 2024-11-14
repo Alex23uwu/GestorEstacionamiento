@@ -123,5 +123,7 @@ namespace EstacionamientoService {
 		static void DeleteReserva(int ID);
 		static Reservacion^ QueryReservabyID(int ID);
 		static List<Reservacion^>^ QueryAllReservacion();
+		static int MostrarCantidadReservaciones(DateTime, DateTime);
+
 	};
 }
