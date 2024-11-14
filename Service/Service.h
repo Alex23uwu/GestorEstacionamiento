@@ -74,6 +74,7 @@ namespace EstacionamientoService {
 		static void AddTicket(Ticket^);
 		static List<Ticket^>^ QueryAllTicket();
 		static Ticket^ QueryTicketbyPlaca(String^ placa);
+		static Ticket^ QueryTicketbyId(int ticketId);
 		static int GeneracionIDTicket();
 		static double CalculoPago(double tarifa, double IGV, DetalleTicket^ detalle);
 		static void UpdateTicket(Ticket^);
@@ -82,7 +83,7 @@ namespace EstacionamientoService {
 		static Dictionary<String^, int>^ QueryTimesbyFecha(DateTime, DateTime);
 		static List<String^>^ QueryFechas(DateTime, DateTime);
 		static List<String^>^ QueryFechasbyPlaca(DateTime, DateTime, String^);
-		static int MostrarCantidad(DateTime, DateTime);
+		static int MostrarCantidadTickets(DateTime, DateTime);
 
 		//CRUD PARA ESTACIONAMIENTOS
 		static void AddEstacionamiento(Estacionamiento^);
