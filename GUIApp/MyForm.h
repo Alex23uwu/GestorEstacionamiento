@@ -13,6 +13,7 @@
 #include "GraficosCliente.h"
 #include "GraficosAdmin1.h"
 #include "ReservacionesList.h"
+#include "SensorExterno.h"
 
 namespace GUIApp {
 
@@ -42,6 +43,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ misReportesDeClienteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ gráficosDeAdministradorToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ listaDeReservasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ sensorExternoToolStripMenuItem;
 
 
 	public:
@@ -120,11 +122,12 @@ namespace GUIApp {
 			this->generarTicketToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reservacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->espaciosDisponiblesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->listaDeReservasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->misReportesDeClienteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->gráficosDeAdministradorToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->listaDeReservasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->sensorExternoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -152,7 +155,7 @@ namespace GUIApp {
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
@@ -211,9 +214,10 @@ namespace GUIApp {
 			// 
 			// transaccionesToolStripMenuItem
 			// 
-			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->transaccionesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->entradaDeVeToolStripMenuItem,
-					this->generarTicketToolStripMenuItem, this->reservacionToolStripMenuItem, this->espaciosDisponiblesToolStripMenuItem, this->listaDeReservasToolStripMenuItem
+					this->generarTicketToolStripMenuItem, this->reservacionToolStripMenuItem, this->espaciosDisponiblesToolStripMenuItem, this->listaDeReservasToolStripMenuItem,
+					this->sensorExternoToolStripMenuItem
 			});
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
 			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(92, 20);
@@ -247,6 +251,13 @@ namespace GUIApp {
 			this->espaciosDisponiblesToolStripMenuItem->Text = L"Espacios disponibles";
 			this->espaciosDisponiblesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::espaciosDisponiblesToolStripMenuItem_Click);
 			// 
+			// listaDeReservasToolStripMenuItem
+			// 
+			this->listaDeReservasToolStripMenuItem->Name = L"listaDeReservasToolStripMenuItem";
+			this->listaDeReservasToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->listaDeReservasToolStripMenuItem->Text = L"Lista de Reservas";
+			this->listaDeReservasToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::listaDeReservasToolStripMenuItem_Click);
+			// 
 			// reporteToolStripMenuItem
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
@@ -277,12 +288,12 @@ namespace GUIApp {
 			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(53, 20);
 			this->ayudaToolStripMenuItem->Text = L"Ayuda";
 			// 
-			// listaDeReservasToolStripMenuItem
+			// sensorExternoToolStripMenuItem
 			// 
-			this->listaDeReservasToolStripMenuItem->Name = L"listaDeReservasToolStripMenuItem";
-			this->listaDeReservasToolStripMenuItem->Size = System::Drawing::Size(183, 22);
-			this->listaDeReservasToolStripMenuItem->Text = L"Lista de Reservas";
-			this->listaDeReservasToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::listaDeReservasToolStripMenuItem_Click);
+			this->sensorExternoToolStripMenuItem->Name = L"sensorExternoToolStripMenuItem";
+			this->sensorExternoToolStripMenuItem->Size = System::Drawing::Size(183, 22);
+			this->sensorExternoToolStripMenuItem->Text = L"Sensor Externo";
+			this->sensorExternoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::sensorExternoToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -293,7 +304,7 @@ namespace GUIApp {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"MyForm";
 			this->Text = L"Sistema de Estacionamiento";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -401,6 +412,11 @@ private: System::Void gráficosDeAdministradorToolStripMenuItem_Click(System::Obj
 }
 private: System::Void listaDeReservasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	ReservacionesList^ form = gcnew ReservacionesList();
+	form->MdiParent = this;
+	form->Show();
+}
+private: System::Void sensorExternoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	SensorExterno^ form = gcnew SensorExterno();
 	form->MdiParent = this;
 	form->Show();
 }
