@@ -99,4 +99,30 @@
     <FinReserva>Cancelado</FinReserva>
     <ClienteID>3</ClienteID>
   </Reservacion>
+  <Reservacion>
+    <Id>12</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>true</Completada>
+    <FechaReserva>2024-11-21T20:18:41.7335421-05:00</FechaReserva>
+    <InicioReserva>   20   :   40   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>13</Id>
+    <TiempoExcedido>true</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-21T21:19:08.069422-05:00</FechaReserva>
+    <InicioReserva>   21   :   20   </InicioReserva>
+    <FinReserva>Cancelado</FinReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
+  <Reservacion>
+    <Id>14</Id>
+    <TiempoExcedido>false</TiempoExcedido>
+    <Completada>false</Completada>
+    <FechaReserva>2024-11-21T21:30:34.5571751-05:00</FechaReserva>
+    <InicioReserva>   21   :   35   </InicioReserva>
+    <ClienteID>3</ClienteID>
+  </Reservacion>
 </ArrayOfReservacion>

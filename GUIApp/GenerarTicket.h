@@ -211,12 +211,26 @@ namespace GUIApp {
 				Boleta += "Hora de Ingreso: " + ticket->Detalle->HoraEntrada + "\n";
 				Boleta += "Hora de Salida: " + ticket->Detalle->HoraSalida + "\n";
 				Boleta += "Tiempo Consumido: " + ticket->Detalle->HorasConsumidas + "\n";
+				if (ticket->UsoPersonal == true) {
+					Boleta += "Uso personal limpieza: Sí" + "\n";
+				}
+				else {
+					Boleta += "Uso personal limpieza: No" + "\n";
+				}
 				Boleta += "-------------------------\n";
 				Boleta += "Tarifa Base (pago por hora): S/ " + ticket->Detalle->Tarifa.ToString("F2") + "\n";
 				Boleta += "IGV (18%): S/ " + ticket->Detalle->IGV.ToString("F2") + "\n";
 				Boleta += "Pago Tarifa: S/ " + ticket->Detalle->Cantidad.ToString("F2") + "\n";
+				if (ticket->UsoPersonal == true) {
+					Boleta += "Pago Personal Limpieza: S/10 " + "\n";
+				}
 				Boleta += "-------------------------\n";
-				Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
+				if (ticket->UsoPersonal == true) {
+					Boleta += "Pago Total: S/ " + (ticket->CantTotal+10).ToString("F2") + "\n";
+				}
+				else {
+					Boleta += "Pago Total: S/ " + ticket->CantTotal.ToString("F2") + "\n";
+				}
 				Boleta += "*************************\n";
 				MessageBox::Show(Boleta, "Ticket de Servicio", MessageBoxButtons::OK, MessageBoxIcon::Information);
 

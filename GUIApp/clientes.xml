@@ -12,16 +12,16 @@
     <Celular>6544</Celular>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   21   :   30   </HoraInicio>
+        <HoraInicio>   20   :   24   </HoraInicio>
         <HoraSalida />
-        <Id>3</Id>
+        <Id>6</Id>
         <MiSensor>
-          <Detecta>false</Detecta>
-          <Id>3</Id>
+          <Detecta>true</Detecta>
+          <Id>6</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>3</NumeroEstacionamiento>
+          <NumeroEstacionamiento>6</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
@@ -42,18 +42,26 @@
     <Estado>Activo</Estado>
     <Email>er</Email>
     <Celular>1234</Celular>
+    <MiReservacion>
+      <Id>14</Id>
+      <TiempoExcedido>false</TiempoExcedido>
+      <Completada>false</Completada>
+      <FechaReserva>2024-11-21T21:30:34.5571751-05:00</FechaReserva>
+      <InicioReserva>   21   :   35   </InicioReserva>
+      <ClienteID>3</ClienteID>
+    </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   14   :   30   </HoraInicio>
+        <HoraInicio>   21   :   35   </HoraInicio>
         <HoraSalida />
-        <Id>4</Id>
+        <Id>3</Id>
         <MiSensor>
-          <Detecta>false</Detecta>
-          <Id>4</Id>
+          <Detecta>true</Detecta>
+          <Id>3</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>4</NumeroEstacionamiento>
+          <NumeroEstacionamiento>3</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
       <Color>blu</Color>
@@ -61,7 +69,7 @@
       <Placa>PLACAPRUEBA5</Placa>
       <Id>18</Id>
     </MiVehiculo>
-    <LugarReservado>false</LugarReservado>
+    <LugarReservado>true</LugarReservado>
     <Descuento>0</Descuento>
     <PuntosCliene>0</PuntosCliene>
   </Cliente>

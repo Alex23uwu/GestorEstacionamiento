@@ -224,19 +224,6 @@
     <Id>13</Id>
   </Vehiculo>
   <Vehiculo>
-    <AsigandoA>
-      <HoraInicio>   21   :   30   </HoraInicio>
-      <HoraSalida />
-      <Id>3</Id>
-      <MiSensor>
-        <Detecta>true</Detecta>
-        <Id>3</Id>
-      </MiSensor>
-      <Ubicacion>
-        <Piso>1</Piso>
-        <NumeroEstacionamiento>3</NumeroEstacionamiento>
-      </Ubicacion>
-    </AsigandoA>
     <TipoVehiculo>Auto</TipoVehiculo>
     <Placa>POO2024</Placa>
     <Id>14</Id>
@@ -340,5 +327,10 @@
     <TipoVehiculo>Auto</TipoVehiculo>
     <Placa>BOT2</Placa>
     <Id>26</Id>
+  </Vehiculo>
+  <Vehiculo>
+    <TipoVehiculo>Moto</TipoVehiculo>
+    <Placa>XYZ</Placa>
+    <Id>27</Id>
   </Vehiculo>
 </ArrayOfVehiculo>

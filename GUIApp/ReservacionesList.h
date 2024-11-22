@@ -11,6 +11,7 @@ namespace GUIApp {
 	using namespace Model;
 	using namespace EstacionamientoService;
 	using namespace System::Collections::Generic;
+	using namespace System::Globalization;
 
 	/// <summary>
 	/// Resumen de ReservacionesList
@@ -64,12 +65,14 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ReservacionEstacionamiento;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::TextBox^ txtID;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -78,6 +81,7 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->dgvReservacion = (gcnew System::Windows::Forms::DataGridView());
 			this->ClienteID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ReservacionName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -93,6 +97,7 @@ namespace GUIApp {
 			this->txtPlaque = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtID = (gcnew System::Windows::Forms::TextBox());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvReservacion))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -103,12 +108,11 @@ namespace GUIApp {
 				this->ClienteID,
 					this->ReservacionName, this->ReservacionPlaca, this->ReservacionHora, this->ReservacionEstacionamiento
 			});
-			this->dgvReservacion->Location = System::Drawing::Point(9, 15);
-			this->dgvReservacion->Margin = System::Windows::Forms::Padding(4);
+			this->dgvReservacion->Location = System::Drawing::Point(7, 12);
 			this->dgvReservacion->Name = L"dgvReservacion";
 			this->dgvReservacion->ReadOnly = true;
 			this->dgvReservacion->RowHeadersWidth = 51;
-			this->dgvReservacion->Size = System::Drawing::Size(723, 421);
+			this->dgvReservacion->Size = System::Drawing::Size(542, 342);
 			this->dgvReservacion->TabIndex = 0;
 			this->dgvReservacion->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ReservacionesList::dataGridView1_CellClick);
 			// 
@@ -155,39 +159,35 @@ namespace GUIApp {
 			// txtName
 			// 
 			this->txtName->AutoSize = true;
-			this->txtName->Location = System::Drawing::Point(760, 105);
-			this->txtName->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->txtName->Location = System::Drawing::Point(570, 85);
 			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(59, 16);
+			this->txtName->Size = System::Drawing::Size(47, 13);
 			this->txtName->TabIndex = 1;
 			this->txtName->Text = L"Nombre:";
 			// 
 			// txtPlaca
 			// 
 			this->txtPlaca->AutoSize = true;
-			this->txtPlaca->Location = System::Drawing::Point(760, 185);
-			this->txtPlaca->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->txtPlaca->Location = System::Drawing::Point(570, 150);
 			this->txtPlaca->Name = L"txtPlaca";
-			this->txtPlaca->Size = System::Drawing::Size(45, 16);
+			this->txtPlaca->Size = System::Drawing::Size(37, 13);
 			this->txtPlaca->TabIndex = 2;
 			this->txtPlaca->Text = L"Placa:";
 			// 
 			// txtTime
 			// 
 			this->txtTime->AutoSize = true;
-			this->txtTime->Location = System::Drawing::Point(760, 270);
-			this->txtTime->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->txtTime->Location = System::Drawing::Point(570, 219);
 			this->txtTime->Name = L"txtTime";
-			this->txtTime->Size = System::Drawing::Size(95, 16);
+			this->txtTime->Size = System::Drawing::Size(76, 13);
 			this->txtTime->TabIndex = 3;
 			this->txtTime->Text = L"Hora Reserva:";
 			// 
 			// btnConfirmar
 			// 
-			this->btnConfirmar->Location = System::Drawing::Point(779, 356);
-			this->btnConfirmar->Margin = System::Windows::Forms::Padding(4);
+			this->btnConfirmar->Location = System::Drawing::Point(584, 289);
 			this->btnConfirmar->Name = L"btnConfirmar";
-			this->btnConfirmar->Size = System::Drawing::Size(183, 63);
+			this->btnConfirmar->Size = System::Drawing::Size(137, 51);
 			this->btnConfirmar->TabIndex = 4;
 			this->btnConfirmar->Text = L"Confirmar";
 			this->btnConfirmar->UseVisualStyleBackColor = true;
@@ -195,51 +195,51 @@ namespace GUIApp {
 			// 
 			// txtNombre
 			// 
-			this->txtNombre->Location = System::Drawing::Point(794, 146);
-			this->txtNombre->Margin = System::Windows::Forms::Padding(4);
+			this->txtNombre->Location = System::Drawing::Point(596, 119);
 			this->txtNombre->Name = L"txtNombre";
-			this->txtNombre->Size = System::Drawing::Size(148, 22);
+			this->txtNombre->Size = System::Drawing::Size(112, 20);
 			this->txtNombre->TabIndex = 5;
 			// 
 			// txtHE
 			// 
-			this->txtHE->Location = System::Drawing::Point(794, 305);
-			this->txtHE->Margin = System::Windows::Forms::Padding(4);
+			this->txtHE->Location = System::Drawing::Point(596, 248);
 			this->txtHE->Name = L"txtHE";
-			this->txtHE->Size = System::Drawing::Size(148, 22);
+			this->txtHE->Size = System::Drawing::Size(112, 20);
 			this->txtHE->TabIndex = 6;
 			// 
 			// txtPlaque
 			// 
-			this->txtPlaque->Location = System::Drawing::Point(794, 219);
-			this->txtPlaque->Margin = System::Windows::Forms::Padding(4);
+			this->txtPlaque->Location = System::Drawing::Point(596, 178);
 			this->txtPlaque->Name = L"txtPlaque";
-			this->txtPlaque->Size = System::Drawing::Size(148, 22);
+			this->txtPlaque->Size = System::Drawing::Size(112, 20);
 			this->txtPlaque->TabIndex = 7;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(760, 30);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(570, 24);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(23, 16);
+			this->label1->Size = System::Drawing::Size(21, 13);
 			this->label1->TabIndex = 8;
 			this->label1->Text = L"ID:";
 			// 
 			// txtID
 			// 
-			this->txtID->Location = System::Drawing::Point(794, 62);
-			this->txtID->Margin = System::Windows::Forms::Padding(4);
+			this->txtID->Location = System::Drawing::Point(596, 50);
 			this->txtID->Name = L"txtID";
-			this->txtID->Size = System::Drawing::Size(148, 22);
+			this->txtID->Size = System::Drawing::Size(112, 20);
 			this->txtID->TabIndex = 9;
+			// 
+			// timer1
+			// 
+			this->timer1->Interval = 1000;
+			this->timer1->Tick += gcnew System::EventHandler(this, &ReservacionesList::timer1_Tick);
 			// 
 			// ReservacionesList
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(989, 449);
+			this->ClientSize = System::Drawing::Size(742, 365);
 			this->Controls->Add(this->txtID);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txtPlaque);
@@ -250,7 +250,6 @@ namespace GUIApp {
 			this->Controls->Add(this->txtPlaca);
 			this->Controls->Add(this->txtName);
 			this->Controls->Add(this->dgvReservacion);
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"ReservacionesList";
 			this->Text = L"ReservacionesList";
 			this->Load += gcnew System::EventHandler(this, &ReservacionesList::ReservacionesList_Load);
@@ -333,7 +332,7 @@ private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventAr
 	//llenamos los atributos de TICKET
 	ticket->GeneradoA = cliente->MiVehiculo;
 	ticket->Id = Service::GeneracionIDTicket();
-	detalle->HoraEntrada = cliente->MiReservacion->InicioReserva;
+	detalle->HoraEntrada = DateTime::Now.ToString("   HH   :   mm   ");
 	ticket->Detalle = detalle;
 	cliente->MiReservacion = reserva;
 	EstacionamientoService::Service::AddTicket(ticket);
@@ -353,5 +352,50 @@ private: System::Void btnConfirmar_Click(System::Object^ sender, System::EventAr
 				   }
 			   }
 		   }
+private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+	List <Cliente^>^ ClienteLista = Service::QueryAllClientes();
+	for (int i = 0; i < ClienteLista->Count; i++){
+		if (ClienteLista[i]->MiReservacion != nullptr) {
+			if (!ConfirmarValidezReserva(ClienteLista[i])) {
+				ClienteLista[i]->LugarReservado = false;
+				Estacionamiento^ estacionamiento = ClienteLista[i]->MiVehiculo->AsigandoA;
+				Sensor^ sensor = estacionamiento->MiSensor;
+				sensor->Detecta = false;
+				Model::Reservacion^ reserva = ClienteLista[i]->MiReservacion;
+				reserva->TiempoExcedido = true;
+				reserva->FinReserva = "Cancelado";
+				Service::UpdateReserva(reserva);
+				ClienteLista[i]->MiReservacion = nullptr;
+				Service::UpdateCliente(ClienteLista[i]);
+				Service::UpdateEstacionamiento(estacionamiento);
+				//Service::UpdateVehiculo(vehiculo);
+				Service::UpdateSensor(sensor);
+				ShowReservaciones();
+			}
+		}
+	}
+	ShowReservaciones();
+}
+	    private: bool ConfirmarValidezReserva(Cliente^ cliente) {
+		   int minutosactuales = DateTime::Now.Minute;
+		   int horaactual = DateTime::Now.Hour;
+		   DateTime tiemporeserva = DateTime::ParseExact(cliente->MiReservacion->InicioReserva, "   HH   :   mm   ", CultureInfo::InvariantCulture);
+		   int horareserva = tiemporeserva.Hour;
+		   int minutoreserva = tiemporeserva.Minute;
+		   if (horareserva > horaactual) {
+			   return true;
+		   }
+		   else if (horareserva == horaactual) {
+			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 5) {
+				   return true;
+			   }
+			   else if (minutosactuales - minutoreserva > 5) {
+				   return false;
+			   }
+		   }
+		   else {
+			   return false;
+		   }
+	   }
 };
 }

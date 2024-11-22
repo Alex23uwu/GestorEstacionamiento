@@ -1010,10 +1010,10 @@ private: void CalculoHora() {
 			   return true;
 		   }
 		   else if (horareserva == horaactual) {
-			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 1) {
+			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 5) {
 				   return true;
 			   }
-			   else if (minutosactuales - minutoreserva > 1) {
+			   else if (minutosactuales - minutoreserva > 5) {
 				   return false;
 			   }
 		   }

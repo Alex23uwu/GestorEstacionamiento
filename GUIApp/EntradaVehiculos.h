@@ -307,7 +307,6 @@ namespace GUIApp {
 				EstacionamientoService::Service::UpdateVehiculo(vehiculo);
 			}
 			EstacionamientoService::Service::UpdateSensor(sensor);
-			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
 			if (checkServicioLimpieza->Checked) {
 				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " al estacionamiento "+
