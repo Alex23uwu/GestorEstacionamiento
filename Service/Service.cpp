@@ -6,60 +6,36 @@
 #include "DuplicatedPlacaVehiculo.h"
 
 using namespace System::IO;
+
 // CRUD PERSONAL LIMPIEZA
-void EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza) {
+int EstacionamientoService::Service::AddPersonalLimpieza(PersonalLimpieza^ personalLimpieza) {
 
 	for each (PersonalLimpieza ^ personalLimp in ListaPersonalLimpieza) {
 		if (personalLimp->Id == personalLimpieza->Id) {
-			throw gcnew DuplicatedLimpiadorException("El código del Limpiador ya existe en la base de datos.");
+			throw gcnew DuplicatedLimpiadorException("El ID del Limpiador ya existe en la base de datos.");
 		}
 	}
-	ListaPersonalLimpieza->Add(personalLimpieza);
-	Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
+	return Persistance::AddPersonalLimpieza(personalLimpieza);
 }
 
-void EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ personalLimpieza)
-{
-	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-		if (ListaPersonalLimpieza[i]->Id == personalLimpieza->Id) {
-			ListaPersonalLimpieza[i] = personalLimpieza;
-			Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
-			return;
-		}
-	}
-	throw gcnew DoesNotExistLimpieadorId("El código del Limpiador no existe en la base de datos ");
+int EstacionamientoService::Service::UpdatePersonalLimpieza(PersonalLimpieza^ personalLimpieza){
+
+	return Persistance::UpdatePersonalLimpieza(personalLimpieza);
 }
 
-void EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiezaID)
-{
-	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaID) {
-			ListaPersonalLimpieza->RemoveAt(i);
-			Persistance::PersistXMLFile(XML_LIMPIADOR_FILE_NAME, ListaPersonalLimpieza);
-			return;
-		}
-	}
+int EstacionamientoService::Service::DeletePersonalLimpieza(int PersonalLimpiezaID){
+
+	return Persistance::DeletePersonalLimpieza(PersonalLimpiezaID);
 }
 
 List<PersonalLimpieza^>^ EstacionamientoService::Service::QueryAllPersonalLimpieza()
 {
-	ListaPersonalLimpieza = gcnew List<PersonalLimpieza^>();
-	try
-	{
-		ListaPersonalLimpieza = (List<PersonalLimpieza^>^)Persistance::LoadPersonalLimpiezaXmlFile(XML_LIMPIADOR_FILE_NAME);
-	}
-	catch (FileNotFoundException^ ex) {
-
-	}
-	return ListaPersonalLimpieza;
+	return Persistance::QueryAllPersonalLimpieza();
 }
 
 PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int PersonalLimpiezaId) {
-	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-		if (ListaPersonalLimpieza[i]->Id == PersonalLimpiezaId) {
-			return ListaPersonalLimpieza[i];
-		}
-	}
+	
+	return Persistance::QueryPersonalById(PersonalLimpiezaId);
 }
 
 int EstacionamientoService::Service::UpdatePersonalLimpiezaID() {

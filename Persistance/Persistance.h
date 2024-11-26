@@ -4,11 +4,15 @@ using namespace System;
 using namespace System::Collections::Generic;
 using namespace System::Xml::Serialization;
 using namespace Model;
+using namespace System::Data::SqlClient;
 
 namespace EstacionamientoPersistance {
 	public ref class Persistance {
 
+	private:
+		static SqlConnection^ GetConnection();
 	public:
+
 		static void PersistXMLFile(String^ fileName, Object^ persistObject);
 
 		//Persistencia del Limpiador 
@@ -35,5 +39,14 @@ namespace EstacionamientoPersistance {
 		//Persistencia de Sensores
 		static Object^ LoadSensorXmlFile(String^ fileName);
 		static Object^ LoadReservaXmlFile(String^ filename);
+
+
+		//Base de Datos
+		//PERSONAL DE LIMPIEZA
+		static int AddPersonalLimpieza(PersonalLimpieza^ personal);
+		static List<PersonalLimpieza^>^ QueryAllPersonalLimpieza();
+		static int UpdatePersonalLimpieza(PersonalLimpieza^ personal);
+		static int DeletePersonalLimpieza(int PersonalId);
+		static PersonalLimpieza^ QueryPersonalById(int PersonalId);
 	};
 }

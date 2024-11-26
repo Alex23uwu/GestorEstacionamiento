@@ -400,9 +400,9 @@ namespace GUIApp {
 		}
 #pragma endregion
 	private: System::Void bttAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+		PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza();
 		try{	
-			int id = Convert::ToInt32(txtId->Text);
-			PersonalLimpieza^ personalLimp = gcnew PersonalLimpieza(id);
+			personalLimp->Id = Convert::ToInt32(txtId->Text);
 			personalLimp->Nombre = txtNombre->Text;
 			personalLimp->Apellido = txtApellido->Text;
 			personalLimp->Estado = txtEstado->Text;
@@ -414,7 +414,7 @@ namespace GUIApp {
 			ClearControls();
 			DisableControls();
 			bttAdd->Enabled = false;
-			MessageBox::Show("Se ha agreado al Personal " + id + "-" + personalLimp->Nombre);
+			MessageBox::Show("Se ha agreado al Personal " + personalLimp->Id + "-" + personalLimp->Nombre);
 		}
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
@@ -469,17 +469,16 @@ namespace GUIApp {
 				MessageBox::Show("Debe realizar alguna modificación");
 				return;
 			}
-			int id = Convert::ToInt32(personalId);
-			PersonalLimpieza^ limpieza = gcnew PersonalLimpieza(id);
-			limpieza->Nombre = txtNombre->Text;
-			limpieza->Apellido = txtApellido->Text;
-			limpieza->Estado = txtEstado->Text;
-			limpieza->Piso = Convert::ToInt32(txtPiso->Text);
-			limpieza->NombreUsuario = txtUsuario->Text;
-			limpieza->Clave = txtPassword->Text;
-			Service::UpdatePersonalLimpieza(limpieza);
+			
+			personal->Nombre = txtNombre->Text;
+			personal->Apellido = txtApellido->Text;
+			personal->Estado = txtEstado->Text;
+			personal->Piso = Convert::ToInt32(txtPiso->Text);
+			personal->NombreUsuario = txtUsuario->Text;
+			personal->Clave = txtPassword->Text;
+			Service::UpdatePersonalLimpieza(personal);
 			ShowPersonal();
-			MessageBox::Show("Se ha modificado el Personal " + id + "-" + limpieza->Nombre);
+			MessageBox::Show("Se ha modificado el Personal " + personal->Id + "-" + personal->Nombre);
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No se ha podido modificar el personal por el siguiente motivo:\n" +
@@ -503,6 +502,7 @@ namespace GUIApp {
 			MessageBox::Show("No ha sido posible eliminar el Personal por el siguiente motivo:\n" +
 				ex->Message);
 		}
+		Service::UpdatePersonalLimpieza(personal);
 	}
 	private: System::Void PersonalLimpieza_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
 		bttAdd->Enabled = false;

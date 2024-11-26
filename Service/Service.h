@@ -35,9 +35,9 @@ namespace EstacionamientoService {
 
 	public:
 		// CRUD PARA EL PERSONAL DE LIMPIEZA
-		static void AddPersonalLimpieza(PersonalLimpieza^);
-		static void UpdatePersonalLimpieza(PersonalLimpieza^);
-		static void DeletePersonalLimpieza(int PersonalLimpiezaID);
+		static int AddPersonalLimpieza(PersonalLimpieza^);
+		static int UpdatePersonalLimpieza(PersonalLimpieza^);
+		static int DeletePersonalLimpieza(int PersonalLimpiezaID);
 		static List<PersonalLimpieza^>^ QueryAllPersonalLimpieza();
 		static PersonalLimpieza^ QueryPersonalLimpiezaById(int PersonalLimpiezaId);
 		static int UpdatePersonalLimpiezaID();
