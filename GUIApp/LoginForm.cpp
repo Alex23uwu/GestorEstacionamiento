@@ -12,6 +12,7 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MyForm::User = usuario;
 		MessageBox::Show("Bienvenido");
 		this->Close();
+		form->WindowState = FormWindowState::Maximized;
 	}
 	else if(cliente != nullptr){
 		MessageBox::Show("Bienvenido "+cliente->Nombre+" "+cliente->Apellido);
@@ -19,6 +20,7 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MyForm::Cliente = cliente;
 		form->Text = "Sistema de estacionamiento - Cliente: " + MyForm::Cliente->Nombre + " " + MyForm::Cliente->Apellido;
 		((MyForm^)form)->EnableClienteOptions();
+		form->WindowState = FormWindowState::Maximized;
 
 	}
 	else if (veedor != nullptr) {
@@ -27,6 +29,7 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MyForm::Veedor = veedor;
 		form->Text = "Sistema de estacionamiento - Veedor: " + MyForm::Veedor->Nombre + " " + MyForm::Veedor->Apellido;
 		((MyForm^)form)->EnableVeedorOptions();
+		form->WindowState = FormWindowState::Maximized;
 	}
 	else if (personalLimpieza != nullptr) {
 		MessageBox::Show("Bienvenido " + personalLimpieza->Nombre + " " + personalLimpieza->Apellido);
@@ -34,6 +37,7 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MyForm::PersonalLimpieza = personalLimpieza;
 		form->Text = "Sistema de estacionamiento - Personal de Limpieza: " + MyForm::PersonalLimpieza->Nombre + " " + MyForm::PersonalLimpieza->Apellido;
 		((MyForm^)form)->EnablePersonalLimpiezaOptions();
+		form->WindowState = FormWindowState::Maximized;
 	}
 	else if (administardor != nullptr) {
 		MessageBox::Show("Bienvenido " + administardor->Nombre + " " + administardor->Apellido);
@@ -41,6 +45,7 @@ System::Void GUIApp::LoginForm::bttAcept_Click(System::Object^ sender, System::E
 		MyForm::Administrador = administardor;
 		form->Text = "Sistema de estacionamiento - Administardor: " + MyForm::Administrador->Nombre + " " + MyForm::Administrador->Apellido;
 		((MyForm^)form)->EnableAdministradorOptions();
+		form->WindowState = FormWindowState::Maximized;
 	}
 	else {
 		MessageBox::Show("Usuario y contraseña incorrectos.");

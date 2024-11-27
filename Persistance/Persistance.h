@@ -48,5 +48,6 @@ namespace EstacionamientoPersistance {
 		static int UpdatePersonalLimpieza(PersonalLimpieza^ personal);
 		static int DeletePersonalLimpieza(int PersonalId);
 		static PersonalLimpieza^ QueryPersonalById(int PersonalId);
+
 	};
 }
