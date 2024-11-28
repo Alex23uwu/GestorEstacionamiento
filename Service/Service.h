@@ -43,12 +43,12 @@ namespace EstacionamientoService {
 		static int UpdatePersonalLimpiezaID();
 
 		// CRUD PARA VEEDORES
-		static void AddVeedor(Veedor^);
+		static int AddVeedor(Veedor^);
 		static void UpdateVeedora(Veedor^);
 		static void DeleteVeedor(int VeedorID);
 		static List<Veedor^>^ QueryAllVeedor();
 		static Veedor^ QueryVeedorById(int VeedorID);
-		static int UpdateVeedorID(List<Veedor^>^);
+		//static int UpdateVeedorID(List<Veedor^>^);
 		static void VerificarDuplicadoVeedor(List<Veedor^>^, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular);
 		static void VerificarCambioVeedor(Veedor^, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular, int Piso, String^ Experiencia, int Salario, String^ Clave, String^ Email);
 		static int CompararPorIdVeedor(Veedor^ a, Veedor^ b);
@@ -117,8 +117,8 @@ namespace EstacionamientoService {
 		static Sensor^ QuerySensorbyID(int ID);
 
 		//CRUD PARA RESERVACIONES
-		static void AddReserva(Reservacion^);
-		static int GenerateIDReserva();
+		static int AddReserva(Reservacion^);
+		//static int GenerateIDReserva();
 		static void UpdateReserva(Reservacion^);
 		static void DeleteReserva(int ID);
 		static Reservacion^ QueryReservabyID(int ID);

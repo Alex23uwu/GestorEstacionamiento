@@ -55,40 +55,43 @@ int EstacionamientoService::Service::UpdatePersonalLimpiezaID() {
 
 //CRUD VEEDORES
 
-void EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
+int EstacionamientoService::Service::AddVeedor(Veedor^ veedor)
 {
-	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
-	ListaVeedor->Add(veedor);
-	Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
+	//ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	//ListaVeedor->Add(veedor);
+	//Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
+	return Persistance::AddVeedor(veedor);
 }
 
 void EstacionamientoService::Service::UpdateVeedora(Veedor^ veedor)
 {
-	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	/*ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == veedor->Id) {
 			ListaVeedor[i] = veedor;
 			Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
-	}
+	}*/
+	Persistance::UpdateVeedor(veedor);
 }
 
 void EstacionamientoService::Service::DeleteVeedor(int VeedorID) {
-	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	/*ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			ListaVeedor->RemoveAt(i);
 			Persistance::PersistXMLFile(XML_VEEDOR_FILE_NAME, ListaVeedor);
 			return;
 		}
-	}
+	}*/
+	Persistance::DeleteVeedor(VeedorID);
 }
 
 List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
 {
 
-	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	/*ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	try
 	{
 		ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
@@ -97,19 +100,22 @@ List<Veedor^>^ EstacionamientoService::Service::QueryAllVeedor()
 
 	}
 	return ListaVeedor;
+	*/
+	return Persistance::QueryAllVeedor();
 }
 
 Veedor^ EstacionamientoService::Service::QueryVeedorById(int VeedorID)
 {
-	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
+	/*ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	for (int i = 0; i < ListaVeedor->Count; i++) {
 		if (ListaVeedor[i]->Id == VeedorID) {
 			return ListaVeedor[i];
 		}
-	}
+	}*/
+	return Persistance::QueryVeedorbyID(VeedorID);
 }
 
-int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
+/*int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 {
 	ListaVeedor = (List<Veedor^>^)Persistance::LoadVeedorXmlFile(XML_VEEDOR_FILE_NAME);
 	int prueba = 1;
@@ -123,6 +129,7 @@ int EstacionamientoService::Service::UpdateVeedorID(List<Veedor^>^ VeedorLista)
 	}
 	return prueba;
 }
+*/
 
 void  EstacionamientoService::Service::VerificarDuplicadoVeedor(List<Veedor^>^ ListaVeedor, int DNI, String^ Nombre, String^ Apellido, String^ NombreUsuario, int Celular)
 {
@@ -760,14 +767,16 @@ Sensor^ EstacionamientoService::Service::QuerySensorbyID(int ID)
 //CRUD RESERVACIONES
 
 
-void EstacionamientoService::Service::AddReserva(Reservacion^ reservacion)
+int EstacionamientoService::Service::AddReserva(Reservacion^ reservacion)
 {
-	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	/*ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	ListaReservacion->Add(reservacion);
 	Persistance::PersistXMLFile(XML_RESERVACION_FILE_NAME, ListaReservacion);
+	*/
+	return Persistance::AddReserva(reservacion);
 }
 
-int EstacionamientoService::Service::GenerateIDReserva()
+/**int EstacionamientoService::Service::GenerateIDReserva()
 {
 	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	int prueba = 1;
@@ -780,11 +789,11 @@ int EstacionamientoService::Service::GenerateIDReserva()
 		}
 	}
 	return prueba;
-}
+}*/
 
 void EstacionamientoService::Service::UpdateReserva(Reservacion^ reserva)
 {
-	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	/**ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	for (int i = 0; i < ListaReservacion->Count; i++) {
 		if (ListaReservacion[i]->Id == reserva->Id) {
 			ListaReservacion[i] = reserva;
@@ -792,11 +801,13 @@ void EstacionamientoService::Service::UpdateReserva(Reservacion^ reserva)
 			return;
 		}
 	}
+	*/
+	Persistance::UpdateReserva(reserva);
 }
 
 void EstacionamientoService::Service::DeleteReserva(int ID)
 {
-	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	/*ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	for (int i = 0; i < ListaReservacion->Count; i++) {
 		if (ListaReservacion[i]->Id == ID) {
 			ListaReservacion->RemoveAt(i);
@@ -804,21 +815,25 @@ void EstacionamientoService::Service::DeleteReserva(int ID)
 			return;
 		}
 	}
+	*/
+	Persistance::DeleteReserva(ID);
 }
 
 Reservacion^ EstacionamientoService::Service::QueryReservabyID(int ID)
 {
-	ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
+	/**ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	for (int i = 0; i < ListaReservacion->Count; i++) {
 		if (ListaReservacion[i]->Id == ID) {
 			return ListaReservacion[i];
 		}
 	}
+	*/
+	return Persistance::QueryReservabyID(ID);
 }
 
 List<Reservacion^>^ EstacionamientoService::Service::QueryAllReservacion()
 {
-	ListaReservacion = gcnew List<Reservacion^>();
+	/**ListaReservacion = gcnew List<Reservacion^>();
 	try {
 		ListaReservacion = (List<Reservacion^>^)Persistance::LoadReservaXmlFile(XML_RESERVACION_FILE_NAME);
 	}
@@ -826,6 +841,8 @@ List<Reservacion^>^ EstacionamientoService::Service::QueryAllReservacion()
 
 	}
 	return ListaReservacion;
+	*/
+	return Persistance::QueryAllReservacion();
 }
 
 int EstacionamientoService::Service::MostrarCantidadReservaciones(DateTime FechaInicio, DateTime FechaFin) {

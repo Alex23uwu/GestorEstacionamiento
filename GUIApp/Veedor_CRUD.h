@@ -556,8 +556,9 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 				veedor->Piso = Convert::ToInt32(txtPiso->Text);
 			}
 			Service::VerificarDuplicadoVeedor(VeedorLista, veedor->DNI, veedor->Nombre, veedor->Apellido, veedor->NombreUsuario, veedor->Celular);
-			veedor->Id = Service::UpdateVeedorID(VeedorLista);
-			Service::AddVeedor(veedor);
+			int VeedorId = Service::AddVeedor(veedor);
+			veedor->Id = VeedorId;
+			Service::UpdateVeedora(veedor);
 			ShowVeedor();
 			MessageBox::Show("Se agrego al veedor " + veedor->Nombre + " " + veedor->Apellido + " con ID " + veedor->Id);
 		}
@@ -572,7 +573,6 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 			Service::OrdenarVeedorID(VeedorLista);
 			if (VeedorLista != nullptr) {
 				dvgVeedor->Rows->Clear();
-				txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 				for (int i = 0; i < VeedorLista->Count; i++) {
 					String^ VeedorSalario = Convert::ToString(VeedorLista[i]->Salario);
 					String^ VeedorPiso = Convert::ToString(VeedorLista[i]->Piso);
@@ -583,7 +583,7 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 						VeedorPiso = "";
 					}
 					dvgVeedor->Rows->Add(gcnew array<String^>{
-						Convert::ToString(VeedorLista[i]->Id),
+							Convert::ToString(VeedorLista[i]->Id),
 							VeedorLista[i]->Nombre,
 							VeedorLista[i]->Apellido,
 							Convert::ToString(VeedorLista[i]->DNI),
@@ -614,7 +614,6 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 			return;
 		}
 		try {
-			List <Veedor^>^ VeedorLista = Service::QueryAllVeedor();
 			Veedor^ veedor = gcnew Veedor();
 			Veedor^ veedor_antes = Service::QueryVeedorById(Convert::ToInt32(ID));
 			veedor->Apellido = txtApellido->Text;
@@ -691,7 +690,7 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 	}
 	private: System::Void bt_nuevo_Click(System::Object^ sender, System::EventArgs^ e) {
 		List<Veedor^>^ VeedorLista = Service::QueryAllVeedor();
-		txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
+		txtID->Text = "";
 		txtApellido->Text = "";
 		txtNombre->Text = "";
 		txtDNI->Text = "";
@@ -715,7 +714,6 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 	}
 	private: System::Void Veedor_CRUD_Load_1(System::Object^ sender, System::EventArgs^ e) {
 		List<Veedor^>^ VeedorLista = Service::QueryAllVeedor();
-		txtID->Text = Convert::ToString(Service::UpdateVeedorID(VeedorLista));
 		ShowVeedor();
 		FillCmbRandom();
 	}

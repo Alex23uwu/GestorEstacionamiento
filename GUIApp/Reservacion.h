@@ -864,12 +864,12 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				LimpiarColor();*/
 				Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
 				Model::Reservacion^ reserva = gcnew Model::Reservacion();
-				reserva->Id = EstacionamientoService::Service::GenerateIDReserva();
 				reserva->InicioReserva = cmbHora->SelectedItem->ToString();
 				reserva->Completada = false;
 				reserva->FechaReserva = now;
 				reserva->ClienteID = ClienteActual->Id;
 				reserva->TiempoExcedido = false;
+				int IDreserva = Service::AddReserva(reserva);
 				ClienteActual->LugarReservado = true;
 				ClienteActual->MiReservacion = reserva;
 				//colocamos  el mismo id a sensor y estacionamiento  (sincronizamos)
@@ -882,8 +882,8 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				EstacionamientoSeleccionado->HoraSalida = "";
 
 				ClienteActual->MiVehiculo->AsigandoA = EstacionamientoSeleccionado;
-
-				Service::AddReserva(reserva);
+				reserva->Id = IDreserva;
+				Service::UpdateReserva(reserva);
 				Service::UpdateEstacionamiento(EstacionamientoSeleccionado);
 				Service::UpdateCliente(ClienteActual);
 				Service::UpdateSensor(sensor);

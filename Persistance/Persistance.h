@@ -49,5 +49,18 @@ namespace EstacionamientoPersistance {
 		static int DeletePersonalLimpieza(int PersonalId);
 		static PersonalLimpieza^ QueryPersonalById(int PersonalId);
 
+		static int AddVeedor(Veedor^ veedor);
+		static void UpdateVeedor(Veedor^ veedor);
+		static void DeleteVeedor(int veedorID);
+		static List<Veedor^>^ QueryAllVeedor();
+		static Veedor^ QueryVeedorbyID(int VeedorID);
+
+		//CRUD PARA RESERVACIONES
+		static int AddReserva(Reservacion^);
+		static void UpdateReserva(Reservacion^);
+		static void DeleteReserva(int ID);
+		static Reservacion^ QueryReservabyID(int ID);
+		static List<Reservacion^>^ QueryAllReservacion();
+
 	};
 }

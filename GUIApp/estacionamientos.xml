@@ -40,7 +40,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   21   :   20   </HoraInicio>
+    <HoraInicio>   19   :   50   </HoraInicio>
     <HoraSalida />
     <Id>4</Id>
     <MiSensor>
@@ -79,7 +79,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   20   :   40   </HoraInicio>
+    <HoraInicio>   20   :   20   </HoraInicio>
     <HoraSalida />
     <Id>7</Id>
     <MiSensor>
@@ -92,7 +92,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   13   :   55   </HoraInicio>
+    <HoraInicio>   21   :   10   </HoraInicio>
     <HoraSalida />
     <Id>8</Id>
     <MiSensor>
@@ -131,8 +131,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   20   :   22   </HoraInicio>
-    <HoraSalida>   20   :   22   </HoraSalida>
+    <HoraInicio>   19   :   05   </HoraInicio>
+    <HoraSalida />
     <Id>11</Id>
     <MiSensor>
       <Detecta>false</Detecta>
@@ -144,8 +144,8 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio>   12   :   50   </HoraInicio>
-    <HoraSalida />
+    <HoraInicio>   21   :   25   </HoraInicio>
+    <HoraSalida>   21   :   01   </HoraSalida>
     <Id>12</Id>
     <MiSensor>
       <Detecta>false</Detecta>

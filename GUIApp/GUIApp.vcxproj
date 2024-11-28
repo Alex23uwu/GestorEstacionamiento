@@ -116,6 +116,9 @@
     <ProjectReference Include="..\Model\Model.vcxproj">
       <Project>{22a0e902-3f1e-41d7-85b6-0d3212f6c89d}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.vcxproj">
+      <Project>{d19d3f9d-83c8-4728-9b3d-99c7584a924c}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Service\Service.vcxproj">
       <Project>{ad43235f-993a-45cc-bf2e-bf42d78dbec9}</Project>
     </ProjectReference>
