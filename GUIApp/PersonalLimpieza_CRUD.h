@@ -451,16 +451,18 @@ namespace GUIApp {
 			txtApellido->Text = personalLimp->Apellido;
 			txtEstado->Text = personalLimp->Estado;
 			txtPiso->Text = "" + personalLimp->Piso;
+			txtPassword->Text = personalLimp->Clave;
+			txtUsuario->Text = personalLimp->NombreUsuario;
 		}
 	}
 	private: System::Void bttUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalId = txtId->Text->Trim();
-		PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalId));
 		if (personalId->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Personal de Limpieza");
 			return;
 		}
 		try {
+			PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalId));
 			if (personal->Apellido == txtApellido->Text &&
 				personal->Id == Int32::Parse(txtId->Text) &&
 				personal->Estado == txtEstado->Text &&
@@ -487,22 +489,22 @@ namespace GUIApp {
 	}
 	private: System::Void bttDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalID = txtId->Text->Trim();
-		PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalID));
 		if (personalID->Equals("")) {
 			MessageBox::Show("Debe seleccionar un Personal");
 			return;
 		}
 		try {
+			PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalID));
 			Service::DeletePersonalLimpieza(Convert::ToInt32(personalID));
 			ShowPersonal();
 			ClearControls();
+			Service::UpdatePersonalLimpieza(personal);
 			MessageBox::Show("Se ha eliminado el Personal con Id = " + personalID +"-" + personal->Nombre + " de manera exitosa.");
 		}
 		catch (Exception^ ex) {
 			MessageBox::Show("No ha sido posible eliminar el Personal por el siguiente motivo:\n" +
 				ex->Message);
 		}
-		Service::UpdatePersonalLimpieza(personal);
 	}
 	private: System::Void PersonalLimpieza_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
 		bttAdd->Enabled = false;

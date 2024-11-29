@@ -211,7 +211,7 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->ClientSize = System::Drawing::Size(605, 476);
 			this->Controls->Add(this->txtPiso);
 			this->Controls->Add(this->label3);

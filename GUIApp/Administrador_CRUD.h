@@ -144,7 +144,7 @@ namespace GUIApp {
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(476, 83);
+			this->txtPassword->Location = System::Drawing::Point(435, 64);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(154, 20);
@@ -152,28 +152,28 @@ namespace GUIApp {
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(163, 81);
+			this->txtUsername->Location = System::Drawing::Point(122, 62);
 			this->txtUsername->Name = L"txtUsername";
 			this->txtUsername->Size = System::Drawing::Size(144, 20);
 			this->txtUsername->TabIndex = 56;
 			// 
 			// txtPhoneNumber
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(163, 164);
+			this->txtPhoneNumber->Location = System::Drawing::Point(122, 145);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
 			this->txtPhoneNumber->Size = System::Drawing::Size(144, 20);
 			this->txtPhoneNumber->TabIndex = 46;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(163, 137);
+			this->txtEmail->Location = System::Drawing::Point(122, 118);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(269, 20);
 			this->txtEmail->TabIndex = 42;
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(163, 52);
+			this->txtId->Location = System::Drawing::Point(122, 33);
 			this->txtId->Name = L"txtId";
 			this->txtId->ReadOnly = true;
 			this->txtId->Size = System::Drawing::Size(37, 20);
@@ -181,21 +181,21 @@ namespace GUIApp {
 			// 
 			// txtDNI
 			// 
-			this->txtDNI->Location = System::Drawing::Point(476, 57);
+			this->txtDNI->Location = System::Drawing::Point(435, 38);
 			this->txtDNI->Name = L"txtDNI";
 			this->txtDNI->Size = System::Drawing::Size(155, 20);
 			this->txtDNI->TabIndex = 43;
 			// 
 			// txtApellidos
 			// 
-			this->txtApellidos->Location = System::Drawing::Point(476, 108);
+			this->txtApellidos->Location = System::Drawing::Point(435, 89);
 			this->txtApellidos->Name = L"txtApellidos";
 			this->txtApellidos->Size = System::Drawing::Size(155, 20);
 			this->txtApellidos->TabIndex = 41;
 			// 
 			// txtNombres
 			// 
-			this->txtNombres->Location = System::Drawing::Point(163, 108);
+			this->txtNombres->Location = System::Drawing::Point(122, 89);
 			this->txtNombres->Name = L"txtNombres";
 			this->txtNombres->Size = System::Drawing::Size(144, 20);
 			this->txtNombres->TabIndex = 40;
@@ -204,7 +204,7 @@ namespace GUIApp {
 			// 
 			this->label18->AutoSize = true;
 			this->label18->ForeColor = System::Drawing::Color::Black;
-			this->label18->Location = System::Drawing::Point(403, 88);
+			this->label18->Location = System::Drawing::Point(362, 69);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(66, 13);
 			this->label18->TabIndex = 55;
@@ -214,7 +214,7 @@ namespace GUIApp {
 			// 
 			this->label17->AutoSize = true;
 			this->label17->ForeColor = System::Drawing::Color::Black;
-			this->label17->Location = System::Drawing::Point(84, 81);
+			this->label17->Location = System::Drawing::Point(43, 62);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(68, 13);
 			this->label17->TabIndex = 54;
@@ -223,7 +223,7 @@ namespace GUIApp {
 			// btnDelete
 			// 
 			this->btnDelete->ForeColor = System::Drawing::Color::Black;
-			this->btnDelete->Location = System::Drawing::Point(510, 245);
+			this->btnDelete->Location = System::Drawing::Point(469, 226);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(120, 23);
 			this->btnDelete->TabIndex = 53;
@@ -234,7 +234,7 @@ namespace GUIApp {
 			// btnUpdate
 			// 
 			this->btnUpdate->ForeColor = System::Drawing::Color::Black;
-			this->btnUpdate->Location = System::Drawing::Point(295, 245);
+			this->btnUpdate->Location = System::Drawing::Point(254, 226);
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(121, 23);
 			this->btnUpdate->TabIndex = 52;
@@ -245,7 +245,7 @@ namespace GUIApp {
 			// btnAdd
 			// 
 			this->btnAdd->ForeColor = System::Drawing::Color::Black;
-			this->btnAdd->Location = System::Drawing::Point(87, 245);
+			this->btnAdd->Location = System::Drawing::Point(46, 226);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(127, 23);
 			this->btnAdd->TabIndex = 51;
@@ -257,7 +257,7 @@ namespace GUIApp {
 			// 
 			this->label7->AutoSize = true;
 			this->label7->ForeColor = System::Drawing::Color::Black;
-			this->label7->Location = System::Drawing::Point(84, 167);
+			this->label7->Location = System::Drawing::Point(43, 148);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(39, 13);
 			this->label7->TabIndex = 50;
@@ -267,7 +267,7 @@ namespace GUIApp {
 			// 
 			this->label5->AutoSize = true;
 			this->label5->ForeColor = System::Drawing::Color::Black;
-			this->label5->Location = System::Drawing::Point(84, 139);
+			this->label5->Location = System::Drawing::Point(43, 120);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(32, 13);
 			this->label5->TabIndex = 48;
@@ -277,7 +277,7 @@ namespace GUIApp {
 			// 
 			this->label4->AutoSize = true;
 			this->label4->ForeColor = System::Drawing::Color::Black;
-			this->label4->Location = System::Drawing::Point(403, 111);
+			this->label4->Location = System::Drawing::Point(362, 92);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(62, 13);
 			this->label4->TabIndex = 47;
@@ -287,7 +287,7 @@ namespace GUIApp {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->ForeColor = System::Drawing::Color::Black;
-			this->label3->Location = System::Drawing::Point(84, 108);
+			this->label3->Location = System::Drawing::Point(43, 89);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 45;
@@ -297,7 +297,7 @@ namespace GUIApp {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->ForeColor = System::Drawing::Color::Black;
-			this->label2->Location = System::Drawing::Point(403, 59);
+			this->label2->Location = System::Drawing::Point(362, 40);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(39, 13);
 			this->label2->TabIndex = 39;
@@ -307,7 +307,7 @@ namespace GUIApp {
 			// 
 			this->label1->AutoSize = true;
 			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(84, 56);
+			this->label1->Location = System::Drawing::Point(43, 37);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(29, 13);
 			this->label1->TabIndex = 38;
@@ -320,7 +320,7 @@ namespace GUIApp {
 				this->dgvId,
 					this->dgvNombres, this->colApellidos, this->colDNI, this->colCelular
 			});
-			this->dgvAdministrador->Location = System::Drawing::Point(87, 311);
+			this->dgvAdministrador->Location = System::Drawing::Point(46, 292);
 			this->dgvAdministrador->Name = L"dgvAdministrador";
 			this->dgvAdministrador->Size = System::Drawing::Size(543, 156);
 			this->dgvAdministrador->TabIndex = 69;
@@ -357,7 +357,7 @@ namespace GUIApp {
 			// 
 			// btnLimpiar
 			// 
-			this->btnLimpiar->Location = System::Drawing::Point(510, 204);
+			this->btnLimpiar->Location = System::Drawing::Point(469, 185);
 			this->btnLimpiar->Name = L"btnLimpiar";
 			this->btnLimpiar->Size = System::Drawing::Size(120, 23);
 			this->btnLimpiar->TabIndex = 70;
@@ -369,8 +369,8 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(743, 608);
+			this->BackColor = System::Drawing::SystemColors::ButtonFace;
+			this->ClientSize = System::Drawing::Size(621, 495);
 			this->Controls->Add(this->btnLimpiar);
 			this->Controls->Add(this->dgvAdministrador);
 			this->Controls->Add(this->txtPassword);
