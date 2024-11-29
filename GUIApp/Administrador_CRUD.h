@@ -417,11 +417,13 @@ namespace GUIApp {
 			return;
 		}
 		try {
-			administrador->Id = Service::UpdateAdministradorId();
 			administrador->Nombre = txtNombres->Text;
 			administrador->Apellido = txtApellidos->Text;
 			administrador->NombreUsuario = txtUsername->Text;
 			administrador->Clave = txtPassword->Text;
+			administrador->Estado = "Activo";
+			administrador->TiempoEntrada = DateTime::Now.ToString("yyyy/MM/dd");
+			administrador->TiempoSalida = "a";
 
 			if (txtPhoneNumber->Text != "") {
 				administrador->Celular = Int32::Parse(txtPhoneNumber->Text);
@@ -433,8 +435,9 @@ namespace GUIApp {
 				administrador->Email = txtEmail->Text;
 			}
 
-			MessageBox::Show("Se agrego al administrador " + administrador->Nombre + " " + administrador->Apellido + " con ID " + administrador->Id);
 			Service::AddAdministrador(administrador);
+			MessageBox::Show("Se agrego al administrador " + administrador->Nombre + " " + administrador->Apellido + " con ID " + administrador->Id);
+
 			ShowAdministrador();
 		}
 		catch (Exception^ ex) {
@@ -510,8 +513,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 		MessageBox::Show("Las casillas de Celular y DNI deben ser rellenadas con números.");
 		return;
 	}
-	if (administrador->Id == Int32::Parse(txtId->Text) &&
-		administrador->Nombre == txtNombres->Text &&
+	if (administrador->Nombre == txtNombres->Text &&
 		administrador->Apellido == txtApellidos->Text &&
 		administrador->NombreUsuario == txtUsername->Text &&
 		administrador->Clave == txtPassword->Text &&
@@ -522,7 +524,7 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 		return;
 	}
 	try {
-		administrador->Id = Int32::Parse(txtId->Text);
+		administrador->Id = Convert::ToInt32(txtId->Text);
 		administrador->Nombre = txtNombres->Text;
 		administrador->Apellido = txtApellidos->Text;
 		administrador->NombreUsuario = txtUsername->Text;
@@ -540,9 +542,11 @@ private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^
 	}
 
 }
+
 private: System::Void Administrador_CRUD_Load(System::Object^ sender, System::EventArgs^ e) {
-	txtId->Text = "" + Service::UpdateAdministradorId();
+	ShowAdministrador();
 }
+
 private: System::Void btnLimpiar_Click(System::Object^ sender, System::EventArgs^ e) {
 	txtId->Text = "" + Service::UpdateAdministradorId();
 	txtApellidos->Text = "";
@@ -555,3 +559,4 @@ private: System::Void btnLimpiar_Click(System::Object^ sender, System::EventArgs
 }
 };
 }
+

@@ -95,9 +95,9 @@ namespace EstacionamientoService {
 		static int DetectarEstacionamientoMasProximoDisponible();
 
 		// CRUD PARA ADMINISTRADORES
-		static void AddAdministrador(Administrador^);
-		static void UpdateAdministrador(Administrador^);
-		static void DeleteAdministrador(int adminId);
+		static int AddAdministrador(Administrador^);
+		static int UpdateAdministrador(Administrador^);
+		static int DeleteAdministrador(int adminId);
 		static List<Administrador^>^ QueryAllAdministrador();
 		static Administrador^ QueryAdministradorById(int adminId);
 		static int UpdateAdministradorId();

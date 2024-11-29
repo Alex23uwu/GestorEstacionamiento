@@ -1,13 +1,16 @@
 #pragma once
 
 using namespace System;
+using namespace System::Data::SqlClient;
 using namespace System::Collections::Generic;
 using namespace System::Xml::Serialization;
 using namespace Model;
-using namespace System::Data::SqlClient;
+//using namespace System::Data::SqlClient;
 
 namespace EstacionamientoPersistance {
 	public ref class Persistance {
+//	private:
+//		static SqlConnection^ GetConnection();
 
 	private:
 		static SqlConnection^ GetConnection();
@@ -61,6 +64,15 @@ namespace EstacionamientoPersistance {
 		static void DeleteReserva(int ID);
 		static Reservacion^ QueryReservabyID(int ID);
 		static List<Reservacion^>^ QueryAllReservacion();
+
+
+		static int AddAdministrador(Administrador^ admin);
+		static int UpdateAdministrador(Administrador^ admin);
+
+		static int DeleteAdministrador(int adminId);
+		static List<Administrador^>^ QueryAllAdministrador();
+		static Administrador^ QueryAdministradorById(int adminId);
+
 
 	};
 }

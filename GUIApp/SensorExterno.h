@@ -88,15 +88,15 @@ namespace GUIApp {
 				try {
 					String^ longitud = Port->ReadLine();
 					int longitudINT = Convert::ToInt32(longitud);
-
 					if (longitudINT < 10) {
 						pictureBox1->ImageLocation = "Imagenes/Espacio_Lleno.png";
+						
 					} 
 					else {
 						pictureBox1->ImageLocation = "Imagenes/Espacio_Disponible.png";
 					}
 
-					Thread::Sleep(1000);
+					Thread::Sleep(100);
 										
 				}
 				catch (Exception^ ex) {
