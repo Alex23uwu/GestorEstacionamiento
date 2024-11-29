@@ -68,7 +68,6 @@ namespace EstacionamientoPersistance {
 
 		static int AddAdministrador(Administrador^ admin);
 		static int UpdateAdministrador(Administrador^ admin);
-
 		static int DeleteAdministrador(int adminId);
 		static List<Administrador^>^ QueryAllAdministrador();
 		static Administrador^ QueryAdministradorById(int adminId);
