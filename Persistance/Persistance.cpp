@@ -1004,3 +1004,246 @@ List<Reservacion^>^ EstacionamientoPersistance::Persistance::QueryAllReservacion
 
     return reservacionesList;
 }
+
+/*SqlConnection^ EstacionamientoPersistance::Persistance::GetConnection() {
+    SqlConnection^ conn = gcnew SqlConnection();
+    String^ password = "password";
+    String^ serverName = "nicolasvs.cbw2s6a884gh.us-east-1.rds.amazonaws.com";
+    conn->ConnectionString = "Server=" + serverName + ";Database = Lab13;User ID = Lab13_user; Password = " +
+        password + ";";
+    conn->Open();
+    return conn;
+}*/
+
+int EstacionamientoPersistance::Persistance::AddAdministrador(Administrador^ admin) {
+    int vId = 0;
+    SqlConnection^ conn;
+    try {
+        conn = GetConnection();
+
+        String^ sqlStr = "dbo.usp_AddAdministrador";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@APELLIDO", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NOMBREUSUARIO", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@CLAVE", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@ESTADO", System::Data::SqlDbType::VarChar, 10);
+        cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar, 50);
+        cmd->Parameters->Add("@TIEMPOENTRADA", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@TIEMPOSALIDA", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@CELULAR", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@SALARIO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PISO", System::Data::SqlDbType::Int);
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        cmd->Parameters->Add(outputIdParam);
+        cmd->Prepare();
+
+        cmd->Parameters["@NOMBRE"]->Value = admin->Nombre;
+        cmd->Parameters["@APELLIDO"]->Value = admin->Apellido;
+        cmd->Parameters["@NOMBREUSUARIO"]->Value = admin->NombreUsuario;
+        cmd->Parameters["@CLAVE"]->Value = admin->Clave;
+        cmd->Parameters["@ESTADO"]->Value = admin->Estado;
+        cmd->Parameters["@EMAIL"]->Value = admin->Email;
+        cmd->Parameters["@TIEMPOENTRADA"]->Value = admin->TiempoEntrada;
+        cmd->Parameters["@TIEMPOSALIDA"]->Value = admin->TiempoSalida;
+        cmd->Parameters["@DNI"]->Value = admin->DNI;
+        cmd->Parameters["@CELULAR"]->Value = admin->Celular;
+        cmd->Parameters["@SALARIO"]->Value = admin->Salario;
+        cmd->Parameters["@PISO"]->Value = admin->Piso;
+
+        //Paso 3: Ejecutar la sentencia de BD
+        cmd->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados
+        vId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Cerrar los objetos de conexi髇 de la BD.
+        if (conn != nullptr) conn->Close();
+    }
+    return vId;
+}
+
+int EstacionamientoPersistance::Persistance::UpdateAdministrador(Administrador^ admin) {
+    int robotId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        //Paso 1: Obtener la conexi髇 a la BD
+        conn = GetConnection();
+
+        //Paso 2: Se prepara la sentencia
+        String^ sqlStr = "dbo.usp_UpdateAdministrador";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@NOMBRE", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@APELLIDO", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NOMBREUSUARIO", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@CLAVE", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@ESTADO", System::Data::SqlDbType::VarChar, 10);
+        cmd->Parameters->Add("@EMAIL", System::Data::SqlDbType::VarChar, 50);
+        cmd->Parameters->Add("@TIEMPOENTRADA", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@TIEMPOSALIDA", System::Data::SqlDbType::VarChar, 30);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@CELULAR", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@SALARIO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PISO", System::Data::SqlDbType::Int);
+        cmd->Prepare();
+        cmd->Parameters["@ID"]->Value = admin->Id;
+        cmd->Parameters["@NOMBRE"]->Value = admin->Nombre;
+        cmd->Parameters["@APELLIDO"]->Value = admin->Apellido;
+        cmd->Parameters["@NOMBREUSUARIO"]->Value = admin->NombreUsuario;
+        cmd->Parameters["@CLAVE"]->Value = admin->Clave;
+        cmd->Parameters["@ESTADO"]->Value = admin->Estado;
+        cmd->Parameters["@EMAIL"]->Value = admin->Email;
+        cmd->Parameters["@TIEMPOENTRADA"]->Value = admin->TiempoEntrada;
+        cmd->Parameters["@TIEMPOSALIDA"]->Value = admin->TiempoSalida;
+        cmd->Parameters["@DNI"]->Value = admin->DNI;
+        cmd->Parameters["@CELULAR"]->Value = admin->Celular;
+        cmd->Parameters["@SALARIO"]->Value = admin->Salario;
+        cmd->Parameters["@PISO"]->Value = admin->Piso;
+
+        //Paso 3: Se ejecuta las sentncia SQL
+        cmd->ExecuteNonQuery();
+
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
+}
+
+int EstacionamientoPersistance::Persistance::DeleteAdministrador(int adminId)
+{
+    SqlConnection^ conn;
+    try {
+        //Paso 1: Obtener la conexi贸n a la BD
+        conn = GetConnection();
+
+        //Paso 2: Se prepara la sentencia
+        String^ sqlStr = "dbo.usp_DeleteAdministrador";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Prepare();
+        cmd->Parameters["@ID"]->Value = adminId;
+
+        //Paso 3: Se ejecuta la sentencia SQL
+        cmd->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
+}
+
+List<Administrador^>^ EstacionamientoPersistance::Persistance::QueryAllAdministrador()
+{
+    List<Administrador^>^ veedorList = gcnew List<Administrador^>();
+    SqlConnection^ conn;
+    SqlDataReader^ reader;
+    try {
+        //Paso 1: Obtener la conexi贸n a la BD
+        conn = GetConnection();
+
+        //Paso 2: Preparar la sentencia SQL
+        String^ sqlStr = "dbo.usp_QueryAllAdministrador";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Prepare();
+
+        //Paso 3: Ejecutar la sentencia SQL
+        reader = cmd->ExecuteReader();
+
+        //Paso 4: Procesar los resultados
+        while (reader->Read()) {
+            Administrador^ admin = gcnew Administrador();
+            admin->Id = Convert::ToInt32(reader["ID"]->ToString());
+            admin->Salario = Convert::ToInt32(reader["SALARIO"]->ToString());
+            admin->Piso = Convert::ToInt32(reader["PISO"]->ToString());
+            admin->TiempoEntrada = (reader["TIEMPOENTRADA"]->ToString());
+            admin->TiempoSalida = (reader["TIEMPOSALIDA"]->ToString());
+            admin->Nombre = reader["NOMBRE"]->ToString();
+            admin->Apellido = reader["APELLIDO"]->ToString();
+            admin->NombreUsuario = reader["NOMBREUSUARIO"]->ToString();
+            admin->Clave = reader["CLAVE"]->ToString();
+            admin->DNI = Convert::ToInt32(reader["DNI"]->ToString());
+            admin->Email = reader["EMAIL"]->ToString();
+            admin->Celular = Convert::ToInt32(reader["CELULAR"]->ToString());
+            admin->Estado = reader["ESTADO"]->ToString();
+            veedorList->Add(admin);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Importante! Cerrar los objetos de conexi贸n a la BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return veedorList;
+}
+
+Administrador^ EstacionamientoPersistance::Persistance::QueryAdministradorById(int adminId)
+{
+    Administrador^ admin = gcnew Administrador();
+    SqlConnection^ conn;
+    SqlDataReader^ reader;
+
+    try {
+        //Paso 1: Obtener la conexi贸n a la BD
+        conn = GetConnection();
+
+        //Paso 2: Preparar la sentencia SQL
+        String^ sqlStr = "dbo.usp_QueryAdministradorById";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Prepare();
+        cmd->Parameters["@ID"]->Value = adminId;
+
+        //Paso 3: Ejecutar la sentencia SQL
+        reader = cmd->ExecuteReader();
+
+        //Paso 4: Procesar los resultados
+        if (reader->Read()) {
+            admin->Id = Convert::ToInt32(reader["ID"]->ToString());
+            admin->Salario = Convert::ToInt32(reader["SALARIO"]->ToString());
+            admin->Piso = Convert::ToInt32(reader["PISO"]->ToString());
+            admin->TiempoEntrada = (reader["TIEMPOENTRADA"]->ToString());
+            admin->TiempoSalida = (reader["TIEMPOSALIDA"]->ToString());
+            admin->Nombre = reader["NOMBRE"]->ToString();
+            admin->Apellido = reader["APELLIDO"]->ToString();
+            admin->NombreUsuario = reader["NOMBREUSUARIO"]->ToString();
+            admin->Clave = reader["CLAVE"]->ToString();
+            admin->DNI = Convert::ToInt32(reader["DNI"]->ToString());
+            admin->Email = reader["EMAIL"]->ToString();
+            admin->Celular = Convert::ToInt32(reader["CELULAR"]->ToString());
+            admin->Estado = reader["ESTADO"]->ToString();
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //Paso 5: Importante! Cerrar los objetos de conexi贸n a la BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return admin;
+}

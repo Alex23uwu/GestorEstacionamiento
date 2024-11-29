@@ -609,45 +609,33 @@ int EstacionamientoService::Service::DetectarEstacionamientoMasProximoDisponible
 }
 
 // CRUD ADMINISTRADOR
-void EstacionamientoService::Service::AddAdministrador(Administrador^ admin) {
-	ListaAdministrador->Add(admin);
+int EstacionamientoService::Service::AddAdministrador(Administrador^ admin) {
+	return Persistance::AddAdministrador(admin);
 }
 
-void EstacionamientoService::Service::UpdateAdministrador(Administrador^ admin) {
-	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->Id == admin->Id) {
-			ListaAdministrador[i] = admin;
-			return;
-		}
-	}
+int EstacionamientoService::Service::UpdateAdministrador(Administrador^ admin) {
+	return Persistance::UpdateAdministrador(admin);
 }
 
-void EstacionamientoService::Service::DeleteAdministrador(int adminId)
+int EstacionamientoService::Service::DeleteAdministrador(int adminId)
 {
-	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->Id == adminId) {
-			ListaAdministrador->RemoveAt(i);
-			return;
-		}
-	}
+	return Persistance::DeleteAdministrador(adminId);
 }
 
 List<Administrador^>^ EstacionamientoService::Service::QueryAllAdministrador() {
-	return ListaAdministrador;
+	return Persistance::QueryAllAdministrador();
 }
 
 Administrador^ EstacionamientoService::Service::QueryAdministradorById(int adminId) {
-	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->Id == adminId) {
-			return ListaAdministrador[i];
-		}
-	}
+	return Persistance::QueryAdministradorById(adminId);
 }
 
-int EstacionamientoService::Service::UpdateAdministradorId() {
+int EstacionamientoService::Service::UpdateAdministradorId()
+{
+	List<Administrador^>^ ListaAdmin = Persistance::QueryAllAdministrador();
 	int prueba = 1;
-	for (int i = 0; i < ListaAdministrador->Count; i++) {
-		if (ListaAdministrador[i]->Id == prueba) {
+	for (int i = 0; i < ListaAdmin->Count; i++) {
+		if (ListaAdmin[i]->Id == prueba) {
 			prueba++;
 		}
 		else {

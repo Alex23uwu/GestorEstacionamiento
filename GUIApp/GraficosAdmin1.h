@@ -55,6 +55,10 @@ namespace GUIApp {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ lblGraf1;
+	private: System::Windows::Forms::Label^ label5;
+
+
 
 
 
@@ -93,6 +97,7 @@ namespace GUIApp {
 			this->chartVeces = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->lblGraf1 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -102,6 +107,7 @@ namespace GUIApp {
 			this->FechaFin2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->FechaInicio2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->chartPorcentaje = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVeces))->BeginInit();
 			this->tabControl1->SuspendLayout();
@@ -116,7 +122,7 @@ namespace GUIApp {
 			this->chartGanancias->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chartGanancias->Legends->Add(legend1);
-			this->chartGanancias->Location = System::Drawing::Point(8, 85);
+			this->chartGanancias->Location = System::Drawing::Point(6, 116);
 			this->chartGanancias->Name = L"chartGanancias";
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
@@ -155,7 +161,7 @@ namespace GUIApp {
 			this->chartVeces->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chartVeces->Legends->Add(legend2);
-			this->chartVeces->Location = System::Drawing::Point(646, 85);
+			this->chartVeces->Location = System::Drawing::Point(646, 116);
 			this->chartVeces->Name = L"chartVeces";
 			series2->ChartArea = L"ChartArea1";
 			series2->Legend = L"Legend1";
@@ -172,11 +178,13 @@ namespace GUIApp {
 			this->tabControl1->Location = System::Drawing::Point(13, 13);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1213, 554);
+			this->tabControl1->Size = System::Drawing::Size(1254, 608);
 			this->tabControl1->TabIndex = 5;
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->label5);
+			this->tabPage1->Controls->Add(this->lblGraf1);
 			this->tabPage1->Controls->Add(this->label3);
 			this->tabPage1->Controls->Add(this->label4);
 			this->tabPage1->Controls->Add(this->chartGanancias);
@@ -187,10 +195,20 @@ namespace GUIApp {
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(1205, 528);
+			this->tabPage1->Size = System::Drawing::Size(1246, 582);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"tabPage1";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// lblGraf1
+			// 
+			this->lblGraf1->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblGraf1->Location = System::Drawing::Point(178, 80);
+			this->lblGraf1->Name = L"lblGraf1";
+			this->lblGraf1->Size = System::Drawing::Size(159, 23);
+			this->lblGraf1->TabIndex = 14;
+			this->lblGraf1->Text = L"Monto según día";
 			// 
 			// label3
 			// 
@@ -285,11 +303,21 @@ namespace GUIApp {
 			this->chartPorcentaje->TabIndex = 0;
 			this->chartPorcentaje->Text = L"Porcentaje Estacionamientos con Reserva";
 			// 
+			// label5
+			// 
+			this->label5->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(832, 80);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(209, 23);
+			this->label5->TabIndex = 15;
+			this->label5->Text = L"Ingresos según día";
+			// 
 			// GraficosAdmin1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1288, 574);
+			this->ClientSize = System::Drawing::Size(1288, 633);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"GraficosAdmin1";
 			this->Text = L"GraficosAdmin1";
