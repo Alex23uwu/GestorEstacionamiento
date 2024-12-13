@@ -804,7 +804,7 @@ namespace GUIApp {
 			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
 			clientes->Email = txtEmail->Text;
 			clientes->Descuento = Int32::Parse(txtDescuento->Text);
-			clientes->PuntosCliene = Int32::Parse(txtPersonPoints->Text);
+			clientes->PuntosCliente = Int32::Parse(txtPersonPoints->Text);
 
 			vehiculos->Id = Service::QueryAllVehiculo()->Count + 1;
 			vehiculos->Placa = txtPlaca->Text;
@@ -851,7 +851,7 @@ private: System::Void dgvPersons_CellContentClick(System::Object^ sender, System
 		}
 		txtEmail->Text = clientes->Email;
 		txtDescuento->Text = ""+clientes->Descuento;
-		txtPersonPoints->Text = "" + clientes->PuntosCliene;
+		txtPersonPoints->Text = "" + clientes->PuntosCliente;
 		txtPlaca->Text= clientes->MiVehiculo->Placa;
 		txtModelo->Text = clientes->MiVehiculo->Modelo;
 		txtColor->Text = clientes->MiVehiculo->Color;
@@ -910,7 +910,7 @@ private: System::Void btnUpdatePerson_Click(System::Object^ sender, System::Even
 		}
 		clientes->Email = txtEmail->Text;
 		clientes->Descuento = Int32::Parse(txtDescuento->Text);
-		clientes->PuntosCliene= Int32::Parse(txtPersonPoints->Text);
+		clientes->PuntosCliente= Int32::Parse(txtPersonPoints->Text);
 
 		vehiculos->Placa = txtPlaca->Text;
 		vehiculos->Modelo = txtModelo->Text;

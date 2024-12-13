@@ -12,7 +12,7 @@ using namespace System;
 namespace Model {
     public ref class Cliente : public Usuario {
     public:
-         property int PuntosCliene;
+         property int PuntosCliente;
          property int Descuento;
          property bool LugarReservado;
          property String^ Profession;
