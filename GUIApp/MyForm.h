@@ -139,8 +139,8 @@ namespace GUIApp {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(904, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(678, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -148,13 +148,13 @@ namespace GUIApp {
 			// 
 			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->salirToolStripMenuItem });
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(96, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::salirToolStripMenuItem_Click);
 			// 
@@ -166,48 +166,48 @@ namespace GUIApp {
 					this->sensorToolStripMenuItem
 			});
 			this->mantenimientoToolStripMenuItem->Name = L"mantenimientoToolStripMenuItem";
-			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(124, 24);
+			this->mantenimientoToolStripMenuItem->Size = System::Drawing::Size(101, 20);
 			this->mantenimientoToolStripMenuItem->Text = L"Mantenimiento";
 			// 
 			// personalLimpiezaToolStripMenuItem
 			// 
 			this->personalLimpiezaToolStripMenuItem->Name = L"personalLimpiezaToolStripMenuItem";
-			this->personalLimpiezaToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->personalLimpiezaToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->personalLimpiezaToolStripMenuItem->Text = L"Personal de Limpieza";
 			this->personalLimpiezaToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::personalLimpiezaToolStripMenuItem_Click);
 			// 
 			// veedoresToolStripMenuItem
 			// 
 			this->veedoresToolStripMenuItem->Name = L"veedoresToolStripMenuItem";
-			this->veedoresToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->veedoresToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->veedoresToolStripMenuItem->Text = L"Veedores";
 			this->veedoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::veedoresToolStripMenuItem_Click);
 			// 
 			// administradoresToolStripMenuItem
 			// 
 			this->administradoresToolStripMenuItem->Name = L"administradoresToolStripMenuItem";
-			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->administradoresToolStripMenuItem->Text = L"Administradores";
 			this->administradoresToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::administradoresToolStripMenuItem_Click);
 			// 
 			// clientesToolStripMenuItem
 			// 
 			this->clientesToolStripMenuItem->Name = L"clientesToolStripMenuItem";
-			this->clientesToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->clientesToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->clientesToolStripMenuItem->Text = L"Clientes";
 			this->clientesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::clientesToolStripMenuItem_Click);
 			// 
 			// estacionamientosToolStripMenuItem
 			// 
 			this->estacionamientosToolStripMenuItem->Name = L"estacionamientosToolStripMenuItem";
-			this->estacionamientosToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->estacionamientosToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->estacionamientosToolStripMenuItem->Text = L"Estacionamientos";
 			this->estacionamientosToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::estacionamientosToolStripMenuItem_Click);
 			// 
 			// sensorToolStripMenuItem
 			// 
 			this->sensorToolStripMenuItem->Name = L"sensorToolStripMenuItem";
-			this->sensorToolStripMenuItem->Size = System::Drawing::Size(232, 26);
+			this->sensorToolStripMenuItem->Size = System::Drawing::Size(185, 22);
 			this->sensorToolStripMenuItem->Text = L"Sensor";
 			this->sensorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::sensorToolStripMenuItem_Click);
 			// 
@@ -219,48 +219,48 @@ namespace GUIApp {
 					this->sensorExternoToolStripMenuItem
 			});
 			this->transaccionesToolStripMenuItem->Name = L"transaccionesToolStripMenuItem";
-			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(114, 24);
+			this->transaccionesToolStripMenuItem->Size = System::Drawing::Size(93, 20);
 			this->transaccionesToolStripMenuItem->Text = L"Transacciones";
 			// 
 			// entradaDeVeToolStripMenuItem
 			// 
 			this->entradaDeVeToolStripMenuItem->Name = L"entradaDeVeToolStripMenuItem";
-			this->entradaDeVeToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->entradaDeVeToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->entradaDeVeToolStripMenuItem->Text = L"Entrada de Vehículos";
 			this->entradaDeVeToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::entradaDeVeToolStripMenuItem_Click);
 			// 
 			// generarTicketToolStripMenuItem
 			// 
 			this->generarTicketToolStripMenuItem->Name = L"generarTicketToolStripMenuItem";
-			this->generarTicketToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->generarTicketToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->generarTicketToolStripMenuItem->Text = L"Generar Ticket";
 			this->generarTicketToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::generarTicketToolStripMenuItem_Click);
 			// 
 			// reservacionToolStripMenuItem
 			// 
 			this->reservacionToolStripMenuItem->Name = L"reservacionToolStripMenuItem";
-			this->reservacionToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->reservacionToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->reservacionToolStripMenuItem->Text = L"Reservacion";
 			this->reservacionToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::reservacionToolStripMenuItem_Click);
 			// 
 			// espaciosDisponiblesToolStripMenuItem
 			// 
 			this->espaciosDisponiblesToolStripMenuItem->Name = L"espaciosDisponiblesToolStripMenuItem";
-			this->espaciosDisponiblesToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->espaciosDisponiblesToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->espaciosDisponiblesToolStripMenuItem->Text = L"Espacios disponibles";
 			this->espaciosDisponiblesToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::espaciosDisponiblesToolStripMenuItem_Click);
 			// 
 			// listaDeReservasToolStripMenuItem
 			// 
 			this->listaDeReservasToolStripMenuItem->Name = L"listaDeReservasToolStripMenuItem";
-			this->listaDeReservasToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->listaDeReservasToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->listaDeReservasToolStripMenuItem->Text = L"Lista de Reservas";
 			this->listaDeReservasToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::listaDeReservasToolStripMenuItem_Click);
 			// 
 			// sensorExternoToolStripMenuItem
 			// 
 			this->sensorExternoToolStripMenuItem->Name = L"sensorExternoToolStripMenuItem";
-			this->sensorExternoToolStripMenuItem->Size = System::Drawing::Size(230, 26);
+			this->sensorExternoToolStripMenuItem->Size = System::Drawing::Size(183, 22);
 			this->sensorExternoToolStripMenuItem->Text = L"Sensor Externo";
 			this->sensorExternoToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::sensorExternoToolStripMenuItem_Click);
 			// 
@@ -271,33 +271,33 @@ namespace GUIApp {
 					this->gráficosDeAdministradorToolStripMenuItem
 			});
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->reporteToolStripMenuItem->Text = L"Reporte";
 			// 
 			// misReportesDeClienteToolStripMenuItem
 			// 
 			this->misReportesDeClienteToolStripMenuItem->Name = L"misReportesDeClienteToolStripMenuItem";
-			this->misReportesDeClienteToolStripMenuItem->Size = System::Drawing::Size(264, 26);
+			this->misReportesDeClienteToolStripMenuItem->Size = System::Drawing::Size(210, 22);
 			this->misReportesDeClienteToolStripMenuItem->Text = L"Gráficos de cliente";
 			this->misReportesDeClienteToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::misReportesDeClienteToolStripMenuItem_Click);
 			// 
 			// gráficosDeAdministradorToolStripMenuItem
 			// 
 			this->gráficosDeAdministradorToolStripMenuItem->Name = L"gráficosDeAdministradorToolStripMenuItem";
-			this->gráficosDeAdministradorToolStripMenuItem->Size = System::Drawing::Size(264, 26);
+			this->gráficosDeAdministradorToolStripMenuItem->Size = System::Drawing::Size(210, 22);
 			this->gráficosDeAdministradorToolStripMenuItem->Text = L"Gráficos de administrador";
 			this->gráficosDeAdministradorToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::gráficosDeAdministradorToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->ClientSize = System::Drawing::Size(904, 591);
+			this->ClientSize = System::Drawing::Size(678, 480);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"MyForm";
 			this->Text = L"Sistema de Estacionamiento";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
