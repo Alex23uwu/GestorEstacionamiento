@@ -352,9 +352,9 @@ Object^ EstacionamientoPersistance::Persistance::LoadReservaXmlFile(String^ file
 //Base de datos para el proyecto 
 SqlConnection^ EstacionamientoPersistance::Persistance::GetConnection() {
     SqlConnection^ conn = gcnew SqlConnection();
-    String^ password = "1NF53_POO#123";
-    String^ serverName = "idb1inf53.c2j2toby3vlg.us-east-1.rds.amazonaws.com";  //Alex port
-    conn->ConnectionString = "Server=" + serverName + ";Database = dbestacionamiento ;User ID = admin; Password = " +
+    String^ password = "ubr2jyF3sTYu";
+    String^ serverName = "200.16.7.140";  //Alex port
+    conn->ConnectionString = "Server=" + serverName + ";Database = a20220819 ;User ID = a20220819; Password = " +
         password + ";";
     conn->Open();
     return conn;
