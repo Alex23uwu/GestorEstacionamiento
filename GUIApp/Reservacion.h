@@ -119,6 +119,8 @@ namespace GUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fecha;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Inicio;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Reserva_Fin;
+private: System::Windows::Forms::CheckBox^ CheckPersonal;
+
 
 
 
@@ -183,6 +185,10 @@ namespace GUIApp {
 			this->imageListaEstacionamiento = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->cmbHora = (gcnew System::Windows::Forms::ComboBox());
 			this->dgvReserva = (gcnew System::Windows::Forms::DataGridView());
+			this->Reserva_Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Fecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Inicio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Reserva_Fin = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -199,10 +205,7 @@ namespace GUIApp {
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->label18 = (gcnew System::Windows::Forms::Label());
-			this->Reserva_Status = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Fecha = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Inicio = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Reserva_Fin = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CheckPersonal = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvReserva))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -230,7 +233,7 @@ namespace GUIApp {
 			// 
 			// bttReservar
 			// 
-			this->bttReservar->Location = System::Drawing::Point(589, 144);
+			this->bttReservar->Location = System::Drawing::Point(589, 156);
 			this->bttReservar->Name = L"bttReservar";
 			this->bttReservar->Size = System::Drawing::Size(124, 36);
 			this->bttReservar->TabIndex = 3;
@@ -240,7 +243,7 @@ namespace GUIApp {
 			// 
 			// bttCancel
 			// 
-			this->bttCancel->Location = System::Drawing::Point(758, 141);
+			this->bttCancel->Location = System::Drawing::Point(761, 150);
 			this->bttCancel->Name = L"bttCancel";
 			this->bttCancel->Size = System::Drawing::Size(124, 42);
 			this->bttCancel->TabIndex = 7;
@@ -468,11 +471,37 @@ namespace GUIApp {
 				this->Reserva_Status,
 					this->Reserva_Fecha, this->Reserva_Inicio, this->Reserva_Fin
 			});
-			this->dgvReserva->Location = System::Drawing::Point(577, 207);
+			this->dgvReserva->Location = System::Drawing::Point(577, 211);
 			this->dgvReserva->Name = L"dgvReserva";
 			this->dgvReserva->ReadOnly = true;
 			this->dgvReserva->Size = System::Drawing::Size(336, 149);
 			this->dgvReserva->TabIndex = 39;
+			// 
+			// Reserva_Status
+			// 
+			this->Reserva_Status->HeaderText = L"Estado";
+			this->Reserva_Status->Name = L"Reserva_Status";
+			this->Reserva_Status->ReadOnly = true;
+			// 
+			// Reserva_Fecha
+			// 
+			this->Reserva_Fecha->HeaderText = L"Fecha";
+			this->Reserva_Fecha->Name = L"Reserva_Fecha";
+			this->Reserva_Fecha->ReadOnly = true;
+			// 
+			// Reserva_Inicio
+			// 
+			this->Reserva_Inicio->HeaderText = L"Inicio";
+			this->Reserva_Inicio->Name = L"Reserva_Inicio";
+			this->Reserva_Inicio->ReadOnly = true;
+			this->Reserva_Inicio->Width = 75;
+			// 
+			// Reserva_Fin
+			// 
+			this->Reserva_Fin->HeaderText = L"Fin";
+			this->Reserva_Fin->Name = L"Reserva_Fin";
+			this->Reserva_Fin->ReadOnly = true;
+			this->Reserva_Fin->Width = 75;
 			// 
 			// label2
 			// 
@@ -650,37 +679,23 @@ namespace GUIApp {
 			this->label18->TabIndex = 55;
 			this->label18->Text = L"16";
 			// 
-			// Reserva_Status
+			// CheckPersonal
 			// 
-			this->Reserva_Status->HeaderText = L"Estado";
-			this->Reserva_Status->Name = L"Reserva_Status";
-			this->Reserva_Status->ReadOnly = true;
-			// 
-			// Reserva_Fecha
-			// 
-			this->Reserva_Fecha->HeaderText = L"Fecha";
-			this->Reserva_Fecha->Name = L"Reserva_Fecha";
-			this->Reserva_Fecha->ReadOnly = true;
-			// 
-			// Reserva_Inicio
-			// 
-			this->Reserva_Inicio->HeaderText = L"Inicio";
-			this->Reserva_Inicio->Name = L"Reserva_Inicio";
-			this->Reserva_Inicio->ReadOnly = true;
-			this->Reserva_Inicio->Width = 75;
-			// 
-			// Reserva_Fin
-			// 
-			this->Reserva_Fin->HeaderText = L"Fin";
-			this->Reserva_Fin->Name = L"Reserva_Fin";
-			this->Reserva_Fin->ReadOnly = true;
-			this->Reserva_Fin->Width = 75;
+			this->CheckPersonal->AutoSize = true;
+			this->CheckPersonal->Location = System::Drawing::Point(589, 121);
+			this->CheckPersonal->Name = L"CheckPersonal";
+			this->CheckPersonal->Size = System::Drawing::Size(157, 17);
+			this->CheckPersonal->TabIndex = 56;
+			this->CheckPersonal->Text = L"Inlcuir Personal de Limpieza";
+			this->CheckPersonal->UseVisualStyleBackColor = true;
+			this->CheckPersonal->CheckedChanged += gcnew System::EventHandler(this, &Reservacion::checkBox1_CheckedChanged);
 			// 
 			// Reservacion
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(925, 609);
+			this->Controls->Add(this->CheckPersonal);
 			this->Controls->Add(this->label18);
 			this->Controls->Add(this->label17);
 			this->Controls->Add(this->label16);
@@ -1174,6 +1189,8 @@ private: void LimpiarColor() {
 	for (int i = 0; i < 16; i++) {
 		botones[i]->BackColor = System::Drawing::Color::White;
 	}
+}
+private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
