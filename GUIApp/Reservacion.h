@@ -889,7 +889,7 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 					reserva->IncluyePersonal = true;
 				}
 				else {
-					reserva->IncluyePersonal=false;
+					reserva->IncluyePersonal = false;
 				}
 				reserva->InicioReserva = cmbHora->SelectedItem->ToString();
 				reserva->Completada = false;
@@ -958,7 +958,7 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			   String^ estado;
 			   for (int i = ReservaLista->Count; i > 0; i--) {
 				   if (ReservaLista[i - 1]->ClienteID == ClienteActual->Id) {
-					   if(ReservaLista[i-1]->TiempoExcedido==true) {
+					   if(ReservaLista[i-1]->TiempoExcedido == true) {
 						   estado = "Expirada";
 				       }
 					   else if (ReservaLista[i - 1]->Completada == true) {

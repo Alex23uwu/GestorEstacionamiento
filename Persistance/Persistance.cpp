@@ -975,13 +975,13 @@ List<Reservacion^>^ EstacionamientoPersistance::Persistance::QueryAllReservacion
         while (reader->Read()) {
             Reservacion^ reservacion = gcnew Reservacion();
             reservacion->Id = Convert::ToInt32(reader["ID"]->ToString());
-            if (reader["TIEMPO_EXCEDIDO"] == 'T') {
+            if (reader["TIEMPO_EXCEDIDO"]->ToString() == "1") {
                 reservacion->TiempoExcedido = true;
             }
             else {
                 reservacion->TiempoExcedido = false;
             }
-            if (reader["COMPLETADA"] == 'T') {
+            if (reader["COMPLETADA"]->ToString() == "1") {
                 reservacion->Completada = true;
             }
             else {
