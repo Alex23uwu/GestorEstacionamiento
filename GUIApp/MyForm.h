@@ -380,6 +380,7 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 				espaciosDisponiblesToolStripMenuItem->Visible = false;
 				listaDeReservasToolStripMenuItem->Visible = false;
 				gráficosDeAdministradorToolStripMenuItem->Visible = false;
+				sensorExternoToolStripMenuItem->Visible = false;
 		   }
 		   void EnableVeedorOptions() {
 			   archivoToolStripMenuItem->Visible = true;
@@ -387,7 +388,7 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 			   transaccionesToolStripMenuItem->Visible = true;
 			   reporteToolStripMenuItem->Visible = false;
 			   reservacionToolStripMenuItem->Visible = false;
-			   //ocultar la ventana de sensor externo
+			   sensorExternoToolStripMenuItem->Visible = false;
 		   }
 		   void EnablePersonalLimpiezaOptions() {
 			   archivoToolStripMenuItem->Visible = true;
@@ -399,13 +400,14 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 			   reservacionToolStripMenuItem->Visible = false;
 			   espaciosDisponiblesToolStripMenuItem->Visible = false;
 			   listaDeReservasToolStripMenuItem->Visible = false;
-			   //ocultar la ventana de sensor externo
+			   sensorExternoToolStripMenuItem->Visible = false;
 			   reporteToolStripMenuItem->Visible = false;
 		   }
 		   void EnableAdministradorOptions() {
 			   reservacionToolStripMenuItem->Visible = false;
 			   misReportesDeClienteToolStripMenuItem->Visible = false;
-			   //ocultar la ventana de sensor externo
+			   sensorExternoToolStripMenuItem->Visible = false;
+			   sensorExternoToolStripMenuItem->Visible = false;
 		   }
 private: System::Void sensorToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	SensorEstacionamiento^ form = gcnew SensorEstacionamiento();
