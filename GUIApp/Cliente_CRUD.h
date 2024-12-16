@@ -270,142 +270,139 @@ namespace GUIApp {
 			this->tabPage1->Controls->Add(this->label3);
 			this->tabPage1->Controls->Add(this->label2);
 			this->tabPage1->Controls->Add(this->label1);
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(4);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(4);
-			this->tabPage1->Size = System::Drawing::Size(874, 646);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3, 3, 3, 3);
+			this->tabPage1->Size = System::Drawing::Size(654, 522);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Clientes";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
 			// txtColor
 			// 
-			this->txtColor->Location = System::Drawing::Point(225, 301);
+			this->txtColor->Location = System::Drawing::Point(169, 245);
+			this->txtColor->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtColor->Name = L"txtColor";
-			this->txtColor->Size = System::Drawing::Size(100, 22);
+			this->txtColor->Size = System::Drawing::Size(76, 20);
 			this->txtColor->TabIndex = 37;
 			// 
 			// txtModelo
 			// 
-			this->txtModelo->Location = System::Drawing::Point(225, 268);
+			this->txtModelo->Location = System::Drawing::Point(169, 218);
+			this->txtModelo->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtModelo->Name = L"txtModelo";
-			this->txtModelo->Size = System::Drawing::Size(100, 22);
+			this->txtModelo->Size = System::Drawing::Size(76, 20);
 			this->txtModelo->TabIndex = 36;
 			// 
 			// txtPlaca
 			// 
-			this->txtPlaca->Location = System::Drawing::Point(225, 229);
+			this->txtPlaca->Location = System::Drawing::Point(169, 186);
+			this->txtPlaca->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtPlaca->Name = L"txtPlaca";
-			this->txtPlaca->Size = System::Drawing::Size(100, 22);
+			this->txtPlaca->Size = System::Drawing::Size(76, 20);
 			this->txtPlaca->TabIndex = 33;
 			// 
 			// txtDescuento
 			// 
-			this->txtDescuento->Location = System::Drawing::Point(225, 197);
+			this->txtDescuento->Location = System::Drawing::Point(169, 160);
+			this->txtDescuento->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtDescuento->Name = L"txtDescuento";
-			this->txtDescuento->Size = System::Drawing::Size(191, 22);
+			this->txtDescuento->Size = System::Drawing::Size(144, 20);
 			this->txtDescuento->TabIndex = 29;
 			// 
 			// txtPersonPoints
 			// 
-			this->txtPersonPoints->Location = System::Drawing::Point(595, 240);
-			this->txtPersonPoints->Margin = System::Windows::Forms::Padding(4);
+			this->txtPersonPoints->Location = System::Drawing::Point(446, 195);
 			this->txtPersonPoints->Name = L"txtPersonPoints";
-			this->txtPersonPoints->Size = System::Drawing::Size(132, 22);
+			this->txtPersonPoints->Size = System::Drawing::Size(100, 20);
 			this->txtPersonPoints->TabIndex = 27;
 			this->txtPersonPoints->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(523, 60);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
+			this->txtPassword->Location = System::Drawing::Point(392, 49);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
-			this->txtPassword->Size = System::Drawing::Size(204, 22);
+			this->txtPassword->Size = System::Drawing::Size(154, 20);
 			this->txtPassword->TabIndex = 23;
 			// 
 			// txtUsername
 			// 
-			this->txtUsername->Location = System::Drawing::Point(225, 60);
-			this->txtUsername->Margin = System::Windows::Forms::Padding(4);
+			this->txtUsername->Location = System::Drawing::Point(169, 49);
 			this->txtUsername->Name = L"txtUsername";
-			this->txtUsername->Size = System::Drawing::Size(191, 22);
+			this->txtUsername->Size = System::Drawing::Size(144, 20);
 			this->txtUsername->TabIndex = 22;
 			// 
 			// txtPhoneNumber
 			// 
-			this->txtPhoneNumber->Location = System::Drawing::Point(225, 159);
-			this->txtPhoneNumber->Margin = System::Windows::Forms::Padding(4);
+			this->txtPhoneNumber->Location = System::Drawing::Point(169, 129);
 			this->txtPhoneNumber->Name = L"txtPhoneNumber";
-			this->txtPhoneNumber->Size = System::Drawing::Size(191, 22);
+			this->txtPhoneNumber->Size = System::Drawing::Size(144, 20);
 			this->txtPhoneNumber->TabIndex = 6;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(225, 125);
-			this->txtEmail->Margin = System::Windows::Forms::Padding(4);
+			this->txtEmail->Location = System::Drawing::Point(169, 102);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(357, 22);
+			this->txtEmail->Size = System::Drawing::Size(269, 20);
 			this->txtEmail->TabIndex = 4;
 			// 
 			// txtPersonId
 			// 
 			this->txtPersonId->Enabled = false;
-			this->txtPersonId->Location = System::Drawing::Point(225, 25);
-			this->txtPersonId->Margin = System::Windows::Forms::Padding(4);
+			this->txtPersonId->Location = System::Drawing::Point(169, 20);
 			this->txtPersonId->Name = L"txtPersonId";
-			this->txtPersonId->Size = System::Drawing::Size(48, 22);
+			this->txtPersonId->Size = System::Drawing::Size(37, 20);
 			this->txtPersonId->TabIndex = 5;
 			// 
 			// txtDNI
 			// 
-			this->txtDNI->Location = System::Drawing::Point(343, 25);
-			this->txtDNI->Margin = System::Windows::Forms::Padding(4);
+			this->txtDNI->Location = System::Drawing::Point(257, 20);
 			this->txtDNI->Name = L"txtDNI";
-			this->txtDNI->Size = System::Drawing::Size(236, 22);
+			this->txtDNI->Size = System::Drawing::Size(178, 20);
 			this->txtDNI->TabIndex = 4;
 			// 
 			// txtLastName
 			// 
-			this->txtLastName->Location = System::Drawing::Point(523, 93);
-			this->txtLastName->Margin = System::Windows::Forms::Padding(4);
+			this->txtLastName->Location = System::Drawing::Point(392, 76);
 			this->txtLastName->Name = L"txtLastName";
-			this->txtLastName->Size = System::Drawing::Size(205, 22);
+			this->txtLastName->Size = System::Drawing::Size(155, 20);
 			this->txtLastName->TabIndex = 3;
 			// 
 			// txtFirstName
 			// 
-			this->txtFirstName->Location = System::Drawing::Point(225, 93);
-			this->txtFirstName->Margin = System::Windows::Forms::Padding(4);
+			this->txtFirstName->Location = System::Drawing::Point(169, 76);
 			this->txtFirstName->Name = L"txtFirstName";
-			this->txtFirstName->Size = System::Drawing::Size(191, 22);
+			this->txtFirstName->Size = System::Drawing::Size(144, 20);
 			this->txtFirstName->TabIndex = 2;
 			// 
 			// label114
 			// 
 			this->label114->AutoSize = true;
-			this->label114->Location = System::Drawing::Point(123, 301);
+			this->label114->Location = System::Drawing::Point(92, 245);
+			this->label114->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label114->Name = L"label114";
-			this->label114->Size = System::Drawing::Size(39, 16);
+			this->label114->Size = System::Drawing::Size(31, 13);
 			this->label114->TabIndex = 35;
 			this->label114->Text = L"Color";
 			// 
 			// label113
 			// 
 			this->label113->AutoSize = true;
-			this->label113->Location = System::Drawing::Point(123, 268);
+			this->label113->Location = System::Drawing::Point(92, 218);
+			this->label113->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label113->Name = L"label113";
-			this->label113->Size = System::Drawing::Size(53, 16);
+			this->label113->Size = System::Drawing::Size(42, 13);
 			this->label113->TabIndex = 34;
 			this->label113->Text = L"Modelo";
 			// 
 			// label112
 			// 
 			this->label112->AutoSize = true;
-			this->label112->Location = System::Drawing::Point(123, 229);
+			this->label112->Location = System::Drawing::Point(92, 186);
+			this->label112->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label112->Name = L"label112";
-			this->label112->Size = System::Drawing::Size(93, 16);
+			this->label112->Size = System::Drawing::Size(75, 13);
 			this->label112->TabIndex = 32;
 			this->label112->Text = L"Placa del auto";
 			// 
@@ -413,21 +410,19 @@ namespace GUIApp {
 			// 
 			this->groupBox1->Controls->Add(this->rbtnFem);
 			this->groupBox1->Controls->Add(this->rbtnMasc);
-			this->groupBox1->Location = System::Drawing::Point(523, 155);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(4);
+			this->groupBox1->Location = System::Drawing::Point(392, 126);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(4);
-			this->groupBox1->Size = System::Drawing::Size(198, 38);
+			this->groupBox1->Size = System::Drawing::Size(148, 31);
 			this->groupBox1->TabIndex = 31;
 			this->groupBox1->TabStop = false;
+			this->groupBox1->Enter += gcnew System::EventHandler(this, &Cliente_CRUD::groupBox1_Enter);
 			// 
 			// rbtnFem
 			// 
 			this->rbtnFem->AutoSize = true;
-			this->rbtnFem->Location = System::Drawing::Point(89, 10);
-			this->rbtnFem->Margin = System::Windows::Forms::Padding(4);
+			this->rbtnFem->Location = System::Drawing::Point(67, 8);
 			this->rbtnFem->Name = L"rbtnFem";
-			this->rbtnFem->Size = System::Drawing::Size(74, 20);
+			this->rbtnFem->Size = System::Drawing::Size(63, 17);
 			this->rbtnFem->TabIndex = 1;
 			this->rbtnFem->Text = L"Inactivo";
 			this->rbtnFem->UseVisualStyleBackColor = true;
@@ -436,10 +431,9 @@ namespace GUIApp {
 			// 
 			this->rbtnMasc->AutoSize = true;
 			this->rbtnMasc->Checked = true;
-			this->rbtnMasc->Location = System::Drawing::Point(8, 10);
-			this->rbtnMasc->Margin = System::Windows::Forms::Padding(4);
+			this->rbtnMasc->Location = System::Drawing::Point(6, 8);
 			this->rbtnMasc->Name = L"rbtnMasc";
-			this->rbtnMasc->Size = System::Drawing::Size(65, 20);
+			this->rbtnMasc->Size = System::Drawing::Size(55, 17);
 			this->rbtnMasc->TabIndex = 0;
 			this->rbtnMasc->TabStop = true;
 			this->rbtnMasc->Text = L"Activo";
@@ -448,48 +442,45 @@ namespace GUIApp {
 			// label111
 			// 
 			this->label111->AutoSize = true;
-			this->label111->Location = System::Drawing::Point(120, 197);
+			this->label111->Location = System::Drawing::Point(90, 160);
+			this->label111->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label111->Name = L"label111";
-			this->label111->Size = System::Drawing::Size(95, 16);
+			this->label111->Size = System::Drawing::Size(76, 13);
 			this->label111->TabIndex = 28;
 			this->label111->Text = L"Descuento (%)";
 			// 
 			// label115
 			// 
 			this->label115->AutoSize = true;
-			this->label115->Location = System::Drawing::Point(531, 244);
-			this->label115->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label115->Location = System::Drawing::Point(398, 198);
 			this->label115->Name = L"label115";
-			this->label115->Size = System::Drawing::Size(48, 16);
+			this->label115->Size = System::Drawing::Size(40, 13);
 			this->label115->TabIndex = 26;
 			this->label115->Text = L"Puntos";
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(425, 60);
-			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label18->Location = System::Drawing::Point(319, 49);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(83, 16);
+			this->label18->Size = System::Drawing::Size(66, 13);
 			this->label18->TabIndex = 21;
 			this->label18->Text = L"Password (*)";
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(120, 60);
-			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label17->Location = System::Drawing::Point(90, 49);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(86, 16);
+			this->label17->Size = System::Drawing::Size(68, 13);
 			this->label17->TabIndex = 20;
 			this->label17->Text = L"Username (*)";
 			// 
 			// btnDeletePerson
 			// 
-			this->btnDeletePerson->Location = System::Drawing::Point(561, 362);
-			this->btnDeletePerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnDeletePerson->Location = System::Drawing::Point(421, 294);
 			this->btnDeletePerson->Name = L"btnDeletePerson";
-			this->btnDeletePerson->Size = System::Drawing::Size(160, 28);
+			this->btnDeletePerson->Size = System::Drawing::Size(120, 23);
 			this->btnDeletePerson->TabIndex = 19;
 			this->btnDeletePerson->Text = L"Eliminar";
 			this->btnDeletePerson->UseVisualStyleBackColor = true;
@@ -497,10 +488,9 @@ namespace GUIApp {
 			// 
 			// btnUpdatePerson
 			// 
-			this->btnUpdatePerson->Location = System::Drawing::Point(357, 362);
-			this->btnUpdatePerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnUpdatePerson->Location = System::Drawing::Point(268, 294);
 			this->btnUpdatePerson->Name = L"btnUpdatePerson";
-			this->btnUpdatePerson->Size = System::Drawing::Size(161, 28);
+			this->btnUpdatePerson->Size = System::Drawing::Size(121, 23);
 			this->btnUpdatePerson->TabIndex = 18;
 			this->btnUpdatePerson->Text = L"Actualizar";
 			this->btnUpdatePerson->UseVisualStyleBackColor = true;
@@ -508,10 +498,9 @@ namespace GUIApp {
 			// 
 			// btnAddPerson
 			// 
-			this->btnAddPerson->Location = System::Drawing::Point(151, 362);
-			this->btnAddPerson->Margin = System::Windows::Forms::Padding(4);
+			this->btnAddPerson->Location = System::Drawing::Point(113, 294);
 			this->btnAddPerson->Name = L"btnAddPerson";
-			this->btnAddPerson->Size = System::Drawing::Size(169, 28);
+			this->btnAddPerson->Size = System::Drawing::Size(127, 23);
 			this->btnAddPerson->TabIndex = 17;
 			this->btnAddPerson->Text = L"Agregar";
 			this->btnAddPerson->UseVisualStyleBackColor = true;
@@ -524,11 +513,10 @@ namespace GUIApp {
 				this->personId,
 					this->firstName, this->lastName, this->dgvPlaca, this->phoneNumber
 			});
-			this->dgvPersons->Location = System::Drawing::Point(71, 422);
-			this->dgvPersons->Margin = System::Windows::Forms::Padding(4);
+			this->dgvPersons->Location = System::Drawing::Point(53, 343);
 			this->dgvPersons->Name = L"dgvPersons";
 			this->dgvPersons->RowHeadersWidth = 51;
-			this->dgvPersons->Size = System::Drawing::Size(749, 193);
+			this->dgvPersons->Size = System::Drawing::Size(562, 157);
 			this->dgvPersons->TabIndex = 16;
 			this->dgvPersons->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Cliente_CRUD::dgvPersons_CellContentClick);
 			// 
@@ -575,81 +563,73 @@ namespace GUIApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(120, 162);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label7->Location = System::Drawing::Point(90, 132);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(49, 16);
+			this->label7->Size = System::Drawing::Size(39, 13);
 			this->label7->TabIndex = 12;
 			this->label7->Text = L"Celular";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(464, 169);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label6->Location = System::Drawing::Point(348, 137);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(51, 16);
+			this->label6->Size = System::Drawing::Size(42, 13);
 			this->label6->TabIndex = 11;
 			this->label6->Text = L"Estatus";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(120, 128);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label5->Location = System::Drawing::Point(90, 104);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(41, 16);
+			this->label5->Size = System::Drawing::Size(32, 13);
 			this->label5->TabIndex = 10;
 			this->label5->Text = L"Email";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(425, 96);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Location = System::Drawing::Point(319, 78);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(80, 16);
+			this->label4->Size = System::Drawing::Size(62, 13);
 			this->label4->TabIndex = 7;
 			this->label4->Text = L"Apellidos (*)";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(120, 93);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(90, 76);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(79, 16);
+			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 6;
 			this->label3->Text = L"Nombres (*)";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(283, 29);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(212, 24);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(46, 16);
+			this->label2->Size = System::Drawing::Size(39, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"DNI (*)";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(120, 29);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(90, 24);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(34, 16);
+			this->label1->Size = System::Drawing::Size(29, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Id (*)";
 			// 
 			// tabCustomers
 			// 
 			this->tabCustomers->Controls->Add(this->tabPage1);
-			this->tabCustomers->Location = System::Drawing::Point(3, 32);
-			this->tabCustomers->Margin = System::Windows::Forms::Padding(4);
+			this->tabCustomers->Location = System::Drawing::Point(2, 26);
 			this->tabCustomers->Name = L"tabCustomers";
 			this->tabCustomers->SelectedIndex = 0;
-			this->tabCustomers->Size = System::Drawing::Size(882, 675);
+			this->tabCustomers->Size = System::Drawing::Size(662, 548);
 			this->tabCustomers->TabIndex = 8;
 			// 
 			// menuStrip1
@@ -659,8 +639,8 @@ namespace GUIApp {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(921, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(691, 24);
 			this->menuStrip1->TabIndex = 9;
 			this->menuStrip1->Text = L"Archivo";
 			// 
@@ -671,14 +651,14 @@ namespace GUIApp {
 					this->editarToolStripMenuItem, this->salirToolStripMenuItem
 			});
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
 			// nuevoToolStripMenuItem
 			// 
 			this->nuevoToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"nuevoToolStripMenuItem.Image")));
 			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
-			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->nuevoToolStripMenuItem->Text = L"Nuevo";
 			this->nuevoToolStripMenuItem->Click += gcnew System::EventHandler(this, &Cliente_CRUD::nuevoToolStripMenuItem_Click);
 			// 
@@ -686,7 +666,7 @@ namespace GUIApp {
 			// 
 			this->editarToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"editarToolStripMenuItem.Image")));
 			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
-			this->editarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->editarToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->editarToolStripMenuItem->Text = L"Editar";
 			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &Cliente_CRUD::editarToolStripMenuItem_Click);
 			// 
@@ -694,17 +674,18 @@ namespace GUIApp {
 			// 
 			this->salirToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"salirToolStripMenuItem.Image")));
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &Cliente_CRUD::salirToolStripMenuItem_Click);
 			// 
 			// Cliente_CRUD
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(921, 735);
+			this->ClientSize = System::Drawing::Size(691, 597);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->tabCustomers);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Cliente_CRUD";
 			this->Text = L"Cliente_CRUD";
 			this->Load += gcnew System::EventHandler(this, &Cliente_CRUD::Cliente_CRUD_Load);
@@ -801,7 +782,7 @@ namespace GUIApp {
 			clientes->Clave = txtPassword->Text;
 			clientes->DNI = Int32::Parse(txtDNI->Text);
 			clientes->Celular = Int32::Parse(txtPhoneNumber->Text);
-			clientes->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
+			clientes->Estado = rbtnMasc->Checked ? "A" : "I";
 			clientes->Email = txtEmail->Text;
 			clientes->Descuento = Int32::Parse(txtDescuento->Text);
 			clientes->PuntosCliente = Int32::Parse(txtPersonPoints->Text);
@@ -963,6 +944,8 @@ private: System::Void editarToolStripMenuItem_Click(System::Object^ sender, Syst
 }
 private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

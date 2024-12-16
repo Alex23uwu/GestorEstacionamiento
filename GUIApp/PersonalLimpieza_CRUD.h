@@ -50,15 +50,15 @@ namespace GUIApp {
 	private: System::Windows::Forms::TextBox^ txtId;
 	private: System::Windows::Forms::TextBox^ txtNombre;
 	private: System::Windows::Forms::TextBox^ txtApellido;
-	private: System::Windows::Forms::TextBox^ txtEstado;
+
 
 
 	private: System::Windows::Forms::TextBox^ txtPiso;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaNombre;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaApellido;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaEstado;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPiso;
+
+
+
+
+
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::TextBox^ txtUsuario;
 	private: System::Windows::Forms::Label^ label7;
@@ -72,6 +72,13 @@ namespace GUIApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ Nuevo;
 	private: System::Windows::Forms::ToolStripMenuItem^ Editar;
 	private: System::Windows::Forms::ToolStripMenuItem^ Salir;
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::RadioButton^ rbtnFem;
+	private: System::Windows::Forms::RadioButton^ rbtnMasc;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaNombre;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaApellido;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ColumnaPiso;
 
 
 
@@ -115,12 +122,10 @@ namespace GUIApp {
 			this->ColumnaId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaNombre = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaApellido = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ColumnaEstado = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ColumnaPiso = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->txtApellido = (gcnew System::Windows::Forms::TextBox());
-			this->txtEstado = (gcnew System::Windows::Forms::TextBox());
 			this->txtPiso = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtUsuario = (gcnew System::Windows::Forms::TextBox());
@@ -131,15 +136,19 @@ namespace GUIApp {
 			this->Nuevo = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Editar = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Salir = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->rbtnFem = (gcnew System::Windows::Forms::RadioButton());
+			this->rbtnMasc = (gcnew System::Windows::Forms::RadioButton());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->BeginInit();
 			this->menuStrip2->SuspendLayout();
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// bttAdd
 			// 
-			this->bttAdd->Location = System::Drawing::Point(49, 201);
+			this->bttAdd->Location = System::Drawing::Point(60, 188);
 			this->bttAdd->Name = L"bttAdd";
-			this->bttAdd->Size = System::Drawing::Size(91, 31);
+			this->bttAdd->Size = System::Drawing::Size(101, 37);
 			this->bttAdd->TabIndex = 0;
 			this->bttAdd->Text = L"Agregar";
 			this->bttAdd->UseVisualStyleBackColor = true;
@@ -147,9 +156,9 @@ namespace GUIApp {
 			// 
 			// bttUpdate
 			// 
-			this->bttUpdate->Location = System::Drawing::Point(212, 201);
+			this->bttUpdate->Location = System::Drawing::Point(223, 188);
 			this->bttUpdate->Name = L"bttUpdate";
-			this->bttUpdate->Size = System::Drawing::Size(89, 31);
+			this->bttUpdate->Size = System::Drawing::Size(99, 37);
 			this->bttUpdate->TabIndex = 1;
 			this->bttUpdate->Text = L"Modificar";
 			this->bttUpdate->UseVisualStyleBackColor = true;
@@ -157,9 +166,9 @@ namespace GUIApp {
 			// 
 			// bttDelete
 			// 
-			this->bttDelete->Location = System::Drawing::Point(375, 201);
+			this->bttDelete->Location = System::Drawing::Point(386, 188);
 			this->bttDelete->Name = L"bttDelete";
-			this->bttDelete->Size = System::Drawing::Size(88, 31);
+			this->bttDelete->Size = System::Drawing::Size(98, 37);
 			this->bttDelete->TabIndex = 2;
 			this->bttDelete->Text = L"Eliminar";
 			this->bttDelete->UseVisualStyleBackColor = true;
@@ -168,7 +177,7 @@ namespace GUIApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(29, 36);
+			this->label1->Location = System::Drawing::Point(28, 46);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(16, 13);
 			this->label1->TabIndex = 3;
@@ -177,7 +186,7 @@ namespace GUIApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(29, 69);
+			this->label2->Location = System::Drawing::Point(28, 79);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(44, 13);
 			this->label2->TabIndex = 4;
@@ -186,7 +195,7 @@ namespace GUIApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(29, 104);
+			this->label3->Location = System::Drawing::Point(28, 114);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(44, 13);
 			this->label3->TabIndex = 5;
@@ -195,7 +204,7 @@ namespace GUIApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(29, 135);
+			this->label4->Location = System::Drawing::Point(308, 125);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(40, 13);
 			this->label4->TabIndex = 6;
@@ -204,7 +213,7 @@ namespace GUIApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(29, 169);
+			this->label5->Location = System::Drawing::Point(28, 152);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(27, 13);
 			this->label5->TabIndex = 7;
@@ -213,13 +222,13 @@ namespace GUIApp {
 			// dgvPersonalLimpiez
 			// 
 			this->dgvPersonalLimpiez->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvPersonalLimpiez->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dgvPersonalLimpiez->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->ColumnaId,
-					this->ColumnaNombre, this->ColumnaApellido, this->ColumnaEstado, this->ColumnaPiso
+					this->ColumnaNombre, this->ColumnaApellido, this->ColumnaPiso
 			});
-			this->dgvPersonalLimpiez->Location = System::Drawing::Point(10, 253);
+			this->dgvPersonalLimpiez->Location = System::Drawing::Point(49, 256);
 			this->dgvPersonalLimpiez->Name = L"dgvPersonalLimpiez";
-			this->dgvPersonalLimpiez->Size = System::Drawing::Size(543, 203);
+			this->dgvPersonalLimpiez->Size = System::Drawing::Size(441, 176);
 			this->dgvPersonalLimpiez->TabIndex = 8;
 			this->dgvPersonalLimpiez->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &PersonalLimpieza_CRUD::dgvPersonalLimpiez_CellClick);
 			// 
@@ -238,11 +247,6 @@ namespace GUIApp {
 			this->ColumnaApellido->HeaderText = L"Apellido";
 			this->ColumnaApellido->Name = L"ColumnaApellido";
 			// 
-			// ColumnaEstado
-			// 
-			this->ColumnaEstado->HeaderText = L"Estado";
-			this->ColumnaEstado->Name = L"ColumnaEstado";
-			// 
 			// ColumnaPiso
 			// 
 			this->ColumnaPiso->HeaderText = L"Piso";
@@ -251,35 +255,28 @@ namespace GUIApp {
 			// txtId
 			// 
 			this->txtId->Enabled = false;
-			this->txtId->Location = System::Drawing::Point(109, 36);
+			this->txtId->Location = System::Drawing::Point(108, 46);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(99, 20);
+			this->txtId->Size = System::Drawing::Size(35, 20);
 			this->txtId->TabIndex = 9;
 			// 
 			// txtNombre
 			// 
-			this->txtNombre->Location = System::Drawing::Point(109, 66);
+			this->txtNombre->Location = System::Drawing::Point(108, 76);
 			this->txtNombre->Name = L"txtNombre";
 			this->txtNombre->Size = System::Drawing::Size(99, 20);
 			this->txtNombre->TabIndex = 10;
 			// 
 			// txtApellido
 			// 
-			this->txtApellido->Location = System::Drawing::Point(109, 97);
+			this->txtApellido->Location = System::Drawing::Point(108, 107);
 			this->txtApellido->Name = L"txtApellido";
 			this->txtApellido->Size = System::Drawing::Size(99, 20);
 			this->txtApellido->TabIndex = 11;
 			// 
-			// txtEstado
-			// 
-			this->txtEstado->Location = System::Drawing::Point(109, 132);
-			this->txtEstado->Name = L"txtEstado";
-			this->txtEstado->Size = System::Drawing::Size(99, 20);
-			this->txtEstado->TabIndex = 12;
-			// 
 			// txtPiso
 			// 
-			this->txtPiso->Location = System::Drawing::Point(109, 166);
+			this->txtPiso->Location = System::Drawing::Point(108, 149);
 			this->txtPiso->Name = L"txtPiso";
 			this->txtPiso->Size = System::Drawing::Size(99, 20);
 			this->txtPiso->TabIndex = 13;
@@ -343,7 +340,7 @@ namespace GUIApp {
 			// 
 			this->Nuevo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Nuevo.Image")));
 			this->Nuevo->Name = L"Nuevo";
-			this->Nuevo->Size = System::Drawing::Size(184, 26);
+			this->Nuevo->Size = System::Drawing::Size(109, 22);
 			this->Nuevo->Text = L"Nuevo";
 			this->Nuevo->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::toolStripMenuItem1_Click);
 			// 
@@ -351,7 +348,7 @@ namespace GUIApp {
 			// 
 			this->Editar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Editar.Image")));
 			this->Editar->Name = L"Editar";
-			this->Editar->Size = System::Drawing::Size(184, 26);
+			this->Editar->Size = System::Drawing::Size(109, 22);
 			this->Editar->Text = L"Editar";
 			this->Editar->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::Editar_Click);
 			// 
@@ -359,9 +356,41 @@ namespace GUIApp {
 			// 
 			this->Salir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Salir.Image")));
 			this->Salir->Name = L"Salir";
-			this->Salir->Size = System::Drawing::Size(184, 26);
+			this->Salir->Size = System::Drawing::Size(109, 22);
 			this->Salir->Text = L"Salir";
 			this->Salir->Click += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::toolStripMenuItem3_Click);
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->rbtnFem);
+			this->groupBox1->Controls->Add(this->rbtnMasc);
+			this->groupBox1->Location = System::Drawing::Point(354, 116);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(148, 31);
+			this->groupBox1->TabIndex = 32;
+			this->groupBox1->TabStop = false;
+			// 
+			// rbtnFem
+			// 
+			this->rbtnFem->AutoSize = true;
+			this->rbtnFem->Location = System::Drawing::Point(67, 9);
+			this->rbtnFem->Name = L"rbtnFem";
+			this->rbtnFem->Size = System::Drawing::Size(63, 17);
+			this->rbtnFem->TabIndex = 1;
+			this->rbtnFem->Text = L"Inactivo";
+			this->rbtnFem->UseVisualStyleBackColor = true;
+			// 
+			// rbtnMasc
+			// 
+			this->rbtnMasc->AutoSize = true;
+			this->rbtnMasc->Checked = true;
+			this->rbtnMasc->Location = System::Drawing::Point(6, 8);
+			this->rbtnMasc->Name = L"rbtnMasc";
+			this->rbtnMasc->Size = System::Drawing::Size(55, 17);
+			this->rbtnMasc->TabIndex = 0;
+			this->rbtnMasc->TabStop = true;
+			this->rbtnMasc->Text = L"Activo";
+			this->rbtnMasc->UseVisualStyleBackColor = true;
 			// 
 			// PersonalLimpieza_CRUD
 			// 
@@ -369,13 +398,13 @@ namespace GUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ButtonFace;
 			this->ClientSize = System::Drawing::Size(567, 470);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->menuStrip2);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->txtUsuario);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->txtPiso);
-			this->Controls->Add(this->txtEstado);
 			this->Controls->Add(this->txtApellido);
 			this->Controls->Add(this->txtNombre);
 			this->Controls->Add(this->txtId);
@@ -389,11 +418,13 @@ namespace GUIApp {
 			this->Controls->Add(this->bttUpdate);
 			this->Controls->Add(this->bttAdd);
 			this->Name = L"PersonalLimpieza_CRUD";
-			this->Text = L"Mantenimiento Personal de Limpiez";
+			this->Text = L"Mantenimiento Personal de Limpieza";
 			this->Load += gcnew System::EventHandler(this, &PersonalLimpieza_CRUD::PersonalLimpieza_CRUD_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvPersonalLimpiez))->EndInit();
 			this->menuStrip2->ResumeLayout(false);
 			this->menuStrip2->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -405,7 +436,7 @@ namespace GUIApp {
 			personalLimp->Id = Convert::ToInt32(txtId->Text);
 			personalLimp->Nombre = txtNombre->Text;
 			personalLimp->Apellido = txtApellido->Text;
-			personalLimp->Estado = txtEstado->Text;
+			personalLimp->Estado= rbtnMasc->Checked ? "Activo" : "Inactivo";
 			personalLimp->Piso = Convert::ToInt32(txtPiso->Text);
 			personalLimp->NombreUsuario = txtUsuario->Text;
 			personalLimp->Clave = txtPassword->Text;
@@ -414,7 +445,7 @@ namespace GUIApp {
 			ClearControls();
 			DisableControls();
 			bttAdd->Enabled = false;
-			MessageBox::Show("Se ha agreado al Personal " + personalLimp->Id + "-" + personalLimp->Nombre);
+			MessageBox::Show("Se ha agreado al Personal de limpieza: " + personalLimp->Id + "-" + personalLimp->Nombre);
 		}
 		catch (Exception^ ex){
 			MessageBox::Show("No se ha podido agregar el Personal por el siguiente motivo:\n" + ex->Message);
@@ -430,7 +461,6 @@ namespace GUIApp {
 					dgvPersonalLimpiez->Rows->Add(gcnew array<String^> {"" + listaPersonal[i]->Id,
 						listaPersonal[i]->Nombre,
 						listaPersonal[i]->Apellido,
-						listaPersonal[i]->Estado,
 						"" + listaPersonal[i]->Piso});
 				}
 			}
@@ -449,7 +479,12 @@ namespace GUIApp {
 			txtId->Text = "" + personalLimp->Id;
 			txtNombre->Text = personalLimp->Nombre;
 			txtApellido->Text = personalLimp->Apellido;
-			txtEstado->Text = personalLimp->Estado;
+			if (personalLimp->Estado = "Activo") {
+				rbtnMasc->Checked;
+			}
+			if (personalLimp->Estado = "Inactivo") {
+				rbtnFem->Checked;
+			}
 			txtPiso->Text = "" + personalLimp->Piso;
 			txtPassword->Text = personalLimp->Clave;
 			txtUsuario->Text = personalLimp->NombreUsuario;
@@ -465,7 +500,6 @@ namespace GUIApp {
 			PersonalLimpieza^ personal = Service::QueryPersonalLimpiezaById(Convert::ToInt32(personalId));
 			if (personal->Apellido == txtApellido->Text &&
 				personal->Id == Int32::Parse(txtId->Text) &&
-				personal->Estado == txtEstado->Text &&
 				personal->Nombre == txtNombre->Text &&
 				personal->Piso == Int32::Parse(txtPiso->Text)) {
 				MessageBox::Show("Debe realizar alguna modificación");
@@ -474,7 +508,13 @@ namespace GUIApp {
 			
 			personal->Nombre = txtNombre->Text;
 			personal->Apellido = txtApellido->Text;
-			personal->Estado = txtEstado->Text;
+			personal->Estado = rbtnMasc->Checked ? "Activo" : "Inactivo";
+			if (personal->Estado = "Activo") {
+				rbtnMasc->Checked;
+			}
+			if (personal->Estado = "Inactivo") {
+				rbtnFem->Checked;
+			}
 			personal->Piso = Convert::ToInt32(txtPiso->Text);
 			personal->NombreUsuario = txtUsuario->Text;
 			personal->Clave = txtPassword->Text;
@@ -490,7 +530,7 @@ namespace GUIApp {
 	private: System::Void bttDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ personalID = txtId->Text->Trim();
 		if (personalID->Equals("")) {
-			MessageBox::Show("Debe seleccionar un Personal");
+			MessageBox::Show("Debe seleccionar un Personal de Limpieza");
 			return;
 		}
 		try {
@@ -516,11 +556,11 @@ namespace GUIApp {
 	}
 private: System::Void toolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) { //Nuevo
 	ClearControls();
+	txtId->Text = "" + Service::UpdatePersonalLimpiezaID();
 	bttAdd->Enabled = true;
 	bttUpdate->Enabled = false;
 	bttDelete->Enabled = false;
 	EnableConttols();
-	txtId->Text = "" + Service::UpdatePersonalLimpiezaID();
 }
 private: System::Void toolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
@@ -534,7 +574,6 @@ private: System::Void Editar_Click(System::Object^ sender, System::EventArgs^ e)
 }
 	   void EnableConttols() {
 		   txtApellido->ReadOnly = false;
-		   txtEstado->ReadOnly = false;
 		   txtId->ReadOnly = false;
 		   txtNombre->ReadOnly = false;
 		   txtPiso->ReadOnly = false;
@@ -543,7 +582,6 @@ private: System::Void Editar_Click(System::Object^ sender, System::EventArgs^ e)
 	   }
 	   void DisableControls() {
 		   txtApellido->ReadOnly = true;
-		   txtEstado->ReadOnly = true;
 		   txtId->ReadOnly = true;
 		   txtNombre->ReadOnly = true;
 		   txtPiso->ReadOnly = true;

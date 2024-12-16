@@ -39,9 +39,12 @@ PersonalLimpieza^ EstacionamientoService::Service::QueryPersonalLimpiezaById(int
 }
 
 int EstacionamientoService::Service::UpdatePersonalLimpiezaID() {
+
+	List<PersonalLimpieza^>^ ListaPersonal = Persistance::QueryAllPersonalLimpieza();
+
 	int prueba = 1;
-	for (int i = 0; i < ListaPersonalLimpieza->Count; i++) {
-		if (ListaPersonalLimpieza[i]->Id == prueba) {
+	for (int i = 0; i < ListaPersonal->Count; i++) {
+		if (ListaPersonal[i]->Id == prueba) {
 			prueba++;
 		}
 		else {
@@ -50,6 +53,7 @@ int EstacionamientoService::Service::UpdatePersonalLimpiezaID() {
 	}
 	return prueba;
 }
+
 
 
 
