@@ -57,6 +57,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ lblGraf1;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label6;
 
 
 
@@ -81,15 +82,15 @@ namespace GUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->chartGanancias = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->dtpInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpFin = (gcnew System::Windows::Forms::DateTimePicker());
@@ -97,6 +98,7 @@ namespace GUIApp {
 			this->chartVeces = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->lblGraf1 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -107,7 +109,7 @@ namespace GUIApp {
 			this->FechaFin2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->FechaInicio2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->chartPorcentaje = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartVeces))->BeginInit();
 			this->tabControl1->SuspendLayout();
@@ -118,16 +120,16 @@ namespace GUIApp {
 			// 
 			// chartGanancias
 			// 
-			chartArea1->Name = L"ChartArea1";
-			this->chartGanancias->ChartAreas->Add(chartArea1);
-			legend1->Name = L"Legend1";
-			this->chartGanancias->Legends->Add(legend1);
+			chartArea4->Name = L"ChartArea1";
+			this->chartGanancias->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chartGanancias->Legends->Add(legend4);
 			this->chartGanancias->Location = System::Drawing::Point(6, 116);
 			this->chartGanancias->Name = L"chartGanancias";
-			series1->ChartArea = L"ChartArea1";
-			series1->Legend = L"Legend1";
-			series1->Name = L"Monto diario";
-			this->chartGanancias->Series->Add(series1);
+			series4->ChartArea = L"ChartArea1";
+			series4->Legend = L"Legend1";
+			series4->Name = L"Monto diario";
+			this->chartGanancias->Series->Add(series4);
 			this->chartGanancias->Size = System::Drawing::Size(590, 409);
 			this->chartGanancias->TabIndex = 0;
 			// 
@@ -157,16 +159,16 @@ namespace GUIApp {
 			// 
 			// chartVeces
 			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chartVeces->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chartVeces->Legends->Add(legend2);
+			chartArea5->Name = L"ChartArea1";
+			this->chartVeces->ChartAreas->Add(chartArea5);
+			legend5->Name = L"Legend1";
+			this->chartVeces->Legends->Add(legend5);
 			this->chartVeces->Location = System::Drawing::Point(646, 116);
 			this->chartVeces->Name = L"chartVeces";
-			series2->ChartArea = L"ChartArea1";
-			series2->Legend = L"Legend1";
-			series2->Name = L"Veces por dia";
-			this->chartVeces->Series->Add(series2);
+			series5->ChartArea = L"ChartArea1";
+			series5->Legend = L"Legend1";
+			series5->Name = L"Veces por dia";
+			this->chartVeces->Series->Add(series5);
 			this->chartVeces->Size = System::Drawing::Size(541, 409);
 			this->chartVeces->TabIndex = 4;
 			this->chartVeces->Text = L"chartVeces";
@@ -197,8 +199,18 @@ namespace GUIApp {
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage1->Size = System::Drawing::Size(1246, 582);
 			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"tabPage1";
+			this->tabPage1->Text = L"Montos e Ingresos";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this->label5->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(832, 80);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(209, 23);
+			this->label5->TabIndex = 15;
+			this->label5->Text = L"Ingresos según día";
 			// 
 			// lblGraf1
 			// 
@@ -230,6 +242,7 @@ namespace GUIApp {
 			// 
 			// tabPage2
 			// 
+			this->tabPage2->Controls->Add(this->label6);
 			this->tabPage2->Controls->Add(this->button2);
 			this->tabPage2->Controls->Add(this->label2);
 			this->tabPage2->Controls->Add(this->label1);
@@ -239,9 +252,9 @@ namespace GUIApp {
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1205, 528);
+			this->tabPage2->Size = System::Drawing::Size(1246, 582);
 			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"tabPage2";
+			this->tabPage2->Text = L"Porcentaje de Reservas";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// button2
@@ -288,30 +301,31 @@ namespace GUIApp {
 			// 
 			// chartPorcentaje
 			// 
-			chartArea3->Name = L"ChartArea1";
-			this->chartPorcentaje->ChartAreas->Add(chartArea3);
-			legend3->Name = L"Legend1";
-			this->chartPorcentaje->Legends->Add(legend3);
-			this->chartPorcentaje->Location = System::Drawing::Point(28, 108);
+			chartArea6->Name = L"ChartArea1";
+			this->chartPorcentaje->ChartAreas->Add(chartArea6);
+			legend6->Name = L"Legend1";
+			this->chartPorcentaje->Legends->Add(legend6);
+			this->chartPorcentaje->Location = System::Drawing::Point(18, 154);
 			this->chartPorcentaje->Name = L"chartPorcentaje";
-			series3->ChartArea = L"ChartArea1";
-			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series3->Legend = L"Legend1";
-			series3->Name = L"Series1";
-			this->chartPorcentaje->Series->Add(series3);
+			series6->ChartArea = L"ChartArea1";
+			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series6->Legend = L"Legend1";
+			series6->Name = L"Series1";
+			this->chartPorcentaje->Series->Add(series6);
 			this->chartPorcentaje->Size = System::Drawing::Size(518, 345);
 			this->chartPorcentaje->TabIndex = 0;
 			this->chartPorcentaje->Text = L"Porcentaje Estacionamientos con Reserva";
+			this->chartPorcentaje->Click += gcnew System::EventHandler(this, &GraficosAdmin1::chartPorcentaje_Click);
 			// 
-			// label5
+			// label6
 			// 
-			this->label5->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(832, 80);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(209, 23);
-			this->label5->TabIndex = 15;
-			this->label5->Text = L"Ingresos según día";
+			this->label6->Location = System::Drawing::Point(89, 95);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(378, 56);
+			this->label6->TabIndex = 15;
+			this->label6->Text = L"Porcentaje de usos de estacionamiento y el uso de la reserva";
 			// 
 			// GraficosAdmin1
 			// 
@@ -398,6 +412,10 @@ namespace GUIApp {
 		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->LegendText = "Con reserva";
 		chartPorcentaje->Series["Porcentaje Estacionamientos con Reserva"]->Points[0]->Label = "" + ConSinReserva["Con reserva"];
 
+		button2->Enabled = false;
+
 	}
+private: System::Void chartPorcentaje_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

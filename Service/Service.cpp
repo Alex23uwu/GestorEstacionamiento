@@ -356,6 +356,7 @@ Ticket^ EstacionamientoService::Service::QueryTicketbyPlaca(String^ placa)
 }
 
 Ticket^ EstacionamientoService::Service::QueryTicketbyId(int ticketId) {
+
 	for (int i = 0; i < ListaTicket->Count; i++) {
 		if (ListaTicket[i]->Id == ticketId) {
 			return ListaTicket[i];
@@ -499,6 +500,7 @@ List<String^>^ EstacionamientoService::Service::QueryFechas(DateTime FechaInicio
 List<String^>^ EstacionamientoService::Service::QueryFechasbyPlaca(DateTime FechaInicio, DateTime FechaFin, String^ Placa) {
 
 	List<String^>^ fechasList = gcnew List<String^>();
+	ListaTicket = QueryAllTicket();
 	String^ fecha = "0";
 	Ticket^ ticketActual;
 

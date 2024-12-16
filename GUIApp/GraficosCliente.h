@@ -111,7 +111,7 @@ namespace GUIApp {
 			this->chartGanancias->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chartGanancias->Legends->Add(legend1);
-			this->chartGanancias->Location = System::Drawing::Point(12, 105);
+			this->chartGanancias->Location = System::Drawing::Point(12, 154);
 			this->chartGanancias->Name = L"chartGanancias";
 			series1->ChartArea = L"ChartArea1";
 			series1->Legend = L"Legend1";
@@ -126,7 +126,7 @@ namespace GUIApp {
 			this->chart->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chart->Legends->Add(legend2);
-			this->chart->Location = System::Drawing::Point(572, 105);
+			this->chart->Location = System::Drawing::Point(572, 154);
 			this->chart->Name = L"chart";
 			series2->ChartArea = L"ChartArea1";
 			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
@@ -159,7 +159,7 @@ namespace GUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1087, 551);
+			this->ClientSize = System::Drawing::Size(1087, 594);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->chart);
@@ -204,7 +204,7 @@ namespace GUIApp {
 			chartGanancias->Series["Monto diario"]->Points[i]->AxisLabel = fecha;
 		}
 
-		
+		button1->Enabled = false;
 
 	}
 };
