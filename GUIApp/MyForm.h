@@ -386,6 +386,7 @@ private: System::Void estacionamientosToolStripMenuItem_Click(System::Object^ se
 			   mantenimientoToolStripMenuItem->Visible = false;
 			   transaccionesToolStripMenuItem->Visible = true;
 			   reporteToolStripMenuItem->Visible = false;
+			   reservacionToolStripMenuItem->Visible = false;
 			   //ocultar la ventana de sensor externo
 		   }
 		   void EnablePersonalLimpiezaOptions() {
