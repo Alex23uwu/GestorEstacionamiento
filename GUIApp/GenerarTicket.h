@@ -1,5 +1,4 @@
 #pragma once
-
 namespace GUIApp {
 
 	using namespace System;
@@ -199,6 +198,7 @@ namespace GUIApp {
 					cliente->MiVehiculo = vehiculo;
 					if (cliente->LugarReservado==true) {
 						Model::Reservacion^ reserva = cliente->MiReservacion;
+						ticket->UsoPersonal = reserva->IncluyePersonal;
 						reserva->FinReserva = LabelTimeOut->Text;
 						reserva->Completada = true;
 						cliente->LugarReservado = false;

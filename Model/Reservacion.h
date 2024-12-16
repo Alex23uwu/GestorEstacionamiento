@@ -16,5 +16,6 @@ namespace Model {
         String^ InicioReserva;
         String^ FinReserva;
         int ClienteID;
+        bool IncluyePersonal;
     };
 }

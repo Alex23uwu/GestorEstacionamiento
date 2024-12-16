@@ -28,6 +28,7 @@ namespace GUIApp {
 			ClienteActual = Clientes;
 			contador = 0;
 		}
+		
 
 
 	protected:
@@ -844,6 +845,7 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				throw gcnew InvalidOperationException("Su anterior reserva excedió el tiempo límite. Intentelo de nuevo.");
 			}
 		}
+
 		if (ClienteActual->LugarReservado == true) {
 			throw gcnew InvalidOperationException("Solo puede realizar una reserva a la vez");
 		}
@@ -878,7 +880,17 @@ private: System::Void bttReservar_Click(System::Object^ sender, System::EventArg
 				MessageBox::Show("Reserva Exitosa");
 				LimpiarColor();*/
 				Estacionamiento^ EstacionamientoSeleccionado = SeleccionEstacionamiento();
+
 				Model::Reservacion^ reserva = gcnew Model::Reservacion();
+				if (ClienteActual->MiReservacion != nullptr) {
+					reserva = ClienteActual->MiReservacion;
+				}
+				if (CheckPersonal->Checked) {
+					reserva->IncluyePersonal = true;
+				}
+				else {
+					reserva->IncluyePersonal=false;
+				}
 				reserva->InicioReserva = cmbHora->SelectedItem->ToString();
 				reserva->Completada = false;
 				reserva->FechaReserva = now;
@@ -1018,22 +1030,24 @@ private: void CalculoHora() {
 	   private: bool ConfirmarValidezReserva() {
 		   int minutosactuales = DateTime::Now.Minute;
 		   int horaactual = DateTime::Now.Hour;
-		   DateTime tiemporeserva = DateTime::ParseExact(ClienteActual->MiReservacion->InicioReserva, "   HH   :   mm   ", CultureInfo::InvariantCulture);
-		   int horareserva = tiemporeserva.Hour;
-		   int minutoreserva = tiemporeserva.Minute;
-		   if (horareserva > horaactual) {
-			   return true;
-		   }
-		   else if (horareserva == horaactual) {
-			   if (minutosactuales < minutoreserva || minutosactuales-minutoreserva < 5) {
+		   if (ClienteActual->MiReservacion->InicioReserva != nullptr) {
+			   DateTime tiemporeserva = DateTime::ParseExact(ClienteActual->MiReservacion->InicioReserva, "   HH   :   mm   ", CultureInfo::InvariantCulture);
+			   int horareserva = tiemporeserva.Hour;
+			   int minutoreserva = tiemporeserva.Minute;
+			   if (horareserva > horaactual) {
 				   return true;
 			   }
-			   else if (minutosactuales - minutoreserva > 5) {
+			   else if (horareserva == horaactual) {
+				   if (minutosactuales < minutoreserva || minutosactuales - minutoreserva < 5) {
+					   return true;
+				   }
+				   else if (minutosactuales - minutoreserva > 5) {
+					   return false;
+				   }
+			   }
+			   else {
 				   return false;
 			   }
-		   }
-		   else {
-			   return false;
 		   }
 	   }
 private: System::Void est1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1191,6 +1205,7 @@ private: void LimpiarColor() {
 	}
 }
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

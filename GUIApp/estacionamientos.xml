@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfEstacionamiento xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Estacionamiento>
-    <HoraInicio>   01   :   28   </HoraInicio>
-    <HoraSalida>   01   :   28   </HoraSalida>
+    <HoraInicio>   20   :   10   </HoraInicio>
+    <HoraSalida>   20   :   06   </HoraSalida>
     <Id>1</Id>
     <MiSensor>
       <Detecta>false</Detecta>
@@ -196,7 +196,7 @@
     </Ubicacion>
   </Estacionamiento>
   <Estacionamiento>
-    <HoraInicio />
+    <HoraInicio>   20   :   00   </HoraInicio>
     <HoraSalida />
     <Id>16</Id>
     <MiSensor>

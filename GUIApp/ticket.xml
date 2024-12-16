@@ -430,4 +430,334 @@
     </Detalle>
     <UsoPersonal>false</UsoPersonal>
   </Ticket>
+  <Ticket>
+    <Id>14</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T18:17:33.8783998-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   18   :   20   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   18   :   17   </HoraEntrada>
+      <HoraSalida>   18   :   17   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>15</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T18:21:30.0455542-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   18   :   20   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   18   :   21   </HoraEntrada>
+      <HoraSalida>   18   :   21   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>16</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T18:23:52.0401137-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   18   :   25   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   18   :   23   </HoraEntrada>
+      <HoraSalida>   18   :   23   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>17</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T18:30:45.9488661-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   18   :   30   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   18   :   30   </HoraEntrada>
+      <HoraSalida>   18   :   30   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>18</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T19:34:20.3353222-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   19   :   35   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   19   :   34   </HoraEntrada>
+      <HoraSalida>   19   :   34   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>19</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T19:47:19.9035965-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   19   :   50   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   19   :   47   </HoraEntrada>
+      <HoraSalida>   19   :   47   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>20</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T19:58:55.4930683-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   19   :   55   </HoraInicio>
+        <HoraSalida />
+        <Id>16</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>16</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>16</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   19   :   58   </HoraEntrada>
+      <HoraSalida>   19   :   58   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>21</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T20:00:36.6052259-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   20   :   00   </HoraInicio>
+        <HoraSalida />
+        <Id>16</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>16</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>16</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   19   :   59   </HoraEntrada>
+      <HoraSalida>   20   :   00   </HoraSalida>
+      <HorasConsumidas>00:01:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>22</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T20:02:30.6145243-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   20   :   05   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   20   :   02   </HoraEntrada>
+      <HoraSalida>   20   :   02   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>false</UsoPersonal>
+  </Ticket>
+  <Ticket>
+    <Id>23</Id>
+    <CantTotal>5</CantTotal>
+    <Dia>2024-12-15T20:06:53.7177394-05:00</Dia>
+    <GeneradoA>
+      <AsigandoA>
+        <HoraInicio>   20   :   10   </HoraInicio>
+        <HoraSalida />
+        <Id>1</Id>
+        <MiSensor>
+          <Detecta>true</Detecta>
+          <Id>1</Id>
+        </MiSensor>
+        <Ubicacion>
+          <Piso>1</Piso>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
+        </Ubicacion>
+      </AsigandoA>
+      <TipoVehiculo>Auto</TipoVehiculo>
+      <Placa>POO2024</Placa>
+      <Id>14</Id>
+    </GeneradoA>
+    <Detalle>
+      <Cantidad>4.1</Cantidad>
+      <Id>0</Id>
+      <IGV>0.9</IGV>
+      <HoraEntrada>   20   :   06   </HoraEntrada>
+      <HoraSalida>   20   :   06   </HoraSalida>
+      <HorasConsumidas>00:00:00</HorasConsumidas>
+      <Tarifa>5</Tarifa>
+    </Detalle>
+    <UsoPersonal>true</UsoPersonal>
+  </Ticket>
 </ArrayOfTicket>

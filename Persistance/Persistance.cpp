@@ -819,16 +819,17 @@ int EstacionamientoPersistance::Persistance::AddReserva(Reservacion^ reservacion
         cmd->Parameters->Add("@INICIO_RESERVA", System::Data::SqlDbType::VarChar, 15);
         cmd->Parameters->Add("@FIN_RESERVA", System::Data::SqlDbType::VarChar, 15);
         cmd->Parameters->Add("@CLIENTE_ID", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@INCLUYE_PERSONAL", System::Data::SqlDbType::Char,1) ? "1" : "0";
         SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
         outputIdParam->Direction = System::Data::ParameterDirection::Output;
         cmd->Parameters->Add(outputIdParam);
-
         cmd->Prepare();
         cmd->Parameters["@TIEMPO_EXCEDIDO"]->Value = reservacion->TiempoExcedido;
         cmd->Parameters["@COMPLETADA"]->Value = reservacion->Completada;
         cmd->Parameters["@FECHA_RESERVA"]->Value = reservacion->FechaReserva;
         cmd->Parameters["@INICIO_RESERVA"]->Value = reservacion->InicioReserva;
         cmd->Parameters["@FIN_RESERVA"]->Value = reservacion->FinReserva;
+        cmd->Parameters["@INCLUYE_PERSONAL"]->Value = reservacion->IncluyePersonal;
         cmd->Parameters["@CLIENTE_ID"]->Value = reservacion->ClienteID;
 
         cmd->ExecuteNonQuery();
@@ -859,7 +860,7 @@ void EstacionamientoPersistance::Persistance::UpdateReserva(Reservacion^ reserva
         cmd->Parameters->Add("@INICIO_RESERVA", System::Data::SqlDbType::VarChar, 15);
         cmd->Parameters->Add("@FIN_RESERVA", System::Data::SqlDbType::VarChar, 15);
         cmd->Parameters->Add("@CLIENTE_ID", System::Data::SqlDbType::Int);
-
+        cmd->Parameters->Add("@INCLUYE_PERSONAL", System::Data::SqlDbType::Char,1);
         cmd->Prepare();
         cmd->Parameters["@ID"]->Value = reservacion->Id;
         cmd->Parameters["@TIEMPO_EXCEDIDO"]->Value = reservacion->TiempoExcedido ? "1" : "0";
@@ -868,7 +869,7 @@ void EstacionamientoPersistance::Persistance::UpdateReserva(Reservacion^ reserva
         cmd->Parameters["@INICIO_RESERVA"]->Value = reservacion->InicioReserva;
         cmd->Parameters["@FIN_RESERVA"]->Value = reservacion->FinReserva;
         cmd->Parameters["@CLIENTE_ID"]->Value = reservacion->ClienteID;
-
+        cmd->Parameters["@INCLUYE_PERSONAL"]->Value = reservacion->IncluyePersonal ? "1" : "0";
         cmd->ExecuteNonQuery();
 
     }
@@ -935,6 +936,7 @@ Reservacion^ EstacionamientoPersistance::Persistance::QueryReservabyID(int ID)
             reservacion->FechaReserva = Convert::ToDateTime(reader["FECHA_RESERVA"]->ToString());
             reservacion->InicioReserva = reader["INICIO_RESERVA"]->ToString();
             reservacion->FinReserva = reader["FIN_RESERVA"]->ToString();
+            reservacion->IncluyePersonal = reader["INCLUYE_PERSONAL"]->ToString() == "1";
             reservacion->ClienteID = Convert::ToInt32(reader["CLIENTE_ID"]->ToString());
         }
     }

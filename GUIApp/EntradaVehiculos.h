@@ -280,7 +280,7 @@ namespace GUIApp {
 			//llenamos los atributos de TICKET
 			ticket->GeneradoA = vehiculo;
 			ticket->Id = Service::GeneracionIDTicket();
-			ticket->UsoPersonal = checkServicioLimpieza->Checked;
+			//ticket->UsoPersonal = checkServicioLimpieza->Checked;
 
 			detalle->HoraEntrada = labelIngresoVehiculo->Text;
 			ticket->Detalle = detalle;
@@ -296,14 +296,7 @@ namespace GUIApp {
 			}
 			EstacionamientoService::Service::UpdateSensor(sensor);
 			EstacionamientoService::Service::UpdateEstacionamiento(estacionamiento);
-			if (checkServicioLimpieza->Checked) {
-				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " al estacionamiento "+
-									IDEstacionamiento+" , y se ha solicitado el servicio de Limpieza");
-			}
-			else {
-				MessageBox::Show("Se ha agregado el vehiculo de placa " + vehiculo->Placa + " al estacionamiento " +
-					IDEstacionamiento);
-			}
+			
 			//ACTUALIZO EL cmbEstacionamiento
 			cmbEstacionamientos->Items->Clear();
 			LoadEstacionamientos();

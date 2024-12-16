@@ -11,26 +11,27 @@
     <Email>jb@gmail.com</Email>
     <Celular>6544</Celular>
     <MiReservacion>
-      <Id>3</Id>
+      <Id>7</Id>
       <TiempoExcedido>false</TiempoExcedido>
       <Completada>true</Completada>
-      <FechaReserva>2024-11-25T21:00:33.3981745-05:00</FechaReserva>
-      <InicioReserva>   21   :   25   </InicioReserva>
-      <FinReserva>   21   :   01   </FinReserva>
+      <FechaReserva>2024-12-15T20:05:53.2443522-05:00</FechaReserva>
+      <InicioReserva>   20   :   06   </InicioReserva>
+      <FinReserva>   20   :   06   </FinReserva>
       <ClienteID>2</ClienteID>
+      <IncluyePersonal>true</IncluyePersonal>
     </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
-        <HoraInicio>   21   :   25   </HoraInicio>
+        <HoraInicio>   20   :   10   </HoraInicio>
         <HoraSalida />
-        <Id>12</Id>
+        <Id>1</Id>
         <MiSensor>
           <Detecta>true</Detecta>
-          <Id>12</Id>
+          <Id>1</Id>
         </MiSensor>
         <Ubicacion>
           <Piso>1</Piso>
-          <NumeroEstacionamiento>12</NumeroEstacionamiento>
+          <NumeroEstacionamiento>1</NumeroEstacionamiento>
         </Ubicacion>
       </AsigandoA>
       <TipoVehiculo>Auto</TipoVehiculo>
@@ -39,7 +40,7 @@
     </MiVehiculo>
     <LugarReservado>false</LugarReservado>
     <Descuento>4</Descuento>
-    <PuntosCliene>100</PuntosCliene>
+    <PuntosCliente>0</PuntosCliente>
   </Cliente>
   <Cliente>
     <Id>3</Id>
@@ -58,6 +59,7 @@
       <FechaReserva>2024-11-28T20:14:43.2044726-05:00</FechaReserva>
       <InicioReserva>   20   :   25   </InicioReserva>
       <ClienteID>3</ClienteID>
+      <IncluyePersonal>false</IncluyePersonal>
     </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
@@ -80,7 +82,7 @@
     </MiVehiculo>
     <LugarReservado>false</LugarReservado>
     <Descuento>0</Descuento>
-    <PuntosCliene>0</PuntosCliene>
+    <PuntosCliente>0</PuntosCliente>
   </Cliente>
   <Cliente>
     <Id>1</Id>
@@ -100,6 +102,7 @@
       <InicioReserva>   00   :   45   </InicioReserva>
       <FinReserva>Cancelado</FinReserva>
       <ClienteID>1</ClienteID>
+      <IncluyePersonal>false</IncluyePersonal>
     </MiReservacion>
     <MiVehiculo>
       <AsigandoA>
@@ -121,6 +124,6 @@
     </MiVehiculo>
     <LugarReservado>false</LugarReservado>
     <Descuento>4</Descuento>
-    <PuntosCliene>100</PuntosCliene>
+    <PuntosCliente>0</PuntosCliente>
   </Cliente>
 </ArrayOfCliente>
