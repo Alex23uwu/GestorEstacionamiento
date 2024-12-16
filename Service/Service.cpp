@@ -846,12 +846,15 @@ int EstacionamientoService::Service::MostrarCantidadReservaciones(DateTime Fecha
 
 	for (int i = 1; i < ListaTicket->Count; i++) {
 		reservacionActual = QueryReservabyID(i);
-		if (reservacionActual->FechaReserva >= FechaInicio && reservacionActual->FechaReserva <= FechaFin && reservacionActual->Completada) {
-			if (fecha != reservacionActual->FechaReserva.ToString("dd/MM/yy")) {
-				fecha = reservacionActual->FechaReserva.ToString("dd/MM/yy");
-				number++;
+		if (reservacionActual != nullptr) {
+			if (reservacionActual->FechaReserva >= FechaInicio && reservacionActual->FechaReserva <= FechaFin && reservacionActual->Completada) {
+				if (fecha != reservacionActual->FechaReserva.ToString("dd/MM/yy")) {
+					fecha = reservacionActual->FechaReserva.ToString("dd/MM/yy");
+					number++;
+				}
 			}
 		}
+		
 	}
 	return number;
 }

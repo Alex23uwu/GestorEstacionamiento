@@ -46,7 +46,7 @@ namespace GUIApp {
 	private: System::Windows::Forms::DateTimePicker^ dtpFin;
 	private: System::Windows::Forms::DateTimePicker^ dtpInicio;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chartGanancias;
-	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart;
+
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
@@ -67,18 +67,13 @@ namespace GUIApp {
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dtpFin = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpInicio = (gcnew System::Windows::Forms::DateTimePicker());
 			this->chartGanancias = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->chart = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -120,23 +115,6 @@ namespace GUIApp {
 			this->chartGanancias->Size = System::Drawing::Size(510, 409);
 			this->chartGanancias->TabIndex = 4;
 			// 
-			// chart
-			// 
-			chartArea2->Name = L"ChartArea1";
-			this->chart->ChartAreas->Add(chartArea2);
-			legend2->Name = L"Legend1";
-			this->chart->Legends->Add(legend2);
-			this->chart->Location = System::Drawing::Point(572, 154);
-			this->chart->Name = L"chart";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series2->Legend = L"Legend1";
-			series2->Name = L"Series1";
-			this->chart->Series->Add(series2);
-			this->chart->Size = System::Drawing::Size(503, 409);
-			this->chart->TabIndex = 8;
-			this->chart->Text = L"chart1";
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -162,7 +140,6 @@ namespace GUIApp {
 			this->ClientSize = System::Drawing::Size(1087, 594);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->chart);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->dtpFin);
 			this->Controls->Add(this->dtpInicio);
@@ -170,7 +147,6 @@ namespace GUIApp {
 			this->Name = L"GraficosCliente";
 			this->Text = L"GraficosCliente";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
